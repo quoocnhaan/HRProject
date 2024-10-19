@@ -22,7 +22,6 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
      */
     public PersonalBasicInfo_Container() {
         initComponents();
-        //this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
         this.setLayout(new GridLayout(0, 4, 0, 0));
         addComponent();
     }
@@ -54,6 +53,7 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         String name = "Lâm Quốc Nhân";
         String id = "LQN2005";
         String job = "Web Developer";
+        String direct = "Trung tam CDC";
         ImageIcon img = new ImageIcon(getClass().getResource("/img/avatar.jpg"));
         String dateOfBirth = "20/09/2005";
         String place = "Thành phố Hồ Chí Minh";
@@ -63,9 +63,9 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         String status = "Chinh thuc";
         String email = "quocnhan56@gmail.com";
         String phone = "0968270553";
-        String twitter = "quocnhan56[@gmail.com";
+        String twitter = "quocnhan56@gmail.com";
         for (int i = 1; i <= 12; i++) {
-            this.add(new NameAndJob_Component(name, id, job, img));
+            this.add(new NameAndJob_Component(name, id, job, direct, img));
             this.add(new DateAndGender_Component(dateOfBirth, place, gender));
             this.add(new Status_Component(startDate, seniority, status));
             this.add(new Contact_Component(email, phone, twitter));

@@ -19,13 +19,14 @@ public class NameAndJob_Component extends javax.swing.JPanel {
     /**
      * Creates new form EmployeeBasicInfo_Component
      */
-    public NameAndJob_Component(String name, String id, String job, ImageIcon img) {
+    public NameAndJob_Component(String name, String id, String job, String direct, ImageIcon img) {
         initComponents();
-        this.setPreferredSize(new Dimension(225, 100));
+        this.setPreferredSize(new Dimension(280, 100));
         this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
         this.name.setText(name);
         this.id.setText(id);
         this.job.setText(job);
+        this.direct.setText(direct);
         this.img.setIcon(Function.scaleImg(this.img, img));
     }
 
@@ -42,14 +43,14 @@ public class NameAndJob_Component extends javax.swing.JPanel {
         name = new javax.swing.JLabel();
         id = new javax.swing.JLabel();
         job = new javax.swing.JLabel();
+        direct = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(210, 110));
 
         img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        img.setText(" ");
         img.setMaximumSize(new java.awt.Dimension(100, 100));
-        img.setPreferredSize(new java.awt.Dimension(50, 50));
+        img.setPreferredSize(new java.awt.Dimension(47, 47));
         img.setSize(47, 47);
 
         name.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -60,8 +61,12 @@ public class NameAndJob_Component extends javax.swing.JPanel {
         id.setForeground(new java.awt.Color(255, 51, 102));
         id.setText("id");
 
+        job.setBackground(new java.awt.Color(0, 0, 0));
         job.setForeground(new java.awt.Color(102, 102, 102));
         job.setText("job");
+
+        direct.setForeground(new java.awt.Color(180, 180, 180));
+        direct.setText("direct");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,32 +74,40 @@ public class NameAndJob_Component extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(id)
                     .addComponent(job)
-                    .addComponent(name))
-                .addContainerGap(118, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(name)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(id))
+                    .addComponent(direct))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(id)
-                        .addGap(31, 31, 31)
-                        .addComponent(job))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(name)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(name)
+                            .addComponent(id))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(job)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(direct))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel direct;
     private javax.swing.JLabel id;
     private javax.swing.JLabel img;
     private javax.swing.JLabel job;

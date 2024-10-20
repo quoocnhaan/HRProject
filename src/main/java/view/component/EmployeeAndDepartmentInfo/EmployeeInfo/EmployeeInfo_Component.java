@@ -2,29 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.EmployeeAndDepartmentInfo;
+package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import javax.swing.border.EmptyBorder;
-import view.component.EmployeeAndDepartmentInfo.DepartmentInfo.Department_Component;
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.EmployeeInfo_Component;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
 
 /**
  *
  * @author LENOVO
  */
-public class EmployeeAndDepartmentInfo extends javax.swing.JPanel {
+public class EmployeeInfo_Component extends javax.swing.JPanel {
 
     /**
-     * Creates new form EmployeeAndDepartmentInfo
+     * Creates new form EmployeeInfo_Component
      */
-    public EmployeeAndDepartmentInfo() {
+    public EmployeeInfo_Component() {
         initComponents();
-        this.setLayout(new BorderLayout(10, 10));
-        this.setBorder(new EmptyBorder(10, 10, 10, 10));
-        this.add(new Department_Component(), BorderLayout.WEST);
-        this.add(new EmployeeInfo_Component(), BorderLayout.CENTER);
+        setLayout();
+        addComponent();
     }
 
     /**
@@ -36,19 +35,35 @@ public class EmployeeAndDepartmentInfo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(243, 245, 249));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1400, Short.MAX_VALUE)
+            .addGap(0, 1120, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 547, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void initDisplay() {
+    }
+
+    private void setLayout() {
+        this.setLayout(new BorderLayout());
+    }
+
+    private void addComponent() {
+        String name = "Lam Quoc Nhan";
+        String position = "Tong Giam Doc |";
+        String companyName = "VNG";
+        String phoneNumber = "(+84) 9682705533 |";
+        String email = "quocnhan56@gmail.com";
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/img/logo1.png"));
+        this.add(new ManagerInfo_Component(name, position, companyName, phoneNumber, email, imageIcon), BorderLayout.NORTH);
+        this.add(new PersonalInfo_Component(), BorderLayout.CENTER);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

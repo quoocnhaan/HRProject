@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-import view.component.Home_Component.Home_Component;
+import view.component.Home_Component.Function_Component;
 import view.ui_custom.CircleLabel;
 
 /**
@@ -224,7 +224,7 @@ public class Home_Form extends javax.swing.JFrame {
     private void initCustomComponents() {
         ImageIcon imageIcon = new ImageIcon(getClass().getResource("/img/bell.png"));
         for (int i = 0; i < 10; i++) {
-            contentPanel.add(new Home_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(150, 150, 150), imageIcon));
+            contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(150, 150, 150), imageIcon));
         }
     }
 

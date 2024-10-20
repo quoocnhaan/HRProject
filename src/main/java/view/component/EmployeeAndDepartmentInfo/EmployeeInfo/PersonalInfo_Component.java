@@ -2,29 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.EmployeeAndDepartmentInfo;
+package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
 
+import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.PersonalBasicInfo_Container;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import javax.swing.border.EmptyBorder;
-import view.component.EmployeeAndDepartmentInfo.DepartmentInfo.Department_Component;
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.EmployeeInfo_Component;
+import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
 
 /**
  *
  * @author LENOVO
  */
-public class EmployeeAndDepartmentInfo extends javax.swing.JPanel {
+public class PersonalInfo_Component extends javax.swing.JPanel {
 
     /**
-     * Creates new form EmployeeAndDepartmentInfo
+     * Creates new form PersonalInfo_Component
      */
-    public EmployeeAndDepartmentInfo() {
+    public PersonalInfo_Component() {
         initComponents();
-        this.setLayout(new BorderLayout(10, 10));
-        this.setBorder(new EmptyBorder(10, 10, 10, 10));
-        this.add(new Department_Component(), BorderLayout.WEST);
-        this.add(new EmployeeInfo_Component(), BorderLayout.CENTER);
+        setLayout();
     }
 
     /**
@@ -36,21 +33,31 @@ public class EmployeeAndDepartmentInfo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(243, 245, 249));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1400, Short.MAX_VALUE)
+            .addGap(0, 840, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 547, Short.MAX_VALUE)
+            .addGap(0, 473, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+    private void setLayout() {
+        this.setLayout(new BorderLayout());
+        
+        this.add(new TitleEmployeeBasicInfo_Component(), BorderLayout.NORTH);
+        
+        JScrollPane scrollPane = new JScrollPane(new PersonalBasicInfo_Container());
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setBorder(null);
+        
+        this.add(scrollPane, BorderLayout.CENTER);
+    }
 }

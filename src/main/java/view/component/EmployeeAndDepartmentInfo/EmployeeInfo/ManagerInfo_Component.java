@@ -49,7 +49,7 @@ public class ManagerInfo_Component extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
 
-        companyName.setForeground(new java.awt.Color(190, 190, 190));
+        companyName.setForeground(new java.awt.Color(124, 124, 124));
         companyName.setText("Company's name");
 
         phoneNumber.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -70,7 +70,7 @@ public class ManagerInfo_Component extends javax.swing.JPanel {
         name.setForeground(new java.awt.Color(0, 0, 0));
         name.setText("LAM QUOC NHAN");
 
-        position.setForeground(new java.awt.Color(190, 190, 190));
+        position.setForeground(new java.awt.Color(124, 124, 124));
         position.setText("Position");
 
         total.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N

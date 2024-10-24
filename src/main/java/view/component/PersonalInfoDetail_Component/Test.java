@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view.component.LeaveApplication;
+package view.component.PersonalInfoDetail_Component;
 
-import view.component.LeaveApplication.Filter.Filter_Component;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 /**
  *
- * @author LENOVO
+ * @author user
  */
 public class Test extends javax.swing.JFrame {
 
@@ -18,8 +18,9 @@ public class Test extends javax.swing.JFrame {
      */
     public Test() {
         initComponents();
+        this.getContentPane().setPreferredSize(new Dimension(280, 547));
         this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(new Filter_Component());
+        this.getContentPane().add(new BasicInfo_Filter_PersonalInfo_Container_PI());
     }
 
     /**
@@ -32,6 +33,7 @@ public class Test extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(280, 600));
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -42,7 +44,7 @@ public class Test extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         pack();

@@ -16,6 +16,7 @@ view\component\EmployeeAndDepartmentInfo\Test$1.class
 view\component\EmployeeAndDepartmentInfo\EmployeeAndDepartmentInfo.class
 view\component\EmployeeAndDepartmentInfo\DepartmentInfo\Department_Component.class
 view\form\Home\Home_Form.class
+view\ui_custom\Table_Component.class
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\DateAndGender_Component.class
 view\component\LeaveApplication\Test$1.class
 model\main.class

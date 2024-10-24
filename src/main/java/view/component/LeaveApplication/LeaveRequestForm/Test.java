@@ -2,10 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view.component.LeaveApplication;
+package view.component.LeaveApplication.LeaveRequestForm;
 
-import view.component.LeaveApplication.Filter.Filter_Component;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import view.component.LeaveApplication.Date.Date_Container;
+
 
 /**
  *
@@ -18,8 +22,12 @@ public class Test extends javax.swing.JFrame {
      */
     public Test() {
         initComponents();
+        JScrollPane scrollPane = new JScrollPane(new LeaveForm_Container(), JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setBorder(null);
+        JScrollBar horizontalScrollBar = scrollPane.getHorizontalScrollBar();
+        horizontalScrollBar.setPreferredSize(new Dimension(0, 10));
         this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(new Filter_Component());
+        this.getContentPane().add(scrollPane);
     }
 
     /**
@@ -32,17 +40,16 @@ public class Test extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addGap(0, 840, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
         );
 
         pack();

@@ -1,21 +1,39 @@
+<<<<<<< Updated upstream
 view\component\LeaveApplication\LeaveRequestForm\LeaveForm_Container.class
+=======
+view\component\PersonalInfoDetail_Component\Search_Component_PI$1.class
+view\component\JobInfoDetail_Component\finally_JobInfo_JI.class
+>>>>>>> Stashed changes
 controller\main.class
-view\component\EmployeeAndDepartmentInfo\DepartmentInfo\SearchAndFilter_Component.class
+view\component\JobInfoDetail_Component\Work_Component_JI$2.class
+view\component\JobInfoDetail_Component\TimeKeepingInfo_Component_JI.class
 controller\CustomFunction\CustomTreeCellRenderer.class
+<<<<<<< Updated upstream
 view\component\LeaveApplication\LeaveRequestForm\Test$1.class
+=======
+view\component\PersonalInfoDetail_Component\TitleRight_Component_PI.class
+view\component\JobInfoDetail_Component\TimeKeepingInfo_Component_JI$3.class
+>>>>>>> Stashed changes
 view\component\Home_Component\Function_Component.class
+view\component\JobInfoDetail_Component\test.class
 User.class
+<<<<<<< Updated upstream
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TestFrame$1.class
 view\form\Home\Home_Form$1.class
 view\component\LeaveApplication\LeaveRequestForm\LeaveForm_Component.class
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TitleEmployeeBasicInfo_Component.class
 view\component\LeaveApplication\LeaveRequestForm\Test.class
+=======
+view\component\PersonalInfoDetail_Component\TitleAndAdd_Component_PI.class
+view\component\PersonalInfoDetail_Component\finally_PersonalInfo_PI.class
+view\component\PersonalInfoDetail_Component\PersonalProfile_PI.class
+>>>>>>> Stashed changes
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\NameAndJob_Component.class
-view\component\EmployeeAndDepartmentInfo\EmployeeInfo\EmployeeInfo_Component.class
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\ManagerInfo_Component.class
-view\component\EmployeeAndDepartmentInfo\DepartmentInfo\SearchAndFilter_Component$1.class
-view\main.class
+view\component\JobInfoDetail_Component\Work_Component_JI.class
+view\component\JobInfoDetail_Component\PersonInfor_Component_JI.class
 view\component\EmployeeAndDepartmentInfo\DepartmentInfo\TestFrame$1.class
+<<<<<<< Updated upstream
 view\component\EmployeeAndDepartmentInfo\Test$1.class
 view\component\EmployeeAndDepartmentInfo\EmployeeAndDepartmentInfo.class
 view\component\EmployeeAndDepartmentInfo\DepartmentInfo\Department_Component.class
@@ -25,22 +43,83 @@ view\component\EmployeeAndDepartmentInfo\EmployeeInfo\DateAndGender_Component.cl
 view\component\LeaveApplication\LeaveRequestForm\Content.class
 view\component\LeaveApplication\Test$1.class
 model\main.class
+=======
+view\component\EmployeeAndDepartmentInfo\EmployeeInfo\DateAndGender_Component.class
+view\component\JobInfoDetail_Component\Search_Component_JI$1.class
+>>>>>>> Stashed changes
 view\component\EmployeeAndDepartmentInfo\DepartmentInfo\DepartmentData_Component.class
 view\component\LeaveApplication\Filter_Component.class
 view\component\LeaveApplication\Date\Date_Container.class
 view\component\EmployeeAndDepartmentInfo\DepartmentInfo\TestFrame.class
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalInfo_Component.class
+view\component\JobInfoDetail_Component\BasicInfo_Filter_PersonalInfo_Container_JI.class
+view\component\PersonalInfoDetail_Component\MyTest1$1.class
+view\component\JobInfoDetail_Component\WorkDeparment_Component_JI$1.class
+view\component\JobInfoDetail_Component\BasicInfo_Search_Title_Container_JI.class
+view\component\PersonalInfoDetail_Component\BasicInfo_Filter_Container_PI.class
+view\component\JobInfoDetail_Component\Filter_Component_JI.class
+view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalBasicInfo_Container.class
+view\component\JobInfoDetail_Component\WorkDeparment_Component_JI.class
+controller\Function\Function.class
+view\component\PersonalInfoDetail_Component\BasicInfo_Search_Title_Container_PI.class
+view\component\JobInfoDetail_Component\TimeKeepingInfo_Component_JI$4.class
+view\component\JobInfoDetail_Component\WorkDeparment_Component_JI$2.class
+view\component\JobInfoDetail_Component\BasicInfo_Container_JI.class
+view\component\PersonalInfoDetail_Component\BasicInfo_Component_PI.class
+view\component\JobInfoDetail_Component\TitleAndAdd_Component_JI.class
+view\component\JobInfoDetail_Component\TitleAndAdd_Component_JI$1.class
+view\component\PersonalInfoDetail_Component\BasicInfo_Search_container_PI.class
+view\component\PersonalInfoDetail_Component\BasicInfo_Container_PI.class
+view\component\EmployeeAndDepartmentInfo\DepartmentInfo\SearchAndFilter_Component.class
+view\component\JobInfoDetail_Component\BasicInfo_Component_JI.class
+view\component\PersonalInfoDetail_Component\PersonProfile_Hotline_Title_Container_PI.class
+view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TestFrame$1.class
+view\form\Home\Home_Form$1.class
+view\component\PersonalInfoDetail_Component\PersonalProfile_Hotline_Container.class
+view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TitleEmployeeBasicInfo_Component.class
+view\component\EmployeeAndDepartmentInfo\EmployeeInfo\EmployeeInfo_Component.class
+view\component\JobInfoDetail_Component\JobInfo_Component_JI.class
+view\component\PersonalInfoDetail_Component\Filter_Component_PI.class
+view\component\EmployeeAndDepartmentInfo\DepartmentInfo\SearchAndFilter_Component$1.class
+view\component\JobInfoDetail_Component\Search_Component_JI.class
+view\main.class
+view\component\EmployeeAndDepartmentInfo\Test$1.class
+view\component\PersonalInfoDetail_Component\Hotline_PI.class
+view\component\EmployeeAndDepartmentInfo\EmployeeAndDepartmentInfo.class
+view\component\PersonalInfoDetail_Component\Test$1.class
+view\component\EmployeeAndDepartmentInfo\DepartmentInfo\Department_Component.class
+view\component\JobInfoDetail_Component\TimeKeepingInfo_Component_JI$2.class
+view\component\PersonalInfoDetail_Component\Search_Component_PI.class
+view\component\PersonalInfoDetail_Component\TitleAndAdd_Component_PI$1.class
+view\form\Home\Home_Form.class
+view\component\PersonalInfoDetail_Component\MyTest1.class
+view\component\JobInfoDetail_Component\BasicInfo_Filter_Container_JI.class
+view\component\JobInfoDetail_Component\Right_Container_JI.class
+model\main.class
+view\component\PersonalInfoDetail_Component\BasicInfo_Filter_PersonalInfo_Container_PI.class
 view\component\EmployeeAndDepartmentInfo\DepartmentInfo\SearchAndFilter_Component$2.class
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TestFrame.class
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\Contact_Component.class
+<<<<<<< Updated upstream
 view\component\LeaveApplication\Filter_Component$2.class
 view\component\LeaveApplication\Date\Date_Component.class
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalBasicInfo_Container.class
+=======
+view\component\JobInfoDetail_Component\test$1.class
+view\component\PersonalInfoDetail_Component\PersonInfor_Component_PI.class
+view\component\JobInfoDetail_Component\Hotline_JI.class
+view\component\JobInfoDetail_Component\BasicInfo_Search_container_JI.class
+view\component\JobInfoDetail_Component\TimeKeepingInfo_Component_JI$1.class
+>>>>>>> Stashed changes
 view\component\EmployeeAndDepartmentInfo\EmployeeInfo\Status_Component.class
+view\component\JobInfoDetail_Component\Work_Component_JI$1.class
 util\HibernateUtil.class
-controller\Function\Function.class
 view\component\EmployeeAndDepartmentInfo\Test.class
+<<<<<<< Updated upstream
 view\component\LeaveApplication\Test.class
+=======
+view\component\PersonalInfoDetail_Component\Test.class
+>>>>>>> Stashed changes
 test.class
 view\component\LeaveApplication\Filter_Component$1.class
 view\ui_custom\CircleLabel.class

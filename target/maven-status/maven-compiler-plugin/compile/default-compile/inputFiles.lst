@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 C:\Users\LENOVO\Desktop\HR Project\HRProject\src\main\java\controller\CustomFunction\CustomTreeCellRenderer.java
 C:\Users\LENOVO\Desktop\HR Project\HRProject\src\main\java\controller\Function\Function.java
 C:\Users\LENOVO\Desktop\HR Project\HRProject\src\main\java\controller\main.java
@@ -34,3 +35,68 @@ C:\Users\LENOVO\Desktop\HR Project\HRProject\src\main\java\view\form\Home\Home_F
 C:\Users\LENOVO\Desktop\HR Project\HRProject\src\main\java\view\main.java
 C:\Users\LENOVO\Desktop\HR Project\HRProject\src\main\java\view\ui_custom\CircleLabel.java
 C:\Users\LENOVO\Desktop\HR Project\HRProject\src\main\java\view\ui_custom\Table_Component.java
+=======
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\BasicInfo_Container_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\PersonalProfile_Hotline_Container.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\controller\main.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\ManagerInfo_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\BasicInfo_Search_Title_Container_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\SearchAndFilter_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\PersonProfile_Hotline_Title_Container_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\Hotline_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\BasicInfo_Filter_Container_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\BasicInfo_Search_Title_Container_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeAndDepartmentInfo.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\BasicInfo_Component_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\util\HibernateUtil.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\DateAndGender_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\finally_JobInfo_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\PersonInfor_Component_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\PersonalProfile_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TestFrame.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\Hotline_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\BasicInfo_Container_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\BasicInfo_Filter_PersonalInfo_Container_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\TitleRight_Component_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\BasicInfo_Component_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\TitleAndAdd_Component_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalInfo_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\Search_Component_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\EmployeeInfo_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\BasicInfo_Search_container_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\Home_Component\Function_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\JobInfo_Component_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\TimeKeepingInfo_Component_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\form\Home\Home_Form.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\WorkDeparment_Component_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\test.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\controller\CustomFunction\CustomTreeCellRenderer.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\Work_Component_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\Department_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\Test.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\model\main.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\NameAndJob_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\BasicInfo_Search_container_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\finally_PersonalInfo_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\User.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\MyTest1.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\controller\Function\Function.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalBasicInfo_Container.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\Filter_Component_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\Test.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\TitleAndAdd_Component_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\BasicInfo_Filter_PersonalInfo_Container_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\Status_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\PersonInfor_Component_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\DepartmentData_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\Contact_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TitleEmployeeBasicInfo_Component.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\Search_Component_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\PersonalInfoDetail_Component\Filter_Component_PI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\Right_Container_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\TestFrame.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\ui_custom\CircleLabel.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\main.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\view\component\JobInfoDetail_Component\BasicInfo_Filter_Container_JI.java
+C:\Users\user\Documents\GitHub\HRProject\src\main\java\test.java
+>>>>>>> Stashed changes

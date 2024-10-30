@@ -20,10 +20,8 @@ public class LeaveForm_Container extends javax.swing.JPanel {
      */
     public LeaveForm_Container() {
         initComponents();
-        this.setLayout(new GridLayout(1, 6, 0, 0));
-        for (int i = 1; i <= 8; i++) {
-            this.add(new LeaveForm_Component(true));
-        }
+        setLayout();
+        addComponents();
     }
 
     /**
@@ -45,9 +43,19 @@ public class LeaveForm_Container extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void setLayout() {
+        this.setLayout(new GridLayout(0, 8, 0, 0));
+    }
+
+    private void addComponents() {
+        for(int i = 1; i <= 64; i++) {
+            this.add(new LeaveForm_Component(true));
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

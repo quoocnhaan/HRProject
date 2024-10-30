@@ -70,6 +70,7 @@ public class LeaveForm_Component extends javax.swing.JPanel {
 
     private void initMyComponents() {
         this.setPreferredSize(new Dimension(140, 60));
+        this.setBackground(Color.GRAY);
     }
 
 

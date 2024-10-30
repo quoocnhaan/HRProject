@@ -4,6 +4,7 @@
  */
 package view.component.LeaveApplication.Date;
 
+import java.awt.GridLayout;
 import javax.swing.table.DefaultTableModel;
 import view.component.LeaveApplication.LeaveRequestForm.LeaveForm_Component;
 import view.component.LeaveApplication.LeaveRequestForm.LeaveForm_Container;
@@ -19,7 +20,8 @@ public class Date_Container extends javax.swing.JPanel {
      */
     public Date_Container() {
         initComponents();
-        initMyComponents();
+        setLayout();
+        addComponents();
     }
 
     /**
@@ -31,48 +33,30 @@ public class Date_Container extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable1.setPreferredSize(new java.awt.Dimension(840, 500));
-        jScrollPane1.setViewportView(jTable1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 828, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 840, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+            .addGap(0, 60, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
-    private void initMyComponents() {
-        
+
+    private void setLayout() {
+        this.setLayout(new GridLayout(1, 0, 0, 0));
+    }
+
+    private void addComponents() {
+        for (int i = 1; i <= 8; i++) {
+            this.add(new Date_Component("Thu hai", "17"));
+        }
     }
 }

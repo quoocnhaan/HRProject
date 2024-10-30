@@ -4,17 +4,26 @@
  */
 package view.component.LeaveApplication.Content;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import view.component.LeaveApplication.Date.Date_Container;
+import view.component.LeaveApplication.Employee.EmployeeInfo_Container;
+import view.component.LeaveApplication.LeaveRequestForm.LeaveForm_Container;
+
 /**
  *
  * @author LENOVO
  */
 public class Content_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Content_Component
-     */
+    private EmployeeInfo_Container employeeInfo_Container;
+    private Date_Container date_Container;
+
     public Content_Component() {
         initComponents();
+        initMyComponents();
+        setLayout();
+        addComponents();
     }
 
     /**
@@ -30,13 +39,53 @@ public class Content_Component extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1120, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void setLayout() {
+        this.setLayout(new GridBagLayout());
+    }
+
+    private void addComponents() {
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        //gbc.fill = GridBagConstraints.BOTH;
+        this.add(employeeInfo_Container, gbc);
+
+        // Thêm hàng cố định vào lưới
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        //gbc.fill = GridBagConstraints.HORIZONTAL;
+        this.add(date_Container, gbc);
+
+        // Thêm bảng dữ liệu vào lưới
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = 1; // Cho phép nội dung mở rộng theo chiều ngang
+        gbc.weighty = 1; // Cho phép nội dung mở rộng theo chiều dọc
+        this.add(new LeaveForm_Container(), gbc);
+    }
+
+    private void initMyComponents() {
+        employeeInfo_Container = new EmployeeInfo_Container();
+        date_Container = new Date_Container();
+    }
+
+    public EmployeeInfo_Container getEmployeeInfo_Container() {
+        return employeeInfo_Container;
+    }
+
+    public Date_Container getDate_Container() {
+        return date_Container;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

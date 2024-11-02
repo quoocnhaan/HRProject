@@ -47,6 +47,11 @@ public class NameAndJob_Component extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(210, 110));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                formMouseEntered(evt);
+            }
+        });
 
         img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         img.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -104,6 +109,10 @@ public class NameAndJob_Component extends javax.swing.JPanel {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
+
+    }//GEN-LAST:event_formMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

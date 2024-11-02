@@ -4,6 +4,13 @@
  */
 package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
 
+import view.component.SelectEmployee.EmployeeInfo.*;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import view.component.Title.Title_Component;
+
 /**
  *
  * @author LENOVO
@@ -15,6 +22,8 @@ public class TitleEmployeeBasicInfo_Component extends javax.swing.JPanel {
      */
     public TitleEmployeeBasicInfo_Component() {
         initComponents();
+        setLayout();
+        addComponents();
     }
 
     /**
@@ -26,62 +35,33 @@ public class TitleEmployeeBasicInfo_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-
         setBackground(new java.awt.Color(241, 241, 250));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Nhân viên");
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Thông tin cá nhân");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Tình trạng");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Liên hệ");
+        setMinimumSize(new java.awt.Dimension(1120, 28));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(220, 220, 220)
-                .addComponent(jLabel1)
-                .addGap(175, 175, 175)
-                .addComponent(jLabel3)
-                .addGap(220, 220, 220)
-                .addComponent(jLabel4)
-                .addContainerGap(248, Short.MAX_VALUE))
+            .addGap(0, 1120, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 28, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
+
+    private void addComponents() {
+        String[] names = {"Nhân viên", "Thông tin cá nhân", "Tình trạng", "Liên hệ"};
+        for(int i = 0; i < 4; i++) {
+            this.add(new Title_Component(names[i]));
+        }
+    }
+
+    private void setLayout() {
+        this.setLayout(new GridLayout(1, 4, 25, 0));
+    }
 }

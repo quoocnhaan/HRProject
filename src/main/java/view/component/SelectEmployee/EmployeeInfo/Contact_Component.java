@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
+package view.component.SelectEmployee.EmployeeInfo;
 
 import controller.Function.Function;
 import java.awt.Color;
@@ -86,7 +86,7 @@ public class Contact_Component extends javax.swing.JPanel {
                     .addComponent(email)
                     .addComponent(phone)
                     .addComponent(twitter))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

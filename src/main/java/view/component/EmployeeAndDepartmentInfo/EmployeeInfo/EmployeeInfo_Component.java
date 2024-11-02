@@ -60,9 +60,10 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
         String companyName = "VNG";
         String phoneNumber = "(+84) 9682705533 |";
         String email = "quocnhan56@gmail.com";
+        String total = "255";
         ImageIcon imageIcon = new ImageIcon(getClass().getResource("/img/logo1.png"));
-        this.add(new ManagerInfo_Component(name, position, companyName, phoneNumber, email, imageIcon), BorderLayout.NORTH);
-        this.add(new PersonalInfo_Component(), BorderLayout.CENTER);
+        this.add(new ManagerInfo_Component(name, position, companyName, phoneNumber, email, total, imageIcon), BorderLayout.NORTH);
+        this.add(new PersonalInfo(), BorderLayout.CENTER);
     }
 
 

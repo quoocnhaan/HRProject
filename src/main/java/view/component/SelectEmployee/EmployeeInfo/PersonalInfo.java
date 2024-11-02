@@ -2,24 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
+package view.component.SelectEmployee.EmployeeInfo;
 
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.PersonalBasicInfo_Container;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 
 /**
  *
  * @author LENOVO
  */
-public class PersonalInfo_Component extends javax.swing.JPanel {
+public class PersonalInfo extends javax.swing.JPanel {
 
     /**
      * Creates new form PersonalInfo_Component
      */
-    public PersonalInfo_Component() {
+    public PersonalInfo() {
         initComponents();
         setLayout();
     }
@@ -37,7 +34,7 @@ public class PersonalInfo_Component extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1120, Short.MAX_VALUE)
+            .addGap(0, 1040, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -53,7 +50,7 @@ public class PersonalInfo_Component extends javax.swing.JPanel {
         
         this.add(new TitleEmployeeBasicInfo_Component(), BorderLayout.NORTH);
         
-        JScrollPane scrollPane = new JScrollPane(new PersonalBasicInfo_Container());
+        JScrollPane scrollPane = new JScrollPane(new PersonalInfo_Container());
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setBorder(null);

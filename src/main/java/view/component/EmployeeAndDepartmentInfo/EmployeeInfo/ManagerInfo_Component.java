@@ -18,7 +18,7 @@ public class ManagerInfo_Component extends javax.swing.JPanel {
     /**
      * Creates new form ManagerInfo
      */
-    public ManagerInfo_Component(String name, String position, String companyName, String phone, String email, ImageIcon img) {
+    public ManagerInfo_Component(String name, String position, String companyName, String phone, String email, String total,ImageIcon img) {
         initComponents();
         this.name.setText(name);
         this.position.setText(position);
@@ -26,6 +26,7 @@ public class ManagerInfo_Component extends javax.swing.JPanel {
         this.phoneNumber.setText(phone);
         this.email.setText(email);
         this.logo.setIcon(Function.scaleImg(this.logo, img));
+        this.total.setText(total);
     }
 
     /**

@@ -4,15 +4,8 @@
  */
 package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
 
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.NameAndJob_Component;
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.DateAndGender_Component;
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.Contact_Component;
-import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.border.Border;
 
 /**
  *
@@ -25,7 +18,7 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
      */
     public PersonalBasicInfo_Container() {
         initComponents();
-        this.setLayout(new GridLayout(0, 4, 0, 0));
+        this.setLayout(new GridLayout(1, 4, 0, 0));
         addComponent();
     }
 
@@ -39,6 +32,7 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
     private void initComponents() {
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -48,7 +42,7 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 445, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -67,13 +61,10 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         String email = "quocnhan56@gmail.com";
         String phone = "0968270553";
         String twitter = "quocnhan56@gmail.com";
-        for (int i = 1; i <= 12; i++) {
-            this.add(new NameAndJob_Component(name, id, job, direct, img));
-            this.add(new DateAndGender_Component(dateOfBirth, place, gender));
-            this.add(new Status_Component(startDate, seniority, status));
-            this.add(new Contact_Component(email, phone, twitter));
-        }
-
+        this.add(new NameAndJob_Component(name, id, job, direct, img));
+        this.add(new DateAndGender_Component(dateOfBirth, place, gender));
+        this.add(new Status_Component(startDate, seniority, status));
+        this.add(new Contact_Component(email, phone, twitter));
     }
 
 

@@ -14,12 +14,12 @@ import javax.swing.JScrollPane;
  *
  * @author LENOVO
  */
-public class PersonalInfo_Component extends javax.swing.JPanel {
+public class PersonalInfo extends javax.swing.JPanel {
 
     /**
      * Creates new form PersonalInfo_Component
      */
-    public PersonalInfo_Component() {
+    public PersonalInfo() {
         initComponents();
         setLayout();
     }
@@ -53,7 +53,7 @@ public class PersonalInfo_Component extends javax.swing.JPanel {
         
         this.add(new TitleEmployeeBasicInfo_Component(), BorderLayout.NORTH);
         
-        JScrollPane scrollPane = new JScrollPane(new PersonalBasicInfo_Container());
+        JScrollPane scrollPane = new JScrollPane(new PersonalInfo_Container());
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setBorder(null);

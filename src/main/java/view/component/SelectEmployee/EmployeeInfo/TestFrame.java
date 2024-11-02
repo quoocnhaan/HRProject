@@ -2,13 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
+package view.component.SelectEmployee.EmployeeInfo;
 
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.EmployeeInfo_Component;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import javax.swing.JScrollPane;
 
 /**
  *
@@ -22,7 +18,7 @@ public class TestFrame extends javax.swing.JFrame {
     public TestFrame() {
         initComponents();
         this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(new EmployeeInfo_Component());
+        this.getContentPane().add(new PersonalInfo());
     }
 
     /**
@@ -35,7 +31,6 @@ public class TestFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

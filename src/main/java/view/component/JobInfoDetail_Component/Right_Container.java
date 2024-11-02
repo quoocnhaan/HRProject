@@ -12,12 +12,12 @@ import javax.swing.JScrollPane;
  *
  * @author user
  */
-public class Right_Container_JI extends javax.swing.JPanel {
+public class Right_Container extends javax.swing.JPanel {
 
     /**
      * Creates new form Right_Component
      */
-    public Right_Container_JI() {
+    public Right_Container() {
         initComponents();
         setLayout();
     }
@@ -45,10 +45,10 @@ public class Right_Container_JI extends javax.swing.JPanel {
 
     private void setLayout() {
         this.setLayout(new FlowLayout());
-        JobInfo_Component_JI jobInfo = new JobInfo_Component_JI();
-        TimeKeepingInfo_Component_JI timeKeepingInfo = new TimeKeepingInfo_Component_JI();
-        WorkDeparment_Component_JI workDeparment = new WorkDeparment_Component_JI();
-        Work_Component_JI work = new Work_Component_JI();
+        JobInfo_Component jobInfo = new JobInfo_Component();
+        TimeKeepingInfo_Component timeKeepingInfo = new TimeKeepingInfo_Component();
+        WorkDeparment_Component workDeparment = new WorkDeparment_Component();
+        Work_Component work = new Work_Component();
 
         this.add(jobInfo);
         this.add(timeKeepingInfo);

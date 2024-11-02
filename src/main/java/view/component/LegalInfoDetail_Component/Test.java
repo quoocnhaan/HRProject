@@ -11,16 +11,16 @@ import java.awt.Dimension;
  *
  * @author user
  */
-public class test_LI extends javax.swing.JFrame {
+public class Test extends javax.swing.JFrame {
 
     /**
      * Creates new form test
      */
-    public test_LI() {
+    public Test() {
         initComponents();
         this.getContentPane().setPreferredSize(new Dimension(1400, 547));
         this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(new Finally_LegalInfo_LI());
+        this.getContentPane().add(new Finally_LegalInfo());
     }
 
     /**
@@ -65,14 +65,18 @@ public class test_LI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(test_LI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(test_LI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(test_LI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(test_LI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -81,7 +85,7 @@ public class test_LI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new test_LI().setVisible(true);
+                new Test().setVisible(true);
             }
         });
     }

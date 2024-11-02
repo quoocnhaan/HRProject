@@ -3,7 +3,7 @@ package view.component.BenefitInfo_Component;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import view.component.LegalInfoDetail_Component.Finally_LegalInfo_LI;
+import view.component.LegalInfoDetail_Component.Finally_LegalInfo;
 
 
 public class Test_BI extends javax.swing.JFrame {

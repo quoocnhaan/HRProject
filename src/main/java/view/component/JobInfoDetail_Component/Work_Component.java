@@ -14,12 +14,12 @@ import javax.swing.JLabel;
  *
  * @author user
  */
-public class Work_Component_JI extends javax.swing.JPanel {
+public class Work_Component extends javax.swing.JPanel {
 
     /**
      * Creates new form PersonalProfile
      */
-    public Work_Component_JI() {
+    public Work_Component() {
         initComponents();
         this.setPreferredSize(new Dimension(1120, 350));
         setImg();
@@ -257,7 +257,7 @@ public class Work_Component_JI extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(nameEmployee)
                                     .addComponent(jCheckBox1)))
                             .addGroup(layout.createSequentialGroup()

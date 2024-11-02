@@ -11,12 +11,12 @@ import java.awt.Dimension;
  *
  * @author user
  */
-public class Resignation_Component_Li extends javax.swing.JPanel {
+public class Resignation_Component extends javax.swing.JPanel {
 
     /**
      * Creates new form Resignation_Component_Li
      */
-    public Resignation_Component_Li() {
+    public Resignation_Component() {
         initComponents();
         this.setPreferredSize(new Dimension(1120, 600));
 //        setLayout();

@@ -9,9 +9,9 @@ import java.awt.Dimension;
 import javax.swing.JScrollPane;
 
 
-public class Finally_LegalInfo_LI extends javax.swing.JPanel {
+public class Finally_LegalInfo extends javax.swing.JPanel {
 
-    public Finally_LegalInfo_LI() {
+    public Finally_LegalInfo() {
         initComponents();
         this.setPreferredSize(new Dimension(1400, 547));
         setLayout();
@@ -41,7 +41,7 @@ public class Finally_LegalInfo_LI extends javax.swing.JPanel {
         this.setLayout(new BorderLayout());
 //        this.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));
 
-        Right_Container_LI right = new Right_Container_LI();
+        Right_Container right = new Right_Container();
         right.setPreferredSize(new Dimension(1120, 1380));
 
         JScrollPane scrollPane = new JScrollPane(right);

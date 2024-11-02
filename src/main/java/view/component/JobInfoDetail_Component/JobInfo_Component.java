@@ -8,12 +8,12 @@ package view.component.JobInfoDetail_Component;
  *
  * @author user
  */
-public class JobInfo_Component_JI extends javax.swing.JPanel {
+public class JobInfo_Component extends javax.swing.JPanel {
 
     /**
      * Creates new form newPanel
      */
-    public JobInfo_Component_JI() {
+    public JobInfo_Component() {
         initComponents();
     }
 

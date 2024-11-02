@@ -10,12 +10,12 @@ import java.awt.Dimension;
  *
  * @author user
  */
-public class BankCard_Component_LI extends javax.swing.JPanel {
+public class BankCard_Component extends javax.swing.JPanel {
 
     /**
      * Creates new form BankCard_Component_LI
      */
-    public BankCard_Component_LI() {
+    public BankCard_Component() {
         initComponents();
         this.setPreferredSize(new Dimension(1120, 230));
     }

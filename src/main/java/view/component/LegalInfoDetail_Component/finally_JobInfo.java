@@ -3,18 +3,18 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JScrollPane;
-import view.component.LegalInfoDetail_Component.Right_Container_LI;
+import view.component.LegalInfoDetail_Component.Right_Container;
 
 /**
  *
  * @author user
  */
-public class finally_JobInfo_LI extends javax.swing.JPanel {
+public class finally_JobInfo extends javax.swing.JPanel {
 
     /**
      * Creates new form AllPanel
      */
-    public finally_JobInfo_LI() {
+    public finally_JobInfo() {
         initComponents();
         this.setPreferredSize(new Dimension(1400, 600));
         setLayout();
@@ -44,9 +44,9 @@ public class finally_JobInfo_LI extends javax.swing.JPanel {
     private void setLayout() {
         this.setLayout(new BorderLayout());
 
-        Right_Container_LI right = new Right_Container_LI();
+        Right_Container right = new Right_Container();
 
-        JScrollPane scrollPane = new JScrollPane(new Right_Container_LI());
+        JScrollPane scrollPane = new JScrollPane(new Right_Container());
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 

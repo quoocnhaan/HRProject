@@ -14,12 +14,12 @@ import javax.swing.JLabel;
  *
  * @author user
  */
-public class WorkDeparment_Component_JI extends javax.swing.JPanel {
+public class WorkDeparment_Component extends javax.swing.JPanel {
 
     /**
      * Creates new form PersonalProfile
      */
-    public WorkDeparment_Component_JI() {
+    public WorkDeparment_Component() {
         initComponents();
         this.setPreferredSize(new Dimension(1120, 270));
         setImg();

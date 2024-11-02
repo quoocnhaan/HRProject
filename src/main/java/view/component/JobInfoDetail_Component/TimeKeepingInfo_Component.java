@@ -14,12 +14,12 @@ import javax.swing.JLabel;
  *
  * @author user
  */
-public class TimeKeepingInfo_Component_JI extends javax.swing.JPanel {
+public class TimeKeepingInfo_Component extends javax.swing.JPanel {
 
     /**
      * Creates new form PersonalProfile
      */
-    public TimeKeepingInfo_Component_JI() {
+    public TimeKeepingInfo_Component() {
         initComponents();
         this.setPreferredSize(new Dimension(1120, 270));
         setImg();
@@ -247,9 +247,9 @@ public class TimeKeepingInfo_Component_JI extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(jlabel)))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(option_NoNeedToSwipeACard))
@@ -257,15 +257,11 @@ public class TimeKeepingInfo_Component_JI extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(option_OvertimeRegistration))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(option_CalculateOvertimePay))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel11))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(option_CalculateOvertimePay)
+                            .addComponent(jLabel11)))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(birthdayEmployee)
                             .addComponent(workspace))

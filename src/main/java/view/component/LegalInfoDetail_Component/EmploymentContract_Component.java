@@ -11,12 +11,12 @@ import java.awt.Dimension;
  *
  * @author user
  */
-public class EmploymentContract_Component_LI extends javax.swing.JPanel {
+public class EmploymentContract_Component extends javax.swing.JPanel {
 
     /**
      * Creates new form EmploymentContract_Component_LI
      */
-    public EmploymentContract_Component_LI() {
+    public EmploymentContract_Component() {
         initComponents();
         this.setPreferredSize(new Dimension(1120, 300));
     }
@@ -214,9 +214,10 @@ public class EmploymentContract_Component_LI extends javax.swing.JPanel {
                                             .addComponent(jLabel5))
                                         .addComponent(option_ArrivingLateAndLeavingEarly))
                                     .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel6)
-                                        .addComponent(option_NoNeedToSwipeACard))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(option_NoNeedToSwipeACard, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel6)))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel10)

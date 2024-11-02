@@ -10,12 +10,12 @@ import java.awt.Dimension;
  *
  * @author user
  */
-public class DriverLicense_Component_LI extends javax.swing.JPanel {
+public class DriverLicense_Component extends javax.swing.JPanel {
 
     /**
      * Creates new form DriverLicense_Component_LI
      */
-    public DriverLicense_Component_LI() {
+    public DriverLicense_Component() {
         initComponents();
         this.setPreferredSize(new Dimension(1120, 250));
     }

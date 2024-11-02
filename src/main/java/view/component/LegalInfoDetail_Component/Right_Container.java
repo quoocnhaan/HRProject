@@ -13,12 +13,12 @@ import javax.swing.JScrollPane;
  *
  * @author user
  */
-public class Right_Container_LI extends javax.swing.JPanel {
+public class Right_Container extends javax.swing.JPanel {
 
     /**
      * Creates new form Right_Component_LI
      */
-    public Right_Container_LI() {
+    public Right_Container() {
         initComponents();
         this.setPreferredSize(new Dimension(1120, 547));
         setLayout();
@@ -47,10 +47,10 @@ public class Right_Container_LI extends javax.swing.JPanel {
 
     private void setLayout() {
         this.setLayout(new FlowLayout());
-        DriverLicense_Component_LI driverLicense = new DriverLicense_Component_LI();
-        BankCard_Component_LI bankCard = new BankCard_Component_LI();
-        EmploymentContract_Component_LI employeeContract = new EmploymentContract_Component_LI();
-        Resignation_Component_Li resignation = new Resignation_Component_Li();
+        DriverLicense_Component driverLicense = new DriverLicense_Component();
+        BankCard_Component bankCard = new BankCard_Component();
+        EmploymentContract_Component employeeContract = new EmploymentContract_Component();
+        Resignation_Component resignation = new Resignation_Component();
 
         this.add(driverLicense);
         this.add(bankCard);

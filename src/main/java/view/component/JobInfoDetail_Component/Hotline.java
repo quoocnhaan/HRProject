@@ -13,12 +13,12 @@ import javax.swing.JLabel;
  *
  * @author user
  */
-public class Hotline_JI extends javax.swing.JPanel {
+public class Hotline extends javax.swing.JPanel {
 
     /**
      * Creates new form Hotline
      */
-    public Hotline_JI() {
+    public Hotline() {
         initComponents();
         this.setPreferredSize(new Dimension(900, 250));
         setImg();

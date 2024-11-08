@@ -44,10 +44,11 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
 
     private void setLayout() {
         this.setLayout(new GridLayout(0, 1, 0, 0));
+
     }
 
     private void addComponents() {
-        for(int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 8; i++) {
             this.add(new PersonalBasicInfo_Container());
         }
     }

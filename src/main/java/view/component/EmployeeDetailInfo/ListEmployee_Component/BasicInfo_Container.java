@@ -4,6 +4,7 @@
  */
 package view.component.EmployeeDetailInfo.ListEmployee_Component;
 
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.ImageIcon;
 
@@ -45,7 +46,7 @@ public class BasicInfo_Container extends javax.swing.JPanel {
 
     private void addComponents() {
         ImageIcon img = new ImageIcon(getClass().getResource("/img/avatar.jpg"));
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 7; i++) {
             this.add(new BasicInfo_Component_PI("Nguyen Hoang Huu", "Android Developer", "NHH2005", "Hoa Sen", "1 year", img));
         }
     }

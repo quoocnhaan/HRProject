@@ -4,8 +4,10 @@
  */
 package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.ImageIcon;
+import javax.swing.border.MatteBorder;
 
 /**
  *
@@ -20,6 +22,8 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         initComponents();
         this.setLayout(new GridLayout(1, 4, 0, 0));
         addComponent();
+        this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
+
     }
 
     /**

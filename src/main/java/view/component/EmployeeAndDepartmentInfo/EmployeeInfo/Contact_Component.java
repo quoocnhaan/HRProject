@@ -5,10 +5,8 @@
 package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
 
 import controller.Function.Function;
-import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
-import javax.swing.border.MatteBorder;
 
 /**
  *
@@ -23,7 +21,6 @@ public class Contact_Component extends javax.swing.JPanel {
         initComponents();
         addIcon();
         this.setPreferredSize(new Dimension(280, 100));
-        this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
         this.email.setText(email);
         this.phone.setText(phone);
         this.twitter.setText(twitter);
@@ -100,10 +97,10 @@ public class Contact_Component extends javax.swing.JPanel {
                     .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(phoneIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(twitterIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(twitter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(twitter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(twitterIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

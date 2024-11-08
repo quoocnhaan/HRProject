@@ -5,11 +5,7 @@
 package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JScrollPane;
 
 /**
  *

@@ -4,10 +4,7 @@
  */
 package view.component.EmployeeAndDepartmentInfo.EmployeeInfo;
 
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.PersonalBasicInfo_Container;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 
 /**

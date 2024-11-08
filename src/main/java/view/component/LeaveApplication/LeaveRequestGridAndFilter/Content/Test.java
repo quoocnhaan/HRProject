@@ -5,6 +5,7 @@
 package view.component.LeaveApplication.LeaveRequestGridAndFilter.Content;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -19,11 +20,11 @@ public class Test extends javax.swing.JFrame {
      */
     public Test() {
         initComponents();
-        this.setLayout(new BorderLayout());
+        this.getContentPane().setLayout(new BorderLayout());
 
         // Khởi tạo Content_Component
         Content_Component contentComponent = new Content_Component();
-        
+
         // Lấy các panel cố định từ Content_Component
         JPanel fixedColumnPanel = contentComponent.getEmployeeInfo_Container();
         JPanel fixedRowPanel = contentComponent.getDate_Container();
@@ -34,9 +35,14 @@ public class Test extends javax.swing.JFrame {
         // Cố định cột đầu tiên khi cuộn ngang và hàng đầu tiên khi cuộn dọc
         scrollPane.setRowHeaderView(fixedColumnPanel);
         scrollPane.setColumnHeaderView(fixedRowPanel);
-
+        scrollPane.setBackground(Color.red);
+        scrollPane.getViewport().setBackground(Color.RED);
+        contentComponent.setOpaque(true);
+        fixedColumnPanel.setOpaque(true);
+        fixedRowPanel.setOpaque(true);
+        this.getContentPane().setBackground(Color.yellow);
         // Thêm JScrollPane vào JFrame
-        this.add(scrollPane, BorderLayout.CENTER);
+        this.getContentPane().add(scrollPane);
     }
 
     /**

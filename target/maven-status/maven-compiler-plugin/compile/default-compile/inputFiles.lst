@@ -1,112 +1,112 @@
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\controller\Enum\Status.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\controller\Function\Function.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\controller\main.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\model\main.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\User.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\util\HibernateUtil.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\BenefitInfo_Component\DayOff_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\BenefitInfo_Component\HealthInsurance_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\BenefitInfo_Component\MaternityLeave_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\BenefitInfo_Component\RemoteWork_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\BenefitInfo_Component\Right_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\BenefitInfo_Component\Test_BI.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\BenefitInfo_Component\TimeKeepingInfo_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\BenefitInfo_Component\TransportAllowance_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\Department_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\DepartmentData_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\SearchAndFilter_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\TestFrame.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeAndDepartmentInfo.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\Contact_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\DateAndGender_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\EmployeeInfo_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\ManagerInfo_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\NameAndJob_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalBasicInfo_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalInfo.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalInfo_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\Status_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TestFrame.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TitleEmployeeBasicInfo_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Component_PI.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Search_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Search_Title_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Search_Title_Filter_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\Filter_Component_PI.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\ListEmployee_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\PersonInfor_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\Search_Component_PI.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\TitleAndAdd_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\Hotline_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\PersonalProfile.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\PersonalProfile_Hotline_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\PersonProfile_Hotline_Title_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\TitleRight_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Home_Component\Function_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\Hotline.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\JobInfo_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\Right_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\TimeKeepingInfo_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\Work_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\WorkDeparment_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\DetailLeaveRequestForm\DetailLeaveForm_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\DetailLeaveRequestForm\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Content\Content_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Content\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Date\Date_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Date\Date_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Date\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Employee\EmployeeInfo_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Employee\EmployeeInfo_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Employee\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Filter\Filter_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveApplicationGrid.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveApplicationGridAndFilter.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveRequestForm\Content.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveRequestForm\LeaveForm_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveRequestForm\LeaveForm_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveRequestForm\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\BasicLeaveRequest_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\BasicLeaveRequest_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\Filter.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\FilterAndSearch_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\Search.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\ListLeaveRequest_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\BankCard_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\DriverLicense_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\EmploymentContract_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\finally_JobInfo.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\Finally_LegalInfo.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\Resignation_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\Right_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\DepartmentInfo\Department_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\DepartmentInfo\DepartmentData_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\DepartmentInfo\SearchAndFilter_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\DepartmentInfo\TestFrame.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\Contact_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\DateAndGender_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\NameAndJob_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\PersonalBasicInfo_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\PersonalInfo.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\PersonalInfo_Container.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\Status_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\TestFrame.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\TitleEmployeeBasicInfo_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\SelectEmployee_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\SelectEmployee\Test.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Title\CheckAll_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Title\CheckBox_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Title\Title_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\form\Home\Home_Form.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\main.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\ui_custom\CircleLabel.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\ui_custom\Table_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\controller\Enum\Status.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\controller\Function\Function.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\controller\main.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\model\main.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\User.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\util\HibernateUtil.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\BenefitInfo_Component\DayOff_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\BenefitInfo_Component\HealthInsurance_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\BenefitInfo_Component\MaternityLeave_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\BenefitInfo_Component\RemoteWork_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\BenefitInfo_Component\Right_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\BenefitInfo_Component\Test_BI.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\BenefitInfo_Component\TimeKeepingInfo_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\BenefitInfo_Component\TransportAllowance_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\Department_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\DepartmentData_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\SearchAndFilter_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\DepartmentInfo\TestFrame.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeAndDepartmentInfo.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\Contact_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\DateAndGender_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\EmployeeInfo_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\ManagerInfo_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\NameAndJob_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalBasicInfo_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalInfo.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\PersonalInfo_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\Status_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TestFrame.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\EmployeeInfo\TitleEmployeeBasicInfo_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeAndDepartmentInfo\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Component_PI.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Search_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Search_Title_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\BasicInfo_Search_Title_Filter_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\Filter_Component_PI.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\ListEmployee_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\PersonInfor_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\Search_Component_PI.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\ListEmployee_Component\TitleAndAdd_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\Hotline_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\PersonalProfile.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\PersonalProfile_Hotline_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\PersonProfile_Hotline_Title_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\PersonalProfile_Component\TitleRight_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\EmployeeDetailInfo\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\Home_Component\Function_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\Hotline.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\JobInfo_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\Right_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\TimeKeepingInfo_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\Work_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\JobInfoDetail_Component\WorkDeparment_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\DetailLeaveRequestForm\DetailLeaveForm_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\DetailLeaveRequestForm\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Content\Content_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Content\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Date\Date_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Date\Date_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Date\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Employee\EmployeeInfo_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Employee\EmployeeInfo_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Employee\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Filter\Filter_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveApplicationGrid.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveApplicationGridAndFilter.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveRequestForm\Content.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveRequestForm\LeaveForm_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveRequestForm\LeaveForm_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\LeaveRequestForm\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\LeaveRequestGridAndFilter\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\BasicLeaveRequest_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\BasicLeaveRequest_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\Filter.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\FilterAndSearch_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\Search.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\ListLeaveRequest_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\BankCard_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\DriverLicense_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\EmploymentContract_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\finally_JobInfo.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\Finally_LegalInfo.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\Resignation_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\Right_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\LegalInfoDetail_Component\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\DepartmentInfo\Department_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\DepartmentInfo\DepartmentData_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\DepartmentInfo\SearchAndFilter_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\DepartmentInfo\TestFrame.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\Contact_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\DateAndGender_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\NameAndJob_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\PersonalBasicInfo_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\PersonalInfo.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\PersonalInfo_Container.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\Status_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\TestFrame.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\EmployeeInfo\TitleEmployeeBasicInfo_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\SelectEmployee_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\SelectEmployee\Test.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\Title\CheckAll_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\Title\CheckBox_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\component\Title\Title_Component.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\form\Home\Home_Form.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\main.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\ui_custom\CircleLabel.java
+C:\Users\PC\Desktop\HR Project\HRProject\src\main\java\view\ui_custom\Table_Component.java

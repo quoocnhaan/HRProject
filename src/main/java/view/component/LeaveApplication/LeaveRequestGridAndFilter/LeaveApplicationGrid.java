@@ -5,6 +5,7 @@
 package view.component.LeaveApplication.LeaveRequestGridAndFilter;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import view.component.LeaveApplication.LeaveRequestGridAndFilter.Content.Content_Component;
@@ -49,6 +50,7 @@ public class LeaveApplicationGrid extends javax.swing.JPanel {
 
     private void setLayout() {
         this.setLayout(new BorderLayout());
+        this.setBackground(Color.white);
     }
 
     private void addComponents() {

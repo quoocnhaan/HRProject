@@ -69,7 +69,8 @@ public class FixedRowColumnExample {
         // Cố định cột đầu tiên khi cuộn ngang và hàng đầu tiên khi cuộn dọc
         scrollPane.setRowHeaderView(fixedColumnPanel);
         scrollPane.setColumnHeaderView(fixedRowPanel);
-
+        scrollPane.setBackground(Color.red);
+        
         frame.add(scrollPane);
         frame.setSize(400, 300);
         frame.setVisible(true);

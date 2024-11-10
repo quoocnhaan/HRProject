@@ -8,14 +8,9 @@ import controller.Function.Function;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.Image;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import view.component.Home_Component.Function_Component;
-import view.ui_custom.CircleLabel;
 
 /**
  *

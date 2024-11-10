@@ -2,29 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.EmployeeAndDepartmentInfo;
+package view.component.SelectEmployee;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.border.EmptyBorder;
-import view.component.EmployeeAndDepartmentInfo.DepartmentInfo.Department_Component;
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.EmployeeInfo_Component;
+import view.component.EmployeeAndDepartmentInfo.Search.Search;
+import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
 /**
  *
  * @author LENOVO
  */
-public class EmployeeAndDepartmentInfo extends javax.swing.JPanel {
+public class EmployeeAndSearch extends javax.swing.JPanel {
 
     /**
-     * Creates new form EmployeeAndDepartmentInfo
+     * Creates new form EmployeeAndSearch
      */
-    public EmployeeAndDepartmentInfo() {
+    public EmployeeAndSearch() {
         initComponents();
-        this.setLayout(new BorderLayout(10, 10));
-        this.setBorder(new EmptyBorder(10, 10, 10, 10));
-        this.add(new Department_Component(), BorderLayout.WEST);
-        this.add(new EmployeeInfoAndSearch(), BorderLayout.CENTER);
+        setLayout();
+        addComponents();
     }
 
     /**
@@ -36,19 +32,26 @@ public class EmployeeAndDepartmentInfo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(243, 245, 249));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1400, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 547, Short.MAX_VALUE)
+            .addGap(0, 43, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void setLayout() {
+        this.setLayout(new BorderLayout());
+    }
+
+    private void addComponents() {
+        this.add(new Search(), BorderLayout.NORTH);
+        this.add(new PersonalInfo(), BorderLayout.CENTER);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

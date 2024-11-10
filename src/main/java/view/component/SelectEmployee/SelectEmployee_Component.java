@@ -7,8 +7,6 @@ package view.component.SelectEmployee;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
 import view.component.SelectEmployee.DepartmentInfo.Department_Component;
-import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
-
 /**
  *
  * @author LENOVO
@@ -55,7 +53,7 @@ public class SelectEmployee_Component extends javax.swing.JPanel {
 
     private void addComponents() {
         this.add(new Department_Component(), BorderLayout.WEST);
-        this.add(new PersonalInfo(), BorderLayout.CENTER);
+        this.add(new EmployeeAndSearch(), BorderLayout.CENTER);
     }
 
 

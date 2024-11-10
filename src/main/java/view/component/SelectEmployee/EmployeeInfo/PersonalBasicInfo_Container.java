@@ -4,15 +4,9 @@
  */
 package view.component.SelectEmployee.EmployeeInfo;
 
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.NameAndJob_Component;
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.DateAndGender_Component;
-import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.Contact_Component;
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 import view.component.Title.CheckBox_Component;
 

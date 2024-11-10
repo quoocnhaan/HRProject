@@ -21,10 +21,7 @@ public class Function_Component extends javax.swing.JPanel {
      */
     public Function_Component(String funcId, String funcName, Color color, ImageIcon imgIcon) {
         initComponents();
-        this.funcId.setText(funcId);
-        this.funcName.setText(funcName);
-        this.funcIcon.setIcon(Function.scaleImg(this.funcIcon, imgIcon));
-        this.setBackground(color);
+        initData(funcId, funcName, color, imgIcon);
     }
 
     /**
@@ -80,15 +77,18 @@ public class Function_Component extends javax.swing.JPanel {
                 .addGap(65, 65, 65))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel funcIcon;
     private javax.swing.JLabel funcId;
     private javax.swing.JLabel funcName;
     // End of variables declaration//GEN-END:variables
 
-    private void loadData(String funcId) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+    private void initData(String funcId, String funcName, Color color, ImageIcon imgIcon) {
+        this.funcId.setText(funcId);
+        this.funcName.setText(funcName);
+        this.funcIcon.setIcon(Function.scaleImg(this.funcIcon, imgIcon));
+        this.setBackground(color);
     }
 }

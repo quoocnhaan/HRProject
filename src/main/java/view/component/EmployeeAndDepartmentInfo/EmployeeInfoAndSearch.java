@@ -5,26 +5,22 @@
 package view.component.EmployeeAndDepartmentInfo;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.border.EmptyBorder;
-import view.component.EmployeeAndDepartmentInfo.DepartmentInfo.Department_Component;
 import view.component.EmployeeAndDepartmentInfo.EmployeeInfo.EmployeeInfo_Component;
+import view.component.EmployeeAndDepartmentInfo.Search.Search;
 
 /**
  *
  * @author LENOVO
  */
-public class EmployeeAndDepartmentInfo extends javax.swing.JPanel {
+public class EmployeeInfoAndSearch extends javax.swing.JPanel {
 
     /**
-     * Creates new form EmployeeAndDepartmentInfo
+     * Creates new form EmployeeInfo
      */
-    public EmployeeAndDepartmentInfo() {
+    public EmployeeInfoAndSearch() {
         initComponents();
-        this.setLayout(new BorderLayout(10, 10));
-        this.setBorder(new EmptyBorder(10, 10, 10, 10));
-        this.add(new Department_Component(), BorderLayout.WEST);
-        this.add(new EmployeeInfoAndSearch(), BorderLayout.CENTER);
+        setLayout();
+        addComponents();
     }
 
     /**
@@ -36,19 +32,26 @@ public class EmployeeAndDepartmentInfo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(243, 245, 249));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1400, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 547, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void setLayout() {
+        this.setLayout(new BorderLayout());
+    }
+
+    private void addComponents() {
+        this.add(new Search(), BorderLayout.NORTH);
+        this.add(new EmployeeInfo_Component(), BorderLayout.CENTER);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

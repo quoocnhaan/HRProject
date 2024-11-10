@@ -9,7 +9,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import view.component.LeaveApplication.LeaveRequestGridAndFilter.Content.Content_Component;
-import view.component.LeaveApplication.LeaveRequestGridAndFilter.Filter.Filter_Component;
+import view.component.LeaveApplication.LeaveRequestGridAndFilter.NextPage.NextPageAndSearch;
 import view.component.LeaveApplication.ListLeaveRequest.BasicLeaveRequest.Search;
 
 /**
@@ -55,7 +55,7 @@ public class LeaveApplicationGrid extends javax.swing.JPanel {
 
     private void addComponents() {
         //this.add(new Filter_Component(), BorderLayout.WEST);
-        this.add(new Search(), BorderLayout.NORTH);
+        this.add(new NextPageAndSearch(), BorderLayout.NORTH);
 
         Content_Component contentComponent = new Content_Component();
 

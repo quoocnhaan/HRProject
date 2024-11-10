@@ -2,26 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.LeaveApplication.LeaveRequestGridAndFilter.LeaveRequestForm;
-
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+package view.component.LeaveApplication.LeaveRequestGridAndFilter.NextPage.CurrentDate;
 
 /**
  *
  * @author LENOVO
  */
-public class LeaveForm_Container extends javax.swing.JPanel {
+public class CurrentDate_Component extends javax.swing.JPanel {
 
     /**
-     * Creates new form LeaveForm_Container
+     * Creates new form CurrentDate_Component
      */
-    public LeaveForm_Container() {
+    public CurrentDate_Component(String curDate) {
         initComponents();
-        setLayout();
-        addComponents();
+        initData(curDate);
     }
 
     /**
@@ -33,31 +27,37 @@ public class LeaveForm_Container extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        curDate = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(211, 230, 239));
+
+        curDate.setForeground(new java.awt.Color(0, 0, 0));
+        curDate.setText("25 - 27 tháng 7 năm 2024");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(curDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(curDate, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void setLayout() {
-        this.setLayout(new GridLayout(0, 7, 0, 0));
-    }
-
-    private void addComponents() {
-        for(int i = 1; i <= 56; i++) {
-            this.add(new LeaveForm_Component(true));
-        }
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel curDate;
     // End of variables declaration//GEN-END:variables
+
+    private void initData(String curDate) {
+        this.curDate.setText(curDate);
+    }
 }

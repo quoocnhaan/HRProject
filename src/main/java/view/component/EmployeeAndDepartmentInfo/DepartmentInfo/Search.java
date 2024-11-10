@@ -11,12 +11,12 @@ import javax.swing.ImageIcon;
  *
  * @author LENOVO
  */
-public class SearchAndFilter_Component extends javax.swing.JPanel {
+public class Search extends javax.swing.JPanel {
 
     /**
      * Creates new form Search_Component
      */
-    public SearchAndFilter_Component() {
+    public Search() {
         initComponents();
         addIcon();
     }
@@ -89,7 +89,7 @@ public class SearchAndFilter_Component extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void addIcon() {
-        ImageIcon icon = new ImageIcon(getClass().getResource("/icon/filter.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/icon/search.png"));
         this.icon.setIcon(Function.scaleImg(this.icon, icon));
     }
 }

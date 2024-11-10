@@ -13,6 +13,7 @@ import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
 import view.component.Title.CheckBox_Component;
 
 /**
@@ -26,7 +27,8 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
      */
     public PersonalBasicInfo_Container() {
         initComponents();
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        setLayout();
+        customComponents();
         addComponent();
     }
 
@@ -41,11 +43,6 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                formFocusGained(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,10 +55,6 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-        this.setForeground(Color.red);
-    }//GEN-LAST:event_formFocusGained
 
     private void addComponent() {
         String name = "Lâm Quốc Nhân";
@@ -78,12 +71,20 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         String email = "quocnhan56@gmail.com";
         String phone = "0968270553";
         String twitter = "quocnhan56@gmail.com";
-        
+
         this.add(new CheckBox_Component());
         this.add(new NameAndJob_Component(name, id, job, direct, img));
         this.add(new DateAndGender_Component(dateOfBirth, place, gender));
         this.add(new Status_Component(startDate, seniority, status));
         this.add(new Contact_Component(email, phone, twitter));
+    }
+
+    private void setLayout() {
+        this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+    }
+
+    private void customComponents() {
+        this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
     }
 
 

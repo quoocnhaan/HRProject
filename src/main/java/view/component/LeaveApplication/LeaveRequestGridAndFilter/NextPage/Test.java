@@ -2,10 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view.component.LeaveApplication.LeaveRequestGridAndFilter;
+package view.component.LeaveApplication.LeaveRequestGridAndFilter.NextPage;
 
-import view.component.LeaveApplication.LeaveRequestGridAndFilter.Filter.Filter_Component;
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.ImageIcon;
+import view.component.LeaveApplication.ListLeaveRequest.BasicLeaveRequest.Search;
 
 /**
  *
@@ -18,8 +20,8 @@ public class Test extends javax.swing.JFrame {
      */
     public Test() {
         initComponents();
-        this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(new LeaveApplicationGridAndFilter());
+        this.setLayout(new BorderLayout());
+        this.add(new NextPageAndSearch());
     }
 
     /**
@@ -37,11 +39,11 @@ public class Test extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1400, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();

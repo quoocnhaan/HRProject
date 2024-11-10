@@ -19,7 +19,7 @@ public class Department_Component extends javax.swing.JPanel {
     public Department_Component() {
         initComponents();
         this.setLayout(new BorderLayout());
-        this.add(new SearchAndFilter_Component(), BorderLayout.NORTH);
+        this.add(new Search(), BorderLayout.NORTH);
         this.add(new DepartmentData_Component(), BorderLayout.CENTER);
     }
 

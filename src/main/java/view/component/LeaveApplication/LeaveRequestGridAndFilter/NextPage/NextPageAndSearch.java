@@ -2,26 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.LeaveApplication.LeaveRequestGridAndFilter.LeaveRequestForm;
+package view.component.LeaveApplication.LeaveRequestGridAndFilter.NextPage;
 
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+import java.util.concurrent.Flow;
+import javax.swing.ImageIcon;
+import javax.swing.border.EmptyBorder;
+import view.component.LeaveApplication.LeaveRequestGridAndFilter.NextPage.CurrentDate.CurrentDate_Component;
+import view.component.LeaveApplication.ListLeaveRequest.BasicLeaveRequest.Search;
 
 /**
  *
  * @author LENOVO
  */
-public class LeaveForm_Container extends javax.swing.JPanel {
+public class NextPageAndSearch extends javax.swing.JPanel {
 
     /**
-     * Creates new form LeaveForm_Container
+     * Creates new form NewJPanel
      */
-    public LeaveForm_Container() {
+    public NextPageAndSearch() {
         initComponents();
         setLayout();
+        customComponents();
         addComponents();
+
     }
 
     /**
@@ -39,22 +43,29 @@ public class LeaveForm_Container extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 37, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void setLayout() {
-        this.setLayout(new GridLayout(0, 7, 0, 0));
+        this.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 0));
+    }
+
+    private void customComponents() {
+        this.setBorder(new EmptyBorder(5, 0, 0, 5));
     }
 
     private void addComponents() {
-        for(int i = 1; i <= 56; i++) {
-            this.add(new LeaveForm_Component(true));
-        }
+        ImageIcon next = new ImageIcon(getClass().getResource("/icon/next.png"));
+        ImageIcon pre = new ImageIcon(getClass().getResource("/icon/pre.png"));
+        this.add(new NextPage_Component(pre));
+        this.add(new NextPage_Component(next));
+        this.add(new CurrentDate_Component("25 - 27 tháng 5 2024"));
+        this.add(new Search());
     }
 
 

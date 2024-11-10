@@ -23,7 +23,6 @@ public class Contact_Component extends javax.swing.JPanel {
         initComponents();
         addIcon();
         this.setPreferredSize(new Dimension(280, 100));
-        this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
         this.email.setText(email);
         this.phone.setText(phone);
         this.twitter.setText(twitter);

@@ -20,7 +20,6 @@ public class DateAndGender_Component extends javax.swing.JPanel {
     public DateAndGender_Component(String dateOfBirth, String place, String gender) {
         initComponents();
         this.setPreferredSize(new Dimension(280, 100));
-        this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
         this.dateOfBirth.setText(dateOfBirth);
         this.place.setText(place);
         this.gender.setText(gender);

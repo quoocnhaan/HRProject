@@ -20,7 +20,6 @@ public class CheckBox_Component extends javax.swing.JPanel {
     public CheckBox_Component() {
         initComponents();
         this.setPreferredSize(new Dimension(31, 100));
-        this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
     }
 
     /**

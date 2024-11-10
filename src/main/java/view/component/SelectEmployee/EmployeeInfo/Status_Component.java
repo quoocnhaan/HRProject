@@ -20,7 +20,6 @@ public class Status_Component extends javax.swing.JPanel {
     public Status_Component(String startDate, String seniority, String status) {
         initComponents();
         this.setPreferredSize(new Dimension(280, 100));
-        this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
         this.startDate.setText(startDate);
         this.seniority.setText(seniority);
         this.status.setText(status);

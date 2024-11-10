@@ -57,7 +57,7 @@ public class Date_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        for (int i = 1; i <= 8; i++) {
+        for (int i = 1; i <= 7; i++) {
             this.add(new Date_Component("Thu hai", "17"));
         }
     }

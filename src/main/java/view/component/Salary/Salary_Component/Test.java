@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view.component.LeaveApplication.LeaveRequestGridAndFilter;
+package view.component.Salary.Salary_Component;
+
 import java.awt.BorderLayout;
 
 /**
@@ -17,7 +18,7 @@ public class Test extends javax.swing.JFrame {
     public Test() {
         initComponents();
         this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(new LeaveApplicationGridAndFilter());
+        this.getContentPane().add(new Salary_Component());
     }
 
     /**

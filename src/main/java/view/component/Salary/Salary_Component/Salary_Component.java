@@ -2,22 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.LeaveApplication.LeaveRequestGridAndFilter;
+package view.component.Salary.Salary_Component;
 
-import view.component.Salary.Salary_Component.Salary_Component;
 import java.awt.BorderLayout;
-import view.component.LeaveApplication.LeaveRequestGridAndFilter.Filter.Filter_Component;
+import java.awt.Color;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import view.component.Salary.Salary_Component.Content.Content_Component;
 
 /**
  *
  * @author LENOVO
  */
-public class LeaveApplicationGridAndFilter extends javax.swing.JPanel {
+public class Salary_Component extends javax.swing.JPanel {
 
     /**
-     * Creates new form LeaveApplicationGridAndFilter
+     * Creates new form LeaveApplication_Component
      */
-    public LeaveApplicationGridAndFilter() {
+    public Salary_Component() {
         initComponents();
         setLayout();
         addComponents();
@@ -32,8 +34,6 @@ public class LeaveApplicationGridAndFilter extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(240, 242, 245));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -42,17 +42,34 @@ public class LeaveApplicationGridAndFilter extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
     private void setLayout() {
-        this.setLayout(new BorderLayout(10, 0));
+        this.setLayout(new BorderLayout());
+        this.setBackground(Color.white);
     }
 
     private void addComponents() {
-        this.add(new Filter_Component(), BorderLayout.WEST);
-        this.add(new Salary_Component(), BorderLayout.CENTER);
+
+        Content_Component contentComponent = new Content_Component();
+
+        // Lấy các panel cố định từ Content_Component
+        JPanel fixedColumnPanel = contentComponent.getEmployeeInfo_Container();
+        JPanel fixedRowPanel = contentComponent.getDate_Container();
+
+        // Tạo JScrollPane cho phần nội dung
+        JScrollPane scrollPane = new JScrollPane(contentComponent);
+
+        // Cố định cột đầu tiên khi cuộn ngang và hàng đầu tiên khi cuộn dọc
+        scrollPane.setRowHeaderView(fixedColumnPanel);
+        scrollPane.setColumnHeaderView(fixedRowPanel);
+
+        // Thêm JScrollPane vào JFrame
+        this.add(scrollPane, BorderLayout.CENTER);
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -2,22 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.LeaveApplication.LeaveRequestGridAndFilter;
+package view.component.Salary.Salary_Component.Title;
 
-import view.component.Salary.Salary_Component.Salary_Component;
-import java.awt.BorderLayout;
-import view.component.LeaveApplication.LeaveRequestGridAndFilter.Filter.Filter_Component;
+import java.awt.GridLayout;
 
 /**
  *
  * @author LENOVO
  */
-public class LeaveApplicationGridAndFilter extends javax.swing.JPanel {
+public class Title_Container extends javax.swing.JPanel {
 
     /**
-     * Creates new form LeaveApplicationGridAndFilter
+     * Creates new form Date_Container
      */
-    public LeaveApplicationGridAndFilter() {
+    public Title_Container() {
         initComponents();
         setLayout();
         addComponents();
@@ -32,28 +30,34 @@ public class LeaveApplicationGridAndFilter extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(240, 242, 245));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1120, Short.MAX_VALUE)
+            .addGap(0, 840, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    private void setLayout() {
-        this.setLayout(new BorderLayout(10, 0));
-    }
 
-    private void addComponents() {
-        this.add(new Filter_Component(), BorderLayout.WEST);
-        this.add(new Salary_Component(), BorderLayout.CENTER);
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
+
+    private void setLayout() {
+        this.setLayout(new GridLayout(1, 0, 0, 0));
+    }
+
+    private void addComponents() {
+        String[] title = {"Lương cứng", "Chức danh", "Phụ cấp", "Bảo hiểm", 
+            "Công chuẩn", "Công thực tế", "Thuế TNCN", "Lương thực tế"};
+        for (int i = 0; i < 8; i++) {
+            this.add(new Title_Component(title[i]));
+        }
+    }
 }

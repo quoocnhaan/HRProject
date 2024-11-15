@@ -55,7 +55,7 @@ public class Title_Container extends javax.swing.JPanel {
 
     private void addComponents() {
         String[] title = {"Lương cứng", "Chức danh", "Phụ cấp", "Bảo hiểm", 
-            "Công chuẩn", "Công thực tế", "Thuế TNCN", "Lương thực tế"};
+            "Công chuẩn", "Công thực tế", "Thuế TNCN", "Lương chính thức"};
         for (int i = 0; i < 8; i++) {
             this.add(new Title_Component(title[i]));
         }

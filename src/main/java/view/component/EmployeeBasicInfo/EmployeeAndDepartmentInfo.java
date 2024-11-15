@@ -2,25 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.SelectEmployee;
+package view.component.EmployeeBasicInfo;
 
 import java.awt.BorderLayout;
-import view.component.EmployeeBasicInfo.Search.Search;
-import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
+import java.awt.FlowLayout;
+import javax.swing.border.EmptyBorder;
+import view.component.DepartmentInfo.Department_Component;
+import view.component.EmployeeBasicInfo.EmployeeInfo.EmployeeInfo_Component;
 
 /**
  *
  * @author LENOVO
  */
-public class EmployeeAndSearch extends javax.swing.JPanel {
+public class EmployeeAndDepartmentInfo extends javax.swing.JPanel {
 
     /**
-     * Creates new form EmployeeAndSearch
+     * Creates new form EmployeeAndDepartmentInfo
      */
-    public EmployeeAndSearch() {
+    public EmployeeAndDepartmentInfo() {
         initComponents();
-        setLayout();
-        addComponents();
+        this.setLayout(new BorderLayout(10, 10));
+        this.setBorder(new EmptyBorder(10, 10, 10, 10));
+        this.add(new Department_Component(), BorderLayout.WEST);
+        this.add(new EmployeeInfoAndSearch(), BorderLayout.CENTER);
     }
 
     /**
@@ -32,26 +36,19 @@ public class EmployeeAndSearch extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setBackground(new java.awt.Color(243, 245, 249));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
+            .addGap(0, 547, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void setLayout() {
-        this.setLayout(new BorderLayout());
-    }
-
-    private void addComponents() {
-        this.add(new Search(), BorderLayout.NORTH);
-        this.add(new PersonalInfo(), BorderLayout.CENTER);
-    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

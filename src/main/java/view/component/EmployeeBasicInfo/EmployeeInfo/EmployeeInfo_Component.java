@@ -2,25 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.SelectEmployee;
+package view.component.EmployeeBasicInfo.EmployeeInfo;
 
 import java.awt.BorderLayout;
-import view.component.EmployeeBasicInfo.Search.Search;
-import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author LENOVO
  */
-public class EmployeeAndSearch extends javax.swing.JPanel {
+public class EmployeeInfo_Component extends javax.swing.JPanel {
 
     /**
-     * Creates new form EmployeeAndSearch
+     * Creates new form EmployeeInfo_Component
      */
-    public EmployeeAndSearch() {
+    public EmployeeInfo_Component() {
         initComponents();
         setLayout();
-        addComponents();
+        addComponent();
     }
 
     /**
@@ -36,20 +35,30 @@ public class EmployeeAndSearch extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1120, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
+            .addGap(0, 547, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void initDisplay() {
+    }
 
     private void setLayout() {
         this.setLayout(new BorderLayout());
     }
 
-    private void addComponents() {
-        this.add(new Search(), BorderLayout.NORTH);
+    private void addComponent() {
+        String name = "Lam Quoc Nhan";
+        String position = "Tong Giam Doc |";
+        String companyName = "VNG";
+        String phoneNumber = "(+84) 9682705533 |";
+        String email = "quocnhan56@gmail.com";
+        String total = "255";
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/img/logo1.png"));
+        this.add(new ManagerInfo_Component(name, position, companyName, phoneNumber, email, total, imageIcon), BorderLayout.NORTH);
         this.add(new PersonalInfo(), BorderLayout.CENTER);
     }
 

@@ -2,22 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.SelectEmployee;
+package view.component.EmployeeBasicInfo;
 
 import java.awt.BorderLayout;
+import view.component.EmployeeBasicInfo.EmployeeInfo.EmployeeInfo_Component;
 import view.component.EmployeeBasicInfo.Search.Search;
-import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
 /**
  *
  * @author LENOVO
  */
-public class EmployeeAndSearch extends javax.swing.JPanel {
+public class EmployeeInfoAndSearch extends javax.swing.JPanel {
 
     /**
-     * Creates new form EmployeeAndSearch
+     * Creates new form EmployeeInfo
      */
-    public EmployeeAndSearch() {
+    public EmployeeInfoAndSearch() {
         initComponents();
         setLayout();
         addComponents();
@@ -40,7 +40,7 @@ public class EmployeeAndSearch extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -50,7 +50,7 @@ public class EmployeeAndSearch extends javax.swing.JPanel {
 
     private void addComponents() {
         this.add(new Search(), BorderLayout.NORTH);
-        this.add(new PersonalInfo(), BorderLayout.CENTER);
+        this.add(new EmployeeInfo_Component(), BorderLayout.CENTER);
     }
 
 

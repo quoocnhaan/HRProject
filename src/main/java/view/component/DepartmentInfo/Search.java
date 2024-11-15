@@ -4,7 +4,7 @@
  */
 package view.component.DepartmentInfo;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import javax.swing.ImageIcon;
 
 /**
@@ -90,6 +90,6 @@ public class Search extends javax.swing.JPanel {
 
     private void addIcon() {
         ImageIcon icon = new ImageIcon(getClass().getResource("/icon/search.png"));
-        this.icon.setIcon(Function.scaleImg(this.icon, icon));
+        this.icon.setIcon(Functional.scaleImg(this.icon, icon));
     }
 }

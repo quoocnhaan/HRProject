@@ -23,7 +23,6 @@ view\component\SelectEmployee\EmployeeInfo\Status_Component.class
 view\component\EmployeeBasicInfo\EmployeeAndDepartmentInfo.class
 controller\Enum\Status.class
 view\component\SelectEmployee\Test$1.class
-controller\Function\Function.class
 view\component\EmployeeDetailInfo\ListEmployee_Component\Filter_Component_PI.class
 finally_JobInfo.class
 view\component\SelectEmployee\EmployeeInfo\TestFrame$1.class
@@ -32,6 +31,7 @@ view\component\DepartmentInfo\Search.class
 view\component\EmployeeDetailInfo\ListEmployee_Component\Test.class
 view\component\EmployeeDetailInfo\ListEmployee_Component\TitleAndAdd_Component.class
 view\component\LeaveApplication\LeaveRequestGridAndFilter\NextPage\NextPage_Component$1.class
+model\Function.class
 view\component\DepartmentInfo\Search$2.class
 view\component\SelectEmployee\EmployeeInfo\DateAndGender_Component.class
 view\component\LeaveApplication\DetailLeaveRequestForm\Test$1.class
@@ -63,6 +63,7 @@ view\component\BenefitInfo_Component\TimeKeepingInfo_Component.class
 view\component\BenefitInfo_Component\MaternityLeave_Component.class
 view\component\BenefitInfo_Component\HealthInsurance_Component.class
 view\component\SelectEmployee\EmployeeInfo\PersonalBasicInfo_Container.class
+controller\Function\Functional.class
 view\component\Salary\Salary_Component\Test.class
 util\HibernateUtil.class
 view\component\LeaveApplication\LeaveRequestGridAndFilter\Test.class
@@ -94,6 +95,7 @@ view\component\Salary\Salary_Component\Data\Data_Container.class
 view\component\BenefitInfo_Component\Test_BI.class
 view\component\EmployeeDetailInfo\Test$1.class
 view\component\EmployeeDetailInfo\PersonalProfile_Component\Hotline_Component.class
+model\Role.class
 view\component\BenefitInfo_Component\TimeKeepingInfo_Component$1.class
 view\component\LeaveApplication\ListLeaveRequest\BasicLeaveRequest\Search.class
 view\component\LeaveApplication\LeaveRequestGridAndFilter\Date\Date_Component.class
@@ -121,7 +123,6 @@ view\component\Salary\Salary_Component\Employee\EmployeeInfo_Container.class
 view\component\EmployeeDetailInfo\Test.class
 view\component\EmployeeDetailInfo\ListEmployee_Component\TitleAndAdd_Component$1.class
 view\component\Salary\Salary_Component\Title\Title_Container.class
-model\main.class
 view\component\LeaveApplication\LeaveRequestGridAndFilter\Employee\EmployeeInfo_Component.class
 view\component\SelectEmployee\Test.class
 view\component\LeaveApplication\LeaveRequestGridAndFilter\NextPage\NextPage_Component.class

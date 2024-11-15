@@ -4,7 +4,7 @@
  */
 package view.component.EmployeeDetailInfo.ListEmployee_Component;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -139,6 +139,6 @@ public class BasicInfo_Component_PI extends javax.swing.JPanel {
         this.job.setText(job);
         this.direct.setText(work);
         this.seniority.setText(sen);
-        this.picture_user.setIcon(Function.scaleImg(picture_user, img));
+        this.picture_user.setIcon(Functional.scaleImg(picture_user, img));
     }
 }

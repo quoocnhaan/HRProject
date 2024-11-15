@@ -4,7 +4,7 @@
  */
 package view.component.EmployeeBasicInfo.EmployeeInfo;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import javax.swing.ImageIcon;
@@ -25,7 +25,7 @@ public class ManagerInfo_Component extends javax.swing.JPanel {
         this.companyName.setText(companyName);
         this.phoneNumber.setText(phone);
         this.email.setText(email);
-        this.logo.setIcon(Function.scaleImg(this.logo, img));
+        this.logo.setIcon(Functional.scaleImg(this.logo, img));
         this.total.setText(total);
     }
 

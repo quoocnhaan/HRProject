@@ -4,7 +4,7 @@
  */
 package view.component.EmployeeBasicInfo.EmployeeInfo;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 
@@ -119,9 +119,9 @@ public class Contact_Component extends javax.swing.JPanel {
         ImageIcon phoneIcon = new ImageIcon(getClass().getResource("/icon/phone.png"));
         ImageIcon twitterIcon = new ImageIcon(getClass().getResource("/icon/twitter.png"));
 
-        this.emailIcon.setIcon(Function.scaleImg(this.emailIcon, emailIcon));
-        this.phoneIcon.setIcon(Function.scaleImg(this.emailIcon, phoneIcon));
-        this.twitterIcon.setIcon(Function.scaleImg(this.emailIcon, twitterIcon));
+        this.emailIcon.setIcon(Functional.scaleImg(this.emailIcon, emailIcon));
+        this.phoneIcon.setIcon(Functional.scaleImg(this.emailIcon, phoneIcon));
+        this.twitterIcon.setIcon(Functional.scaleImg(this.emailIcon, twitterIcon));
 
     }
 }

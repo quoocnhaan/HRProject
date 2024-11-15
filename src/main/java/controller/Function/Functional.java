@@ -12,10 +12,10 @@ import javax.swing.JLabel;
  *
  * @author LENOVO
  */
-public class Function {
+public class Functional {
 
     public static ImageIcon scaleImg(JLabel jLabel, String url) {
-        ImageIcon imageIcon = new ImageIcon(Function.class.getResource(url));
+        ImageIcon imageIcon = new ImageIcon(Functional.class.getResource(url));
         Image image = imageIcon.getImage();
         Image scaledImage = image.getScaledInstance(jLabel.getWidth(), jLabel.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);

@@ -4,7 +4,7 @@
  */
 package view.form.Home;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -204,10 +204,10 @@ public class Home_Form extends javax.swing.JFrame {
         String urlMenu = "/img/menu.png";
         String urlNoti = "/img/bell.png";
 
-        ImageIcon iconLogo = Function.scaleImg(logo, urlLogo);
-        ImageIcon iconBack = Function.scaleImg(backBtn, urlBack);
-        ImageIcon iconMenu = Function.scaleImg(menuBtn, urlMenu);
-        ImageIcon iconNoti = Function.scaleImg(notiBtn, urlNoti);
+        ImageIcon iconLogo = Functional.scaleImg(logo, urlLogo);
+        ImageIcon iconBack = Functional.scaleImg(backBtn, urlBack);
+        ImageIcon iconMenu = Functional.scaleImg(menuBtn, urlMenu);
+        ImageIcon iconNoti = Functional.scaleImg(notiBtn, urlNoti);
 
         logo.setIcon(iconLogo);
         backBtn.setIcon(iconBack);

@@ -4,7 +4,7 @@
  */
 package view.component.EmployeeDetailInfo.ListEmployee_Component;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -104,6 +104,6 @@ public class PersonInfor_Component extends javax.swing.JPanel {
 
     private void initData() {
         ImageIcon img = new ImageIcon(getClass().getResource("/img/avatar.jpg"));
-        this.imgUser.setIcon(Function.scaleImg(imgUser, img));
+        this.imgUser.setIcon(Functional.scaleImg(imgUser, img));
     }
 }

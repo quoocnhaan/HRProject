@@ -4,7 +4,7 @@
  */
 package view.component.Salary.Salary_Component.Employee;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
@@ -107,6 +107,6 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
         this.job.setText(job);
         this.id.setText(id);
         this.img.setSize(40, 40);
-        this.img.setIcon(Function.scaleImg(this.img, img));
+        this.img.setIcon(Functional.scaleImg(this.img, img));
     }
 }

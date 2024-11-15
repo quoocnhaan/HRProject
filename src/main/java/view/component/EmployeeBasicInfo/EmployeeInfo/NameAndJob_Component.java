@@ -4,7 +4,7 @@
  */
 package view.component.EmployeeBasicInfo.EmployeeInfo;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 
@@ -24,7 +24,7 @@ public class NameAndJob_Component extends javax.swing.JPanel {
         this.id.setText(id);
         this.job.setText(job);
         this.direct.setText(direct);
-        this.img.setIcon(Function.scaleImg(this.img, img));
+        this.img.setIcon(Functional.scaleImg(this.img, img));
     }
 
     /**

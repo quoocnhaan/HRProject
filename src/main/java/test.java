@@ -1,4 +1,6 @@
 
+import java.sql.Date;
+import model.Role;
 import util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -25,10 +27,8 @@ public class test {
             transaction = session.beginTransaction();
 
             // Tạo một đối tượng User và lưu vào cơ sở dữ liệu
-            User user = new User();
-            user.setName("John Doe");
-            user.setEmail("john@example.com");
-            session.save(user); // Lưu đối tượng user vào DB
+            Role role = new Role(0, "a", new Date(2020, 1, 1), 0, true);
+            session.save(role); // Lưu đối tượng user vào DB
 
             // Hoàn thành transaction
             transaction.commit();
@@ -37,10 +37,6 @@ public class test {
             System.out.println("User đã được thêm thành công!");
 
             // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-            User retrievedUser = session.get(User.class, user.getId());
-            System.out.println("Dữ liệu lấy ra từ DB:");
-            System.out.println("ID: " + retrievedUser.getId() + ", Name: " + retrievedUser.getName() + ", Email: " + retrievedUser.getEmail());
-
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();

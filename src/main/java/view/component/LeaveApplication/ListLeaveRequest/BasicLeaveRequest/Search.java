@@ -4,7 +4,7 @@
  */
 package view.component.LeaveApplication.ListLeaveRequest.BasicLeaveRequest;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 
@@ -76,6 +76,6 @@ public class Search extends javax.swing.JPanel {
         this.setPreferredSize(new Dimension(870, 37));
         this.icon.setSize(25, 25);
         ImageIcon icon = new ImageIcon(getClass().getResource("/icon/search.png"));
-        this.icon.setIcon(Function.scaleImg(this.icon, icon));
+        this.icon.setIcon(Functional.scaleImg(this.icon, icon));
     }
 }

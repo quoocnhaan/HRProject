@@ -4,7 +4,7 @@
  */
 package view.component.LeaveApplication.LeaveRequestGridAndFilter.NextPage;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
@@ -20,7 +20,7 @@ public class NextPage_Component extends javax.swing.JPanel {
     public NextPage_Component(ImageIcon icon) {
         initComponents();
         this.icon.setSize(25, 25);
-        this.icon.setIcon(Function.scaleImg(this.icon, icon));
+        this.icon.setIcon(Functional.scaleImg(this.icon, icon));
     }
 
     /**

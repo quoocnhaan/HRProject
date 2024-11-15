@@ -4,7 +4,7 @@
  */
 package view.component.SelectEmployee.DepartmentInfo;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import javax.swing.ImageIcon;
 
 /**
@@ -90,6 +90,6 @@ public class SearchAndFilter_Component extends javax.swing.JPanel {
 
     private void addIcon() {
         ImageIcon icon = new ImageIcon(getClass().getResource("/icon/filter.png"));
-        this.icon.setIcon(Function.scaleImg(this.icon, icon));
+        this.icon.setIcon(Functional.scaleImg(this.icon, icon));
     }
 }

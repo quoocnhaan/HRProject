@@ -4,7 +4,7 @@
  */
 package view.component.LeaveApplication.LeaveRequestGridAndFilter.Filter;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
@@ -220,7 +220,7 @@ public class Filter_Component extends javax.swing.JPanel {
         toDateChooser.setBorder(null);
         ImageIcon img = new ImageIcon(getClass().getResource("/icon/add.png"));
         this.selectImg.setSize(25, 25);
-        this.selectImg.setIcon(Function.scaleImg(selectImg, img));
+        this.selectImg.setIcon(Functional.scaleImg(selectImg, img));
     }
 
 }

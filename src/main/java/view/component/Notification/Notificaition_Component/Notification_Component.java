@@ -4,7 +4,7 @@
  */
 package view.component.Notification.Notificaition_Component;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import javax.swing.ImageIcon;
 
 /**
@@ -87,7 +87,7 @@ public class Notification_Component extends javax.swing.JPanel {
     }
 
     private void initDate(ImageIcon icon, String message, String time) {
-        this.icon.setIcon(Function.scaleImg(this.icon, icon));
+        this.icon.setIcon(Functional.scaleImg(this.icon, icon));
         this.message.setText(message);
         this.time.setText(time);
     }

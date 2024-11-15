@@ -4,7 +4,7 @@
  */
 package view.component.Home_Component;
 
-import controller.Function.Function;
+import controller.Function.Functional;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import org.hibernate.Session;
@@ -88,7 +88,7 @@ public class Function_Component extends javax.swing.JPanel {
     private void initData(String funcId, String funcName, Color color, ImageIcon imgIcon) {
         this.funcId.setText(funcId);
         this.funcName.setText(funcName);
-        this.funcIcon.setIcon(Function.scaleImg(this.funcIcon, imgIcon));
+        this.funcIcon.setIcon(Functional.scaleImg(this.funcIcon, imgIcon));
         this.setBackground(color);
     }
 }

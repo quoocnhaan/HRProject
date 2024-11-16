@@ -72,6 +72,23 @@ public class Employee {
     
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<KOW> kow;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "driver_license_id")
+    private DriverLicense driverLicense;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "credit_card_id")
+    private CreditCard creditCard;
+    
+    @OneToMany(mappedBy = "approver", cascade = CascadeType.ALL)
+    private List<Contract> contracts;
+    
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<LeaveRequest> leaveRequest;
+    
+    @OneToMany(mappedBy = "approver", cascade = CascadeType.ALL)
+    private List<LeaveRequest> approveListRequest;
 
     @Column(name = "name")
     private String name;

@@ -4,49 +4,49 @@
  */
 package model;
 
-import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
  *
- * @author PC
+ * @author LENOVO
  */
 @Entity
-@Table(name = "sys_role")
-public class Role {
+@Table(name = "hr_maternity_leave")
+public class MaternityLeave {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
+    @Column(name = "duration")
+    private int duration;
 
-    @Column(name = "appointment_date")
-    private Date appointmentDate;
-
+    @Column(name = "allowance")
     private double allowance;
-    
-    @ManyToMany(mappedBy = "roles")
-    private List<Function> functions;
 
+    @Column(name = "company_support")
+    private String companySupport;
+
+    @Column(name = "remaining_day")
+    private int remainingDay;
+
+    @Column(name = "status")
     private boolean status;
 
-    public Role() {
+    public MaternityLeave() {
     }
 
-    public Role(long id, String name, Date appointmentDate, double allowance, boolean status) {
+    public MaternityLeave(long id, int duration, double allowance, String companySupport, int remainingDay, boolean status) {
         this.id = id;
-        this.name = name;
-        this.appointmentDate = appointmentDate;
+        this.duration = duration;
         this.allowance = allowance;
+        this.companySupport = companySupport;
+        this.remainingDay = remainingDay;
         this.status = status;
     }
 
@@ -58,20 +58,12 @@ public class Role {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getAppointmentDate() {
-        return appointmentDate;
-    }
-
-    public void setAppointmentDate(Date appointmentDate) {
-        this.appointmentDate = appointmentDate;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     public double getAllowance() {
@@ -80,6 +72,22 @@ public class Role {
 
     public void setAllowance(double allowance) {
         this.allowance = allowance;
+    }
+
+    public String getCompanySupport() {
+        return companySupport;
+    }
+
+    public void setCompanySupport(String companySupport) {
+        this.companySupport = companySupport;
+    }
+
+    public int getRemainingDay() {
+        return remainingDay;
+    }
+
+    public void setRemainingDay(int remainingDay) {
+        this.remainingDay = remainingDay;
     }
 
     public boolean isStatus() {

@@ -6,6 +6,7 @@ package model;
 
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class Function {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @JoinColumn(name = "function_id")
+    @Column(name = "function_id")
     private String functionId;
     
     @ManyToMany(cascade = CascadeType.ALL)

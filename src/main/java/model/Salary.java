@@ -42,8 +42,7 @@ public class Salary {
     public Salary() {
     }
 
-    public Salary(long id, Employee employee, PayPeriod payPeriod, double salary, boolean status) {
-        this.id = id;
+    public Salary(Employee employee, PayPeriod payPeriod, double salary, boolean status) {
         this.employee = employee;
         this.payPeriod = payPeriod;
         this.salary = salary;

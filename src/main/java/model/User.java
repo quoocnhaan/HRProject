@@ -4,11 +4,13 @@
  */
 package model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,18 +25,30 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    @JoinColumn(name = "user_name")
+    @Column(name = "user_name")
     private String userName;
     
+    @Column(name = "password")
     private String password;
+    
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Employee employee;
 
     public User() {
     }
 
-    public User(long id, String userName, String password) {
-        this.id = id;
+    public User(String userName, String password, Employee employee) {
         this.userName = userName;
         this.password = password;
+        this.employee = employee;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public long getId() {
@@ -60,6 +74,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
     
 }

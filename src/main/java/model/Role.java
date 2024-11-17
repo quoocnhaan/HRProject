@@ -27,23 +27,25 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "name")
     private String name;
 
     @Column(name = "appointment_date")
     private Date appointmentDate;
 
+    @Column(name = "allowance")
     private double allowance;
     
     @ManyToMany(mappedBy = "roles")
     private List<Function> functions;
 
+    @Column(name = "status")
     private boolean status;
 
     public Role() {
     }
 
-    public Role(long id, String name, Date appointmentDate, double allowance, boolean status) {
-        this.id = id;
+    public Role(String name, Date appointmentDate, double allowance, boolean status) {
         this.name = name;
         this.appointmentDate = appointmentDate;
         this.allowance = allowance;

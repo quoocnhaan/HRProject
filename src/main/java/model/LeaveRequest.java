@@ -30,6 +30,7 @@ public class LeaveRequest {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @Column(name = "approve_status")
     private boolean approveStatus;
 
     @ManyToOne
@@ -66,8 +67,7 @@ public class LeaveRequest {
     public LeaveRequest() {
     }
 
-    public LeaveRequest(long id, Employee employee, boolean approveStatus, Employee approver, Date registrationDate, Date approveDate, Date fromDate, Date toDate, String type, double startLeave, int totalDay, String reason, boolean status) {
-        this.id = id;
+    public LeaveRequest(Employee employee, boolean approveStatus, Employee approver, Date registrationDate, Date approveDate, Date fromDate, Date toDate, String type, double startLeave, int totalDay, String reason, boolean status) {
         this.employee = employee;
         this.approveStatus = approveStatus;
         this.approver = approver;

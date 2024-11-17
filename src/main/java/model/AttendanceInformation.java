@@ -12,8 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -56,8 +54,7 @@ public class AttendanceInformation {
     public AttendanceInformation() {
     }
 
-    public AttendanceInformation(long id, String attendanceId, Employee employee, String location, String conditions, LocalTime startTime, LocalTime endTime, boolean status) {
-        this.id = id;
+    public AttendanceInformation(String attendanceId, Employee employee, String location, String conditions, LocalTime startTime, LocalTime endTime, boolean status) {
         this.attendanceId = attendanceId;
         this.employee = employee;
         this.location = location;

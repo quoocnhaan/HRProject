@@ -44,8 +44,7 @@ public class KOW {
     public KOW() {
     }
 
-    public KOW(long id, Employee employee, Date workDate, double totalLate, double totalWorkinghours, boolean status) {
-        this.id = id;
+    public KOW(Employee employee, Date workDate, double totalLate, double totalWorkinghours, boolean status) {
         this.employee = employee;
         this.workDate = workDate;
         this.totalLate = totalLate;

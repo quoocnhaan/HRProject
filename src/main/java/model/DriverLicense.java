@@ -52,8 +52,7 @@ public class DriverLicense {
     public DriverLicense() {
     }
 
-    public DriverLicense(long id, String licenseId, String name, Employee employee, Date issuedDate, Date expiredDate, String level, String issuedPlace, boolean status) {
-        this.id = id;
+    public DriverLicense(String licenseId, String name, Employee employee, Date issuedDate, Date expiredDate, String level, String issuedPlace, boolean status) {
         this.licenseId = licenseId;
         this.name = name;
         this.employee = employee;

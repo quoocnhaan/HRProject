@@ -4,7 +4,6 @@
  */
 package model;
 
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,34 +13,35 @@ import javax.persistence.Table;
 
 /**
  *
- * @author LENOVO
+ * @author PC
  */
 @Entity
-@Table(name = "hr_pay_period")
-public class PayPeriod {
+@Table(name = "hr_noti_type")
+public class NotiType {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    @Column(name = "pay_period_code")
-    private String payPeriodCode;
+    @Column(name = "type")
+    private String type;
     
-    @Column(name = "from_date")
-    private Date fromDate;
+    @Column(name = "message")
+    private String message;
     
-    @Column(name = "to_date")
-    private Date toDate;
+    @Column(name = "icon")
+    private byte[] icon;
     
     @Column(name = "status")
     private boolean status;
 
-    public PayPeriod() {
+    public NotiType() {
     }
 
-    public PayPeriod(String payPeriodCode, Date fromDate, Date toDate, boolean status) {
-        this.payPeriodCode = payPeriodCode;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
+    public NotiType(String type, String message, byte[] icon, boolean status) {
+        this.type = type;
+        this.message = message;
+        this.icon = icon;
         this.status = status;
     }
 
@@ -53,28 +53,28 @@ public class PayPeriod {
         this.id = id;
     }
 
-    public String getPayPeriodCode() {
-        return payPeriodCode;
+    public String getType() {
+        return type;
     }
 
-    public void setPayPeriodCode(String payPeriodCode) {
-        this.payPeriodCode = payPeriodCode;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Date getFromDate() {
-        return fromDate;
+    public String getMessage() {
+        return message;
     }
 
-    public void setFromDate(Date fromDate) {
-        this.fromDate = fromDate;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public Date getToDate() {
-        return toDate;
+    public byte[] getIcon() {
+        return icon;
     }
 
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
+    public void setIcon(byte[] icon) {
+        this.icon = icon;
     }
 
     public boolean isStatus() {
@@ -84,4 +84,6 @@ public class PayPeriod {
     public void setStatus(boolean status) {
         this.status = status;
     }
+    
+    
 }

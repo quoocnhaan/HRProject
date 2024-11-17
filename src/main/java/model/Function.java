@@ -49,8 +49,7 @@ public class Function {
     public Function() {
     }
 
-    public Function(long id, String functionId, String name, byte[] icon, String color, boolean status) {
-        this.id = id;
+    public Function(String functionId, String name, byte[] icon, String color, boolean status) {
         this.functionId = functionId;
         this.name = name;
         this.icon = icon;

@@ -4,11 +4,13 @@
  */
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +24,9 @@ public class TransportationAllowance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    
+    @OneToOne(mappedBy = "transportationAllowance", cascade = CascadeType.ALL)
+    private Employee employee;
 
     @Column(name = "purpose")
     private String purpose;
@@ -38,12 +43,20 @@ public class TransportationAllowance {
     public TransportationAllowance() {
     }
 
-    public TransportationAllowance(long id, String purpose, double rate, String policy, boolean status) {
-        this.id = id;
+    public TransportationAllowance(Employee employee, String purpose, double rate, String policy, boolean status) {
+        this.employee = employee;
         this.purpose = purpose;
         this.rate = rate;
         this.policy = policy;
         this.status = status;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public long getId() {

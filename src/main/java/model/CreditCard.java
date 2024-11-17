@@ -52,8 +52,7 @@ public class CreditCard {
     public CreditCard() {
     }
 
-    public CreditCard(long id, String bankName, Employee employee, String type, String cardNumber, String accountNumber, Date issueDate, Date expireDate, boolean status) {
-        this.id = id;
+    public CreditCard(String bankName, Employee employee, String type, String cardNumber, String accountNumber, Date issueDate, Date expireDate, boolean status) {
         this.bankName = bankName;
         this.employee = employee;
         this.type = type;

@@ -54,8 +54,7 @@ public class Job {
     public Job() {
     }
 
-    public Job(long id, Date startDate, Date officialDate, String type, String employmentStatus, String labor, String profession, String title, Date titleStartDate, boolean status) {
-        this.id = id;
+    public Job(Date startDate, Date officialDate, String type, String employmentStatus, String labor, String profession, String title, Date titleStartDate, boolean status) {
         this.startDate = startDate;
         this.officialDate = officialDate;
         this.type = type;

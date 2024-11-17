@@ -5,15 +5,13 @@
 package model;
 
 import java.time.LocalTime;
-import java.util.List;
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 /**
  *
@@ -30,16 +28,19 @@ public class AttendanceRecords {
     @JoinColumn(name = "attendance_information_id")
     private AttendanceInformation attendanceInformation;
 
+    @Column(name = "work_date")
     private String workDate;
     
+    @Column(name = "start_time")
     private LocalTime startTime;
     
+    @Column(name = "end_time")
     private LocalTime endTime;
     
+    @Column(name = "status")
     private boolean status;
 
-    public AttendanceRecords(long id, AttendanceInformation attendanceInformation, String workDate, LocalTime startTime, LocalTime endTime, boolean status) {
-        this.id = id;
+    public AttendanceRecords(AttendanceInformation attendanceInformation, String workDate, LocalTime startTime, LocalTime endTime, boolean status) {
         this.attendanceInformation = attendanceInformation;
         this.workDate = workDate;
         this.startTime = startTime;

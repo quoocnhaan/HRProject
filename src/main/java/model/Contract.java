@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +28,7 @@ public class Contract {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
+    @Column(name = "contract_id")
     private String contractId;
     
     @ManyToOne
@@ -35,7 +39,205 @@ public class Contract {
     @JoinColumn(name = "approver_id")
     private Employee approver;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "job_id")
     private Job job;
+    
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "department_id")
+    private Department department;
+    
+    @Column(name = "sign_date")
+    private Date signDate;
+    
+    @Column(name = "duration")
+    private String duration;
+    
+    @Column(name = "effective_date")
+    private Date effectiveDate;
+    
+    @Column(name = "expired_date")
+    private Date expiredDate;
+    
+    @Column(name = "base_salary")
+    private double baseSalary;
+    
+    @Column(name = "standard_working_hours")
+    private double standardWorkingHours;
+    
+    @Column(name = "payment_method")
+    private String paymentMethod;
+    
+    @Column(name = "probation_start_date")
+    private Date probationStartDate;
+    
+    @Column(name = "probation_end_date")
+    private Date probationEndDate;
+    
+    @Column(name = "transportation")
+    private String transportation;
+    
+    @Column(name = "status")
+    private boolean status;
+
+    public Contract() {
+    }
+
+    public Contract(String contractId, Employee employee, Employee approver, Job job, Department department, Date signDate, String duration, Date effectiveDate, Date expiredDate, double baseSalary, double standardWorkingHours, String paymentMethod, Date probationStartDate, Date probationEndDate, String transportation, boolean status) {
+        this.contractId = contractId;
+        this.employee = employee;
+        this.approver = approver;
+        this.job = job;
+        this.department = department;
+        this.signDate = signDate;
+        this.duration = duration;
+        this.effectiveDate = effectiveDate;
+        this.expiredDate = expiredDate;
+        this.baseSalary = baseSalary;
+        this.standardWorkingHours = standardWorkingHours;
+        this.paymentMethod = paymentMethod;
+        this.probationStartDate = probationStartDate;
+        this.probationEndDate = probationEndDate;
+        this.transportation = transportation;
+        this.status = status;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getContractId() {
+        return contractId;
+    }
+
+    public void setContractId(String contractId) {
+        this.contractId = contractId;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Employee getApprover() {
+        return approver;
+    }
+
+    public void setApprover(Employee approver) {
+        this.approver = approver;
+    }
+
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Date getSignDate() {
+        return signDate;
+    }
+
+    public void setSignDate(Date signDate) {
+        this.signDate = signDate;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public Date getEffectiveDate() {
+        return effectiveDate;
+    }
+
+    public void setEffectiveDate(Date effectiveDate) {
+        this.effectiveDate = effectiveDate;
+    }
+
+    public Date getExpiredDate() {
+        return expiredDate;
+    }
+
+    public void setExpiredDate(Date expiredDate) {
+        this.expiredDate = expiredDate;
+    }
+
+    public double getBaseSalary() {
+        return baseSalary;
+    }
+
+    public void setBaseSalary(double baseSalary) {
+        this.baseSalary = baseSalary;
+    }
+
+    public double getStandardWorkingHours() {
+        return standardWorkingHours;
+    }
+
+    public void setStandardWorkingHours(double standardWorkingHours) {
+        this.standardWorkingHours = standardWorkingHours;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public Date getProbationStartDate() {
+        return probationStartDate;
+    }
+
+    public void setProbationStartDate(Date probationStartDate) {
+        this.probationStartDate = probationStartDate;
+    }
+
+    public Date getProbationEndDate() {
+        return probationEndDate;
+    }
+
+    public void setProbationEndDate(Date probationEndDate) {
+        this.probationEndDate = probationEndDate;
+    }
+
+    public String getTransportation() {
+        return transportation;
+    }
+
+    public void setTransportation(String transportation) {
+        this.transportation = transportation;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+    
     
     
 }

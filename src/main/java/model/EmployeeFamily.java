@@ -81,8 +81,7 @@ public class EmployeeFamily {
     public EmployeeFamily() {
     }
 
-    public EmployeeFamily(long id, Employee employee, String name, boolean gender, String relationship, Date dateOfBirth, String idNumber, String idIssueDate, String idIssuePlace, String nationality, String taxCode, String healthInsuranceNumber, String socialInsuranceNumber, boolean isPrimaryCaregiver, boolean isDead, boolean yearOfDeath, boolean causeOfDeath, boolean status) {
-        this.id = id;
+    public EmployeeFamily(Employee employee, String name, boolean gender, String relationship, Date dateOfBirth, String idNumber, String idIssueDate, String idIssuePlace, String nationality, String taxCode, String healthInsuranceNumber, String socialInsuranceNumber, boolean isPrimaryCaregiver, boolean isDead, boolean yearOfDeath, boolean causeOfDeath, boolean status) {
         this.employee = employee;
         this.name = name;
         this.gender = gender;

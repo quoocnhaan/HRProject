@@ -4,11 +4,13 @@
  */
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +24,9 @@ public class MaternityLeave {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    
+    @OneToOne(mappedBy = "maternityLeave", cascade = CascadeType.ALL)
+    private Employee employee;
 
     @Column(name = "duration")
     private int duration;
@@ -41,14 +46,24 @@ public class MaternityLeave {
     public MaternityLeave() {
     }
 
-    public MaternityLeave(long id, int duration, double allowance, String companySupport, int remainingDay, boolean status) {
-        this.id = id;
+    public MaternityLeave(Employee employee, int duration, double allowance, String companySupport, int remainingDay, boolean status) {
+        this.employee = employee;
         this.duration = duration;
         this.allowance = allowance;
         this.companySupport = companySupport;
         this.remainingDay = remainingDay;
         this.status = status;
     }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    
+    
 
     public long getId() {
         return id;

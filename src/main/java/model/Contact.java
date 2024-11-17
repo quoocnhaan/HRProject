@@ -4,11 +4,13 @@
  */
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +24,9 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    
+    @OneToOne(mappedBy = "contact", cascade = CascadeType.ALL)
+    private Employee employee;
 
     @Column(name = "personal_email")
     private String personalEmail;
@@ -50,8 +55,7 @@ public class Contact {
     public Contact() {
     }
 
-    public Contact(long id, String personalEmail, String personalPhone, String permanentAddress, String tempAddress, String coEmail, String coPhone, String coAddress, String status) {
-        this.id = id;
+    public Contact(String personalEmail, String personalPhone, String permanentAddress, String tempAddress, String coEmail, String coPhone, String coAddress, String status) {
         this.personalEmail = personalEmail;
         this.personalPhone = personalPhone;
         this.permanentAddress = permanentAddress;

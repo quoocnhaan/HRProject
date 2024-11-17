@@ -27,7 +27,7 @@ public class test {
             transaction = session.beginTransaction();
 
             // Tạo một đối tượng User và lưu vào cơ sở dữ liệu
-            Role role = new Role(0, "a", new Date(2020, 1, 1), 0, true);
+            Role role = new Role("a", new Date(2020, 1, 1), 0, true);
             session.save(role); // Lưu đối tượng user vào DB
 
             // Hoàn thành transaction

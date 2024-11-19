@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.w3c.dom.NameList;
 
 /**
  *
@@ -21,38 +22,42 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "hr_department")
 public class Department {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     @Column(name = "department_id")
     private String departmentId;
-    
+
+    @Column(name = "name")
+    private String name;
+
     @OneToOne
     @JoinColumn(name = "manager_id")
     private Employee managerId;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parent_id")
-    private Department parentId;
-    
+    private Department parent;
+
     @Column(name = "total_employee")
     private int totalEmployee;
-    
+
     @Column(name = "level")
     private int level;
-    
+
     @Column(name = "status")
     private boolean status;
 
     public Department() {
     }
 
-    public Department(String departmentId, Employee managerId, Department parentId, int totalEmployee, int level, boolean status) {
+    public Department(String departmentId, String name, Employee managerId, Department parent, int totalEmployee, int level, boolean status) {
         this.departmentId = departmentId;
+        this.name = name;
         this.managerId = managerId;
-        this.parentId = parentId;
+        this.parent = parent;
         this.totalEmployee = totalEmployee;
         this.level = level;
         this.status = status;
@@ -82,12 +87,20 @@ public class Department {
         this.managerId = managerId;
     }
 
-    public Department getParentId() {
-        return parentId;
+    public Department getParent() {
+        return parent;
     }
 
-    public void setParentId(Department parentId) {
-        this.parentId = parentId;
+    public void setParent(Department parent) {
+        this.parent = parent;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getTotalEmployee() {
@@ -113,6 +126,5 @@ public class Department {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    
+
 }

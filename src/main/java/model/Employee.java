@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -46,8 +47,8 @@ public class Employee {
     private Employee manager;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_id")
-    private Role role;
+    @JoinColumn(name = "role_detail_id")
+    private RoleDetail roleDetail;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
@@ -156,12 +157,16 @@ public class Employee {
     private boolean status;
 
     public Employee() {
+        family = new ArrayList<>();
     }
 
-    public Employee(String employeeId, Employee manager, Role role, User user, List<EmployeeFamily> family, PaidLeave paidLeave, MaternityLeave maternityLeave, Insurance insurance, TransportationAllowance transportationAllowance, Contact contact, List<Contract> contracts, AttendanceInformation attendanceInformation, List<KOW> kow, DriverLicense driverLicense, CreditCard creditCard, List<Contract> approvedContracts, List<LeaveRequest> leaveRequest, List<LeaveRequest> approvedListRequest, Resignation resignation, List<Notification> notifications, String name, boolean gender, Date dateOfBirth, int senority, String major, String educationalBackground, String academicLevel, String academicTitle, String ethnicity, String taxCode, Date taxCodeIssueDate, String taxCodeIssuePlace, String nationality, String idNumber, Date idIssueDate, String idIssuePlace, String maritalStatus, boolean status) {
+    public Employee(String employeeId, String name, boolean gender, Date dateOfBirth, Employee manager, RoleDetail roleDetail, User user, List<EmployeeFamily> family, PaidLeave paidLeave, MaternityLeave maternityLeave, Insurance insurance, TransportationAllowance transportationAllowance, Contact contact, List<Contract> contracts, AttendanceInformation attendanceInformation, List<KOW> kow, DriverLicense driverLicense, CreditCard creditCard, List<Contract> approvedContracts, List<LeaveRequest> leaveRequest, List<LeaveRequest> approvedListRequest, Resignation resignation, List<Notification> notifications, int senority, String major, String educationalBackground, String academicLevel, String academicTitle, String ethnicity, String taxCode, Date taxCodeIssueDate, String taxCodeIssuePlace, String nationality, String idNumber, Date idIssueDate, String idIssuePlace, String maritalStatus, boolean status) {
         this.employeeId = employeeId;
+        this.name = name;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
         this.manager = manager;
-        this.role = role;
+        this.roleDetail = roleDetail;
         this.user = user;
         this.family = family;
         this.paidLeave = paidLeave;
@@ -179,9 +184,6 @@ public class Employee {
         this.approvedListRequest = approvedListRequest;
         this.resignation = resignation;
         this.notifications = notifications;
-        this.name = name;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
         this.senority = senority;
         this.major = major;
         this.educationalBackground = educationalBackground;
@@ -198,6 +200,8 @@ public class Employee {
         this.maritalStatus = maritalStatus;
         this.status = status;
     }
+
+    
 
     public long getId() {
         return id;
@@ -223,12 +227,12 @@ public class Employee {
         this.manager = manager;
     }
 
-    public Role getRole() {
-        return role;
+    public RoleDetail getRoleDetail() {
+        return roleDetail;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleDetail(RoleDetail roleDetail) {
+        this.roleDetail = roleDetail;
     }
 
     public User getUser() {

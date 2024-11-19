@@ -53,7 +53,6 @@ public class EmployeeInfoAndSearch extends javax.swing.JPanel {
         this.add(new EmployeeInfo_Component(), BorderLayout.CENTER);
     }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

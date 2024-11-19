@@ -29,12 +29,6 @@ public class Role {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "appointment_date")
-    private Date appointmentDate;
-
-    @Column(name = "allowance")
-    private double allowance;
     
     @ManyToMany(mappedBy = "roles")
     private List<Function> functions;
@@ -45,10 +39,9 @@ public class Role {
     public Role() {
     }
 
-    public Role(String name, Date appointmentDate, double allowance, boolean status) {
+    public Role(String name, List<Function> functions, boolean status) {
         this.name = name;
-        this.appointmentDate = appointmentDate;
-        this.allowance = allowance;
+        this.functions = functions;
         this.status = status;
     }
 
@@ -68,22 +61,6 @@ public class Role {
         this.name = name;
     }
 
-    public Date getAppointmentDate() {
-        return appointmentDate;
-    }
-
-    public void setAppointmentDate(Date appointmentDate) {
-        this.appointmentDate = appointmentDate;
-    }
-
-    public double getAllowance() {
-        return allowance;
-    }
-
-    public void setAllowance(double allowance) {
-        this.allowance = allowance;
-    }
-
     public boolean isStatus() {
         return status;
     }
@@ -91,6 +68,5 @@ public class Role {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
     
 }

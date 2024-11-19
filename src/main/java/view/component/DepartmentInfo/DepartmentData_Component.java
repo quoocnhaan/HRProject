@@ -4,6 +4,8 @@
  */
 package view.component.DepartmentInfo;
 
+import controller.DAO.DepartmentDAO;
+import controller.DAOImp.DepartmentDAOImp;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
@@ -73,27 +75,8 @@ public class DepartmentData_Component extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initData() {
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Root");
-
-        // Tạo các nút con
-        DefaultMutableTreeNode parent1 = new DefaultMutableTreeNode("Parent 1");
-        DefaultMutableTreeNode parent2 = new DefaultMutableTreeNode("Parent 2");
-
-        // Thêm các nút con vào Parent 1
-        parent1.add(new DefaultMutableTreeNode("Child 1.1"));
-        parent1.add(new DefaultMutableTreeNode("Child 1.2"));
-
-        // Thêm các nút con vào Parent 2
-        parent2.add(new DefaultMutableTreeNode("Child 2.1"));
-        parent2.add(new DefaultMutableTreeNode("Child 2.2"));
-
-        // Thêm các Parent vào nút gốc
-        root.add(parent1);
-        root.add(parent2);
-
-        // Tạo mô hình mới và gán mô hình cho JTree
-        DefaultTreeModel model = new DefaultTreeModel(root);
-        department.setModel(model);
+        DepartmentDAO departmentDAO = new DepartmentDAOImp();
+        department.setModel(departmentDAO.getDefaultTreeModel(1));
     }
 
     private void designTree() {

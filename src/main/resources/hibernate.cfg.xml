@@ -55,6 +55,7 @@ Contributor(s):
 
         <mapping class="model.Function"/>
         <mapping class="model.Role"/>
+        <mapping class="model.RoleDetail"/>
         <mapping class="model.User"/>
         <mapping class="model.TransportationAllowance"/>
         <mapping class="model.Salary"/>

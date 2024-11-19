@@ -5,6 +5,10 @@
 package controller.Function;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -27,6 +31,23 @@ public class Functional {
         Image scaledImage = image.getScaledInstance(jLabel.getWidth(), jLabel.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         return scaledIcon;
+    }
+
+    public static byte[] convertIconToByteArray(ImageIcon icon) throws IOException {
+        // Step 1: Get the Image from the ImageIcon
+        Image img = icon.getImage();
+
+        // Step 2: Convert the Image to BufferedImage
+        BufferedImage bufferedImage = new BufferedImage(
+                img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        bufferedImage.getGraphics().drawImage(img, 0, 0, null);
+
+        // Step 3: Write the BufferedImage to a ByteArrayOutputStream
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "png", baos); // You can choose "jpg" or another format
+
+        // Step 4: Get the byte array from the ByteArrayOutputStream
+        return baos.toByteArray();
     }
 
 }

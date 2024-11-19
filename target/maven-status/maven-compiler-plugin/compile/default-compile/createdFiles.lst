@@ -1,6 +1,17 @@
 model\NotiType.class
 finally_JobInfo.class
+controller\Session\MySession.class
 model\Notification.class
 model\Department.class
+controller\DAO\DepartmentDAO.class
+model\RoleDetail.class
+controller\DAOImp\DepartmentDAOImp.class
 model\ApprovedLeaveRequest.class
+controller\DAOImp\RoleDAOImp.class
+controller\DAO\UserDAO.class
+controller\DAO\InterfaceDAO.class
+controller\DAO\FunctionDAO.class
+controller\DAOImp\FunctionDAOImp.class
+controller\DAO\RoleDAO.class
 model\Resignation.class
+controller\DAOImp\UserDAOImp.class

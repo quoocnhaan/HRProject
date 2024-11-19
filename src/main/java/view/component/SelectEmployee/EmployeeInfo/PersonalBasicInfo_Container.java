@@ -8,7 +8,11 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.border.MatteBorder;
-import view.component.Title.CheckBox_Component;
+import view.component.EmployeeBasicInfo.EmployeeInfo.Contact_Component;
+import view.component.EmployeeBasicInfo.EmployeeInfo.DateAndGender_Component;
+import view.component.EmployeeBasicInfo.EmployeeInfo.NameAndJob_Component;
+import view.component.EmployeeBasicInfo.EmployeeInfo.Status_Component;
+import view.component.Title_CheckBox.CheckBox_Component;
 
 /**
  *

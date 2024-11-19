@@ -4,12 +4,9 @@
  */
 package view.component.SelectEmployee.EmployeeInfo;
 
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import view.component.Title.CheckAll_Component;
-import view.component.Title.CheckBox_Component;
-import view.component.Title.Title_Component;
+import view.component.Title_CheckBox.CheckAll_Component;
+import view.component.Title_CheckBox.Title_Component;
 
 /**
  *

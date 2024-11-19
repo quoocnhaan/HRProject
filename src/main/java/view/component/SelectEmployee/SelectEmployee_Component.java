@@ -6,7 +6,7 @@ package view.component.SelectEmployee;
 
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
-import view.component.SelectEmployee.DepartmentInfo.Department_Component;
+import view.component.DepartmentInfo.Department_Component;
 /**
  *
  * @author LENOVO

@@ -1,6 +1,8 @@
 
 import controller.DAO.DepartmentDAO;
+import controller.DAO.UserDAO;
 import controller.DAOImp.DepartmentDAOImp;
+import controller.DAOImp.UserDAOImp;
 import controller.Function.Functional;
 import java.awt.Color;
 import java.util.List;
@@ -79,6 +81,7 @@ public class test {
             Function function1 = new Function("F0001", "Quản lý hồ sơ nhân viên", Functional.convertIconToByteArray(icon), "108,151,218", true);
             Function function2 = new Function("F0001", "Quản lý hồ sơ nhân viên", Functional.convertIconToByteArray(icon), "108,151,218", true);
 
+            
             // Hoàn thành transaction
             transaction.commit();
 

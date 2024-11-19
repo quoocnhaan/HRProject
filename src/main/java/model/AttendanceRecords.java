@@ -5,6 +5,7 @@
 package model;
 
 import java.time.LocalTime;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class AttendanceRecords {
     private AttendanceInformation attendanceInformation;
 
     @Column(name = "work_date")
-    private String workDate;
+    private Date workDate;
     
     @Column(name = "start_time")
     private LocalTime startTime;
@@ -40,7 +41,7 @@ public class AttendanceRecords {
     @Column(name = "status")
     private boolean status;
 
-    public AttendanceRecords(AttendanceInformation attendanceInformation, String workDate, LocalTime startTime, LocalTime endTime, boolean status) {
+    public AttendanceRecords(AttendanceInformation attendanceInformation, Date workDate, LocalTime startTime, LocalTime endTime, boolean status) {
         this.attendanceInformation = attendanceInformation;
         this.workDate = workDate;
         this.startTime = startTime;
@@ -70,11 +71,11 @@ public class AttendanceRecords {
     
     
 
-    public String getWorkDate() {
+    public Date getWorkDate() {
         return workDate;
     }
 
-    public void setWorkDate(String workDate) {
+    public void setWorkDate(Date workDate) {
         this.workDate = workDate;
     }
 

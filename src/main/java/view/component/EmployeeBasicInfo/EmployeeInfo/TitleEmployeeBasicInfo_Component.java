@@ -5,7 +5,7 @@
 package view.component.EmployeeBasicInfo.EmployeeInfo;
 
 import java.awt.GridLayout;
-import view.component.Title.Title_Component;
+import view.component.Title_CheckBox.Title_Component;
 
 /**
  *

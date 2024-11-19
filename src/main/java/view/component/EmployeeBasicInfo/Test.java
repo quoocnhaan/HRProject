@@ -17,8 +17,9 @@ public class Test extends javax.swing.JFrame {
      */
     public Test() {
         initComponents();
-        this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(new EmployeeAndDepartmentInfo());
+        this.setLayout(new BorderLayout());
+        this.add(new EmployeeBasicInfo_Component());
+        
     }
 
     /**

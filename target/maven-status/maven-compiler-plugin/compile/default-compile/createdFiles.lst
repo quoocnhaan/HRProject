@@ -1,3 +1,4 @@
+view\component\ManageEmployee\ManageFamilyEmployeeInfo\FamilyEmployee_Component_Manage$1.class
 controller\DAO\ContactDAO.class
 controller\DAO\DriverLicenseDAO.class
 controller\DAOImp\ContactDAOImp.class
@@ -9,6 +10,7 @@ controller\DAOImp\AttendanceRecordsDAOImp.class
 controller\DAO\ContractDAO.class
 model\Department.class
 controller\DAOImp\ContractDAOImp.class
+view\component\ManageEmployee\ManageFamilyEmployeeInfo\FamilyEmployee_Component_Manage.class
 controller\DAOImp\RoleDAOImp.class
 controller\DAO\InterfaceDAO.class
 view\component\Title_CheckBox\CheckAll_Component.class

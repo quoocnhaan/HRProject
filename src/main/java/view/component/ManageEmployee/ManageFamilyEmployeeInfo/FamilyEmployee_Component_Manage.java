@@ -2,13 +2,13 @@ package view.component.ManageEmployee.ManageFamilyEmployeeInfo;
 
 import java.util.Date;
 
-public class Relatives_Component_Manage extends javax.swing.JPanel {
+public class FamilyEmployee_Component_Manage extends javax.swing.JPanel {
 
-    public Relatives_Component_Manage() {
+    public FamilyEmployee_Component_Manage() {
         initComponents();
     }
 
-    public Relatives_Component_Manage(boolean companyEmployees, String surName, String name, String relationship, String gender, Date dateOfBirth, boolean cmnd, String id_CMND, Date dateOfIssueOf_CMND, Date dateOfExpirationOf_CMND, String issuingAuthorityOf_CMND, Date dateOfMarriage, String nationality, String taxIdentificationNumber, String healthInsuranceNumber, String socialSecurityNumber, boolean directlySupporting, boolean emergencyContact, boolean guarantor, boolean death, Date yearOfDeath, String causeOfDeath) {
+    public FamilyEmployee_Component_Manage(boolean companyEmployees, String surName, String name, String relationship, String gender, Date dateOfBirth, boolean cmnd, String id_CMND, Date dateOfIssueOf_CMND, Date dateOfExpirationOf_CMND, String issuingAuthorityOf_CMND, Date dateOfMarriage, String nationality, String taxIdentificationNumber, String healthInsuranceNumber, String socialSecurityNumber, boolean directlySupporting, boolean emergencyContact, boolean guarantor, boolean death, Date yearOfDeath, String causeOfDeath) {
         initComponents();
         setData(companyEmployees, surName, name, relationship, gender, dateOfBirth, cmnd, id_CMND, dateOfIssueOf_CMND, dateOfExpirationOf_CMND, issuingAuthorityOf_CMND, dateOfMarriage, nationality, taxIdentificationNumber, healthInsuranceNumber, socialSecurityNumber, directlySupporting, emergencyContact, guarantor, death, yearOfDeath, causeOfDeath);
     }

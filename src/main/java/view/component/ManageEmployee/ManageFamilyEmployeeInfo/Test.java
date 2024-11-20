@@ -68,7 +68,7 @@ public class Test extends javax.swing.JFrame {
     }
 
     private void addComponent() {
-        Relatives_Component_Manage relatives = new Relatives_Component_Manage();
+        FamilyEmployee_Component_Manage relatives = new FamilyEmployee_Component_Manage();
         relatives.setPreferredSize(new Dimension(1120, 690));
 
         JScrollPane scrollPane = new JScrollPane(relatives);

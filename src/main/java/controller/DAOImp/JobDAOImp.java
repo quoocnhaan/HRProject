@@ -4,8 +4,9 @@
  */
 package controller.DAOImp;
 
-import controller.DAO.RoleDAO;
+import controller.DAO.JobDAO;
 import java.util.List;
+import model.Job;
 import model.Role;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,20 +16,20 @@ import util.HibernateUtil;
 
 /**
  *
- * @author LENOVO
+ * @author PC
  */
-public class RoleDAOImp implements RoleDAO {
+public class JobDAOImp implements JobDAO {
 
     private SessionFactory sessionFactory;
     private Transaction transaction;
 
-    public RoleDAOImp() {
+    public JobDAOImp() {
         sessionFactory = HibernateUtil.getSessionFactory();
         transaction = null;
     }
 
     @Override
-    public boolean add(Role t) {
+    public boolean add(Job t) {
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
@@ -52,13 +53,13 @@ public class RoleDAOImp implements RoleDAO {
     }
 
     @Override
-    public Role get(long id) {
-        Role role = null;
+    public Job get(long id) {
+        Job job = null;
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
 
-            role = session.find(Role.class, id);
+            job = session.find(Job.class, id);
 
             // Hoàn thành transaction
             transaction.commit();
@@ -72,11 +73,11 @@ public class RoleDAOImp implements RoleDAO {
             }
             e.printStackTrace();
         }
-        return role;
+        return job;
     }
 
     @Override
-    public boolean update(Role t) {
+    public boolean update(Job t) {
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
@@ -105,11 +106,11 @@ public class RoleDAOImp implements RoleDAO {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
 
-            Query<Role> query = session.createQuery("FROM Role WHERE id = :id", Role.class);
+            Query<Job> query = session.createQuery("FROM Job WHERE id = :id", Job.class);
             query.setParameter("id", id);
 
-            Role role = query.uniqueResult();
-            session.delete(role);
+            Job job = query.uniqueResult();
+            session.delete(job);
 
             // Hoàn thành transaction
             transaction.commit();
@@ -128,15 +129,15 @@ public class RoleDAOImp implements RoleDAO {
     }
 
     @Override
-    public List<Role> getAll() {
-        List<Role> roles = null;
+    public List<Job> getAll() {
+        List<Job> jobs = null;
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
 
-            String hql = "FROM Role";
-            Query<Role> query = session.createQuery(hql, Role.class);
-            roles = query.list();
+            String hql = "FROM Job";
+            Query<Job> query = session.createQuery(hql, Job.class);
+            jobs = query.list();
 
             // Hoàn thành transaction
             transaction.commit();
@@ -150,6 +151,6 @@ public class RoleDAOImp implements RoleDAO {
             }
             e.printStackTrace();
         }
-        return roles;
+        return jobs;
     }
 }

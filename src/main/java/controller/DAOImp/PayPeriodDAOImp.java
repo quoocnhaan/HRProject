@@ -4,8 +4,9 @@
  */
 package controller.DAOImp;
 
-import controller.DAO.RoleDAO;
+import controller.DAO.PayPeriodDAO;
 import java.util.List;
+import model.PayPeriod;
 import model.Role;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,20 +16,20 @@ import util.HibernateUtil;
 
 /**
  *
- * @author LENOVO
+ * @author PC
  */
-public class RoleDAOImp implements RoleDAO {
+public class PayPeriodDAOImp implements PayPeriodDAO {
 
     private SessionFactory sessionFactory;
     private Transaction transaction;
 
-    public RoleDAOImp() {
+    public PayPeriodDAOImp() {
         sessionFactory = HibernateUtil.getSessionFactory();
         transaction = null;
     }
 
     @Override
-    public boolean add(Role t) {
+    public boolean add(PayPeriod t) {
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
@@ -52,13 +53,13 @@ public class RoleDAOImp implements RoleDAO {
     }
 
     @Override
-    public Role get(long id) {
-        Role role = null;
+    public PayPeriod get(long id) {
+        PayPeriod payPeriod = null;
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
 
-            role = session.find(Role.class, id);
+            payPeriod = session.find(PayPeriod.class, id);
 
             // Hoàn thành transaction
             transaction.commit();
@@ -72,11 +73,11 @@ public class RoleDAOImp implements RoleDAO {
             }
             e.printStackTrace();
         }
-        return role;
+        return payPeriod;
     }
 
     @Override
-    public boolean update(Role t) {
+    public boolean update(PayPeriod t) {
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
@@ -105,11 +106,11 @@ public class RoleDAOImp implements RoleDAO {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
 
-            Query<Role> query = session.createQuery("FROM Role WHERE id = :id", Role.class);
+            Query<PayPeriod> query = session.createQuery("FROM PayPeriod WHERE id = :id", PayPeriod.class);
             query.setParameter("id", id);
 
-            Role role = query.uniqueResult();
-            session.delete(role);
+            PayPeriod payPeriod = query.uniqueResult();
+            session.delete(payPeriod);
 
             // Hoàn thành transaction
             transaction.commit();
@@ -128,15 +129,15 @@ public class RoleDAOImp implements RoleDAO {
     }
 
     @Override
-    public List<Role> getAll() {
-        List<Role> roles = null;
+    public List<PayPeriod> getAll() {
+        List<PayPeriod> payPeriods = null;
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
 
-            String hql = "FROM Role";
-            Query<Role> query = session.createQuery(hql, Role.class);
-            roles = query.list();
+            String hql = "FROM PayPeriod";
+            Query<PayPeriod> query = session.createQuery(hql, PayPeriod.class);
+            payPeriods = query.list();
 
             // Hoàn thành transaction
             transaction.commit();
@@ -150,6 +151,6 @@ public class RoleDAOImp implements RoleDAO {
             }
             e.printStackTrace();
         }
-        return roles;
+        return payPeriods;
     }
 }

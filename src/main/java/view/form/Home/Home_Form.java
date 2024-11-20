@@ -4,13 +4,13 @@
  */
 package view.form.Home;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import view.component.Home_Component.Function_Component;
+import view.component.Function_Component.Function_Component;
 
 /**
  *
@@ -121,6 +121,8 @@ public class Home_Form extends javax.swing.JFrame {
             .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        contentPanel.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
         contentPanel.setLayout(contentPanelLayout);
         contentPanelLayout.setHorizontalGroup(
@@ -217,10 +219,16 @@ public class Home_Form extends javax.swing.JFrame {
     }
 
     private void initCustomComponents() {
-        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/img/bell.png"));
-        for (int i = 0; i < 10; i++) {
-            contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(150, 150, 150), imageIcon));
-        }
+        ImageIcon icon1 = new ImageIcon(ClassLoader.getSystemResource("icon/func_emp_manage.png"));
+        ImageIcon icon2 = new ImageIcon(ClassLoader.getSystemResource("icon/func_department_manage.png"));
+        ImageIcon icon3 = new ImageIcon(ClassLoader.getSystemResource("icon/func_salary_manage.png"));
+        ImageIcon icon4 = new ImageIcon(ClassLoader.getSystemResource("icon/func_leave_manage.png"));
+
+        contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(108, 151, 218), icon1));
+        contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(241,111,82), icon2));
+        contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(242,183,5), icon3));
+        contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(4,89,74), icon4));
+
     }
 
     private void setLayout() {

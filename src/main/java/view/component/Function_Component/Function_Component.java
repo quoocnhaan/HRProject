@@ -2,13 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.Home_Component;
+package view.component.Function_Component;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import java.awt.Color;
 import javax.swing.ImageIcon;
-import org.hibernate.Session;
-import util.HibernateUtil;
 
 /**
  *
@@ -37,14 +35,16 @@ public class Function_Component extends javax.swing.JPanel {
         funcIcon = new javax.swing.JLabel();
         funcId = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(4, 89, 74));
         setMaximumSize(new java.awt.Dimension(300, 150));
 
-        funcName.setFont(new java.awt.Font("Consolas", 0, 15)); // NOI18N
+        funcName.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        funcName.setForeground(new java.awt.Color(255, 255, 255));
         funcName.setText("Name");
 
         funcIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         funcIcon.setText("icon");
-        funcIcon.setSize(25, 25);
+        funcIcon.setSize(35, 35);
         funcIcon.setText("");
 
         funcId.setText("id");
@@ -57,8 +57,8 @@ public class Function_Component extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(funcId)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                .addComponent(funcIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addComponent(funcIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)

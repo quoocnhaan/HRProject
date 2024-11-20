@@ -4,7 +4,7 @@
  */
 package view.component.Notification.Notificaition_Component;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import javax.swing.ImageIcon;
 
 /**

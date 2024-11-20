@@ -1,6 +1,6 @@
 package view.component.Title_Component;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.ImageIcon;

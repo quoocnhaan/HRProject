@@ -2,12 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controller.Function;
+package controller.Functional;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -48,6 +50,25 @@ public class Functional {
 
         // Step 4: Get the byte array from the ByteArrayOutputStream
         return baos.toByteArray();
+    }
+    
+        public static ImageIcon convertByteArrayToIcon(byte[] byteArray) {
+        if (byteArray != null && byteArray.length > 0) {
+            try {
+                InputStream is = new ByteArrayInputStream(byteArray);
+                BufferedImage bufferedImage = ImageIO.read(is);
+                if (bufferedImage != null) {
+                    return new ImageIcon(bufferedImage);
+                } else {
+                    System.out.println("Không thể tạo ImageIcon từ byte array.");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Byte array rỗng hoặc null.");
+        }
+        return null;  // Trả về null nếu không thể chuyển đổi
     }
 
 }

@@ -4,7 +4,7 @@
  */
 package view.component.EmployeeBasicInfo.Search;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import javax.swing.ImageIcon;
 
 /**

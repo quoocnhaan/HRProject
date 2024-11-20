@@ -4,7 +4,7 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.Employee;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;

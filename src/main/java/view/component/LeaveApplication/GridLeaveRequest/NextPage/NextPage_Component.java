@@ -4,7 +4,7 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.NextPage;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 

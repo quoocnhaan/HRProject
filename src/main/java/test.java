@@ -3,7 +3,7 @@ import controller.DAO.DepartmentDAO;
 import controller.DAO.UserDAO;
 import controller.DAOImp.DepartmentDAOImp;
 import controller.DAOImp.UserDAOImp;
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -76,12 +76,21 @@ public class test {
 //
 //            session.save(user1);
 //            session.save(user2);
-            ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("icon/func_emp_manage.png"));
+            ImageIcon icon1 = new ImageIcon(ClassLoader.getSystemResource("icon/func_emp_manage.png"));
+            ImageIcon icon2 = new ImageIcon(ClassLoader.getSystemResource("icon/func_department_manage.png"));
+            ImageIcon icon3 = new ImageIcon(ClassLoader.getSystemResource("icon/func_salary_manage.png"));
+            ImageIcon icon4 = new ImageIcon(ClassLoader.getSystemResource("icon/func_leave_manage.png"));
 
-            Function function1 = new Function("F0001", "Quản lý hồ sơ nhân viên", Functional.convertIconToByteArray(icon), "108,151,218", true);
-            Function function2 = new Function("F0001", "Quản lý hồ sơ nhân viên", Functional.convertIconToByteArray(icon), "108,151,218", true);
+            Function function1 = new Function("F0001", "Quản lý hồ sơ nhân viên", Functional.convertIconToByteArray(icon1), "108,151,218", true);
+            Function function2 = new Function("F0002", "Quản lý thông tin phòng ban", Functional.convertIconToByteArray(icon2), "241,111,82", true);
+            Function function3 = new Function("F0003", "Quản lý lương", Functional.convertIconToByteArray(icon3), "242,183,5", true);
+            Function function4 = new Function("F0004", "Quản lý nghỉ phép", Functional.convertIconToByteArray(icon4), "4,89,74", true);
 
-            
+            session.save(function1);
+            session.save(function2);
+            session.save(function3);
+            session.save(function4);
+
             // Hoàn thành transaction
             transaction.commit();
 

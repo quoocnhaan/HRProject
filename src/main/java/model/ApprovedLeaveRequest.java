@@ -64,6 +64,4 @@ public class ApprovedLeaveRequest {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    
 }

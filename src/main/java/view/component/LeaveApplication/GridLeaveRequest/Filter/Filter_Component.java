@@ -4,7 +4,7 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.Filter;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.time.LocalDate;

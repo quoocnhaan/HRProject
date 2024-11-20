@@ -4,7 +4,7 @@
  */
 package view.component.EmployeeBasicInfo.EmployeeInfo;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import javax.swing.ImageIcon;

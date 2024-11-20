@@ -4,7 +4,7 @@
  */
 package view.component.EmployeeDetailInfo.ListEmployee_Component;
 
-import controller.Function.Functional;
+import controller.Functional.Functional;
 import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;

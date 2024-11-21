@@ -5,8 +5,8 @@
 package view.component.EmployeeDetailInfo;
 
 import java.awt.BorderLayout;
+import view.component.EmployeeDetailInfo.EmployeeDetail.Emloyee_Component;
 import view.component.EmployeeDetailInfo.ListEmployee_Component.ListEmployee_Component;
-import view.component.EmployeeDetailInfo.PersonalProfile_Component.PersonalProfile_Hotline_Container;
 
 /**
  *
@@ -86,7 +86,7 @@ public class Test extends javax.swing.JFrame {
 
     private void addComponent() {
         this.add(new ListEmployee_Component(), BorderLayout.WEST);
-        this.add(new PersonalProfile_Hotline_Container(), BorderLayout.CENTER);
+        this.add(new Emloyee_Component(), BorderLayout.CENTER);
     }
 
     private void setLayout() {

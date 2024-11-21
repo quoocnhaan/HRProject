@@ -1,120 +1,71 @@
 package view.component.BenefitInfo_Component;
 
-import java.awt.Dimension;
-
+import java.util.Date;
 
 public class HealthInsurance_Component extends javax.swing.JPanel {
 
-
     public HealthInsurance_Component() {
         initComponents();
-        this.setPreferredSize(new Dimension(1120, 470));
     }
 
+    public HealthInsurance_Component(Date fromMonth, Date toMonth, String salary, String position, String seniority, String insuranceContribution, String socialInsuranceRate_Employee,
+            String healthInsurancePremiumRate_Employee, String insurancePremiumRateForDependents_Employee, String socialInsuranceRate_Company, String healthInsurancePremiumRate_Company,
+            String insurancePremiumRateForDependents_Company) {
+        initComponents();
+
+        setData(fromMonth, toMonth, salary, position, seniority, insuranceContribution, socialInsuranceRate_Employee,
+                healthInsurancePremiumRate_Employee, insurancePremiumRateForDependents_Employee, socialInsuranceRate_Company, healthInsurancePremiumRate_Company,
+                insurancePremiumRateForDependents_Company);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         title = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        label3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        fromMonth = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        toMonth = new com.toedter.calendar.JDateChooser();
+        salary = new javax.swing.JLabel();
+        position = new javax.swing.JLabel();
+        seniority = new javax.swing.JLabel();
+        insuranceContribution = new javax.swing.JLabel();
+        socialInsuranceRate_Employee = new javax.swing.JLabel();
+        healthInsurancePremiumRate_Employee = new javax.swing.JLabel();
+        insurancePremiumRateForDependents_Employee = new javax.swing.JLabel();
+        socialInsuranceRate_Company = new javax.swing.JLabel();
+        healthInsurancePremiumRate_Company = new javax.swing.JLabel();
+        insurancePremiumRateForDependents_Company = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1120, 410));
 
         title.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         title.setForeground(new java.awt.Color(0, 0, 255));
         title.setText("Bảo hiểm bắt buộc");
 
-        jLabel1.setText("Từ tháng");
+        label3.setText("Từ tháng");
 
         jLabel2.setText("Đến tháng");
 
+        fromMonth.setToolTipText("");
+
         jLabel3.setText("Mức lương");
-
-        jLabel4.setText("?????");
-
-        jLabel5.setText("Hệ số phân bố lương");
 
         jLabel6.setText("PC chức vụ");
 
-        jLabel7.setText("Hệ số PC chức vụ");
-
         jLabel8.setText("PC thâm niên");
-
-        jLabel9.setText("Hệ số PC thâm niên");
-
-        jLabel10.setText("PC thâm niên vượt khung");
-
-        jLabel11.setText("Hệ số PC thâm niên vượt khung");
-
-        jLabel12.setText("PC khác");
-
-        jLabel13.setText("Hệ số PC khác");
-
-        jLabel14.setText("?????");
-
-        jLabel15.setText("??????");
-
-        jLabel16.setText("?????");
-
-        jLabel17.setText("??????");
-
-        jLabel18.setText("??????");
-
-        jLabel19.setText("????????");
-
-        jLabel20.setText("???????");
-
-        jLabel21.setText("?????????");
-
-        jLabel22.setText("???????????");
-
-        jLabel23.setText("Tăng PC");
-
-        jLabel24.setText("Tăng hệ số PC");
-
-        jLabel25.setText("Tăng lương");
 
         jLabel26.setText("Mức đóng bảo hiểm");
 
@@ -126,206 +77,160 @@ public class HealthInsurance_Component extends javax.swing.JPanel {
 
         jLabel30.setText("Tỉ lệ % BHXH cty đóng");
 
-        jLabel31.setText("Tỉ lệ % BHTN NV đóng");
+        jLabel31.setText("Tỉ lệ % BHTN cty đóng");
 
-        jLabel32.setText("?????");
+        jLabel1.setText("Tỉ lệ % BHYT cty đóng");
 
-        jLabel33.setText("??????");
+        salary.setText("jLabel4");
 
-        jLabel34.setText("??????");
+        position.setText("jLabel4");
 
-        jLabel35.setText("???????");
+        seniority.setText("jLabel4");
 
-        jLabel36.setText("????");
+        insuranceContribution.setText("jLabel4");
 
-        jLabel37.setText("??????");
+        socialInsuranceRate_Employee.setText("jLabel4");
 
-        jLabel38.setText("?????");
+        healthInsurancePremiumRate_Employee.setText("jLabel4");
 
-        jLabel39.setText("?????");
+        insurancePremiumRateForDependents_Employee.setText("jLabel4");
 
-        jLabel40.setText("?????");
+        socialInsuranceRate_Company.setText("jLabel4");
+
+        healthInsurancePremiumRate_Company.setText("jLabel4");
+
+        insurancePremiumRateForDependents_Company.setText("jLabel4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(80, 80, 80)
-                            .addComponent(title))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(193, 193, 193)
-                            .addComponent(jLabel1))))
-                .addGap(18, 18, 18)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel18))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(80, 80, 80)
+                        .addComponent(title)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel31))
-                            .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel29))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel28))
-                            .addComponent(jLabel27)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel26))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(jLabel25))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(jLabel23))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(44, 44, 44)
-                                .addComponent(jLabel24)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel32)
-                            .addComponent(jLabel33)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel36)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel38)
-                            .addComponent(jLabel39)
-                            .addComponent(jLabel40))
-                        .addGap(231, 231, 231))))
+                                .addGap(164, 164, 164)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(label3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(seniority)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel30))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(position)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel29))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(salary)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel28))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(toMonth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(fromMonth, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(insuranceContribution)
+                    .addComponent(socialInsuranceRate_Employee)
+                    .addComponent(healthInsurancePremiumRate_Employee)
+                    .addComponent(insurancePremiumRateForDependents_Employee)
+                    .addComponent(socialInsuranceRate_Company)
+                    .addComponent(healthInsurancePremiumRate_Company)
+                    .addComponent(insurancePremiumRateForDependents_Company))
+                .addGap(285, 285, 285))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(title)
-                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(title)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(label3)
+                                .addComponent(fromMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel26)
+                                    .addComponent(insuranceContribution))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel27)
+                                    .addComponent(socialInsuranceRate_Employee))
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel28)
+                                    .addComponent(healthInsurancePremiumRate_Employee)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(toMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(salary))))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel6)
+                                .addComponent(position))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel29)
+                                .addComponent(insurancePremiumRateForDependents_Employee)))
+                        .addGap(40, 40, 40))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(seniority))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel30)
+                        .addComponent(socialInsuranceRate_Company)))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel23)
-                        .addComponent(jLabel32)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel24)
-                        .addComponent(jLabel33))
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                    .addComponent(healthInsurancePremiumRate_Company))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel34))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel35))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel36))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel37))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel38))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel39))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel19)
                     .addComponent(jLabel31)
-                    .addComponent(jLabel40))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel20))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel21))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel22))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(insurancePremiumRateForDependents_Company))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser fromMonth;
+    private javax.swing.JLabel healthInsurancePremiumRate_Company;
+    private javax.swing.JLabel healthInsurancePremiumRate_Employee;
+    private javax.swing.JLabel insuranceContribution;
+    private javax.swing.JLabel insurancePremiumRateForDependents_Company;
+    private javax.swing.JLabel insurancePremiumRateForDependents_Employee;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -333,21 +238,32 @@ public class HealthInsurance_Component extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel label3;
+    private javax.swing.JLabel position;
+    private javax.swing.JLabel salary;
+    private javax.swing.JLabel seniority;
+    private javax.swing.JLabel socialInsuranceRate_Company;
+    private javax.swing.JLabel socialInsuranceRate_Employee;
     private javax.swing.JLabel title;
+    private com.toedter.calendar.JDateChooser toMonth;
     // End of variables declaration//GEN-END:variables
+
+    private void setData(Date fromMonth, Date toMonth, String salary, String position, String seniority, String insuranceContribution, String socialInsuranceRate_Employee, 
+            String healthInsurancePremiumRate_Employee, String insurancePremiumRateForDependents_Employee, String socialInsuranceRate_Company, String healthInsurancePremiumRate_Company, 
+            String insurancePremiumRateForDependents_Company) {
+        
+        this.fromMonth.setSelectableDateRange(fromMonth, fromMonth);
+        this.toMonth.setSelectableDateRange(toMonth, toMonth);
+        this.position.setText(position);
+        this.seniority.setText(seniority);
+        this.insuranceContribution.setText(insuranceContribution);
+        this.socialInsuranceRate_Employee.setText(socialInsuranceRate_Employee);
+        this.healthInsurancePremiumRate_Employee.setText(healthInsurancePremiumRate_Employee);
+        this.insurancePremiumRateForDependents_Employee.setText(insurancePremiumRateForDependents_Employee);
+        this.socialInsuranceRate_Company.setText(socialInsuranceRate_Company);
+        this.healthInsurancePremiumRate_Company.setText(healthInsurancePremiumRate_Company);
+        this.insurancePremiumRateForDependents_Company.setText(insurancePremiumRateForDependents_Company);
+    }
 }

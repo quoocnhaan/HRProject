@@ -6,7 +6,7 @@
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1120, 230]"/>
+      <Dimension value="[1120, 220]"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -31,35 +31,21 @@
                       <Component id="title" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="nameEmployee" min="-2" max="-2" attributes="0"/>
                           <Component id="date" min="-2" max="-2" attributes="0"/>
                           <Component id="genderEmployee" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="maNhanVien1" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="purposeOfReceivingBenefits" min="-2" max="-2" attributes="0"/>
-                          <Component id="beneficiary" min="-2" max="-2" attributes="0"/>
-                          <Component id="levelOfBenefits" min="-2" max="-2" attributes="0"/>
-                          <Component id="benefitsRegulations" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="businessTravelPolicy" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="purposeOfReceivingBenefits" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="allowanceAmount" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="travelExpenses" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="333" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="nameEmployee1" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="birthdayEmployee" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="informationOfTheDocumentApprover" min="-2" max="-2" attributes="0"/>
-                  <Component id="subsidyProcedure" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
+              <EmptySpace pref="823" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,41 +53,27 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Component id="title" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="title" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="date" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="purposeOfReceivingBenefits" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nameEmployee1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="informationOfTheDocumentApprover" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nameEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="beneficiary" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="birthdayEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="subsidyProcedure" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="genderEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="allowanceAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="genderEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="levelOfBenefits" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="maNhanVien1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="benefitsRegulations" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="travelExpenses" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="businessTravelPolicy" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -118,29 +90,6 @@
         <Property name="text" type="java.lang.String" value="Tr&#x1ee3; c&#x1ea5;p &#x111;i l&#x1ea1;i"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="purposeOfReceivingBenefits">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="&#x110;i t&#x1edb;i c&#xf4;ng ty / &#x111;i c&#xf4;ng t&#xe1;c"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ch&#xed;nh s&#xe1;ch &#x111;i c&#xf4;ng t&#xe1;c"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="beneficiary">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="????"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="levelOfBenefits">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="????"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="date">
       <Properties>
         <Property name="text" type="java.lang.String" value="M&#x1ee5;c &#x111;&#xed;ch tr&#x1ee3; c&#x1ea5;p"/>
@@ -151,45 +100,25 @@
         <Property name="text" type="java.lang.String" value="Quy &#x111;&#x1ecb;nh v&#x1ec1; chi ph&#xed; &#x111;i l&#x1ea1;i"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="nameEmployee">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#x110;&#x1ed1;i t&#x1b0;&#x1ee3;ng h&#x1b0;&#x1edf;ng tr&#x1ee3; c&#x1ea5;p"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="benefitsRegulations">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="????"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="genderEmployee">
       <Properties>
         <Property name="text" type="java.lang.String" value="M&#x1ee9;c tr&#x1ee3; c&#x1ea5;p"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="birthdayEmployee">
+    <Component class="javax.swing.JLabel" name="purposeOfReceivingBenefits">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Duy&#x1ec7;t th&#x1ee7; t&#x1ee5;c nh&#x1ead;n tr&#x1ee3; c&#x1ea5;p"/>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="businessTravelPolicy">
+    <Component class="javax.swing.JLabel" name="allowanceAmount">
       <Properties>
-        <Property name="text" type="java.lang.String" value="???????"/>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="nameEmployee1">
+    <Component class="javax.swing.JLabel" name="travelExpenses">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin ng&#x1b0;&#x1edd;i duy&#x1ec7;t tr&#x1ee3; c&#x1ea5;p"/>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="informationOfTheDocumentApprover">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="????"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="subsidyProcedure">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subsidyProcedureActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

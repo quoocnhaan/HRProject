@@ -5,6 +5,9 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1120, 310]"/>
+    </Property>
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -27,51 +30,39 @@
                   <Component id="maNhanVien1" min="-2" max="-2" attributes="0"/>
                   <Component id="birthdayEmployee" min="-2" max="-2" attributes="0"/>
                   <Component id="genderEmployee" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameEmployee" min="-2" max="-2" attributes="0"/>
-                  <Component id="date" min="-2" max="-2" attributes="0"/>
+                  <Component id="date" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="nameEmployee" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="workspace" min="-2" pref="170" max="-2" attributes="0"/>
-                              <EmptySpace pref="317" max="32767" attributes="0"/>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jlabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="attendanceTracking" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="subjectsForTimekeeping" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="shift" min="-2" max="-2" attributes="0"/>
-                          <Component id="option_ChangingShifts" min="-2" max="-2" attributes="0"/>
-                          <Component id="option_ArrivingLateAndLeavingEarly" min="-2" max="-2" attributes="0"/>
-                          <Component id="option_ArrivingLateAndLeavingEarly1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="placeOfWork" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cardType" min="-2" max="-2" attributes="0"/>
+                          <Component id="cardNumber" min="-2" max="-2" attributes="0"/>
+                          <Component id="cardHolderNameer" min="-2" max="-2" attributes="0"/>
+                          <Component id="cardStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="transactionBank" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="382" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="startDate" pref="210" max="32767" attributes="0"/>
+                              <Component id="endDate" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="termsAndConditions" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -86,86 +77,68 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="title" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="date" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="attendanceTracking" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="shift" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="title" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="nameEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="subjectsForTimekeeping" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="date" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cardType" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="nameEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cardNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="genderEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cardHolderNameer" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="birthdayEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cardStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Component id="option_ChangingShifts" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="genderEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="option_ArrivingLateAndLeavingEarly" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="birthdayEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="workspace" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="startDate" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="endDate" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="termsAndConditions" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="option_ArrivingLateAndLeavingEarly1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="maNhanVien1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="placeOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="125" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="maNhanVien1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="transactionBank" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
+              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="attendanceTracking">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="123"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="subjectsForTimekeeping">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="????"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jlabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="????"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="workspace">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="????"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec1;u ki&#x1ec7;n v&#xe0; &#x111;i&#x1ec1;u kho&#x1ea3;n"/>
@@ -181,32 +154,15 @@
         <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng th&#xe1;i th&#x1ebb;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ng&#xe2;n h&#xe0;ng ph&#xe1;t h&#xe0;nh"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="shift">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="??????"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ng&#xe0;y c&#x1ea5;p"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="option_ChangingShifts">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="option_ChangingShiftsActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ng&#xe0;y h&#x1ebf;t h&#x1ea1;n"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="option_ArrivingLateAndLeavingEarly">
     </Component>
     <Component class="javax.swing.JLabel" name="title">
       <Properties>
@@ -226,7 +182,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="maNhanVien1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin giao d&#x1ecb;ch"/>
+        <Property name="text" type="java.lang.String" value="Ng&#xe2;n h&#xe0;ng giao d&#x1ecb;ch"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="nameEmployee">
@@ -234,14 +190,41 @@
         <Property name="text" type="java.lang.String" value="S&#x1ed1; th&#x1ebb;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="placeOfWork">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="????"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
     </Component>
-    <Component class="javax.swing.JCheckBox" name="option_ArrivingLateAndLeavingEarly1">
+    <Component class="com.toedter.calendar.JDateChooser" name="startDate">
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="endDate">
+    </Component>
+    <Component class="javax.swing.JLabel" name="cardType">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cardNumber">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cardHolderNameer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cardStatus">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="transactionBank">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="termsAndConditions">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

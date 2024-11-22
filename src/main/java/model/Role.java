@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -37,12 +38,21 @@ public class Role {
     private boolean status;
 
     public Role() {
+        functions = new ArrayList<>();
     }
 
     public Role(String name, List<Function> functions, boolean status) {
         this.name = name;
         this.functions = functions;
         this.status = status;
+    }
+
+    public List<Function> getFunctions() {
+        return functions;
+    }
+
+    public void setFunctions(List<Function> functions) {
+        this.functions = functions;
     }
 
     public long getId() {

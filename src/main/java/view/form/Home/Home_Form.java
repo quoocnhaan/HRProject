@@ -4,13 +4,8 @@
  */
 package view.form.Home;
 
-import controller.Functional.Functional;
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import view.component.Function_Component.Function_Component;
+import view.form.Home.Header.Header;
 
 /**
  *
@@ -24,8 +19,7 @@ public class Home_Form extends javax.swing.JFrame {
     public Home_Form() {
         initComponents();
         setLayout();
-        setImg();
-        initCustomComponents();
+        addComponents();
     }
 
     /**
@@ -38,13 +32,6 @@ public class Home_Form extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
-        homePanel = new javax.swing.JPanel();
-        logo = new javax.swing.JLabel();
-        backBtn = new javax.swing.JLabel();
-        menuBtn = new javax.swing.JLabel();
-        personalImg = new javax.swing.JLabel();
-        notiBtn = new javax.swing.JLabel();
-        contentPanel = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -63,93 +50,16 @@ public class Home_Form extends javax.swing.JFrame {
         setName("frame"); // NOI18N
         setResizable(false);
 
-        homePanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        logo.setBackground(new java.awt.Color(255, 51, 51));
-        logo.setForeground(new java.awt.Color(255, 51, 51));
-        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setText("logo");
-        logo.setSize(25,25);
-        logo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        backBtn.setToolTipText("");
-        backBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        backBtn.setMaximumSize(new java.awt.Dimension(25, 25));
-        backBtn.setPreferredSize(new java.awt.Dimension(25, 25));
-        backBtn.setSize(15,15);
-
-        menuBtn.setText(" ");
-        menuBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuBtn.setMaximumSize(new java.awt.Dimension(25, 25));
-        menuBtn.setMinimumSize(new java.awt.Dimension(0, 0));
-        menuBtn.setSize(15,15);
-
-        personalImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        personalImg.setText("img");
-        personalImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        notiBtn.setText("jLabel1");
-        notiBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        notiBtn.setSize(25, 25);
-
-        javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
-        homePanel.setLayout(homePanelLayout);
-        homePanelLayout.setHorizontalGroup(
-            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homePanelLayout.createSequentialGroup()
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(menuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 982, Short.MAX_VALUE)
-                .addComponent(notiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(personalImg, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        homePanelLayout.setVerticalGroup(
-            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homePanelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(menuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(notiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
-            .addComponent(personalImg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        contentPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
-        contentPanel.setLayout(contentPanelLayout);
-        contentPanelLayout.setHorizontalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        contentPanelLayout.setVerticalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 558, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(homePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(homePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 617, Short.MAX_VALUE)
         );
-
-        homePanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,52 +100,14 @@ public class Home_Form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel backBtn;
-    private javax.swing.JPanel contentPanel;
-    private javax.swing.JPanel homePanel;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel logo;
-    private javax.swing.JLabel menuBtn;
-    private javax.swing.JLabel notiBtn;
-    private javax.swing.JLabel personalImg;
     // End of variables declaration//GEN-END:variables
 
-    private void setImg() {
-        String urlLogo = "/img/vng.jpg";
-        String urlBack = "/img/back-button.png";
-        String urlMenu = "/img/menu.png";
-        String urlNoti = "/img/bell.png";
-
-        ImageIcon iconLogo = Functional.scaleImg(logo, urlLogo);
-        ImageIcon iconBack = Functional.scaleImg(backBtn, urlBack);
-        ImageIcon iconMenu = Functional.scaleImg(menuBtn, urlMenu);
-        ImageIcon iconNoti = Functional.scaleImg(notiBtn, urlNoti);
-
-        logo.setIcon(iconLogo);
-        backBtn.setIcon(iconBack);
-        menuBtn.setIcon(iconMenu);
-        notiBtn.setIcon(iconNoti);
-
-    }
-
-    private void initCustomComponents() {
-        ImageIcon icon1 = new ImageIcon(ClassLoader.getSystemResource("icon/func_emp_manage.png"));
-        ImageIcon icon2 = new ImageIcon(ClassLoader.getSystemResource("icon/func_department_manage.png"));
-        ImageIcon icon3 = new ImageIcon(ClassLoader.getSystemResource("icon/func_salary_manage.png"));
-        ImageIcon icon4 = new ImageIcon(ClassLoader.getSystemResource("icon/func_leave_manage.png"));
-
-        contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(108, 151, 218), icon1));
-        contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(241,111,82), icon2));
-        contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(242,183,5), icon3));
-        contentPanel.add(new Function_Component("1", "Nguyen Tran Thanh Duy Oc Cac", new Color(4,89,74), icon4));
-
-    }
-
     private void setLayout() {
-        this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(homePanel, BorderLayout.NORTH);
-        contentPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-        this.getContentPane().add(contentPanel, BorderLayout.CENTER);
+        this.setLayout(new BorderLayout());
     }
 
+    private void addComponents() {
+        this.add(new Header(), BorderLayout.NORTH);
+    }
 }

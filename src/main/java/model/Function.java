@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 
@@ -31,19 +32,28 @@ public class Function {
 
     @Column(name = "function_id")
     private String functionId;
-    
+
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "sys_authorization", 
-            joinColumns = {@JoinColumn(name = "function_id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id")}) 
+    @JoinTable(name = "sys_authorization",
+            joinColumns = {
+                @JoinColumn(name = "function_id")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "role_id")})
     private List<Role> roles;
 
+    @Column(name = "name")
     private String name;
+    
+    @OneToOne(mappedBy = "function", cascade = CascadeType.ALL)
+    private FunctionAuthorization functionAuthorization;
 
+    @Column(name = "icon")
     private byte[] icon;
 
+    @Column(name = "color")
     private String color;
 
+    @Column(name = "status")
     private boolean status;
 
     public Function() {

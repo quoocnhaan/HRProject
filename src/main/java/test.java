@@ -1,11 +1,4 @@
-
-import controller.DAO.DepartmentDAO;
-import controller.DAO.UserDAO;
-import controller.DAOImp.DepartmentDAOImp;
-import controller.DAOImp.UserDAOImp;
 import controller.Functional.Functional;
-import java.awt.Color;
-import java.util.List;
 import javax.swing.ImageIcon;
 import model.Department;
 import model.Function;
@@ -14,31 +7,24 @@ import model.User;
 import util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 /**
  *
  * @author PC
  */
 public class test {
 
-//    public static void main(String[] args) {
-//        DepartmentDAO departmentDAO = new DepartmentDAOImp();
-//        List<Department> list = departmentDAO.getAll();
-//        for (Department department : list) {
-//            System.out.println(department.getName());
-//        }
-//    }
     public static void main(String[] args) {
         // Tạo cấu hình Hibernate từ hibernate.cfg.xml
-
         // Tạo phiên làm việc (session) với cơ sở dữ liệu
-        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
 
-        try {
+//        FunctionDAO f = new FunctionDAOImp();
+//        RoleDAO r = new RoleDAOImp();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
 
+            // Bắt đầu data mẫu
             Department department1 = new Department("D00001", "Công ty Cổ phần Tin học Quốc Nhân", null, null, 0, 1, true);
             Department department2 = new Department("D00011", "Chi nhánh HCM", null, department1, 0, 2, true);
             Department department3 = new Department("D00111", "Khối phần mềm DX", null, department2, 0, 3, true);
@@ -76,6 +62,7 @@ public class test {
 
             session.save(user1);
             session.save(user2);
+            
             ImageIcon icon1 = new ImageIcon(ClassLoader.getSystemResource("icon/func_emp_manage.png"));
             ImageIcon icon2 = new ImageIcon(ClassLoader.getSystemResource("icon/func_department_manage.png"));
             ImageIcon icon3 = new ImageIcon(ClassLoader.getSystemResource("icon/func_salary_manage.png"));
@@ -90,6 +77,7 @@ public class test {
             session.save(function2);
             session.save(function3);
             session.save(function4);
+//            // Kết thúc data mẫu
 
             // Hoàn thành transaction
             transaction.commit();
@@ -103,10 +91,6 @@ public class test {
                 transaction.rollback();
             }
             e.printStackTrace();
-        } finally {
-            // Đóng phiên làm việc
-            session.close();
         }
     }
-
 }

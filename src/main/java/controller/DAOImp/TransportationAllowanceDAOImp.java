@@ -21,15 +21,14 @@ import util.HibernateUtil;
 public class TransportationAllowanceDAOImp implements TransportationAllowanceDAO {
 
     private SessionFactory sessionFactory;
-    private Transaction transaction;
 
     public TransportationAllowanceDAOImp() {
         sessionFactory = HibernateUtil.getSessionFactory();
-        transaction = null;
     }
 
     @Override
     public boolean add(TransportationAllowance t) {
+        Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
@@ -56,21 +55,13 @@ public class TransportationAllowanceDAOImp implements TransportationAllowanceDAO
     public TransportationAllowance get(long id) {
         TransportationAllowance transportationAllowance = null;
         try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
 
             transportationAllowance = session.find(TransportationAllowance.class, id);
-
-            // Hoàn thành transaction
-            transaction.commit();
 
             // In ra thông báo
             System.out.println("Success !");
             // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
         return transportationAllowance;
@@ -78,6 +69,7 @@ public class TransportationAllowanceDAOImp implements TransportationAllowanceDAO
 
     @Override
     public boolean update(TransportationAllowance t) {
+        Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
@@ -102,6 +94,7 @@ public class TransportationAllowanceDAOImp implements TransportationAllowanceDAO
 
     @Override
     public boolean delete(long id) {
+        Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             // Bắt đầu một transaction
             transaction = session.beginTransaction();
@@ -132,23 +125,15 @@ public class TransportationAllowanceDAOImp implements TransportationAllowanceDAO
     public List<TransportationAllowance> getAll() {
         List<TransportationAllowance> transportationAllowances = null;
         try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
 
             String hql = "FROM TransportationAllowance";
             Query<TransportationAllowance> query = session.createQuery(hql, TransportationAllowance.class);
             transportationAllowances = query.list();
 
-            // Hoàn thành transaction
-            transaction.commit();
-
             // In ra thông báo
             System.out.println("Success !");
             // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
         return transportationAllowances;

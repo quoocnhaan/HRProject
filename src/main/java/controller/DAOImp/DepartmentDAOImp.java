@@ -10,6 +10,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 import model.Department;
+import model.Salary;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,147 +24,76 @@ import util.HibernateUtil;
  */
 public class DepartmentDAOImp implements DepartmentDAO {
 
-    private SessionFactory sessionFactory;
-    private Transaction transaction;
+    private Session session;
 
-    public DepartmentDAOImp() {
-        sessionFactory = HibernateUtil.getSessionFactory();
-        transaction = null;
+    public DepartmentDAOImp(Session session) {
+        this.session = session;
     }
 
     @Override
     public boolean add(Department t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            session.save(t);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.saveOrUpdate(t); // Hibernate tự động quyết định là save hay update
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi xảy ra
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public Department get(long id) {
-        Department department = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            department = session.find(Department.class, id);
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return department;
+        return session.get(Department.class, id);
     }
 
     @Override
     public boolean update(Department t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
+        Transaction transaction = session.beginTransaction();
+        try {
             session.update(t);
-
-            // Hoàn thành transaction
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean delete(long id) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            Query<Department> query = session.createQuery("FROM Department WHERE id = :id", Department.class);
-            query.setParameter("id", id);
-
-            Department department = query.uniqueResult();
-            session.delete(department);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            Department department = session.find(Department.class, id);
+            session.delete(department); // Xóa role
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
         }
-        return false;
+        return true;
     }
 
     @Override
     public List<Department> getAll() {
-        List<Department> departments = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            String hql = "FROM Department";
-            Query<Department> query = session.createQuery(hql, Department.class);
-            departments = query.list();
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return departments;
+        Query<Department> query = session.createQuery("FROM Department", Department.class);
+        return query.list();
     }
 
     @Override
     public List<Department> findChildren(long id) {
         List<Department> departments = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
+        Transaction transaction = session.beginTransaction();
+        try {
             String hql = "FROM Department d where d.parent.id = :id";
             Query<Department> query = session.createQuery(hql, Department.class);
             query.setParameter("id", id);

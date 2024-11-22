@@ -4,10 +4,12 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +35,7 @@ public class Function {
     @Column(name = "function_id")
     private String functionId;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "sys_authorization",
             joinColumns = {
                 @JoinColumn(name = "function_id")},
@@ -57,6 +59,7 @@ public class Function {
     private boolean status;
 
     public Function() {
+        roles = new ArrayList<>();
     }
 
     public Function(String functionId, String name, byte[] icon, String color, boolean status) {
@@ -67,6 +70,22 @@ public class Function {
         this.status = status;
     }
 
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public FunctionAuthorization getFunctionAuthorization() {
+        return functionAuthorization;
+    }
+
+    public void setFunctionAuthorization(FunctionAuthorization functionAuthorization) {
+        this.functionAuthorization = functionAuthorization;
+    }
+    
     public long getId() {
         return id;
     }

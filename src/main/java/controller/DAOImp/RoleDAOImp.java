@@ -7,11 +7,10 @@ package controller.DAOImp;
 import controller.DAO.RoleDAO;
 import java.util.List;
 import model.Role;
+import model.Salary;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import util.HibernateUtil;
 
 /**
  *
@@ -19,137 +18,68 @@ import util.HibernateUtil;
  */
 public class RoleDAOImp implements RoleDAO {
 
-    private SessionFactory sessionFactory;
-    private Transaction transaction;
+    private Session session;
 
-    public RoleDAOImp() {
-        sessionFactory = HibernateUtil.getSessionFactory();
-        transaction = null;
+    public RoleDAOImp(Session session) {
+        this.session = session;
     }
 
     @Override
     public boolean add(Role t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            session.save(t);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.saveOrUpdate(t); // Hibernate tự động quyết định là save hay update
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi xảy ra
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public Role get(long id) {
-        Role role = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            role = session.find(Role.class, id);
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return role;
+        return session.get(Role.class, id);
     }
 
     @Override
     public boolean update(Role t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
+        Transaction transaction = session.beginTransaction();
+        try {
             session.update(t);
-
-            // Hoàn thành transaction
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean delete(long id) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            Query<Role> query = session.createQuery("FROM Role WHERE id = :id", Role.class);
-            query.setParameter("id", id);
-
-            Role role = query.uniqueResult();
-            session.delete(role);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            Role role = session.find(Role.class, id);
+            session.delete(role); // Xóa role
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
         }
-        return false;
+        return true;
     }
 
     @Override
     public List<Role> getAll() {
-        List<Role> roles = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            String hql = "FROM Role";
-            Query<Role> query = session.createQuery(hql, Role.class);
-            roles = query.list();
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return roles;
+        Query<Role> query = session.createQuery("FROM Role", Role.class);
+        return query.list();
     }
 }

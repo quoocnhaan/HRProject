@@ -8,6 +8,7 @@ import controller.DAO.ContactDAO;
 import java.util.List;
 import model.Contact;
 import model.Role;
+import model.Salary;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -20,137 +21,68 @@ import util.HibernateUtil;
  */
 public class ContactDAOImp implements ContactDAO {
 
-    private SessionFactory sessionFactory;
-    private Transaction transaction;
+    private Session session;
 
-    public ContactDAOImp() {
-        sessionFactory = HibernateUtil.getSessionFactory();
-        transaction = null;
+    public ContactDAOImp(Session session) {
+        this.session = session;
     }
 
     @Override
     public boolean add(Contact t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            session.save(t);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.saveOrUpdate(t); // Hibernate tự động quyết định là save hay update
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi xảy ra
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public Contact get(long id) {
-        Contact contact = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            contact = session.find(Contact.class, id);
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return contact;
+        return session.get(Contact.class, id);
     }
 
     @Override
     public boolean update(Contact t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
+        Transaction transaction = session.beginTransaction();
+        try {
             session.update(t);
-
-            // Hoàn thành transaction
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean delete(long id) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            Query<Contact> query = session.createQuery("FROM Contact WHERE id = :id", Contact.class);
-            query.setParameter("id", id);
-
-            Contact contact = query.uniqueResult();
-            session.delete(contact);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            Contact contact = session.find(Contact.class, id);
+            session.delete(contact); // Xóa role
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
         }
-        return false;
+        return true;
     }
 
     @Override
     public List<Contact> getAll() {
-        List<Contact> contacts = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            String hql = "FROM Contact";
-            Query<Contact> query = session.createQuery(hql, Contact.class);
-            contacts = query.list();
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return contacts;
+        Query<Contact> query = session.createQuery("FROM Contact", Contact.class);
+        return query.list();
     }
 }

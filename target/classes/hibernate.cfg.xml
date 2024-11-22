@@ -79,5 +79,6 @@ Contributor(s):
         <mapping class="model.AttendanceRecords"/>
         <mapping class="model.AttendanceInformation"/>
         <mapping class="model.ApprovedLeaveRequest"/>      
+        <mapping class="model.FunctionAuthorization"/>
     </session-factory>
 </hibernate-configuration>

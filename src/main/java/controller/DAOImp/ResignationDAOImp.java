@@ -6,8 +6,8 @@ package controller.DAOImp;
 
 import controller.DAO.ResignationDAO;
 import java.util.List;
-import model.Job;
 import model.Resignation;
+import model.Salary;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -20,137 +20,68 @@ import util.HibernateUtil;
  */
 public class ResignationDAOImp implements ResignationDAO {
 
-    private SessionFactory sessionFactory;
-    private Transaction transaction;
+    private Session session;
 
-    public ResignationDAOImp() {
-        sessionFactory = HibernateUtil.getSessionFactory();
-        transaction = null;
+    public ResignationDAOImp(Session session) {
+        this.session = session;
     }
 
     @Override
     public boolean add(Resignation t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            session.save(t);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.saveOrUpdate(t); // Hibernate tự động quyết định là save hay update
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi xảy ra
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public Resignation get(long id) {
-        Resignation resignation = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            resignation = session.find(Resignation.class, id);
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return resignation;
+        return session.get(Resignation.class, id);
     }
 
     @Override
     public boolean update(Resignation t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
+        Transaction transaction = session.beginTransaction();
+        try {
             session.update(t);
-
-            // Hoàn thành transaction
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean delete(long id) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            Query<Resignation> query = session.createQuery("FROM Resignation WHERE id = :id", Resignation.class);
-            query.setParameter("id", id);
-
-            Resignation resignation = query.uniqueResult();
-            session.delete(resignation);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            Resignation resignation = session.find(Resignation.class, id);
+            session.delete(resignation); // Xóa role
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
         }
-        return false;
+        return true;
     }
 
     @Override
     public List<Resignation> getAll() {
-        List<Resignation> resignations = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            String hql = "FROM Resignation";
-            Query<Resignation> query = session.createQuery(hql, Resignation.class);
-            resignations = query.list();
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return resignations;
+        Query<Resignation> query = session.createQuery("FROM Resignation", Resignation.class);
+        return query.list();
     }
 }

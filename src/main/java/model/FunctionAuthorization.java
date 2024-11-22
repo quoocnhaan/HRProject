@@ -125,7 +125,4 @@ public class FunctionAuthorization {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    
-
 }

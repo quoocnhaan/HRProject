@@ -158,6 +158,12 @@ public class Employee {
 
     public Employee() {
         family = new ArrayList<>();
+        contracts = new ArrayList<>();
+        kow = new ArrayList<>();
+        approvedContracts = new ArrayList<>();
+        leaveRequest = new ArrayList<>();
+        approvedListRequest = new ArrayList<>();
+        notifications = new ArrayList<>();
     }
 
     public Employee(String employeeId, String name, boolean gender, Date dateOfBirth, Employee manager, RoleDetail roleDetail, User user, List<EmployeeFamily> family, PaidLeave paidLeave, MaternityLeave maternityLeave, Insurance insurance, TransportationAllowance transportationAllowance, Contact contact, List<Contract> contracts, AttendanceInformation attendanceInformation, List<KOW> kow, DriverLicense driverLicense, CreditCard creditCard, List<Contract> approvedContracts, List<LeaveRequest> leaveRequest, List<LeaveRequest> approvedListRequest, Resignation resignation, List<Notification> notifications, int senority, String major, String educationalBackground, String academicLevel, String academicTitle, String ethnicity, String taxCode, Date taxCodeIssueDate, String taxCodeIssuePlace, String nationality, String idNumber, Date idIssueDate, String idIssuePlace, String maritalStatus, boolean status) {
@@ -200,8 +206,6 @@ public class Employee {
         this.maritalStatus = maritalStatus;
         this.status = status;
     }
-
-    
 
     public long getId() {
         return id;

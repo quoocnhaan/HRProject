@@ -6,19 +6,13 @@ package view.component.DepartmentInfo;
 
 import controller.DAO.DepartmentDAO;
 import controller.DAOImp.DepartmentDAOImp;
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.Image;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JTree;
 import javax.swing.SwingUtilities;
-import javax.swing.border.MatteBorder;
-import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
-import javax.swing.tree.DefaultTreeModel;
-import org.w3c.dom.css.CSSPrimitiveValue;
-import org.w3c.dom.css.RGBColor;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -75,8 +69,10 @@ public class DepartmentData_Component extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initData() {
-        DepartmentDAO departmentDAO = new DepartmentDAOImp();
-        department.setModel(departmentDAO.getDefaultTreeModel(1));
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
+        department.setModel(departmentDAO.getDefaultTreeModel(12));
+        session.close();
     }
 
     private void designTree() {

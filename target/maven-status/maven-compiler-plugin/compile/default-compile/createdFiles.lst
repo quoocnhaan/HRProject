@@ -57,6 +57,7 @@ controller\Session\MySession.class
 controller\DAO\InsuranceDAO.class
 view\component\Title_CheckBox\CheckBox_Component$1.class
 controller\DAOImp\KOWDAOImp.class
+NewClass.class
 controller\DAOImp\EmployeeFamilyDAOImp.class
 controller\DAOImp\SalaryDAOImp.class
 view\component\LegalInfoDetail_Component\test_Leagal$1.class
@@ -77,6 +78,7 @@ controller\DAO\EmployeeDAO.class
 view\component\Function_Component\Function_Component.class
 view\component\JobInfoDetail_Component\Test_Job.class
 model\ApprovedLeaveRequest.class
+NewClass1.class
 controller\DAOImp\ApprovedLeaveRequestDAOImp.class
 view\component\DeparmentInfoDetail\Department_Component.class
 controller\DAO\UserDAO.class

@@ -7,6 +7,7 @@ package controller.DAOImp;
 import controller.DAO.ApprovedLeaveRequestDAO;
 import java.util.List;
 import model.ApprovedLeaveRequest;
+import model.Salary;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -19,137 +20,68 @@ import util.HibernateUtil;
  */
 public class ApprovedLeaveRequestDAOImp implements ApprovedLeaveRequestDAO {
 
-    private SessionFactory sessionFactory;
-    private Transaction transaction;
+    private Session session;
 
-    public ApprovedLeaveRequestDAOImp() {
-        sessionFactory = HibernateUtil.getSessionFactory();
-        transaction = null;
+    public ApprovedLeaveRequestDAOImp(Session session) {
+        this.session = session;
     }
 
     @Override
     public boolean add(ApprovedLeaveRequest t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            session.save(t);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.saveOrUpdate(t); // Hibernate tự động quyết định là save hay update
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi xảy ra
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public ApprovedLeaveRequest get(long id) {
-        ApprovedLeaveRequest approvedLeaveRequest = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            approvedLeaveRequest = session.find(ApprovedLeaveRequest.class, id);
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return approvedLeaveRequest;
+        return session.get(ApprovedLeaveRequest.class, id);
     }
 
     @Override
     public boolean update(ApprovedLeaveRequest t) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
+        Transaction transaction = session.beginTransaction();
+        try {
             session.update(t);
-
-            // Hoàn thành transaction
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
             return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean delete(long id) {
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            Query<ApprovedLeaveRequest> query = session.createQuery("FROM ApprovedLeaveRequest WHERE id = :id", ApprovedLeaveRequest.class);
-            query.setParameter("id", id);
-
-            ApprovedLeaveRequest approvedLeaveRequest = query.uniqueResult();
-            session.delete(approvedLeaveRequest);
-
-            // Hoàn thành transaction
+        Transaction transaction = session.beginTransaction();
+        try {
+            ApprovedLeaveRequest approvedLeaveRequest = session.find(ApprovedLeaveRequest.class, id);
+            session.delete(approvedLeaveRequest); // Xóa role
             transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            return true;
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();
+                transaction.rollback(); // Rollback nếu có lỗi
             }
             e.printStackTrace();
         }
-        return false;
+        return true;
     }
 
     @Override
     public List<ApprovedLeaveRequest> getAll() {
-        List<ApprovedLeaveRequest> approvedLeaveRequests = null;
-        try (Session session = sessionFactory.openSession()) {
-            // Bắt đầu một transaction
-            transaction = session.beginTransaction();
-
-            String hql = "FROM ApprovedLeaveRequest";
-            Query<ApprovedLeaveRequest> query = session.createQuery(hql, ApprovedLeaveRequest.class);
-            approvedLeaveRequests = query.list();
-
-            // Hoàn thành transaction
-            transaction.commit();
-
-            // In ra thông báo
-            System.out.println("Success !");
-            // Lấy lại dữ liệu vừa lưu từ cơ sở dữ liệu
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return approvedLeaveRequests;
+        Query<ApprovedLeaveRequest> query = session.createQuery("FROM ApprovedLeaveRequest", ApprovedLeaveRequest.class);
+        return query.list();
     }
 }

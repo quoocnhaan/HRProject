@@ -4,7 +4,19 @@
  */
 package view.component.Function_Component;
 
+import controller.DAO.FunctionAuthorizationDAO;
+import controller.DAO.FunctionDAO;
+import controller.DAO.RoleDAO;
+import controller.DAOImp.FunctionAuthorizationDAOImp;
+import controller.DAOImp.FunctionDAOImp;
+import controller.DAOImp.RoleDAOImp;
+import controller.Functional.Functional;
+import java.awt.Color;
 import java.awt.FlowLayout;
+import model.Function;
+import model.Role;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -30,6 +42,8 @@ public class FunctionData_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -43,11 +57,20 @@ public class FunctionData_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void setLayout() {
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 20));
+        this.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
     }
 
     private void initData() {
-        
+        try (Session session = HibernateUtil.getSessionFactory().openSession();) {
+            RoleDAO roleDAO = new RoleDAOImp(session);
+            Role r1 = roleDAO.get(1);
+
+            for (Function function : r1.getFunctions()) {
+                String[] colorRGB = function.getColor().split(",");
+                Color color = new Color(Integer.parseInt(colorRGB[0]), Integer.parseInt(colorRGB[1]), Integer.parseInt(colorRGB[2]));
+                this.add(new Function_Component(function.getFunctionId(), function.getName(), color, Functional.convertByteArrayToIcon(function.getIcon())));
+            }
+        }
     }
 
 

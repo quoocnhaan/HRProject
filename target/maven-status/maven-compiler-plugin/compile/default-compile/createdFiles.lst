@@ -8,6 +8,7 @@ controller\DAOImp\ContactDAOImp.class
 controller\DAOImp\TransportationAllowanceDAOImp.class
 controller\DAO\CreditCardDAO.class
 controller\DAO\EmployeeFamilyDAO.class
+view\form\Home\NewClass$2.class
 model\Notification.class
 controller\DAO\ApprovedLeaveRequestDAO.class
 controller\DAO\RoleDetailDAO.class
@@ -47,6 +48,7 @@ controller\DAO\LeaveRequestDAO.class
 view\component\BenefitInfo_Component\AllComponent_BenefitInfo_Manage.class
 controller\DAOImp\JobDAOImp.class
 view\component\EmployeeDetailInfo\EmployeeDetail\Hotline_Component.class
+view\form\Home\NewClass$1.class
 view\component\DeparmentInfoDetail\Test_Deparment$1.class
 controller\DAO\AttendanceRecordsDAO.class
 model\NotiType.class
@@ -54,10 +56,10 @@ view\component\DeparmentInfoDetail\Test_Deparment.class
 controller\DAOImp\CreditCardDAOImp.class
 controller\DAOImp\MaternityLeaveDAOImp.class
 controller\Session\MySession.class
+view\form\Home\NewClass.class
 controller\DAO\InsuranceDAO.class
 view\component\Title_CheckBox\CheckBox_Component$1.class
 controller\DAOImp\KOWDAOImp.class
-NewClass.class
 controller\DAOImp\EmployeeFamilyDAOImp.class
 controller\DAOImp\SalaryDAOImp.class
 view\component\LegalInfoDetail_Component\test_Leagal$1.class
@@ -67,6 +69,7 @@ view\component\JobInfoDetail_Component\AllComponent_JobInfo.class
 controller\DAOImp\AttendanceInformationDAOImp.class
 controller\DAO\DepartmentDAO.class
 view\component\LegalInfoDetail_Component\AllComponent_LegalInfo.class
+view\form\Home\NewClass$3.class
 controller\DAO\PayPeriodDAO.class
 model\RoleDetail.class
 controller\DAOImp\NotiTypeDAOImp.class

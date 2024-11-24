@@ -4,10 +4,20 @@
  */
 package controller.Session;
 
+import model.Employee;
+
 /**
  *
  * @author LENOVO
  */
 public class MySession {
-    
+    public static Employee currentEmployee;
+
+    public static void login(Employee employee) {
+        currentEmployee = employee;
+    }
+
+    public static void logout() {
+        currentEmployee = null;
+    }
 }

@@ -36,6 +36,7 @@ public class Function_Component extends javax.swing.JPanel {
         funcId = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(4, 89, 74));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setMaximumSize(new java.awt.Dimension(300, 150));
 
         funcName.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N

@@ -6,6 +6,7 @@ package view.form.Home;
 
 import java.awt.BorderLayout;
 import view.form.Home.Header.Header;
+import view.form.Home.MainContent.MainContent;
 
 /**
  *
@@ -104,10 +105,11 @@ public class Home_Form extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-        this.setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout(5, 5));
     }
 
     private void addComponents() {
         this.add(new Header(), BorderLayout.NORTH);
+        this.add(new MainContent(), BorderLayout.CENTER);
     }
 }

@@ -4,7 +4,10 @@
  */
 package view.form.Home.MainContent;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.JPanel;
 import view.component.Function_Component.FunctionData_Component;
 
 /**
@@ -13,13 +16,19 @@ import view.component.Function_Component.FunctionData_Component;
  */
 public class MainContent extends javax.swing.JPanel {
 
-    /**
-     * Creates new form MainContent
-     */
+    private static MainContent instance;
+
     public MainContent() {
         initComponents();
         setLayout();
         addComponents();
+    }
+
+    public static MainContent getInstance() {
+        if (instance == null) {
+            instance = new MainContent();
+        }
+        return instance;
     }
 
     /**
@@ -46,11 +55,15 @@ public class MainContent extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void setLayout() {
-        this.setLayout(new CardLayout());
+        this.setLayout(new BorderLayout());
     }
 
     private void addComponents() {
         this.add(new FunctionData_Component());
+    }
+
+    public void changePage(String text) {
+        System.out.println("Hello");
     }
 
 

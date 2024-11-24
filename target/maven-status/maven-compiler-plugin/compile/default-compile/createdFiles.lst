@@ -20,6 +20,7 @@ model\Department.class
 view\component\JobInfoDetail_Component\JobinDetail_Component.class
 view\component\LegalInfoDetail_Component\EmploymentContract_Component$5.class
 controller\DAOImp\ContractDAOImp.class
+view\component\Function_Component\Function_Component$1.class
 controller\DAOImp\RoleDetailDAOImp.class
 controller\DAOImp\LeaveRequestDAOImp.class
 controller\DAO\MaternityLeaveDAO.class

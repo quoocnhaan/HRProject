@@ -7,6 +7,7 @@ package view.component.Function_Component;
 import controller.Functional.Functional;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import view.form.Home.MainContent.MainContent;
 
 /**
  *
@@ -14,9 +15,6 @@ import javax.swing.ImageIcon;
  */
 public class Function_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Home_Component
-     */
     public Function_Component(String funcId, String funcName, Color color, ImageIcon imgIcon) {
         initComponents();
         initData(funcId, funcName, color, imgIcon);
@@ -38,6 +36,11 @@ public class Function_Component extends javax.swing.JPanel {
         setBackground(new java.awt.Color(4, 89, 74));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setMaximumSize(new java.awt.Dimension(300, 150));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         funcName.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
         funcName.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,6 +82,10 @@ public class Function_Component extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        onClick();
+    }//GEN-LAST:event_formMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel funcIcon;
@@ -91,5 +98,9 @@ public class Function_Component extends javax.swing.JPanel {
         this.funcName.setText(funcName);
         this.funcIcon.setIcon(Functional.scaleImg(this.funcIcon, imgIcon));
         this.setBackground(color);
+    }
+
+    private void onClick() {
+       MainContent.getInstance().changePage("");
     }
 }

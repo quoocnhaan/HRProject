@@ -4,9 +4,19 @@
  */
 package view.form.Home.Header;
 
+import controller.DAO.RoleDAO;
+import controller.DAOImp.RoleDAOImp;
 import controller.Functional.Functional;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import model.Function;
+import model.Role;
+import org.hibernate.Session;
+import util.HibernateUtil;
 import view.form.Home.MainContent.MainContent;
 
 /**
@@ -14,13 +24,13 @@ import view.form.Home.MainContent.MainContent;
  * @author LENOVO
  */
 public class Header extends javax.swing.JPanel {
-
-    /**
-     * Creates new form Header
-     */
+    
+    JPopupMenu popupMenu;
+    
     public Header() {
         initComponents();
         addComponents();
+        initData();
     }
 
     /**
@@ -33,10 +43,13 @@ public class Header extends javax.swing.JPanel {
     private void initComponents() {
 
         logo = new javax.swing.JLabel();
-        backBtn = new javax.swing.JLabel();
-        menuBtn = new javax.swing.JLabel();
-        notiBtn = new javax.swing.JLabel();
         personalImg = new javax.swing.JLabel();
+        menuBtnCont = new javax.swing.JPanel();
+        menuBtn = new javax.swing.JLabel();
+        backBtnCont = new javax.swing.JPanel();
+        backBtn = new javax.swing.JLabel();
+        notiBtnCont = new javax.swing.JPanel();
+        notiBtn = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -47,6 +60,49 @@ public class Header extends javax.swing.JPanel {
         logo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         logo.setSize(54, 54);
 
+        personalImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        personalImg.setText("img");
+        personalImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        personalImg.setSize(54, 54);
+
+        menuBtnCont.setBackground(new java.awt.Color(255, 255, 255));
+
+        menuBtn.setText(" ");
+        menuBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuBtn.setMaximumSize(new java.awt.Dimension(25, 25));
+        menuBtn.setMinimumSize(new java.awt.Dimension(0, 0));
+        menuBtn.setSize(25,25);
+        menuBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                menuBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuBtnMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout menuBtnContLayout = new javax.swing.GroupLayout(menuBtnCont);
+        menuBtnCont.setLayout(menuBtnContLayout);
+        menuBtnContLayout.setHorizontalGroup(
+            menuBtnContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuBtnContLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(menuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        menuBtnContLayout.setVerticalGroup(
+            menuBtnContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuBtnContLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(menuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        backBtnCont.setBackground(new java.awt.Color(255, 255, 255));
+
         backBtn.setToolTipText("");
         backBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backBtn.setMaximumSize(new java.awt.Dimension(25, 25));
@@ -56,21 +112,60 @@ public class Header extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backBtnMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backBtnMouseExited(evt);
+            }
         });
 
-        menuBtn.setText(" ");
-        menuBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        menuBtn.setMaximumSize(new java.awt.Dimension(25, 25));
-        menuBtn.setMinimumSize(new java.awt.Dimension(0, 0));
-        menuBtn.setSize(25,25);
+        javax.swing.GroupLayout backBtnContLayout = new javax.swing.GroupLayout(backBtnCont);
+        backBtnCont.setLayout(backBtnContLayout);
+        backBtnContLayout.setHorizontalGroup(
+            backBtnContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backBtnContLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        backBtnContLayout.setVerticalGroup(
+            backBtnContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backBtnContLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        notiBtnCont.setBackground(new java.awt.Color(255, 255, 255));
 
         notiBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         notiBtn.setSize(25, 25);
+        notiBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                notiBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                notiBtnMouseExited(evt);
+            }
+        });
 
-        personalImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        personalImg.setText("img");
-        personalImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        personalImg.setSize(54, 54);
+        javax.swing.GroupLayout notiBtnContLayout = new javax.swing.GroupLayout(notiBtnCont);
+        notiBtnCont.setLayout(notiBtnContLayout);
+        notiBtnContLayout.setHorizontalGroup(
+            notiBtnContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notiBtnContLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(notiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        notiBtnContLayout.setVerticalGroup(
+            notiBtnContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notiBtnContLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(notiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -78,26 +173,24 @@ public class Header extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(menuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 621, Short.MAX_VALUE)
-                .addComponent(notiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(backBtnCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menuBtnCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 719, Short.MAX_VALUE)
+                .addComponent(notiBtnCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(personalImg, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(menuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(notiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(9, 9, 9)))
-            .addComponent(personalImg, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(personalImg, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(menuBtnCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backBtnCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(notiBtnCont, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -105,11 +198,42 @@ public class Header extends javax.swing.JPanel {
         MainContent.getInstance().changePage("F0000");
     }//GEN-LAST:event_backBtnMouseClicked
 
+    private void menuBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBtnMouseEntered
+        menuBtnCont.setBackground(new Color(243, 246, 248));
+    }//GEN-LAST:event_menuBtnMouseEntered
+
+    private void backBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBtnMouseEntered
+        backBtnCont.setBackground(new Color(243, 246, 248));
+    }//GEN-LAST:event_backBtnMouseEntered
+
+    private void notiBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notiBtnMouseEntered
+        notiBtnCont.setBackground(new Color(243, 246, 248));
+    }//GEN-LAST:event_notiBtnMouseEntered
+
+    private void menuBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBtnMouseExited
+        menuBtnCont.setBackground(Color.white);
+    }//GEN-LAST:event_menuBtnMouseExited
+
+    private void backBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBtnMouseExited
+        backBtnCont.setBackground(Color.white);
+    }//GEN-LAST:event_backBtnMouseExited
+
+    private void notiBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notiBtnMouseExited
+        notiBtnCont.setBackground(Color.white);
+    }//GEN-LAST:event_notiBtnMouseExited
+
+    private void menuBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBtnMouseClicked
+        popupMenu.show(menuBtn, menuBtn.getWidth() / 2, menuBtn.getHeight() / 2);
+    }//GEN-LAST:event_menuBtnMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backBtn;
+    private javax.swing.JPanel backBtnCont;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel menuBtn;
+    private javax.swing.JPanel menuBtnCont;
     private javax.swing.JLabel notiBtn;
+    private javax.swing.JPanel notiBtnCont;
     private javax.swing.JLabel personalImg;
     // End of variables declaration//GEN-END:variables
 
@@ -118,15 +242,34 @@ public class Header extends javax.swing.JPanel {
         String urlBack = "/img/back-button.png";
         String urlMenu = "/img/menu.png";
         String urlNoti = "/img/bell.png";
-
+        
         ImageIcon iconLogo = Functional.scaleImg(logo, urlLogo);
         ImageIcon iconBack = Functional.scaleImg(backBtn, urlBack);
         ImageIcon iconMenu = Functional.scaleImg(menuBtn, urlMenu);
         ImageIcon iconNoti = Functional.scaleImg(notiBtn, urlNoti);
-
+        
         logo.setIcon(iconLogo);
         backBtn.setIcon(iconBack);
         menuBtn.setIcon(iconMenu);
         notiBtn.setIcon(iconNoti);
+    }
+    
+    private void initData() {
+        popupMenu = new JPopupMenu();
+        
+        try (Session session = HibernateUtil.getSessionFactory().openSession();) {
+            RoleDAO roleDAO = new RoleDAOImp(session);
+            Role r1 = roleDAO.get(1);
+            
+            for (Function function : r1.getFunctions()) {
+                JMenuItem item = new JMenuItem(function.getName());
+                item.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        MainContent.getInstance().changePage(function.getFunctionId());
+                    }
+                });
+                popupMenu.add(item);
+            }
+        }
     }
 }

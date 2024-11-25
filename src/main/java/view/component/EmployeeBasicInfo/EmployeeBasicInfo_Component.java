@@ -6,7 +6,7 @@ package view.component.EmployeeBasicInfo;
 
 import java.awt.BorderLayout;
 import view.component.EmployeeBasicInfo.EmployeeInfo.EmployeeInfo_Component;
-import view.component.EmployeeBasicInfo.Search.Search;
+import view.component.Search.Search;
 
 /**
  *

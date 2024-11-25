@@ -103,7 +103,6 @@ public class Home_Form extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-        
         this.getContentPane().setLayout(new BorderLayout(10, 10));
         this.getContentPane().setBackground(new Color(241,241,250));
     }

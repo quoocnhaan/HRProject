@@ -5,6 +5,7 @@
 package view.component.LeaveApplication.ListLeaveRequest.BasicLeaveRequest;
 
 import java.awt.BorderLayout;
+import view.component.Search.Search;
 
 /**
  *

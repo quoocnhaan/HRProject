@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.EmployeeBasicInfo.Search;
+package view.component.Search;
 
 import controller.Functional.Functional;
 import javax.swing.ImageIcon;

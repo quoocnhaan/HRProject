@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import view.component.LeaveApplication.GridLeaveRequest.Content.Content_Component;
 import view.component.LeaveApplication.GridLeaveRequest.NextPage.NextPageAndSearch;
-import view.component.LeaveApplication.ListLeaveRequest.BasicLeaveRequest.Search;
 
 /**
  *

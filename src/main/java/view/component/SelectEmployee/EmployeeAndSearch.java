@@ -5,7 +5,7 @@
 package view.component.SelectEmployee;
 
 import java.awt.BorderLayout;
-import view.component.EmployeeBasicInfo.Search.Search;
+import view.component.Search.Search;
 import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
 

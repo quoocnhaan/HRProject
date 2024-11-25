@@ -8,7 +8,7 @@ import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.border.EmptyBorder;
 import view.component.LeaveApplication.GridLeaveRequest.NextPage.CurrentDate.CurrentDate_Component;
-import view.component.LeaveApplication.ListLeaveRequest.BasicLeaveRequest.Search;
+import view.component.Search.Search;
 
 /**
  *

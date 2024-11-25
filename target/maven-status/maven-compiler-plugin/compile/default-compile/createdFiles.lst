@@ -5,6 +5,7 @@ view\component\ManageEmployee\ManageFamilyEmployeeInfo\FamilyEmployee_Component_
 controller\DAO\ContactDAO.class
 view\component\Filter\Filter_Component.class
 controller\DAO\DriverLicenseDAO.class
+view\form\Home\Header\Header$3.class
 controller\DAOImp\ContactDAOImp.class
 controller\DAOImp\TransportationAllowanceDAOImp.class
 controller\DAO\CreditCardDAO.class
@@ -14,6 +15,7 @@ view\form\Home\NewClass$2.class
 EmployeeBasicInfo_Component.class
 FunctionData_Component.class
 model\Notification.class
+view\component\Search\Search.class
 controller\DAO\ApprovedLeaveRequestDAO.class
 controller\DAO\RoleDetailDAO.class
 view\component\BenefitInfo_Component\Test_Benefit.class
@@ -92,12 +94,14 @@ view\component\Function_Component\Function_Component.class
 view\component\JobInfoDetail_Component\Test_Job.class
 model\ApprovedLeaveRequest.class
 NewClass1.class
+view\form\Home\Header\Header$2.class
 controller\DAOImp\ApprovedLeaveRequestDAOImp.class
 view\component\DeparmentInfoDetail\Department_Component.class
 controller\DAO\UserDAO.class
 view\component\EmployeeDetailInfo\EmployeeDetail\Test_Employee$1.class
 controller\DAO\FunctionDAO.class
 controller\DAOImp\InsuranceDAOImp.class
+view\form\Home\Header\Header$4.class
 controller\DAOImp\ResignationDAOImp.class
 view\component\LegalInfoDetail_Component\test_Leagal.class
 controller\DAO\RoleDAO.class

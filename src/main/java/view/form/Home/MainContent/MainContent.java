@@ -5,8 +5,6 @@
 package view.form.Home.MainContent;
 
 import java.awt.CardLayout;
-import java.util.Stack;
-import javax.swing.JPanel;
 import view.component.Function_Component.FunctionData_Component;
 import view.component.LeaveApplication.GridLeaveRequest.GridLeaveApplication_Component;
 import view.component.Manage_Component.ManageEmployeeInfo_Component;
@@ -70,10 +68,7 @@ public class MainContent extends javax.swing.JPanel {
     public void changePage(String functionId) {
         CardLayout c = (CardLayout) this.getLayout();
         c.show(this, functionId);
-        System.out.println("swiched!");
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

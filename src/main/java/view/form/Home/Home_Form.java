@@ -5,6 +5,8 @@
 package view.form.Home;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JPanel;
 import view.form.Home.Header.Header;
 import view.form.Home.MainContent.MainContent;
 
@@ -14,9 +16,6 @@ import view.form.Home.MainContent.MainContent;
  */
 public class Home_Form extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Home_Form
-     */
     public Home_Form() {
         initComponents();
         setLayout();
@@ -46,20 +45,19 @@ public class Home_Form extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(207, 207, 207));
+        setBackground(new java.awt.Color(241, 241, 250));
         setMinimumSize(new java.awt.Dimension(1200, 600));
         setName("frame"); // NOI18N
-        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addGap(0, 1390, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 617, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -105,11 +103,13 @@ public class Home_Form extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-        this.setLayout(new BorderLayout(5, 5));
+        
+        this.getContentPane().setLayout(new BorderLayout(10, 10));
+        this.getContentPane().setBackground(new Color(241,241,250));
     }
 
     private void addComponents() {
         this.add(new Header(), BorderLayout.NORTH);
-        this.add(new MainContent(), BorderLayout.CENTER);
+        this.add(MainContent.getInstance(), BorderLayout.CENTER);
     }
 }

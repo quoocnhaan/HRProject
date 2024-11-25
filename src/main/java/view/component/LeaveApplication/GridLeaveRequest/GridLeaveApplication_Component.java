@@ -5,7 +5,7 @@
 package view.component.LeaveApplication.GridLeaveRequest;
 
 import java.awt.BorderLayout;
-import view.component.LeaveApplication.GridLeaveRequest.Filter.Filter_Component;
+import view.component.Filter.Filter_Component;
 
 /**
  *

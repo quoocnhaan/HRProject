@@ -39,6 +39,9 @@ public class Employee {
     @Column(name = "gender")
     private boolean gender;
 
+    @Column(name = "image")
+    private byte[] image;
+
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 
@@ -166,10 +169,11 @@ public class Employee {
         notifications = new ArrayList<>();
     }
 
-    public Employee(String employeeId, String name, boolean gender, Date dateOfBirth, Employee manager, RoleDetail roleDetail, User user, List<EmployeeFamily> family, PaidLeave paidLeave, MaternityLeave maternityLeave, Insurance insurance, TransportationAllowance transportationAllowance, Contact contact, List<Contract> contracts, AttendanceInformation attendanceInformation, List<KOW> kow, DriverLicense driverLicense, CreditCard creditCard, List<Contract> approvedContracts, List<LeaveRequest> leaveRequest, List<LeaveRequest> approvedListRequest, Resignation resignation, List<Notification> notifications, int senority, String major, String educationalBackground, String academicLevel, String academicTitle, String ethnicity, String taxCode, Date taxCodeIssueDate, String taxCodeIssuePlace, String nationality, String idNumber, Date idIssueDate, String idIssuePlace, String maritalStatus, boolean status) {
+    public Employee(String employeeId, String name, boolean gender, byte[] image, Date dateOfBirth, Employee manager, RoleDetail roleDetail, User user, List<EmployeeFamily> family, PaidLeave paidLeave, MaternityLeave maternityLeave, Insurance insurance, TransportationAllowance transportationAllowance, Contact contact, List<Contract> contracts, AttendanceInformation attendanceInformation, List<KOW> kow, DriverLicense driverLicense, CreditCard creditCard, List<Contract> approvedContracts, List<LeaveRequest> leaveRequest, List<LeaveRequest> approvedListRequest, Resignation resignation, List<Notification> notifications, int senority, String major, String educationalBackground, String academicLevel, String academicTitle, String ethnicity, String taxCode, Date taxCodeIssueDate, String taxCodeIssuePlace, String nationality, String idNumber, Date idIssueDate, String idIssuePlace, String maritalStatus, boolean status) {
         this.employeeId = employeeId;
         this.name = name;
         this.gender = gender;
+        this.image = image;
         this.dateOfBirth = dateOfBirth;
         this.manager = manager;
         this.roleDetail = roleDetail;
@@ -205,6 +209,14 @@ public class Employee {
         this.idIssuePlace = idIssuePlace;
         this.maritalStatus = maritalStatus;
         this.status = status;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public long getId() {

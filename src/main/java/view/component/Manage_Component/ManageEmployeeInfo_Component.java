@@ -2,35 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.form.Home.MainContent;
+package view.component.Manage_Component;
 
-import java.awt.CardLayout;
-import java.util.Stack;
-import javax.swing.JPanel;
-import view.component.Function_Component.FunctionData_Component;
-import view.component.LeaveApplication.GridLeaveRequest.GridLeaveApplication_Component;
-import view.component.Manage_Component.ManageEmployeeInfo_Component;
-import view.component.Salary.Salary_Component.Salary_Component;
+import java.awt.BorderLayout;
+import view.component.DepartmentInfo.Department_Component;
+import view.component.EmployeeBasicInfo.EmployeeBasicInfo_Component;
 
 /**
  *
  * @author LENOVO
  */
-public class MainContent extends javax.swing.JPanel {
+public class ManageEmployeeInfo_Component extends javax.swing.JPanel {
 
-    private static MainContent instance;
-
-    public MainContent() {
+    /**
+     * Creates new form ManageEmployeeInfo_Component
+     */
+    public ManageEmployeeInfo_Component() {
         initComponents();
         setLayout();
         addComponents();
-    }
-
-    public static MainContent getInstance() {
-        if (instance == null) {
-            instance = new MainContent();
-        }
-        return instance;
     }
 
     /**
@@ -42,13 +32,13 @@ public class MainContent extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(241, 241, 250));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -57,20 +47,12 @@ public class MainContent extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void setLayout() {
-        this.setLayout(new CardLayout());
+        this.setLayout(new BorderLayout(10, 10));
     }
 
     private void addComponents() {
-        this.add(new FunctionData_Component(), "F0000");
-        this.add(new ManageEmployeeInfo_Component(), "F0001");
-        this.add(new Salary_Component(), "F0003");
-        this.add(new GridLeaveApplication_Component(), "F0004");
-    }
-
-    public void changePage(String functionId) {
-        CardLayout c = (CardLayout) this.getLayout();
-        c.show(this, functionId);
-        System.out.println("swiched!");
+        this.add(new Department_Component(), BorderLayout.WEST);
+        this.add(new EmployeeBasicInfo_Component(), BorderLayout.CENTER);
     }
 
 

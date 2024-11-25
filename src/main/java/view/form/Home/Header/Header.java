@@ -6,6 +6,8 @@ package view.form.Home.Header;
 
 import controller.Functional.Functional;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import view.form.Home.MainContent.MainContent;
 
 /**
  *
@@ -50,6 +52,11 @@ public class Header extends javax.swing.JPanel {
         backBtn.setMaximumSize(new java.awt.Dimension(25, 25));
         backBtn.setPreferredSize(new java.awt.Dimension(25, 25));
         backBtn.setSize(25,25);
+        backBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backBtnMouseClicked(evt);
+            }
+        });
 
         menuBtn.setText(" ");
         menuBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -94,6 +101,9 @@ public class Header extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void backBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBtnMouseClicked
+        MainContent.getInstance().changePage("F0000");
+    }//GEN-LAST:event_backBtnMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backBtn;

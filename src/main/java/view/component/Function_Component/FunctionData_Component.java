@@ -24,9 +24,6 @@ import util.HibernateUtil;
  */
 public class FunctionData_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form FunctionData_Component
-     */
     public FunctionData_Component() {
         initComponents();
         setLayout();

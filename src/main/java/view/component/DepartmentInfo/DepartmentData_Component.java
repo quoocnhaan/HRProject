@@ -71,7 +71,7 @@ public class DepartmentData_Component extends javax.swing.JPanel {
     private void initData() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
-        department.setModel(departmentDAO.getDefaultTreeModel(12));
+        department.setModel(departmentDAO.getDefaultTreeModel(1));
         session.close();
     }
 

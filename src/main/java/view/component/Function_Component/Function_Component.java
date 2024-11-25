@@ -101,6 +101,6 @@ public class Function_Component extends javax.swing.JPanel {
     }
 
     private void onClick() {
-       MainContent.getInstance().changePage("");
+        MainContent.getInstance().changePage(funcId.getText());
     }
 }

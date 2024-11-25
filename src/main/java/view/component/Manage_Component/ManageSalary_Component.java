@@ -2,35 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.form.Home.MainContent;
+package view.component.Manage_Component;
 
-import java.awt.CardLayout;
-import java.util.Stack;
-import javax.swing.JPanel;
-import view.component.Function_Component.FunctionData_Component;
-import view.component.LeaveApplication.GridLeaveRequest.GridLeaveApplication_Component;
-import view.component.Manage_Component.ManageEmployeeInfo_Component;
-import view.component.Salary.Salary_Component.Salary_Component;
+import java.awt.BorderLayout;
 
 /**
  *
  * @author LENOVO
  */
-public class MainContent extends javax.swing.JPanel {
+public class ManageSalary_Component extends javax.swing.JPanel {
 
-    private static MainContent instance;
-
-    public MainContent() {
+    /**
+     * Creates new form ManageSalary_Component
+     */
+    public ManageSalary_Component() {
         initComponents();
         setLayout();
         addComponents();
-    }
-
-    public static MainContent getInstance() {
-        if (instance == null) {
-            instance = new MainContent();
-        }
-        return instance;
     }
 
     /**
@@ -41,8 +29,6 @@ public class MainContent extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -57,20 +43,11 @@ public class MainContent extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void setLayout() {
-        this.setLayout(new CardLayout());
+        this.setLayout(new BorderLayout());
     }
 
     private void addComponents() {
-        this.add(new FunctionData_Component(), "F0000");
-        this.add(new ManageEmployeeInfo_Component(), "F0001");
-        this.add(new Salary_Component(), "F0003");
-        this.add(new GridLeaveApplication_Component(), "F0004");
-    }
-
-    public void changePage(String functionId) {
-        CardLayout c = (CardLayout) this.getLayout();
-        c.show(this, functionId);
-        System.out.println("swiched!");
+        
     }
 
 

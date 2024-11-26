@@ -6,6 +6,7 @@ package view.component.Title_CheckBox;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.JCheckBox;
 import javax.swing.border.MatteBorder;
 
 /**
@@ -31,10 +32,7 @@ public class CheckBox_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBox1 = new javax.swing.JCheckBox();
         check = new javax.swing.JCheckBox();
-
-        jCheckBox1.setText("jCheckBox1");
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -67,9 +65,17 @@ public class CheckBox_Component extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_checkActionPerformed
 
+    public JCheckBox getCheck() {
+        return check;
+    }
+
+    public void setCheck(JCheckBox check) {
+        this.check = check;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox check;
-    private javax.swing.JCheckBox jCheckBox1;
     // End of variables declaration//GEN-END:variables
 }

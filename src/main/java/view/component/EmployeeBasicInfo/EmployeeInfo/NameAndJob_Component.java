@@ -111,7 +111,7 @@ public class NameAndJob_Component extends javax.swing.JPanel {
 
     }//GEN-LAST:event_formMouseEntered
 
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel direct;
     private javax.swing.JLabel id;

@@ -14,9 +14,8 @@ import view.component.Title_CheckBox.Title_Component;
  */
 public class TitleEmployeeBasicInfo_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form TitleEmployeeBasicInfo_Component
-     */
+    private CheckAll_Component checkAll;
+    
     public TitleEmployeeBasicInfo_Component() {
         initComponents();
         setLayout();
@@ -52,7 +51,9 @@ public class TitleEmployeeBasicInfo_Component extends javax.swing.JPanel {
 
     private void addComponents() {
         String[] names = {"Nhân viên", "Thông tin cá nhân", "Tình trạng", "Liên hệ"};
-        this.add(new CheckAll_Component());
+        
+        checkAll = new CheckAll_Component();
+        this.add(checkAll);
         for(int i = 0; i < 4; i++) {
             this.add(new Title_Component(names[i]));
         }
@@ -60,5 +61,13 @@ public class TitleEmployeeBasicInfo_Component extends javax.swing.JPanel {
 
     private void setLayout() {
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+    }
+
+    public CheckAll_Component getCheckAll() {
+        return checkAll;
+    }
+
+    public void setCheckAll(CheckAll_Component checkAll) {
+        this.checkAll = checkAll;
     }
 }

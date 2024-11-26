@@ -2,21 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.LeaveApplication.GridLeaveRequest;
+package view.component.Manage_Component;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.Date;
+import javax.swing.SwingUtilities;
 import view.component.Filter.Filter_Component;
+import view.component.LeaveApplication.GridLeaveRequest.LeaveApplicationGrid;
 
 /**
  *
  * @author LENOVO
  */
-public class GridLeaveApplication_Component extends javax.swing.JPanel {
+public class ManageLeaveApplication_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form LeaveApplicationGridAndFilter
-     */
-    public GridLeaveApplication_Component() {
+    private Filter_Component filter;
+    private LeaveApplicationGrid leaveApp;
+    private static ManageLeaveApplication_Component instance;
+
+    public ManageLeaveApplication_Component() {
         initComponents();
         setLayout();
         addComponents();
@@ -49,8 +54,22 @@ public class GridLeaveApplication_Component extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        this.add(new Filter_Component(), BorderLayout.WEST);
-        this.add(new LeaveApplicationGrid(), BorderLayout.CENTER);
+        filter = new Filter_Component();
+        leaveApp = new LeaveApplicationGrid();
+
+        this.add(filter, BorderLayout.WEST);
+        this.add(leaveApp, BorderLayout.CENTER);
+    }
+
+    public static ManageLeaveApplication_Component getInstance() {
+        if (instance == null) {
+            return new ManageLeaveApplication_Component();
+        }
+        return instance;
+    }
+
+    public void updateDate(String date) {
+        leaveApp.getChangePageAndSearch().getCurDate().updateData(date);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

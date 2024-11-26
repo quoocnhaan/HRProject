@@ -31,28 +31,40 @@ public class Department_Component extends javax.swing.JPanel {
         title.setForeground(new java.awt.Color(0, 0, 255));
         title.setText("Phòng ban");
 
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Mã phòng ban");
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Tên phòng ban");
 
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Thuộc");
 
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Cấp tổ chức");
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Tên người quản lý");
 
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Vai trò người quản lý");
 
+        departmentCode.setForeground(new java.awt.Color(0, 0, 0));
         departmentCode.setText("jLabel6");
 
+        departmentName.setForeground(new java.awt.Color(0, 0, 0));
         departmentName.setText("jLabel6");
 
+        belong.setForeground(new java.awt.Color(0, 0, 0));
         belong.setText("jLabel6");
 
+        organizationLevel.setForeground(new java.awt.Color(0, 0, 0));
         organizationLevel.setText("jLabel6");
 
+        nameOfTheManager.setForeground(new java.awt.Color(0, 0, 0));
         nameOfTheManager.setText("jLabel6");
 
+        theRoleOfTheManager.setForeground(new java.awt.Color(0, 0, 0));
         theRoleOfTheManager.setText("jLabel6");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

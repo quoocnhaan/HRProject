@@ -6,10 +6,9 @@ package view.form.Home.MainContent;
 
 import java.awt.CardLayout;
 import view.component.Function_Component.FunctionData_Component;
-import view.component.LeaveApplication.GridLeaveRequest.GridLeaveApplication_Component;
+import view.component.Manage_Component.ManageLeaveApplication_Component;
 import view.component.Manage_Component.ManageEmployeeInfo_Component;
-import view.component.Salary.Salary_Component.Salary_Component;
-
+import view.component.Manage_Component.ManageSalary_Component;
 /**
  *
  * @author LENOVO
@@ -17,6 +16,7 @@ import view.component.Salary.Salary_Component.Salary_Component;
 public class MainContent extends javax.swing.JPanel {
 
     private static MainContent instance;
+    
 
     public MainContent() {
         initComponents();
@@ -59,10 +59,12 @@ public class MainContent extends javax.swing.JPanel {
     }
 
     private void addComponents() {
+        
+        
         this.add(new FunctionData_Component(), "F0000");
         this.add(new ManageEmployeeInfo_Component(), "F0001");
-        this.add(new Salary_Component(), "F0003");
-        this.add(new GridLeaveApplication_Component(), "F0004");
+        this.add(new ManageSalary_Component(), "F0003");
+        this.add(ManageLeaveApplication_Component.getInstance(), "F0004");
     }
 
     public void changePage(String functionId) {

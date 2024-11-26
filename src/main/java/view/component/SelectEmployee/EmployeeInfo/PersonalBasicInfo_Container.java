@@ -20,9 +20,13 @@ import view.component.Title_CheckBox.CheckBox_Component;
  */
 public class PersonalBasicInfo_Container extends javax.swing.JPanel {
 
-    /**
-     * Creates new form NewJPanel
-     */
+    private CheckBox_Component checkBox;
+    private NameAndJob_Component nameAndJob;
+    private DateAndGender_Component dateAndGender;
+    private Status_Component status;
+    private Contact_Component contact;
+    
+    
     public PersonalBasicInfo_Container() {
         initComponents();
         setLayout();
@@ -65,16 +69,22 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         String gender = "Nam";
         String startDate = "15/10/2024";
         String seniority = "10/10/2012";
-        String status = "Chinh thuc";
+        String type = "Chinh thuc";
         String email = "quocnhan56@gmail.com";
         String phone = "0968270553";
         String twitter = "quocnhan56@gmail.com";
 
-        this.add(new CheckBox_Component());
-        this.add(new NameAndJob_Component(name, id, job, direct, img));
-        this.add(new DateAndGender_Component(dateOfBirth, place, gender));
-        this.add(new Status_Component(startDate, seniority, status));
-        this.add(new Contact_Component(email, phone, twitter));
+        checkBox = new CheckBox_Component();
+        nameAndJob = new NameAndJob_Component(name, id, job, direct, img);
+        dateAndGender = new DateAndGender_Component(dateOfBirth, place, gender);
+        status = new Status_Component(startDate, seniority, type);
+        contact = new Contact_Component(email, phone, twitter);
+        
+        this.add(checkBox);
+        this.add(nameAndJob);
+        this.add(dateAndGender);
+        this.add(status);
+        this.add(contact);
     }
 
     private void setLayout() {
@@ -85,7 +95,49 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
     }
 
+    public CheckBox_Component getCheckBox() {
+        return checkBox;
+    }
 
+    public void setCheckBox(CheckBox_Component checkBox) {
+        this.checkBox = checkBox;
+    }
+
+    public NameAndJob_Component getNameAndJob() {
+        return nameAndJob;
+    }
+
+    public void setNameAndJob(NameAndJob_Component nameAndJob) {
+        this.nameAndJob = nameAndJob;
+    }
+
+    public DateAndGender_Component getDateAndGender() {
+        return dateAndGender;
+    }
+
+    public void setDateAndGender(DateAndGender_Component dateAndGender) {
+        this.dateAndGender = dateAndGender;
+    }
+
+    public Status_Component getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status_Component status) {
+        this.status = status;
+    }
+
+    public Contact_Component getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact_Component contact) {
+        this.contact = contact;
+    }
+    
+    public void changeStatusCheckBox(boolean isCheck) {
+        checkBox.getCheck().setSelected(isCheck);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

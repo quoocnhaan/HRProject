@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view.component.LeaveApplication.GridLeaveRequest;
+import view.component.Manage_Component.ManageLeaveApplication_Component;
 import java.awt.BorderLayout;
 
 /**
@@ -17,7 +18,7 @@ public class Test extends javax.swing.JFrame {
     public Test() {
         initComponents();
         this.getContentPane().setLayout(new BorderLayout());
-        this.getContentPane().add(new GridLeaveApplication_Component());
+        this.getContentPane().add(new ManageLeaveApplication_Component());
     }
 
     /**

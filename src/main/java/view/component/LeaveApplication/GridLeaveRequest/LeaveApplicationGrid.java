@@ -9,7 +9,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import view.component.LeaveApplication.GridLeaveRequest.Content.Content_Component;
-import view.component.LeaveApplication.GridLeaveRequest.NextPage.NextPageAndSearch;
+import view.component.LeaveApplication.GridLeaveRequest.ChangePage.ChangePageAndSearch;
 
 /**
  *
@@ -17,9 +17,9 @@ import view.component.LeaveApplication.GridLeaveRequest.NextPage.NextPageAndSear
  */
 public class LeaveApplicationGrid extends javax.swing.JPanel {
 
-    /**
-     * Creates new form LeaveApplication_Component
-     */
+    private ChangePageAndSearch changePageAndSearch;
+    private JScrollPane content;
+    
     public LeaveApplicationGrid() {
         initComponents();
         setLayout();
@@ -53,25 +53,39 @@ public class LeaveApplicationGrid extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        //this.add(new Filter_Component(), BorderLayout.WEST);
-        this.add(new NextPageAndSearch(), BorderLayout.NORTH);
+        changePageAndSearch = new ChangePageAndSearch();
+        this.add(changePageAndSearch, BorderLayout.NORTH);
 
         Content_Component contentComponent = new Content_Component();
 
-        // Lấy các panel cố định từ Content_Component
         JPanel fixedColumnPanel = contentComponent.getEmployeeInfo_Container();
         JPanel fixedRowPanel = contentComponent.getDate_Container();
 
-        // Tạo JScrollPane cho phần nội dung
-        JScrollPane scrollPane = new JScrollPane(contentComponent);
+        content = new JScrollPane(contentComponent);
 
-        // Cố định cột đầu tiên khi cuộn ngang và hàng đầu tiên khi cuộn dọc
-        scrollPane.setRowHeaderView(fixedColumnPanel);
-        scrollPane.setColumnHeaderView(fixedRowPanel);
+        content.setRowHeaderView(fixedColumnPanel);
+        content.setColumnHeaderView(fixedRowPanel);
 
-        // Thêm JScrollPane vào JFrame
-        this.add(scrollPane, BorderLayout.CENTER);
+        this.add(content, BorderLayout.CENTER);
     }
+
+    public ChangePageAndSearch getChangePageAndSearch() {
+        return changePageAndSearch;
+    }
+
+    public void setChangePageAndSearch(ChangePageAndSearch changePageAndSearch) {
+        this.changePageAndSearch = changePageAndSearch;
+    }
+
+    public JScrollPane getContent() {
+        return content;
+    }
+
+    public void setContent(JScrollPane content) {
+        this.content = content;
+    }
+    
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

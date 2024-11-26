@@ -13,12 +13,13 @@ import javax.swing.JScrollPane;
  */
 public class PersonalInfo extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PersonalInfo_Component
-     */
+    private TitleEmployeeBasicInfo_Component title;
+    private JScrollPane content;
+
     public PersonalInfo() {
         initComponents();
         setLayout();
+        addComponents();
     }
 
     /**
@@ -47,14 +48,35 @@ public class PersonalInfo extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     private void setLayout() {
         this.setLayout(new BorderLayout());
-        
-        this.add(new TitleEmployeeBasicInfo_Component(), BorderLayout.NORTH);
-        
-        JScrollPane scrollPane = new JScrollPane(new PersonalInfo_Container());
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setBorder(null);
-        
-        this.add(scrollPane, BorderLayout.CENTER);
     }
+
+    private void addComponents() {
+        title = new TitleEmployeeBasicInfo_Component();
+        this.add(title, BorderLayout.NORTH);
+
+        content = new JScrollPane(new PersonalInfo_Container());
+        content.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        content.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        content.setBorder(null);
+
+        this.add(content, BorderLayout.CENTER);
+    }
+
+    public TitleEmployeeBasicInfo_Component getTitle() {
+        return title;
+    }
+
+    public void setTitle(TitleEmployeeBasicInfo_Component title) {
+        this.title = title;
+    }
+
+    public JScrollPane getContent() {
+        return content;
+    }
+
+    public void setContent(JScrollPane content) {
+        this.content = content;
+    }
+    
+    
 }

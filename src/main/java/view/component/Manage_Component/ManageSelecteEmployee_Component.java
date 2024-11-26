@@ -5,19 +5,19 @@
 package view.component.Manage_Component;
 
 import java.awt.BorderLayout;
-import view.component.Filter.Filter_Component;
-import view.component.Salary.Salary_Component.Salary_Component;
+import view.component.DepartmentInfo.Department_Component;
+import view.component.SelectEmployee.SelectEmployee_Component;
 
 /**
  *
  * @author LENOVO
  */
-public class ManageSalary_Component extends javax.swing.JPanel {
+public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageSalary_Component
+     * Creates new form ManageSelecteEmployee
      */
-    public ManageSalary_Component() {
+    public ManageSelecteEmployee_Component() {
         initComponents();
         setLayout();
         addComponents();
@@ -32,8 +32,6 @@ public class ManageSalary_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(241, 241, 250));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -47,12 +45,12 @@ public class ManageSalary_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void setLayout() {
-        this.setLayout(new BorderLayout(10, 10));
+        this.setLayout(new BorderLayout(0, 0));
     }
 
     private void addComponents() {
-        this.add(new Filter_Component(), BorderLayout.WEST);
-        this.add(new Salary_Component(), BorderLayout.CENTER);
+        this.add(new Department_Component(), BorderLayout.WEST);
+        this.add(new SelectEmployee_Component(), BorderLayout.CENTER);
     }
 
 

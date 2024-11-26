@@ -4,8 +4,10 @@ package view.component.SelectEmployee.EmployeeInfo;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-
+import java.awt.Component;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,13 +15,19 @@ import java.awt.GridLayout;
  */
 public class PersonalInfo_Container extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PersonalInfo_Container
-     */
+    private static PersonalInfo_Container instance;
+
     public PersonalInfo_Container() {
         initComponents();
         setLayout();
         addComponents();
+    }
+
+    public PersonalInfo_Container getInstance() {
+        if (instance == null) {
+            return new PersonalInfo_Container();
+        }
+        return instance;
     }
 
     /**
@@ -48,11 +56,22 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        for(int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 6; i++) {
             this.add(new PersonalBasicInfo_Container());
         }
     }
 
+    public List<PersonalBasicInfo_Container> getAll() {
+        List<PersonalBasicInfo_Container> resultList = new ArrayList<>();
+
+        Component[] components = this.getComponents();
+
+        for (Component component : components) {
+            resultList.add((PersonalBasicInfo_Container) component);
+        }
+
+        return resultList;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -7,15 +7,16 @@ package view.component.SelectEmployee;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
 import view.component.DepartmentInfo.Department_Component;
+
 /**
  *
  * @author LENOVO
  */
 public class SelectEmployee_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form SelectEmployee_Component
-     */
+    private EmployeeAndSearch employeeAndSearch;
+    private Btn_Component btn;
+    
     public SelectEmployee_Component() {
         initComponents();
         setLayout();
@@ -52,8 +53,11 @@ public class SelectEmployee_Component extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        this.add(new Department_Component(), BorderLayout.WEST);
-        this.add(new EmployeeAndSearch(), BorderLayout.CENTER);
+        employeeAndSearch = new EmployeeAndSearch();
+        btn = new Btn_Component();
+                
+        this.add(employeeAndSearch, BorderLayout.CENTER);
+        this.add(btn, BorderLayout.SOUTH);
     }
 
 

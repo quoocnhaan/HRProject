@@ -2,25 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.Manage_Component;
-
-import java.awt.BorderLayout;
-import view.component.Filter.Filter_Component;
-import view.component.Salary.Salary_Component.Salary_Component;
+package view.component.SelectEmployee;
 
 /**
  *
  * @author LENOVO
  */
-public class ManageSalary_Component extends javax.swing.JPanel {
+public class Btn_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ManageSalary_Component
-     */
-    public ManageSalary_Component() {
+    public Btn_Component() {
         initComponents();
-        setLayout();
-        addComponents();
     }
 
     /**
@@ -32,30 +23,35 @@ public class ManageSalary_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(241, 241, 250));
+        btn = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        btn.setBackground(new java.awt.Color(69, 89, 190));
+        btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn.setForeground(new java.awt.Color(255, 255, 255));
+        btn.setText("Đồng ý");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void setLayout() {
-        this.setLayout(new BorderLayout(10, 10));
-    }
-
-    private void addComponents() {
-        this.add(new Filter_Component(), BorderLayout.WEST);
-        this.add(new Salary_Component(), BorderLayout.CENTER);
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn;
     // End of variables declaration//GEN-END:variables
 }

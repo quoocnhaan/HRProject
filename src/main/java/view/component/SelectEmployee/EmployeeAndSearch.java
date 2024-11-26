@@ -8,16 +8,15 @@ import java.awt.BorderLayout;
 import view.component.Search.Search;
 import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
-
 /**
  *
  * @author LENOVO
  */
 public class EmployeeAndSearch extends javax.swing.JPanel {
 
-    /**
-     * Creates new form EmployeeAndSearch
-     */
+    private Search search;
+    private PersonalInfo personalInfo;
+
     public EmployeeAndSearch() {
         initComponents();
         setLayout();
@@ -50,8 +49,27 @@ public class EmployeeAndSearch extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        this.add(new Search(), BorderLayout.NORTH);
-        this.add(new PersonalInfo(), BorderLayout.CENTER);
+        search = new Search();
+        personalInfo = new PersonalInfo();
+
+        this.add(search, BorderLayout.NORTH);
+        this.add(personalInfo, BorderLayout.CENTER);
+    }
+
+    public Search getSearch() {
+        return search;
+    }
+
+    public void setSearch(Search search) {
+        this.search = search;
+    }
+
+    public PersonalInfo getPersonalInfo() {
+        return personalInfo;
+    }
+
+    public void setPersonalInfo(PersonalInfo personalInfo) {
+        this.personalInfo = personalInfo;
     }
 
 

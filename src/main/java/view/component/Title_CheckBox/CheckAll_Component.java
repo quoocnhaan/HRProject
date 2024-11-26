@@ -5,6 +5,7 @@
 package view.component.Title_CheckBox;
 
 import java.awt.Dimension;
+import javax.swing.JCheckBox;
 
 /**
  *
@@ -12,9 +13,6 @@ import java.awt.Dimension;
  */
 public class CheckAll_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CheckAll_Component
-     */
     public CheckAll_Component() {
         initComponents();
         this.setPreferredSize(new Dimension(31, 28));
@@ -29,14 +27,16 @@ public class CheckAll_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBox1 = new javax.swing.JCheckBox();
-        checkbox = new javax.swing.JCheckBox();
-
-        jCheckBox1.setText("jCheckBox1");
+        checkBox = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(241, 241, 250));
 
-        checkbox.setActionCommand(" ");
+        checkBox.setActionCommand(" ");
+        checkBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -44,21 +44,36 @@ public class CheckAll_Component extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(checkbox)
+                .addComponent(checkBox)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(checkbox, javax.swing.GroupLayout.PREFERRED_SIZE, 16, Short.MAX_VALUE)
+                .addComponent(checkBox, javax.swing.GroupLayout.PREFERRED_SIZE, 16, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
+        if (checkBox.isSelected()) {
+            System.out.println("Checkbox is checked");
+        } else {
+            System.out.println("Checkbox is unchecked");
+        }
+    }//GEN-LAST:event_checkBoxActionPerformed
+
+    public JCheckBox getCheckbox() {
+        return checkBox;
+    }
+
+    public void setCheckbox(JCheckBox checkbox) {
+        this.checkBox = checkbox;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox checkbox;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox checkBox;
     // End of variables declaration//GEN-END:variables
 }

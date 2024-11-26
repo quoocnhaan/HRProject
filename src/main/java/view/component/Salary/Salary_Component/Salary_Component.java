@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import view.component.Salary.Salary_Component.Content.Content_Component;
+import view.component.Search.Search;
 
 /**
  *
@@ -66,7 +67,7 @@ public class Salary_Component extends javax.swing.JPanel {
         scrollPane.setRowHeaderView(fixedColumnPanel);
         scrollPane.setColumnHeaderView(fixedRowPanel);
 
-        // Thêm JScrollPane vào JFrame
+        this.add(new Search(), BorderLayout.NORTH);
         this.add(scrollPane, BorderLayout.CENTER);
     }
 

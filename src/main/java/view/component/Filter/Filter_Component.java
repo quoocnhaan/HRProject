@@ -11,6 +11,8 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
+import view.component.Manage_Component.ManageLeaveApplication_Component;
 
 /**
  *
@@ -18,9 +20,6 @@ import javax.swing.ImageIcon;
  */
 public class Filter_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Filter_Component
-     */
     public int curMonth;
     public String m;
 
@@ -51,6 +50,7 @@ public class Filter_Component extends javax.swing.JPanel {
         employeeAmount = new javax.swing.JLabel();
         selectImg = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        updateBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -93,6 +93,17 @@ public class Filter_Component extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Nhân viên");
 
+        updateBtn.setBackground(new java.awt.Color(69, 89, 190));
+        updateBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
+        updateBtn.setText("Cập nhật");
+        updateBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        updateBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateBtnMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,6 +112,7 @@ public class Filter_Component extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fromDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(toDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -117,7 +129,9 @@ public class Filter_Component extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(month)))
                         .addGap(0, 1, Short.MAX_VALUE))
-                    .addComponent(toDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -145,7 +159,9 @@ public class Filter_Component extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(employeeAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(selectImg, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(381, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(279, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -167,6 +183,19 @@ public class Filter_Component extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_isSelectedDayActionPerformed
 
+    private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
+        ManageLeaveApplication_Component lac = (ManageLeaveApplication_Component) SwingUtilities.getAncestorOfClass(ManageLeaveApplication_Component.class, this);
+        if (lac != null) {
+            Date from = fromDateChooser.getDate();
+            Date to = toDateChooser.getDate();
+            
+            
+            lac.updateDate("Hello");
+        } else {
+
+        }
+    }//GEN-LAST:event_updateBtnMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel employeeAmount;
@@ -180,6 +209,7 @@ public class Filter_Component extends javax.swing.JPanel {
     private javax.swing.JLabel month;
     private javax.swing.JLabel selectImg;
     private com.toedter.calendar.JDateChooser toDateChooser;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 
     private void settingComponents() {

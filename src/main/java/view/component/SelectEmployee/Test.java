@@ -5,6 +5,7 @@
 package view.component.SelectEmployee;
 
 import java.awt.BorderLayout;
+import view.component.Manage_Component.ManageSelecteEmployee_Component;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Test extends javax.swing.JFrame {
     public Test() {
         initComponents();
         this.setLayout(new BorderLayout());
-        this.add(new SelectEmployee_Component());
+        this.add(new ManageSelecteEmployee_Component());
     }
 
     /**

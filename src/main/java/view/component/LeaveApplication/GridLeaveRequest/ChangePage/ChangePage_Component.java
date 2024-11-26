@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.LeaveApplication.GridLeaveRequest.NextPage;
+package view.component.LeaveApplication.GridLeaveRequest.ChangePage;
 
 import controller.Functional.Functional;
 import java.awt.Color;
@@ -12,12 +12,12 @@ import javax.swing.ImageIcon;
  *
  * @author LENOVO
  */
-public class NextPage_Component extends javax.swing.JPanel {
+public class ChangePage_Component extends javax.swing.JPanel {
 
     /**
      * Creates new form NextPage
      */
-    public NextPage_Component(ImageIcon icon) {
+    public ChangePage_Component(ImageIcon icon) {
         initComponents();
         this.icon.setSize(25, 25);
         this.icon.setIcon(Functional.scaleImg(this.icon, icon));

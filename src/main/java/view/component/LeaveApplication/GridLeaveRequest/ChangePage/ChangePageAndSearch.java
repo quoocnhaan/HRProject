@@ -2,29 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.LeaveApplication.GridLeaveRequest.NextPage;
+package view.component.LeaveApplication.GridLeaveRequest.ChangePage;
 
 import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.border.EmptyBorder;
-import view.component.LeaveApplication.GridLeaveRequest.NextPage.CurrentDate.CurrentDate_Component;
+import view.component.LeaveApplication.GridLeaveRequest.ChangePage.CurrentDate.CurrentDate_Component;
 import view.component.Search.Search;
 
 /**
  *
  * @author LENOVO
  */
-public class NextPageAndSearch extends javax.swing.JPanel {
+public class ChangePageAndSearch extends javax.swing.JPanel {
 
-    /**
-     * Creates new form NewJPanel
-     */
-    public NextPageAndSearch() {
+    private ChangePage_Component pre;
+    private ChangePage_Component next;
+    private CurrentDate_Component curDate;
+    private Search search;
+
+    public ChangePageAndSearch() {
         initComponents();
         setLayout();
         customComponents();
         addComponents();
-
     }
 
     /**
@@ -59,13 +60,52 @@ public class NextPageAndSearch extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        ImageIcon next = new ImageIcon(getClass().getResource("/icon/next.png"));
-        ImageIcon pre = new ImageIcon(getClass().getResource("/icon/pre.png"));
-        this.add(new NextPage_Component(pre));
-        this.add(new NextPage_Component(next));
-        this.add(new CurrentDate_Component("25 - 27 tháng 5 2024"));
-        this.add(new Search());
+        ImageIcon nextIcon = new ImageIcon(getClass().getResource("/icon/next.png"));
+        ImageIcon preIcon = new ImageIcon(getClass().getResource("/icon/pre.png"));
+        pre = new ChangePage_Component(preIcon);
+        next = new ChangePage_Component(nextIcon);
+        curDate = new CurrentDate_Component("___");
+        search = new Search();
+        
+        this.add(pre);
+        this.add(next);
+        this.add(curDate);
+        this.add(search);
     }
+
+    public ChangePage_Component getPre() {
+        return pre;
+    }
+
+    public void setPre(ChangePage_Component pre) {
+        this.pre = pre;
+    }
+
+    public ChangePage_Component getNext() {
+        return next;
+    }
+
+    public void setNext(ChangePage_Component next) {
+        this.next = next;
+    }
+
+    public CurrentDate_Component getCurDate() {
+        return curDate;
+    }
+
+    public void setCurDate(CurrentDate_Component curDate) {
+        this.curDate = curDate;
+    }
+
+    public Search getSearch() {
+        return search;
+    }
+
+    public void setSearch(Search search) {
+        this.search = search;
+    }
+    
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

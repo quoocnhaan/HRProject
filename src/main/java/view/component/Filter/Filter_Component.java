@@ -190,7 +190,7 @@ public class Filter_Component extends javax.swing.JPanel {
             Date to = toDateChooser.getDate();
             
             
-            lac.updateDate("Hello");
+            ManageLeaveApplication_Component.getInstance().updateDate("Hello");
         } else {
 
         }

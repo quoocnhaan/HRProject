@@ -8,6 +8,7 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,6 +17,7 @@ import java.util.List;
 public class PersonalInfo_Container extends javax.swing.JPanel {
 
     private static PersonalInfo_Container instance;
+    private List<PersonalBasicInfo_Container> infoList;
 
     public PersonalInfo_Container() {
         initComponents();
@@ -23,9 +25,9 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
         addComponents();
     }
 
-    public PersonalInfo_Container getInstance() {
+    public static PersonalInfo_Container getInstance() {
         if (instance == null) {
-            return new PersonalInfo_Container();
+            instance = new PersonalInfo_Container();
         }
         return instance;
     }
@@ -56,21 +58,35 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
+        infoList = new ArrayList<>();
+        String name = "Lâm Quốc Nhân";
+        String id = "LQN2005";
+        String job = "Web Developer";
+        String direct = "Trung tam CDC";
+        ImageIcon img = new ImageIcon(getClass().getResource("/img/avatar.jpg"));
+        String dateOfBirth = "20/09/2005";
+        String place = "Thành phố Hồ Chí Minh";
+        String gender = "Nam";
+        String startDate = "15/10/2024";
+        String seniority = "10/10/2012";
+        String type = "Chinh thuc";
+        String email = "quocnhan56@gmail.com";
+        String phone = "0968270553";
+        String twitter = "quocnhan56@gmail.com";
         for (int i = 1; i <= 6; i++) {
-            this.add(new PersonalBasicInfo_Container());
+            PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(name, id, job, direct, img, dateOfBirth, place, gender, startDate, seniority, type, email, phone, twitter);
+            this.add(pi);
+            infoList.add(pi);
         }
     }
 
+    public void updateData(String name, String id, String job, String direct, ImageIcon img, String dateOfBirth, String place,
+            String gender, String startDate, String seniority, String type, String email, String phone, String twitter) {
+
+    }
+
     public List<PersonalBasicInfo_Container> getAll() {
-        List<PersonalBasicInfo_Container> resultList = new ArrayList<>();
-
-        Component[] components = this.getComponents();
-
-        for (Component component : components) {
-            resultList.add((PersonalBasicInfo_Container) component);
-        }
-
-        return resultList;
+        return infoList;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

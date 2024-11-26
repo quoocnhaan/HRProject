@@ -57,6 +57,7 @@ C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\controller\Enum\Status.j
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\controller\Functional\Functional.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\controller\main.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\controller\Session\MySession.java
+C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\controller\Session\SharedData.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\model\ApprovedLeaveRequest.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\model\AttendanceInformation.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\model\AttendanceRecords.java
@@ -236,4 +237,3 @@ C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\form\Home\Header\He
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\form\Home\Home_Form.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\form\Home\MainContent\MainContent.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\form\Home\NewClass.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\main.java

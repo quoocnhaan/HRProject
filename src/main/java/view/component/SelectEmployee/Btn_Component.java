@@ -4,6 +4,9 @@
  */
 package view.component.SelectEmployee;
 
+import controller.Session.SharedData;
+import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
+
 /**
  *
  * @author LENOVO
@@ -31,6 +34,11 @@ public class Btn_Component extends javax.swing.JPanel {
         btn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn.setForeground(new java.awt.Color(255, 255, 255));
         btn.setText("Đồng ý");
+        btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -49,6 +57,10 @@ public class Btn_Component extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
+        SharedData.getInstance().setEmployeeId_Selected(PersonalInfo.getInstance().getData());
+    }//GEN-LAST:event_btnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -10,7 +10,11 @@ import java.awt.Image;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.TreePath;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
@@ -27,11 +31,12 @@ public class DepartmentData_Component extends javax.swing.JPanel {
         initComponents();
 
         SwingUtilities.invokeLater(() -> {
-            jScrollPane1.setBorder(BorderFactory.createEmptyBorder()); // Xóa viền của JScrollPane
+            jScrollPane1.setBorder(BorderFactory.createEmptyBorder());
         });
 
         designTree();
         initData();
+        addEvent();
     }
 
     /**
@@ -89,4 +94,23 @@ public class DepartmentData_Component extends javax.swing.JPanel {
         department.setCellRenderer(renderer);
     }
 
+    private void addEvent() {
+        department.addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+                    DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
+                    TreePath path = e.getPath();
+
+                    DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path.getLastPathComponent();
+
+                    String nodeName = selectedNode.getUserObject().toString();
+
+                    
+                } catch (Exception ex) {  // Bắt ngoại lệ và hiển thị lỗi nếu có
+                    System.out.println("Lỗi: " + ex.getMessage());
+                }
+            }
+        });
+    }
 }

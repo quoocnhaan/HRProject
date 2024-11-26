@@ -5,10 +5,12 @@
 package view.form.Home.MainContent;
 
 import java.awt.CardLayout;
+import java.util.List;
 import view.component.Function_Component.FunctionData_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
 import view.component.Manage_Component.ManageEmployeeInfo_Component;
 import view.component.Manage_Component.ManageSalary_Component;
+
 /**
  *
  * @author LENOVO
@@ -16,7 +18,7 @@ import view.component.Manage_Component.ManageSalary_Component;
 public class MainContent extends javax.swing.JPanel {
 
     private static MainContent instance;
-    
+    private List<String> functions;
 
     public MainContent() {
         initComponents();
@@ -59,12 +61,28 @@ public class MainContent extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        
-        
-        this.add(new FunctionData_Component(), "F0000");
-        this.add(new ManageEmployeeInfo_Component(), "F0001");
-        this.add(new ManageSalary_Component(), "F0003");
-        this.add(ManageLeaveApplication_Component.getInstance(), "F0004");
+        FunctionData_Component func = new FunctionData_Component();
+        functions = func.getAllFunctions();
+        this.add(func, "F0000");
+        for (String function : functions) {
+            System.out.println(function);
+            switch (function) {
+                case "F0001":
+                    this.add(new ManageEmployeeInfo_Component(), "F0001");
+                    break;
+                case "F0002":
+                    System.out.println("None !");
+                    break;
+                case "F0003":
+                    this.add(new ManageSalary_Component(), "F0003");
+                    break;
+                case "F0004":
+                    this.add(ManageLeaveApplication_Component.getInstance(), "F0004");
+                    break;
+                default:
+                    System.out.println("Error");
+            }
+        }
     }
 
     public void changePage(String functionId) {

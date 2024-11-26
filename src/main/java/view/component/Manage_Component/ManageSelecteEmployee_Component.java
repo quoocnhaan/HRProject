@@ -14,9 +14,9 @@ import view.component.SelectEmployee.SelectEmployee_Component;
  */
 public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ManageSelecteEmployee
-     */
+    private Department_Component department;
+    private SelectEmployee_Component selectEmployee;
+    
     public ManageSelecteEmployee_Component() {
         initComponents();
         setLayout();
@@ -49,11 +49,12 @@ public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        this.add(new Department_Component(), BorderLayout.WEST);
-        this.add(new SelectEmployee_Component(), BorderLayout.CENTER);
+        department = new Department_Component();
+        selectEmployee = new SelectEmployee_Component();
+        
+        this.add(department, BorderLayout.WEST);
+        this.add(selectEmployee, BorderLayout.CENTER);
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

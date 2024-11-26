@@ -63,7 +63,7 @@ public class ManageLeaveApplication_Component extends javax.swing.JPanel {
 
     public static ManageLeaveApplication_Component getInstance() {
         if (instance == null) {
-            return new ManageLeaveApplication_Component();
+            instance = new ManageLeaveApplication_Component();
         }
         return instance;
     }

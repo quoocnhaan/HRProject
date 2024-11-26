@@ -10,13 +10,10 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 import model.Department;
-import model.Salary;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import util.HibernateUtil;
 
 /**
  *
@@ -129,5 +126,13 @@ public class DepartmentDAOImp implements DepartmentDAO {
     @Override
     public DefaultTreeModel getDefaultTreeModel(long id) {
         return new DefaultTreeModel(getDefaultMutableTreeNode(get(id)));
+    }
+
+    @Override
+    public long getIdByName(String name) {
+            String hql = "FROM Department d where d.name = :name";
+            Query<Department> query = session.createQuery(hql, Department.class);
+            query.setParameter("name", name);
+            return query.uniqueResult().getId();
     }
 }

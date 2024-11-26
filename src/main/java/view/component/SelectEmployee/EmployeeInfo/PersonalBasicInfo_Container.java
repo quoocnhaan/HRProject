@@ -27,11 +27,12 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
     private Contact_Component contact;
     
     
-    public PersonalBasicInfo_Container() {
+    public PersonalBasicInfo_Container(String name, String id, String job, String direct, ImageIcon img, String dateOfBirth, String place,
+            String gender, String startDate, String seniority, String type, String email, String phone, String twitter) {
         initComponents();
         setLayout();
         customComponents();
-        addComponent();
+        addComponent(name, id, job, direct, img, dateOfBirth, place, gender, startDate,seniority, type, email, phone, twitter);
     }
 
     /**
@@ -58,22 +59,8 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addComponent() {
-        String name = "Lâm Quốc Nhân";
-        String id = "LQN2005";
-        String job = "Web Developer";
-        String direct = "Trung tam CDC";
-        ImageIcon img = new ImageIcon(getClass().getResource("/img/avatar.jpg"));
-        String dateOfBirth = "20/09/2005";
-        String place = "Thành phố Hồ Chí Minh";
-        String gender = "Nam";
-        String startDate = "15/10/2024";
-        String seniority = "10/10/2012";
-        String type = "Chinh thuc";
-        String email = "quocnhan56@gmail.com";
-        String phone = "0968270553";
-        String twitter = "quocnhan56@gmail.com";
-
+    private void addComponent(String name, String id, String job, String direct, ImageIcon img, String dateOfBirth, String place,
+            String gender, String startDate, String seniority, String type, String email, String phone, String twitter) {
         checkBox = new CheckBox_Component();
         nameAndJob = new NameAndJob_Component(name, id, job, direct, img);
         dateAndGender = new DateAndGender_Component(dateOfBirth, place, gender);

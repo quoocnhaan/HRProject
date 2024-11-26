@@ -7,6 +7,7 @@ package view.component.EmployeeBasicInfo.EmployeeInfo;
 import controller.Functional.Functional;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -111,6 +112,39 @@ public class NameAndJob_Component extends javax.swing.JPanel {
 
     }//GEN-LAST:event_formMouseEntered
 
+    public JLabel getDirect() {
+        return direct;
+    }
+
+    public void setDirect(JLabel direct) {
+        this.direct = direct;
+    }
+
+    public JLabel getId() {
+        return id;
+    }
+
+    public void setId(JLabel id) {
+        this.id = id;
+    }
+
+    public JLabel getImg() {
+        return img;
+    }
+
+    public void setImg(JLabel img) {
+        this.img = img;
+    }
+
+    public JLabel getJob() {
+        return job;
+    }
+
+    public void setJob(JLabel job) {
+        this.job = job;
+    }
+
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel direct;

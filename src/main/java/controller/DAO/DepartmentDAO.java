@@ -15,4 +15,5 @@ import model.Department;
 public interface DepartmentDAO extends InterfaceDAO<Department>{
     List<Department> findChildren(long id);
     DefaultTreeModel getDefaultTreeModel(long id);
+    long getIdByName(String name);
 }

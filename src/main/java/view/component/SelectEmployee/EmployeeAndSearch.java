@@ -50,7 +50,7 @@ public class EmployeeAndSearch extends javax.swing.JPanel {
 
     private void addComponents() {
         search = new Search();
-        personalInfo = new PersonalInfo();
+        personalInfo = PersonalInfo.getInstance();
 
         this.add(search, BorderLayout.NORTH);
         this.add(personalInfo, BorderLayout.CENTER);

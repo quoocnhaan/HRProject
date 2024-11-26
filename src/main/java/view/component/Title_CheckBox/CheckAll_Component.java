@@ -6,6 +6,7 @@ package view.component.Title_CheckBox;
 
 import java.awt.Dimension;
 import javax.swing.JCheckBox;
+import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
 /**
  *
@@ -57,11 +58,7 @@ public class CheckAll_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
-        if (checkBox.isSelected()) {
-            System.out.println("Checkbox is checked");
-        } else {
-            System.out.println("Checkbox is unchecked");
-        }
+        PersonalInfo.getInstance().updateData(checkBox.isSelected());
     }//GEN-LAST:event_checkBoxActionPerformed
 
     public JCheckBox getCheckbox() {

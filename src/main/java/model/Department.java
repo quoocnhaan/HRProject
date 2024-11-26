@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.w3c.dom.NameList;
@@ -37,6 +40,9 @@ public class Department {
     @JoinColumn(name = "manager_id")
     private Employee managerId;
 
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    private List<Employee> employee;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parent_id")
     private Department parent;
@@ -51,12 +57,14 @@ public class Department {
     private boolean status;
 
     public Department() {
+        employee = new ArrayList<>();
     }
 
-    public Department(String departmentId, String name, Employee managerId, Department parent, int totalEmployee, int level, boolean status) {
+    public Department(String departmentId, String name, Employee managerId, List<Employee> employee, Department parent, int totalEmployee, int level, boolean status) {
         this.departmentId = departmentId;
         this.name = name;
         this.managerId = managerId;
+        this.employee = employee;
         this.parent = parent;
         this.totalEmployee = totalEmployee;
         this.level = level;
@@ -69,6 +77,14 @@ public class Department {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<Employee> getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(List<Employee> employee) {
+        this.employee = employee;
     }
 
     public String getDepartmentId() {

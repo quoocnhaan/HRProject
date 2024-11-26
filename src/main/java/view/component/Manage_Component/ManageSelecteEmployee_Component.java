@@ -5,22 +5,27 @@
 package view.component.Manage_Component;
 
 import java.awt.BorderLayout;
+import java.util.List;
+import model.Employee;
 import view.component.DepartmentInfo.Department_Component;
 import view.component.SelectEmployee.SelectEmployee_Component;
 
-/**
- *
- * @author LENOVO
- */
 public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
 
     private Department_Component department;
     private SelectEmployee_Component selectEmployee;
+    private static ManageSelecteEmployee_Component instance;
     
     public ManageSelecteEmployee_Component() {
         initComponents();
         setLayout();
         addComponents();
+    }
+    
+    public static ManageSelecteEmployee_Component getInstance() {
+        if(instance == null)
+            instance = new ManageSelecteEmployee_Component();
+        return instance;
     }
 
     /**
@@ -54,6 +59,10 @@ public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
         
         this.add(department, BorderLayout.WEST);
         this.add(selectEmployee, BorderLayout.CENTER);
+    }
+
+    public void updateData(List<Employee> employee) {
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

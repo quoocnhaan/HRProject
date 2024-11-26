@@ -23,72 +23,67 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "hr_contract")
 public class Contract {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     @Column(name = "contract_id")
     private String contractId;
-    
+
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
-    
+
     @ManyToOne
     @JoinColumn(name = "approver_id")
     private Employee approver;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "job_id")
     private Job job;
-    
-    @OneToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "department_id")
-    private Department department;
-    
+
     @Column(name = "sign_date")
     private Date signDate;
-    
+
     @Column(name = "duration")
     private String duration;
-    
+
     @Column(name = "effective_date")
     private Date effectiveDate;
-    
+
     @Column(name = "expired_date")
     private Date expiredDate;
-    
+
     @Column(name = "base_salary")
     private double baseSalary;
-    
+
     @Column(name = "standard_working_hours")
     private double standardWorkingHours;
-    
+
     @Column(name = "payment_method")
     private String paymentMethod;
-    
+
     @Column(name = "probation_start_date")
     private Date probationStartDate;
-    
+
     @Column(name = "probation_end_date")
     private Date probationEndDate;
-    
+
     @Column(name = "transportation")
     private String transportation;
-    
+
     @Column(name = "status")
     private boolean status;
 
     public Contract() {
     }
 
-    public Contract(String contractId, Employee employee, Employee approver, Job job, Department department, Date signDate, String duration, Date effectiveDate, Date expiredDate, double baseSalary, double standardWorkingHours, String paymentMethod, Date probationStartDate, Date probationEndDate, String transportation, boolean status) {
+    public Contract(String contractId, Employee employee, Employee approver, Job job, Date signDate, String duration, Date effectiveDate, Date expiredDate, double baseSalary, double standardWorkingHours, String paymentMethod, Date probationStartDate, Date probationEndDate, String transportation, boolean status) {
         this.contractId = contractId;
         this.employee = employee;
         this.approver = approver;
         this.job = job;
-        this.department = department;
         this.signDate = signDate;
         this.duration = duration;
         this.effectiveDate = effectiveDate;
@@ -100,6 +95,12 @@ public class Contract {
         this.probationEndDate = probationEndDate;
         this.transportation = transportation;
         this.status = status;
+    }
+
+    public Contract(String contractId, Employee employee, Job job) {
+        this.contractId = contractId;
+        this.employee = employee;
+        this.job = job;
     }
 
     public long getId() {
@@ -140,14 +141,6 @@ public class Contract {
 
     public void setJob(Job job) {
         this.job = job;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
     }
 
     public Date getSignDate() {
@@ -237,7 +230,5 @@ public class Contract {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    
-    
+
 }

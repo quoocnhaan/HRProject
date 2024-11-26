@@ -25,17 +25,17 @@ public class test {
             transaction = session.beginTransaction();
 
             // Bắt đầu data mẫu
-            Department department1 = new Department("D00001", "Công ty Cổ phần Tin học Quốc Nhân", null, null, 0, 1, true);
-            Department department2 = new Department("D00011", "Chi nhánh HCM", null, department1, 0, 2, true);
-            Department department3 = new Department("D00111", "Khối phần mềm DX", null, department2, 0, 3, true);
-            Department department4 = new Department("D01111", "DSC-Nhóm kinh doanh 1", null, department3, 0, 4, true);
-            Department department5 = new Department("D01112", "Trung tâm DXS", null, department3, 0, 4, true);
-            Department department6 = new Department("D00112", "Trung tâm CDC", null, department2, 0, 3, true);
-            Department department7 = new Department("D01113", "Phòng CSKH", null, department6, 0, 4, true);
-            Department department8 = new Department("D01114", "Phòng triển khai CĐS", null, department6, 0, 4, true);
-            Department department9 = new Department("D00012", "Chi nhánh HN", null, department1, 0, 2, true);
-            Department department10 = new Department("D00113", "Nhóm kinh doanh giải pháp", null, department9, 0, 3, true);
-            Department department11 = new Department("D00114", "Phòng kế toán HN", null, department9, 0, 3, true);
+            Department department1 = new Department("D00001", "Công ty Cổ phần Tin học Quốc Nhân", null, null, null, 0, 1, true);
+            Department department2 = new Department("D00011", "Chi nhánh HCM", null, null,department1, 0, 2, true);
+            Department department3 = new Department("D00111", "Khối phần mềm DX", null, null,department2, 0, 3, true);
+            Department department4 = new Department("D01111", "DSC-Nhóm kinh doanh 1", null, null,department3, 0, 4, true);
+            Department department5 = new Department("D01112", "Trung tâm DXS", null, null,department3, 0, 4, true);
+            Department department6 = new Department("D00112", "Trung tâm CDC", null, null,department2, 0, 3, true);
+            Department department7 = new Department("D01113", "Phòng CSKH", null, null,department6, 0, 4, true);
+            Department department8 = new Department("D01114", "Phòng triển khai CĐS", null, null,department6, 0, 4, true);
+            Department department9 = new Department("D00012", "Chi nhánh HN", null, null,department1, 0, 2, true);
+            Department department10 = new Department("D00113", "Nhóm kinh doanh giải pháp", null, null,department9, 0, 3, true);
+            Department department11 = new Department("D00114", "Phòng kế toán HN", null, null,department9, 0, 3, true);
 
             session.save(department1);
             session.save(department2);

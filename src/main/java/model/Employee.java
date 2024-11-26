@@ -14,9 +14,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -71,6 +73,10 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "insurance_id")
     private Insurance insurance;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "transportation_allowance_id")
@@ -135,6 +141,9 @@ public class Employee {
     @Column(name = "tax_code")
     private String taxCode;
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "managerId")
+    private Department managerOf;
+
     @Column(name = "tax_code_issue_date")
     private Date taxCodeIssueDate;
 
@@ -169,7 +178,7 @@ public class Employee {
         notifications = new ArrayList<>();
     }
 
-    public Employee(String employeeId, String name, boolean gender, byte[] image, Date dateOfBirth, Employee manager, RoleDetail roleDetail, User user, List<EmployeeFamily> family, PaidLeave paidLeave, MaternityLeave maternityLeave, Insurance insurance, TransportationAllowance transportationAllowance, Contact contact, List<Contract> contracts, AttendanceInformation attendanceInformation, List<KOW> kow, DriverLicense driverLicense, CreditCard creditCard, List<Contract> approvedContracts, List<LeaveRequest> leaveRequest, List<LeaveRequest> approvedListRequest, Resignation resignation, List<Notification> notifications, int senority, String major, String educationalBackground, String academicLevel, String academicTitle, String ethnicity, String taxCode, Date taxCodeIssueDate, String taxCodeIssuePlace, String nationality, String idNumber, Date idIssueDate, String idIssuePlace, String maritalStatus, boolean status) {
+    public Employee(String employeeId, String name, boolean gender, byte[] image, Date dateOfBirth, Employee manager, RoleDetail roleDetail, User user, List<EmployeeFamily> family, PaidLeave paidLeave, MaternityLeave maternityLeave, Insurance insurance, TransportationAllowance transportationAllowance, Contact contact, List<Contract> contracts, AttendanceInformation attendanceInformation, List<KOW> kow, DriverLicense driverLicense, CreditCard creditCard, List<Contract> approvedContracts, List<LeaveRequest> leaveRequest, List<LeaveRequest> approvedListRequest, Resignation resignation, List<Notification> notifications, int senority, String major, String educationalBackground, String academicLevel, String academicTitle, String ethnicity, String taxCode, Department managerOf, Date taxCodeIssueDate, String taxCodeIssuePlace, String nationality, String idNumber, Date idIssueDate, String idIssuePlace, String maritalStatus, boolean status) {
         this.employeeId = employeeId;
         this.name = name;
         this.gender = gender;
@@ -201,6 +210,7 @@ public class Employee {
         this.academicTitle = academicTitle;
         this.ethnicity = ethnicity;
         this.taxCode = taxCode;
+        this.managerOf = managerOf;
         this.taxCodeIssueDate = taxCodeIssueDate;
         this.taxCodeIssuePlace = taxCodeIssuePlace;
         this.nationality = nationality;
@@ -209,6 +219,25 @@ public class Employee {
         this.idIssuePlace = idIssuePlace;
         this.maritalStatus = maritalStatus;
         this.status = status;
+    }
+
+    public Employee(String name, String employeeId, byte[] img, Date dateOfBirth, boolean gender, int senority, List<Contract> contracts, Contact contact) {
+        this.name = name;
+        this.employeeId = employeeId;
+        this.image = img;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.senority = senority;
+        this.contact = contact;
+        this.contracts = contracts;
+    }
+
+    public Department getManagerOf() {
+        return managerOf;
+    }
+
+    public void setManagerOf(Department managerOf) {
+        this.managerOf = managerOf;
     }
 
     public byte[] getImage() {

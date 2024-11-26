@@ -4,10 +4,15 @@
  */
 package view.component.SelectEmployee.EmployeeInfo;
 
+import controller.DAO.EmployeeDAO;
+import controller.DAOImp.EmployeeDAOImp;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JScrollPane;
+import model.Employee;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 public class PersonalInfo extends javax.swing.JPanel {
 
@@ -79,18 +84,27 @@ public class PersonalInfo extends javax.swing.JPanel {
         this.content = content;
     }
 
-    public void updateData(boolean isCheck) {
+    public void changeStatusCheckBox(boolean isCheck) {
         List<PersonalBasicInfo_Container> list = PersonalInfo_Container.getInstance().getAll();
         for (int i = 0; i < list.size(); i++) {
             list.get(i).changeStatusCheckBox(isCheck);
         }
     }
 
-    public List<String> getData() {
+    public List<Employee> getSelectedEmployee() {
         List<PersonalBasicInfo_Container> list = PersonalInfo_Container.getInstance().getAll();
-        List<String> result = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            result.add(list.get(i).getNameAndJob().getId().getText());
+        List<Employee> result = new ArrayList<>();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+            for (int i = 0; i < list.size(); i++) {
+                PersonalBasicInfo_Container cur = list.get(i);
+                if (cur.getCheckBox().getCheck().isSelected()) {
+                    Employee e = employeeDAO.getByEmployeeId(cur.getNameAndJob().getId().getText());
+                    result.add(e);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
         return result;
     }

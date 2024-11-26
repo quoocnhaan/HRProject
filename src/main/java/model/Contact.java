@@ -24,7 +24,7 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     @OneToOne(mappedBy = "contact", cascade = CascadeType.ALL)
     private Employee employee;
 
@@ -64,6 +64,12 @@ public class Contact {
         this.coPhone = coPhone;
         this.coAddress = coAddress;
         this.status = status;
+    }
+
+    public Contact(String personalEmail, String personalPhone, String permanentAddress) {
+        this.permanentAddress = permanentAddress;
+        this.personalEmail = personalEmail;
+        this.personalPhone = personalPhone;
     }
 
     public long getId() {
@@ -137,7 +143,5 @@ public class Contact {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
 
 }

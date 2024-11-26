@@ -6,34 +6,34 @@ package controller.Session;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.Employee;
 
 /**
  *
  * @author LENOVO
  */
 public class SharedData {
-    
-    private List<String> employeeId_Selected;
+
+    private List<Employee> employee_Selected;
     private static SharedData instance;
 
     public SharedData() {
-        employeeId_Selected = new ArrayList<>();
+        employee_Selected = new ArrayList<>();
     }
-    
+
     public static SharedData getInstance() {
-        if(instance == null) 
+        if (instance == null) {
             instance = new SharedData();
+        }
         return instance;
     }
 
-    public List<String> getEmployeeId_Selected() {
-        return employeeId_Selected;
+    public List<Employee> getEmployee_Selected() {
+        return employee_Selected;
     }
 
-    public void setEmployeeId_Selected(List<String> employeeId_Selected) {
-        this.employeeId_Selected = employeeId_Selected;
+    public void setEmployee_Selected(List<Employee> employee_Selected) {
+        this.employee_Selected = employee_Selected;
     }
-    
-    
-    
+
 }

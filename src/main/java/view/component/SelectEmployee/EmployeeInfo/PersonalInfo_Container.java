@@ -4,11 +4,13 @@ package view.component.SelectEmployee.EmployeeInfo;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
+import controller.Session.SharedData;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
+import model.Employee;
 
 /**
  *
@@ -59,6 +61,7 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
 
     private void addComponents() {
         infoList = new ArrayList<>();
+        List<Employee> list = SharedData.getInstance().getEmployee_Selected();
         String name = "Lâm Quốc Nhân";
         String id = "LQN2005";
         String job = "Web Developer";
@@ -68,7 +71,7 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
         String place = "Thành phố Hồ Chí Minh";
         String gender = "Nam";
         String startDate = "15/10/2024";
-        String seniority = "10/10/2012";
+        String seniority = "1 năm";
         String type = "Chinh thuc";
         String email = "quocnhan56@gmail.com";
         String phone = "0968270553";

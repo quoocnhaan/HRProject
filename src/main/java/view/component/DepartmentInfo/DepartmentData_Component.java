@@ -6,6 +6,7 @@ package view.component.DepartmentInfo;
 
 import controller.DAO.DepartmentDAO;
 import controller.DAOImp.DepartmentDAOImp;
+import controller.Session.SharedData;
 import java.awt.Image;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -15,8 +16,10 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreePath;
+import model.Department;
 import org.hibernate.Session;
 import util.HibernateUtil;
+import view.component.Manage_Component.ManageSelecteEmployee_Component;
 
 /**
  *
@@ -36,7 +39,6 @@ public class DepartmentData_Component extends javax.swing.JPanel {
 
         designTree();
         initData();
-        addEvent();
     }
 
     /**
@@ -53,6 +55,11 @@ public class DepartmentData_Component extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        department.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                departmentValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(department);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -66,6 +73,29 @@ public class DepartmentData_Component extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void departmentValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_departmentValueChanged
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
+            TreePath path = evt.getPath();
+
+            DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path.getLastPathComponent();
+
+            String nodeName = selectedNode.getUserObject().toString();
+            Department d = departmentDAO.getByName(nodeName);
+            SharedData.getInstance().setEmployee_Selected(d.getEmployee());
+            
+            ManageSelecteEmployee_Component me = (ManageSelecteEmployee_Component) SwingUtilities.getAncestorOfClass(ManageSelecteEmployee_Component.class, this);
+
+            if (me != null) {
+                ManageSelecteEmployee_Component.getInstance().updateData(SharedData.getInstance().getEmployee_Selected());
+            } else {
+
+            }
+        } catch (Exception ex) {  
+            System.out.println("Lỗi: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_departmentValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -92,25 +122,5 @@ public class DepartmentData_Component extends javax.swing.JPanel {
         renderer.setLeafIcon(new ImageIcon(scaleIcon));
 
         department.setCellRenderer(renderer);
-    }
-
-    private void addEvent() {
-        department.addTreeSelectionListener(new TreeSelectionListener() {
-            @Override
-            public void valueChanged(TreeSelectionEvent e) {
-                try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-                    DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
-                    TreePath path = e.getPath();
-
-                    DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path.getLastPathComponent();
-
-                    String nodeName = selectedNode.getUserObject().toString();
-
-                    
-                } catch (Exception ex) {  // Bắt ngoại lệ và hiển thị lỗi nếu có
-                    System.out.println("Lỗi: " + ex.getMessage());
-                }
-            }
-        });
     }
 }

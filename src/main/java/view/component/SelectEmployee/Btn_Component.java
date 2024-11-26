@@ -59,7 +59,7 @@ public class Btn_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
-        SharedData.getInstance().setEmployeeId_Selected(PersonalInfo.getInstance().getData());
+        SharedData.getInstance().setEmployee_Selected(PersonalInfo.getInstance().getSelectedEmployee());
     }//GEN-LAST:event_btnActionPerformed
 
 

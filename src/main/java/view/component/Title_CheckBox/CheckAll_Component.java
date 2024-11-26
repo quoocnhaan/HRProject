@@ -58,7 +58,7 @@ public class CheckAll_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
-        PersonalInfo.getInstance().updateData(checkBox.isSelected());
+        PersonalInfo.getInstance().changeStatusCheckBox(checkBox.isSelected());
     }//GEN-LAST:event_checkBoxActionPerformed
 
     public JCheckBox getCheckbox() {

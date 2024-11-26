@@ -11,5 +11,5 @@ import model.Employee;
  * @author PC
  */
 public interface EmployeeDAO extends InterfaceDAO<Employee>{
-    
+    Employee getByEmployeeId(String employeeId);
 }

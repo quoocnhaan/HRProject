@@ -84,4 +84,11 @@ public class EmployeeDAOImp implements EmployeeDAO {
         Query<Employee> query = session.createQuery("FROM Employee", Employee.class);
         return query.list();
     }
+
+    @Override
+    public Employee getByEmployeeId(String employeeId) {
+        Query<Employee> query = session.createQuery("FROM Employee WHERE employeeId = :employeeId", Employee.class);
+        query.setParameter("employeeId", employeeId);
+        return query.uniqueResult();
+    }
 }

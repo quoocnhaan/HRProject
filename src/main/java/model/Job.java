@@ -47,7 +47,7 @@ public class Job {
 
     @Column(name = "title_start_date")
     private Date titleStartDate;
-    
+
     @Column(name = "status")
     private boolean status;
 
@@ -64,6 +64,12 @@ public class Job {
         this.title = title;
         this.titleStartDate = titleStartDate;
         this.status = status;
+    }
+
+    public Job(Date startDate, String profession, String type) {
+        this.startDate = startDate;
+        this.profession = profession;
+        this.type = type;
     }
 
     public long getId() {

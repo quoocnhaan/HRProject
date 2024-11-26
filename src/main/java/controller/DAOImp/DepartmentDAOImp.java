@@ -129,10 +129,10 @@ public class DepartmentDAOImp implements DepartmentDAO {
     }
 
     @Override
-    public long getIdByName(String name) {
-            String hql = "FROM Department d where d.name = :name";
-            Query<Department> query = session.createQuery(hql, Department.class);
-            query.setParameter("name", name);
-            return query.uniqueResult().getId();
+    public Department getByName(String name) {
+        String hql = "FROM Department d where d.name = :name";
+        Query<Department> query = session.createQuery(hql, Department.class);
+        query.setParameter("name", name);
+        return query.uniqueResult();
     }
 }

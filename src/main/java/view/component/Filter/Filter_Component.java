@@ -5,13 +5,19 @@
 package view.component.Filter;
 
 import controller.Functional.Functional;
+import controller.Session.SharedData;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
+import model.DateRange;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
 
 /**
@@ -185,12 +191,32 @@ public class Filter_Component extends javax.swing.JPanel {
 
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
         ManageLeaveApplication_Component lac = (ManageLeaveApplication_Component) SwingUtilities.getAncestorOfClass(ManageLeaveApplication_Component.class, this);
+        SharedData.getInstance().getDateRanges().clear();
         if (lac != null) {
-            Date from = fromDateChooser.getDate();
-            Date to = toDateChooser.getDate();
-            
-            
-            ManageLeaveApplication_Component.getInstance().updateDate("Hello");
+            LocalDate from = null;
+            LocalDate to = null;
+            if (isSelectedDay.isSelected()) {
+                from = fromDateChooser.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                to = toDateChooser.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            } else {
+                LocalDate now = LocalDate.now();
+                from = now.withDayOfMonth(1);
+                to = now.withDayOfMonth(now.lengthOfMonth());
+            }
+            LocalDate currentFrom = from;
+
+            while (!currentFrom.isAfter(to)) {
+                LocalDate currentTo = currentFrom.plusDays(6); 
+                if (currentTo.isAfter(to)) {
+                    currentTo = to; 
+                }
+                DateRange dateRange = new DateRange(currentFrom, currentTo);
+                SharedData.getInstance().getDateRanges().add(dateRange);
+
+                currentFrom = currentTo.plusDays(1);
+            }
+
+            ManageLeaveApplication_Component.getInstance().updateData(SharedData.getInstance().getDateRanges().get(0));
         } else {
 
         }

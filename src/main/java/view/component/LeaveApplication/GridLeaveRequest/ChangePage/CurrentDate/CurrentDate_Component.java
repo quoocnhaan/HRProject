@@ -63,8 +63,6 @@ public class CurrentDate_Component extends javax.swing.JPanel {
 
     public void updateData(String date) {
         this.date.setText(date);
-        validate();
-        repaint();
     }
 
     public JLabel getDate() {

@@ -56,12 +56,10 @@ public class LeaveApplicationGrid extends javax.swing.JPanel {
         changePageAndSearch = new ChangePageAndSearch();
         this.add(changePageAndSearch, BorderLayout.NORTH);
 
-        Content_Component contentComponent = new Content_Component();
+        JPanel fixedColumnPanel = Content_Component.getInstance().getEmployeeInfo_Container();
+        JPanel fixedRowPanel = Content_Component.getInstance().getDate_Container();
 
-        JPanel fixedColumnPanel = contentComponent.getEmployeeInfo_Container();
-        JPanel fixedRowPanel = contentComponent.getDate_Container();
-
-        content = new JScrollPane(contentComponent);
+        content = new JScrollPane(Content_Component.getInstance());
 
         content.setRowHeaderView(fixedColumnPanel);
         content.setColumnHeaderView(fixedRowPanel);

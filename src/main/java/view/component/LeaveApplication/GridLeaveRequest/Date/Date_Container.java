@@ -5,6 +5,10 @@
 package view.component.LeaveApplication.GridLeaveRequest.Date;
 
 import java.awt.GridLayout;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import model.DateRange;
 
 /**
  *
@@ -47,15 +51,61 @@ public class Date_Container extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-
-
     private void setLayout() {
         this.setLayout(new GridLayout(1, 0, 0, 0));
     }
 
     private void addComponents() {
+        // Hàm này thêm 7 components với dữ liệu mặc định
         for (int i = 1; i <= 7; i++) {
-            this.add(new Date_Component("Thu hai", "17"));
+            this.add(new Date_Component("Thu hai", "17")); // Dữ liệu tĩnh
+        }
+    }
+
+    public void updateData(DateRange dateRange) {
+        this.removeAll();
+
+        LocalDate fromDate = dateRange.getFromDate();
+        LocalDate toDate = dateRange.getToDate();
+
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd");
+
+        LocalDate currentDate = fromDate;
+        while (!currentDate.isAfter(toDate)) {
+
+            DayOfWeek dayOfWeek = currentDate.getDayOfWeek();
+
+            String thu = getDayOfWeekString(dayOfWeek);
+
+            String day = currentDate.format(dateFormatter);
+
+            this.add(new Date_Component(thu, day));
+
+            currentDate = currentDate.plusDays(1);
+        }
+
+        this.revalidate();
+        this.repaint();
+    }
+
+    private String getDayOfWeekString(DayOfWeek dayOfWeek) {
+        switch (dayOfWeek) {
+            case MONDAY:
+                return "Thứ hai";
+            case TUESDAY:
+                return "Thứ ba";
+            case WEDNESDAY:
+                return "Thứ tư";
+            case THURSDAY:
+                return "Thứ năm";
+            case FRIDAY:
+                return "Thứ sáu";
+            case SATURDAY:
+                return "Thứ bảy";
+            case SUNDAY:
+                return "Chủ nhật";
+            default:
+                return "";
         }
     }
 }

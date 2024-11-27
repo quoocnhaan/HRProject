@@ -7,7 +7,9 @@ package view.component.LeaveApplication.GridLeaveRequest.Content;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.List;
 import javax.swing.JPanel;
+import model.DateRange;
 import view.component.LeaveApplication.GridLeaveRequest.Date.Date_Container;
 import view.component.LeaveApplication.GridLeaveRequest.Employee.EmployeeInfo_Container;
 import view.component.LeaveApplication.GridLeaveRequest.LeaveRequestForm.LeaveForm_Container;
@@ -20,12 +22,21 @@ public class Content_Component extends javax.swing.JPanel {
 
     private EmployeeInfo_Container employeeInfo_Container;
     private Date_Container date_Container;
+    private LeaveForm_Container leaveForm_Container;
+    private static Content_Component instance;
 
     public Content_Component() {
         initComponents();
         initMyComponents();
         setLayout();
         addComponents();
+    }
+
+    public static Content_Component getInstance() {
+        if (instance == null) {
+            instance = new Content_Component();
+        }
+        return instance;
     }
 
     /**
@@ -75,12 +86,17 @@ public class Content_Component extends javax.swing.JPanel {
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weightx = 1; // Cho phép nội dung mở rộng theo chiều ngang
         gbc.weighty = 1; // Cho phép nội dung mở rộng theo chiều dọc
-        this.add(new LeaveForm_Container(), gbc);
+        this.add(leaveForm_Container, gbc);
     }
 
     private void initMyComponents() {
         employeeInfo_Container = new EmployeeInfo_Container();
         date_Container = new Date_Container();
+        leaveForm_Container = new LeaveForm_Container();
+    }
+    
+    public void updateData(DateRange dateRange) {
+        date_Container.updateData(dateRange);
     }
 
     public EmployeeInfo_Container getEmployeeInfo_Container() {
@@ -89,6 +105,14 @@ public class Content_Component extends javax.swing.JPanel {
 
     public Date_Container getDate_Container() {
         return date_Container;
+    }
+
+    public LeaveForm_Container getLeaveForm_Container() {
+        return leaveForm_Container;
+    }
+
+    public void setLeaveForm_Container(LeaveForm_Container leaveForm_Container) {
+        this.leaveForm_Container = leaveForm_Container;
     }
 
 

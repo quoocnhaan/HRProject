@@ -62,8 +62,8 @@ public class ChangePageAndSearch extends javax.swing.JPanel {
     private void addComponents() {
         ImageIcon nextIcon = new ImageIcon(getClass().getResource("/icon/next.png"));
         ImageIcon preIcon = new ImageIcon(getClass().getResource("/icon/pre.png"));
-        pre = new ChangePage_Component(preIcon);
-        next = new ChangePage_Component(nextIcon);
+        pre = new ChangePage_Component(preIcon, false);
+        next = new ChangePage_Component(nextIcon, true);
         curDate = new CurrentDate_Component("___");
         search = new Search();
         

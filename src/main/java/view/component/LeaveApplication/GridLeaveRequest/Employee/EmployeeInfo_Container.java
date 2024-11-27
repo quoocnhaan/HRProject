@@ -4,8 +4,16 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.Employee;
 
+import controller.DAO.EmployeeDAO;
+import controller.DAOImp.EmployeeDAOImp;
+import controller.Functional.Functional;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
+import model.Employee;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -50,9 +58,17 @@ public class EmployeeInfo_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        ImageIcon img = new ImageIcon(getClass().getResource("/img/avatar.jpg"));
-        for (int i = 1; i <= 8; i++) {
-            this.add(new EmployeeInfo_Component("Lam Quoc Nhan", "Web Developer", "LQN2005", img));
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+            Employee employee = employeeDAO.get(1L);
+            ImageIcon img = Functional.convertByteArrayToIcon(employee.getImage());
+            String name = employee.getName();
+            String job = employee.getContracts().get(0).getJob().getProfession();
+            String id = employee.getEmployeeId();
+            for (int i = 1; i <= 8; i++) {
+                this.add(new EmployeeInfo_Component(name, job, id, img));
+            }
+        } catch (Exception e) {
         }
     }
 

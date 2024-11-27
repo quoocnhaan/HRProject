@@ -5,10 +5,9 @@
 package view.component.Manage_Component;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.util.Date;
-import javax.swing.SwingUtilities;
+import model.DateRange;
 import view.component.Filter.Filter_Component;
+import view.component.LeaveApplication.GridLeaveRequest.Content.Content_Component;
 import view.component.LeaveApplication.GridLeaveRequest.LeaveApplicationGrid;
 
 /**
@@ -68,8 +67,8 @@ public class ManageLeaveApplication_Component extends javax.swing.JPanel {
         return instance;
     }
 
-    public void updateDate(String date) {
-        leaveApp.getChangePageAndSearch().getCurDate().updateData(date);
+    public void updateData(DateRange dateRange) {
+        Content_Component.getInstance().updateData(dateRange);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

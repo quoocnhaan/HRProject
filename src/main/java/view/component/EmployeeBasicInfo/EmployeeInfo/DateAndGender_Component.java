@@ -72,7 +72,7 @@ public class DateAndGender_Component extends javax.swing.JPanel {
         );
 
         dateOfBirth.setForeground(new java.awt.Color(0, 0, 0));
-        dateOfBirth.setText("20/09/2005");
+        dateOfBirth.setText("20/9/2002");
 
         place.setForeground(new java.awt.Color(0, 0, 0));
         place.setText("Thành phố Hồ Chí Minh");
@@ -87,7 +87,7 @@ public class DateAndGender_Component extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(dateOfBirth))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

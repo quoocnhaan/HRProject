@@ -24,6 +24,14 @@ public class Date_Component extends javax.swing.JPanel {
         initData(weekDay, monthDay);
     }
 
+    public Date_Component() {
+        initComponents();
+        monthDay.setText("");
+        weekDay.setText("");
+        this.setBackground(new Color(227, 227, 227));
+        customComponents();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -81,7 +89,7 @@ public class Date_Component extends javax.swing.JPanel {
 
     private void customComponents() {
         this.setPreferredSize(new Dimension(140, 60));
-        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY,1);  // Đường viền màu đen dày 2 pixel
+        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);  // Đường viền màu đen dày 2 pixel
         this.setBorder(lineBorder);
     }
 

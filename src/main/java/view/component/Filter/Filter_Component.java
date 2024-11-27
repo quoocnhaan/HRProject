@@ -18,6 +18,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import model.DateRange;
+import view.component.LeaveApplication.GridLeaveRequest.ChangePage.ChangePage_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
 
 /**
@@ -206,17 +207,16 @@ public class Filter_Component extends javax.swing.JPanel {
             LocalDate currentFrom = from;
 
             while (!currentFrom.isAfter(to)) {
-                LocalDate currentTo = currentFrom.plusDays(6); 
+                LocalDate currentTo = currentFrom.plusDays(6);
                 if (currentTo.isAfter(to)) {
-                    currentTo = to; 
+                    currentTo = to;
                 }
                 DateRange dateRange = new DateRange(currentFrom, currentTo);
                 SharedData.getInstance().getDateRanges().add(dateRange);
 
                 currentFrom = currentTo.plusDays(1);
             }
-
-            ManageLeaveApplication_Component.getInstance().updateData(SharedData.getInstance().getDateRanges().get(0));
+            transferData();
         } else {
 
         }
@@ -246,6 +246,14 @@ public class Filter_Component extends javax.swing.JPanel {
     private void settingFromDateChooser() {
         Calendar cal = Calendar.getInstance();
         fromDateChooser.setCalendar(cal);
+
+        // Cập nhật giá trị cho toDateChooser ngay khi settingFromDateChooser được gọi
+        Date selectedDate = fromDateChooser.getDate();
+        if (selectedDate != null) {
+            cal.setTime(selectedDate);
+            toDateChooser.setCalendar(cal);
+            toDateChooser.setMinSelectableDate(selectedDate);  // Đảm bảo không chọn ngày trước fromDate
+        }
     }
 
     private void settingToDateChooser() {
@@ -253,11 +261,11 @@ public class Filter_Component extends javax.swing.JPanel {
         fromDateChooser.getDateEditor().addPropertyChangeListener("date", new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                Date selectedDate = fromDateChooser.getDate();  // Lấy ngày được chọn từ DateChooser 1
+                Date selectedDate = fromDateChooser.getDate();
                 if (selectedDate != null) {
                     cal.setTime(selectedDate);
                     toDateChooser.setCalendar(cal);
-                    toDateChooser.setMinSelectableDate(selectedDate);  // Đặt ngày tối thiểu cho DateChooser 2
+                    toDateChooser.setMinSelectableDate(selectedDate);
                 }
             }
         });
@@ -277,6 +285,12 @@ public class Filter_Component extends javax.swing.JPanel {
         ImageIcon img = new ImageIcon(getClass().getResource("/icon/add.png"));
         this.selectImg.setSize(25, 25);
         this.selectImg.setIcon(Functional.scaleImg(selectImg, img));
+    }
+
+    private void transferData() {
+        ChangePage_Component.index = 0;
+        ManageLeaveApplication_Component.getInstance().updateButtonState();
+        ManageLeaveApplication_Component.getInstance().updateData(SharedData.getInstance().getDateRanges().get(0));
     }
 
 }

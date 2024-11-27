@@ -10,6 +10,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 import model.Department;
+import model.Employee;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -134,5 +135,16 @@ public class DepartmentDAOImp implements DepartmentDAO {
         Query<Department> query = session.createQuery(hql, Department.class);
         query.setParameter("name", name);
         return query.uniqueResult();
+    }
+
+    @Override
+    public List<Employee> getEmployeesByDepartmentAndSubDepartments(long id) {
+        Department department = get(id);
+        List<Department> children = findChildren(id);
+        List<Employee> employees = department.getEmployee();
+        for (Department d : children) {
+            employees.addAll(employees.size() - 1, getEmployeesByDepartmentAndSubDepartments(d.getId()));
+        }
+        return employees;
     }
 }

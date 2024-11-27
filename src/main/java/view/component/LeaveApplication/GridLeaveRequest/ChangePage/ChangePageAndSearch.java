@@ -4,9 +4,11 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.ChangePage;
 
+import controller.Session.SharedData;
 import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.border.EmptyBorder;
+import static view.component.LeaveApplication.GridLeaveRequest.ChangePage.ChangePage_Component.index;
 import view.component.LeaveApplication.GridLeaveRequest.ChangePage.CurrentDate.CurrentDate_Component;
 import view.component.Search.Search;
 
@@ -62,15 +64,30 @@ public class ChangePageAndSearch extends javax.swing.JPanel {
     private void addComponents() {
         ImageIcon nextIcon = new ImageIcon(getClass().getResource("/icon/next.png"));
         ImageIcon preIcon = new ImageIcon(getClass().getResource("/icon/pre.png"));
-        pre = new ChangePage_Component(preIcon, false);
-        next = new ChangePage_Component(nextIcon, true);
+        pre = new ChangePage_Component(false);
+        next = new ChangePage_Component(true);
         curDate = new CurrentDate_Component("___");
         search = new Search();
-        
+
         this.add(pre);
         this.add(next);
         this.add(curDate);
         this.add(search);
+    }
+
+    public void updateButtonState() {
+        int index = ChangePage_Component.index;
+        if (index == 0) {
+            pre.getIcon().setEnabled(false);
+        } else {
+            pre.getIcon().setEnabled(true);
+        }
+
+        if (index >= SharedData.getInstance().getDateRanges().size() - 1) {
+            next.getIcon().setEnabled(false);
+        } else {
+            next.getIcon().setEnabled(true);
+        }
     }
 
     public ChangePage_Component getPre() {
@@ -104,9 +121,10 @@ public class ChangePageAndSearch extends javax.swing.JPanel {
     public void setSearch(Search search) {
         this.search = search;
     }
-    
-    
 
+    public void updateData(String curDate) {
+        this.curDate.getDate().setText(curDate);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

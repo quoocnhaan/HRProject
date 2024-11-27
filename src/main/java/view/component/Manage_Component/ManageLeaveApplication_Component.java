@@ -69,6 +69,11 @@ public class ManageLeaveApplication_Component extends javax.swing.JPanel {
 
     public void updateData(DateRange dateRange) {
         Content_Component.getInstance().updateData(dateRange);
+        leaveApp.getChangePageAndSearch().updateData(dateRange.toString());
+    }
+    
+    public void updateButtonState() {
+        leaveApp.getChangePageAndSearch().updateButtonState();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

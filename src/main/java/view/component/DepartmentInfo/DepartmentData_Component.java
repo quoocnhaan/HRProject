@@ -83,7 +83,7 @@ public class DepartmentData_Component extends javax.swing.JPanel {
 
             String nodeName = selectedNode.getUserObject().toString();
             Department d = departmentDAO.getByName(nodeName);
-            SharedData.getInstance().setEmployee_Selected(d.getEmployee());
+            SharedData.getInstance().setEmployee_Selected(departmentDAO.getEmployeesByDepartmentAndSubDepartments(d.getId()));
             
             ManageSelecteEmployee_Component me = (ManageSelecteEmployee_Component) SwingUtilities.getAncestorOfClass(ManageSelecteEmployee_Component.class, this);
 

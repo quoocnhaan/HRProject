@@ -66,7 +66,7 @@ public class NewClass1 {
             String phone = "0968270553";
             String twitter = "quocnhan56@gmail.com";
 
-            Department department = departmentDAO.get(1L);
+            Department department = departmentDAO.get(3L);
             Contact contact = new Contact(email, phone, place);
             Job job = new Job(new Date(2024, 10, 15), profession, type);
             Employee e = new Employee(name, department, employeeId, img, new Date(2005, 9, 20), true, 1, null, contact);

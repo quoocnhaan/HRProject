@@ -5,6 +5,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -22,7 +23,24 @@ public class DateRange {
 
     @Override
     public String toString() {
-        return "Từ ngày: " + fromDate + ", Đến ngày: " + toDate;
+        // Khai báo formatter cho ngày (ngày/tháng/năm)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM");
+
+        // Kiểm tra xem từ ngày và đến ngày có cùng tháng và năm không
+        if (fromDate.getMonth() == toDate.getMonth() && fromDate.getYear() == toDate.getYear()) {
+            // Nếu cùng tháng và năm, chỉ in ngày và tháng
+            return String.format("%d - %d tháng %d năm %d",
+                    fromDate.getDayOfMonth(),
+                    toDate.getDayOfMonth(),
+                    fromDate.getMonthValue(),
+                    fromDate.getYear());
+        } else {
+            // Nếu khác tháng hoặc năm, in tháng và năm, không in ngày
+            return String.format("%s - %s năm %d",
+                    fromDate.format(formatter),
+                    toDate.format(formatter),
+                    fromDate.getYear());
+        }
     }
 
     public LocalDate getFromDate() {
@@ -40,6 +58,4 @@ public class DateRange {
     public void setToDate(LocalDate toDate) {
         this.toDate = toDate;
     }
-    
-    
 }

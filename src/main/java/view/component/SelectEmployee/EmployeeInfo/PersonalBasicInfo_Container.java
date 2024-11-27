@@ -25,14 +25,13 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
     private DateAndGender_Component dateAndGender;
     private Status_Component status;
     private Contact_Component contact;
-    
-    
+
     public PersonalBasicInfo_Container(String name, String id, String job, String direct, ImageIcon img, String dateOfBirth, String place,
             String gender, String startDate, String seniority, String type, String email, String phone, String twitter) {
         initComponents();
         setLayout();
         customComponents();
-        addComponent(name, id, job, direct, img, dateOfBirth, place, gender, startDate,seniority, type, email, phone, twitter);
+        addComponent(name, id, job, direct, img, dateOfBirth, place, gender, startDate, seniority, type, email, phone, twitter);
     }
 
     /**
@@ -66,7 +65,7 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         dateAndGender = new DateAndGender_Component(dateOfBirth, place, gender);
         status = new Status_Component(startDate, seniority, type);
         contact = new Contact_Component(email, phone, twitter);
-        
+
         this.add(checkBox);
         this.add(nameAndJob);
         this.add(dateAndGender);
@@ -121,7 +120,7 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
     public void setContact(Contact_Component contact) {
         this.contact = contact;
     }
-    
+
     public void changeStatusCheckBox(boolean isCheck) {
         checkBox.getCheck().setSelected(isCheck);
     }

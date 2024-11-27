@@ -71,6 +71,7 @@ public class Date_Container extends javax.swing.JPanel {
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd");
 
         LocalDate currentDate = fromDate;
+        int count = 1;
         while (!currentDate.isAfter(toDate)) {
 
             DayOfWeek dayOfWeek = currentDate.getDayOfWeek();
@@ -82,6 +83,11 @@ public class Date_Container extends javax.swing.JPanel {
             this.add(new Date_Component(thu, day));
 
             currentDate = currentDate.plusDays(1);
+
+            count++;
+        }
+        for (int i = count; i <= 7; i++) {
+            this.add(new Date_Component());
         }
 
         this.revalidate();

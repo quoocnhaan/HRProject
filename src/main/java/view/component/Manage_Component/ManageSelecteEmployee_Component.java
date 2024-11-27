@@ -5,9 +5,8 @@
 package view.component.Manage_Component;
 
 import java.awt.BorderLayout;
-import java.util.List;
-import model.Employee;
 import view.component.DepartmentInfo.Department_Component;
+import view.component.SelectEmployee.EmployeeInfo.PersonalInfo_Container;
 import view.component.SelectEmployee.SelectEmployee_Component;
 
 public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
@@ -15,16 +14,17 @@ public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
     private Department_Component department;
     private SelectEmployee_Component selectEmployee;
     private static ManageSelecteEmployee_Component instance;
-    
+
     public ManageSelecteEmployee_Component() {
         initComponents();
         setLayout();
         addComponents();
     }
-    
+
     public static ManageSelecteEmployee_Component getInstance() {
-        if(instance == null)
+        if (instance == null) {
             instance = new ManageSelecteEmployee_Component();
+        }
         return instance;
     }
 
@@ -56,13 +56,13 @@ public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
     private void addComponents() {
         department = new Department_Component();
         selectEmployee = new SelectEmployee_Component();
-        
+
         this.add(department, BorderLayout.WEST);
         this.add(selectEmployee, BorderLayout.CENTER);
     }
 
-    public void updateData(List<Employee> employee) {
-        
+    public void updateData() {
+        PersonalInfo_Container.getInstance().updateData();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

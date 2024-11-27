@@ -221,7 +221,7 @@ public class Employee {
         this.status = status;
     }
 
-    public Employee(String name, String employeeId, byte[] img, Date dateOfBirth, boolean gender, int senority, List<Contract> contracts, Contact contact) {
+    public Employee(String name, Department department, String employeeId, byte[] img, Date dateOfBirth, boolean gender, int senority, List<Contract> contracts, Contact contact) {
         this.name = name;
         this.employeeId = employeeId;
         this.image = img;
@@ -230,8 +230,17 @@ public class Employee {
         this.senority = senority;
         this.contact = contact;
         this.contracts = contracts;
+        this.department = department;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+    
     public Department getManagerOf() {
         return managerOf;
     }

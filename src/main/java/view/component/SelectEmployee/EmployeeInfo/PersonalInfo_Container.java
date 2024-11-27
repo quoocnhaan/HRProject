@@ -4,8 +4,8 @@ package view.component.SelectEmployee.EmployeeInfo;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
+import controller.Functional.Functional;
 import controller.Session.SharedData;
-import java.awt.Component;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +61,6 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
 
     private void addComponents() {
         infoList = new ArrayList<>();
-        List<Employee> list = SharedData.getInstance().getEmployee_Selected();
         String name = "Lâm Quốc Nhân";
         String id = "LQN2005";
         String job = "Web Developer";
@@ -83,9 +82,31 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
         }
     }
 
-    public void updateData(String name, String id, String job, String direct, ImageIcon img, String dateOfBirth, String place,
-            String gender, String startDate, String seniority, String type, String email, String phone, String twitter) {
-
+    public void updateData() {
+        infoList.clear();
+        this.removeAll();
+        List<Employee> list = SharedData.getInstance().getEmployee_Selected();
+        for (Employee employee : list) {
+            String name = employee.getName();
+            System.out.println(name);
+            String employeeId = employee.getEmployeeId();
+            String job = employee.getContracts().get(0).getJob().getProfession();
+            String direct = employee.getDepartment().getName();
+            ImageIcon img = Functional.convertByteArrayToIcon(employee.getImage());
+            String dateOfBirth = employee.getDateOfBirth().toString();
+            String place = employee.getContact().getPermanentAddress();
+            String gender = employee.isGender() ? "Nam" : "Nữ";
+            String startDate = employee.getContracts().get(0).getJob().getStartDate().toString();
+            String senority = String.valueOf(employee.getSenority());
+            String type = employee.getContracts().get(0).getJob().getType();
+            String email = employee.getContact().getPersonalEmail();
+            String phone = employee.getContact().getPersonalPhone();
+            PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(name, employeeId, job, direct, img, dateOfBirth, place, gender, startDate, senority, type, email, phone, email);
+            this.add(pi);
+            infoList.add(pi);
+        }
+        this.validate();
+        this.repaint();
     }
 
     public List<PersonalBasicInfo_Container> getAll() {

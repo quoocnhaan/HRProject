@@ -1,6 +1,7 @@
 
 import controller.DAO.ContactDAO;
 import controller.DAO.ContractDAO;
+import controller.DAO.DepartmentDAO;
 import controller.DAO.EmployeeDAO;
 import controller.DAO.FunctionAuthorizationDAO;
 import controller.DAO.FunctionDAO;
@@ -8,6 +9,7 @@ import controller.DAO.JobDAO;
 import controller.DAO.RoleDAO;
 import controller.DAOImp.ContactDAOImp;
 import controller.DAOImp.ContractDAOImp;
+import controller.DAOImp.DepartmentDAOImp;
 import controller.DAOImp.EmployeeDAOImp;
 import controller.DAOImp.FunctionAuthorizationDAOImp;
 import controller.DAOImp.FunctionDAOImp;
@@ -18,6 +20,7 @@ import java.util.Date;
 import javax.swing.ImageIcon;
 import model.Contact;
 import model.Contract;
+import model.Department;
 import model.Employee;
 import model.Function;
 import model.FunctionAuthorization;
@@ -46,6 +49,7 @@ public class NewClass1 {
             ContractDAO contractDAO = new ContractDAOImp(session);
             ContactDAO contactDAO = new ContactDAOImp(session);
             JobDAO jobDAO = new JobDAOImp(session);
+            DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
 
             String name = "Lâm Quốc Nhân";
             String employeeId = "LQN2005";
@@ -62,10 +66,16 @@ public class NewClass1 {
             String phone = "0968270553";
             String twitter = "quocnhan56@gmail.com";
 
+            Department department = departmentDAO.get(1L);
             Contact contact = new Contact(email, phone, place);
             Job job = new Job(new Date(2024, 10, 15), profession, type);
-            //Contract contract = new Contract(direct, employee, job);
-            //Employee e = new Employee(name, employeeId, img, dateOfBirth, true, 1, contracts, contact);
+            Employee e = new Employee(name, department, employeeId, img, new Date(2005, 9, 20), true, 1, null, contact);
+            Contract contract = new Contract(direct, e, job);
+            
+            contactDAO.add(contact);
+            jobDAO.add(job);
+            employeeDAO.add(e);
+            contractDAO.add(contract);
 
             // Lấy dữ liệu
 //            Role r1 = roleDAO.get(1);

@@ -88,7 +88,7 @@ public class DepartmentData_Component extends javax.swing.JPanel {
             ManageSelecteEmployee_Component me = (ManageSelecteEmployee_Component) SwingUtilities.getAncestorOfClass(ManageSelecteEmployee_Component.class, this);
 
             if (me != null) {
-                ManageSelecteEmployee_Component.getInstance().updateData(SharedData.getInstance().getEmployee_Selected());
+                ManageSelecteEmployee_Component.getInstance().updateData();
             } else {
 
             }

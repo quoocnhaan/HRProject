@@ -18,9 +18,14 @@ public class Content extends javax.swing.JPanel {
     /**
      * Creates new form Content
      */
-    public Content(boolean hasPermission) {
+    public Content(boolean type) {
         initComponents();
-        customComponents(hasPermission);
+        customComponents(type);
+    }
+
+    public Content() {
+        initComponents();
+        customComponents();
     }
 
     /**
@@ -35,7 +40,7 @@ public class Content extends javax.swing.JPanel {
         vice = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(245, 247, 255));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         vice.setBackground(new java.awt.Color(78, 116, 247));
 
@@ -69,15 +74,21 @@ public class Content extends javax.swing.JPanel {
     private javax.swing.JPanel vice;
     // End of variables declaration//GEN-END:variables
 
-    private void customComponents(boolean hasPermission) {
+    private void customComponents(boolean type) {
         vice.setPreferredSize(new Dimension(4, 40));
 
-        if (hasPermission) {
+        if (type) {
             this.setBackground(new Color(238, 250, 237));
             vice.setBackground(new Color(77, 151, 42));
         } else {
             this.setBackground(new Color(245, 247, 255));
             vice.setBackground(new Color(78, 116, 247));
         }
+    }
+
+    private void customComponents() {
+        vice.setPreferredSize(new Dimension(4, 40));
+        this.setBackground(Color.WHITE);
+        vice.setBackground(Color.WHITE);
     }
 }

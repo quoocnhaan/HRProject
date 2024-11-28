@@ -21,9 +21,9 @@ public class LeaveForm_Component extends javax.swing.JPanel {
      *
      * @param hasPermisstion
      */
-    public LeaveForm_Component(boolean hasPermisstion) {
+    public LeaveForm_Component(boolean type) {
         initComponents();
-        initMyComponents(hasPermisstion);
+        initMyComponents(type);
     }
 
     public LeaveForm_Component() {
@@ -41,6 +41,7 @@ public class LeaveForm_Component extends javax.swing.JPanel {
     private void initComponents() {
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -61,14 +62,16 @@ public class LeaveForm_Component extends javax.swing.JPanel {
         this.setBorder(lineBorder);
     }
 
-    private void initMyComponents(boolean hasPermisstion) {
-        this.add(new Content(hasPermisstion));
+    private void initMyComponents(boolean type) {
+        this.add(new Content(type));
         customComponents();
     }
 
     private void initMyComponents() {
         this.setPreferredSize(new Dimension(140, 60));
-        this.setBackground(Color.GRAY);
+        this.setBackground(new Color(227, 227, 227));
+        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
+        this.setBorder(lineBorder);
     }
 
 

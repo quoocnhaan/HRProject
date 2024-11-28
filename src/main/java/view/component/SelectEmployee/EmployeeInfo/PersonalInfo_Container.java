@@ -82,8 +82,7 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
         }
     }
 
-    public void updateData() {
-        
+    public void updateData() {   
         infoList.clear();
         this.removeAll();
         List<Employee> list = SharedData.getInstance().getEmployee_Selected();

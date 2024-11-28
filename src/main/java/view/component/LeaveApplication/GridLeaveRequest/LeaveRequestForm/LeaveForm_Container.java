@@ -4,6 +4,7 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.LeaveRequestForm;
 
+import controller.Session.SharedData;
 import java.awt.GridLayout;
 
 /**
@@ -12,9 +13,7 @@ import java.awt.GridLayout;
  */
 public class LeaveForm_Container extends javax.swing.JPanel {
 
-    /**
-     * Creates new form LeaveForm_Container
-     */
+
     public LeaveForm_Container() {
         initComponents();
         setLayout();
@@ -49,9 +48,18 @@ public class LeaveForm_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        for(int i = 1; i <= 56; i++) {
+        for (int i = 1; i <= 56; i++) {
             this.add(new LeaveForm_Component(true));
         }
+    }
+
+    public void updateData() {
+        this.removeAll();
+        for (int i = 1; i <= SharedData.getInstance().getEmployee_Selected().size() * 7; i++) {
+            this.add(new LeaveForm_Component(false));
+        }
+        validate();
+        repaint();
     }
 
 

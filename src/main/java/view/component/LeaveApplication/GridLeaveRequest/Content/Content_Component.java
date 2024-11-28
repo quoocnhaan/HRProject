@@ -102,6 +102,10 @@ public class Content_Component extends javax.swing.JPanel {
     public void updateEmployee() {
         employeeInfo_Container.updateData();
     }
+    
+    public void updateLeaveForm() {
+        leaveForm_Container.updateData();
+    }
 
     public EmployeeInfo_Container getEmployeeInfo_Container() {
         return employeeInfo_Container;

@@ -70,6 +70,7 @@ public class ManageLeaveApplication_Component extends javax.swing.JPanel {
     public void updateData(DateRange dateRange) {
         Content_Component.getInstance().updateDate(dateRange);
         Content_Component.getInstance().updateEmployee();
+        Content_Component.getInstance().updateLeaveForm();
         updateCurDate(dateRange);
     }
 

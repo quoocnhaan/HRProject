@@ -59,6 +59,23 @@ public class SelectEmployee_Component extends javax.swing.JPanel {
         this.add(btn, BorderLayout.SOUTH);
     }
 
+    public EmployeeAndSearch getEmployeeAndSearch() {
+        return employeeAndSearch;
+    }
+
+    public void setEmployeeAndSearch(EmployeeAndSearch employeeAndSearch) {
+        this.employeeAndSearch = employeeAndSearch;
+    }
+
+    public Btn_Component getBtn() {
+        return btn;
+    }
+
+    public void setBtn(Btn_Component btn) {
+        this.btn = btn;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

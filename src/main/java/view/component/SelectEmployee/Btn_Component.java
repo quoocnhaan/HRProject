@@ -5,6 +5,9 @@
 package view.component.SelectEmployee;
 
 import controller.Session.SharedData;
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
+import model.Employee;
 import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
 /**
@@ -60,6 +63,10 @@ public class Btn_Component extends javax.swing.JPanel {
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
         SharedData.getInstance().setEmployee_Selected(PersonalInfo.getInstance().getSelectedEmployee());
+        JDialog parentDialog = (JDialog) SwingUtilities.getWindowAncestor(this);
+        if (parentDialog != null) {
+            parentDialog.dispose();
+        }
     }//GEN-LAST:event_btnActionPerformed
 
 

@@ -94,9 +94,13 @@ public class Content_Component extends javax.swing.JPanel {
         date_Container = new Date_Container();
         leaveForm_Container = new LeaveForm_Container();
     }
-    
-    public void updateData(DateRange dateRange) {
+
+    public void updateDate(DateRange dateRange) {
         date_Container.updateData(dateRange);
+    }
+
+    public void updateEmployee() {
+        employeeInfo_Container.updateData();
     }
 
     public EmployeeInfo_Container getEmployeeInfo_Container() {

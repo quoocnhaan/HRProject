@@ -6,6 +6,8 @@ package view.component.Filter;
 
 import controller.Functional.Functional;
 import controller.Session.SharedData;
+import java.awt.BorderLayout;
+import java.awt.Dialog;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.SimpleDateFormat;
@@ -16,10 +18,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.SwingUtilities;
 import model.DateRange;
 import view.component.LeaveApplication.GridLeaveRequest.ChangePage.ChangePage_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
+import view.component.Manage_Component.ManageSelecteEmployee_Component;
 
 /**
  *
@@ -93,6 +97,11 @@ public class Filter_Component extends javax.swing.JPanel {
         employeeAmount.setText("   Chọn nhân viên");
         employeeAmount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         employeeAmount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        employeeAmount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employeeAmountMouseClicked(evt);
+            }
+        });
 
         selectImg.setText(" ");
         selectImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -221,6 +230,16 @@ public class Filter_Component extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_updateBtnMouseClicked
+
+    private void employeeAmountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAmountMouseClicked
+        // Tạo JDialog và thêm ManageSelecteEmployee_Component vào
+        JDialog popup = new JDialog(SwingUtilities.getWindowAncestor(this), "Manage Selected Employee", Dialog.ModalityType.APPLICATION_MODAL);
+        popup.getContentPane().setLayout(new BorderLayout());
+        popup.getContentPane().add(ManageSelecteEmployee_Component.getInstance());
+        popup.setSize(1470, 600);  // Kích thước của popup
+        popup.setLocationRelativeTo(null);  // Hiển thị ở giữa màn hình
+        popup.setVisible(true);  // Hiển thị popup
+    }//GEN-LAST:event_employeeAmountMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

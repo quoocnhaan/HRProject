@@ -90,6 +90,10 @@ public class PersonalInfo extends javax.swing.JPanel {
             list.get(i).changeStatusCheckBox(isCheck);
         }
     }
+    
+    public void reset() {
+        title.getCheckAll().getCheckbox().setSelected(false);
+    }
 
     public List<Employee> getSelectedEmployee() {
         List<PersonalBasicInfo_Container> list = PersonalInfo_Container.getInstance().getAll();

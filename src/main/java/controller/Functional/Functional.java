@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -35,6 +36,13 @@ public class Functional {
         return scaledIcon;
     }
 
+    public static ImageIcon scaleImg(JButton jButton, ImageIcon icon) {
+        Image image = icon.getImage();
+        Image scaledImage = image.getScaledInstance(jButton.getWidth(), jButton.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        return scaledIcon;
+    }
+
     public static byte[] convertIconToByteArray(ImageIcon icon) throws IOException {
         // Step 1: Get the Image from the ImageIcon
         Image img = icon.getImage();
@@ -51,8 +59,8 @@ public class Functional {
         // Step 4: Get the byte array from the ByteArrayOutputStream
         return baos.toByteArray();
     }
-    
-        public static ImageIcon convertByteArrayToIcon(byte[] byteArray) {
+
+    public static ImageIcon convertByteArrayToIcon(byte[] byteArray) {
         if (byteArray != null && byteArray.length > 0) {
             try {
                 InputStream is = new ByteArrayInputStream(byteArray);

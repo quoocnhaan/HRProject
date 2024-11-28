@@ -63,6 +63,7 @@ public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
 
     public void updateData() {
         PersonalInfo_Container.getInstance().updateData();
+        selectEmployee.getEmployeeAndSearch().getPersonalInfo().reset();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

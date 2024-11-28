@@ -1,4 +1,3 @@
-
 import controller.DAO.ContactDAO;
 import controller.DAO.ContractDAO;
 import controller.DAO.DepartmentDAO;
@@ -22,21 +21,10 @@ import model.Contact;
 import model.Contract;
 import model.Department;
 import model.Employee;
-import model.Function;
-import model.FunctionAuthorization;
 import model.Job;
-import model.Role;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author PC
- */
 public class NewClass1 {
 
     public static void main(String[] args) {

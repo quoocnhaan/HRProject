@@ -31,6 +31,7 @@ controller\DAOImp\RoleDetailDAOImp.class
 controller\DAOImp\LeaveRequestDAOImp.class
 controller\DAO\MaternityLeaveDAO.class
 view\component\EmployeeDetailInfo\EmployeeDetail\AllComponent_Employee.class
+view\component\Filter\Filter_Component$4.class
 view\component\BenefitInfo_Component\Test_Benefit$1.class
 view\component\Filter\Filter_Component$3.class
 view\component\Manage_Component\ManageEmployeeInfo_Component.class

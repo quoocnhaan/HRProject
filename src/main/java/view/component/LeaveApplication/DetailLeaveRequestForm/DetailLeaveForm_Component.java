@@ -4,17 +4,24 @@
  */
 package view.component.LeaveApplication.DetailLeaveRequestForm;
 
+import model.LeaveRequest;
+
 /**
  *
  * @author PC
  */
 public class DetailLeaveForm_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form DetailLeaveForm_Component
-     */
+    public DetailLeaveForm_Component(LeaveRequest leaveRequest) {
+        initComponents();
+        customComponents();
+        initData(leaveRequest);
+    }
+
     public DetailLeaveForm_Component() {
         initComponents();
+        customComponents();
+        initData();
     }
 
     /**
@@ -28,7 +35,6 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        requestDate = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         from = new javax.swing.JLabel();
@@ -50,6 +56,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         approverName = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         approveDate = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -60,9 +67,6 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ngày đăng ký");
-
-        requestDate.setBackground(new java.awt.Color(255, 255, 255));
-        requestDate.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -140,6 +144,11 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         approveDate.setText("  Lâm Quốc Nhân");
         approveDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel8.setText("   20/09/2002");
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,9 +172,9 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4)
-                                        .addComponent(jLabel6)
-                                        .addComponent(requestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addComponent(jLabel6))
+                                    .addGap(0, 140, Short.MAX_VALUE))
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,19 +210,20 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(requestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(from)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(toDate)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(from)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -266,13 +276,26 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel name;
     private javax.swing.JTextPane reason;
-    private com.toedter.calendar.JDateChooser requestDate;
     private javax.swing.JLabel toDate;
     private javax.swing.JLabel totalLeave;
     private javax.swing.JComboBox<String> typeOfLeave;
     // End of variables declaration//GEN-END:variables
+
+    private void customComponents() {
+
+    }
+
+    private void initData() {
+
+    }
+
+    private void initData(LeaveRequest leaveRequest) {
+        
+    }
+
 }

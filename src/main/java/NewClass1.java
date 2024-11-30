@@ -5,6 +5,7 @@ import controller.DAO.EmployeeDAO;
 import controller.DAO.FunctionAuthorizationDAO;
 import controller.DAO.FunctionDAO;
 import controller.DAO.JobDAO;
+import controller.DAO.LeaveRequestDAO;
 import controller.DAO.RoleDAO;
 import controller.DAOImp.ContactDAOImp;
 import controller.DAOImp.ContractDAOImp;
@@ -13,6 +14,7 @@ import controller.DAOImp.EmployeeDAOImp;
 import controller.DAOImp.FunctionAuthorizationDAOImp;
 import controller.DAOImp.FunctionDAOImp;
 import controller.DAOImp.JobDAOImp;
+import controller.DAOImp.LeaveRequestDAOImp;
 import controller.DAOImp.RoleDAOImp;
 import controller.Functional.Functional;
 import java.util.Date;
@@ -22,6 +24,7 @@ import model.Contract;
 import model.Department;
 import model.Employee;
 import model.Job;
+import model.LeaveRequest;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
@@ -38,32 +41,41 @@ public class NewClass1 {
             ContactDAO contactDAO = new ContactDAOImp(session);
             JobDAO jobDAO = new JobDAOImp(session);
             DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
+            LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
 
-            String name = "Lâm Quốc Nhân";
-            String employeeId = "LQN2005";
-            String profession = "Web Developer";
-            String direct = "Trung tam CDC";
-            byte[] img = Functional.convertIconToByteArray(new ImageIcon(ClassLoader.getSystemResource("img/avatar.jpg")));
-            String dateOfBirth = "20/09/2005";
-            String place = "Thành phố Hồ Chí Minh";
-            String gender = "Nam";
-            String startDate = "15/10/2024";
-            String seniority = "1 năm";
-            String type = "Chinh thuc";
-            String email = "quocnhan56@gmail.com";
-            String phone = "0968270553";
-            String twitter = "quocnhan56@gmail.com";
+//            String name = "Lâm Quốc Nhân";
+//            String employeeId = "LQN2005";
+//            String profession = "Web Developer";
+//            String direct = "Trung tam CDC";
+//            byte[] img = Functional.convertIconToByteArray(new ImageIcon(ClassLoader.getSystemResource("img/avatar.jpg")));
+//            String dateOfBirth = "20/09/2005";
+//            String place = "Thành phố Hồ Chí Minh";
+//            String gender = "Nam";
+//            String startDate = "15/10/2024";
+//            String seniority = "1 năm";
+//            String type = "Chinh thuc";
+//            String email = "quocnhan56@gmail.com";
+//            String phone = "0968270553";
+//            String twitter = "quocnhan56@gmail.com";
+//
+//            Department department = departmentDAO.get(3L);
+//            Contact contact = new Contact(email, phone, place);
+//            Job job = new Job(new Date(2024, 10, 15), profession, type);
+//            Employee e = new Employee(name, department, employeeId, img, new Date(2005, 9, 20), true, 1, null, contact);
+//            Contract contract = new Contract(direct, e, job);
+//            
+//            contactDAO.add(contact);
+//            jobDAO.add(job);
+//            employeeDAO.add(e);
+//            contractDAO.add(contract);
 
-            Department department = departmentDAO.get(3L);
-            Contact contact = new Contact(email, phone, place);
-            Job job = new Job(new Date(2024, 10, 15), profession, type);
-            Employee e = new Employee(name, department, employeeId, img, new Date(2005, 9, 20), true, 1, null, contact);
-            Contract contract = new Contract(direct, e, job);
-            
-            contactDAO.add(contact);
-            jobDAO.add(job);
-            employeeDAO.add(e);
-            contractDAO.add(contract);
+              Employee e = employeeDAO.get(2L);
+              Date date = java.sql.Date.valueOf("2024-11-11");
+//              LeaveRequest l = new LeaveRequest(e, false, date);
+//              
+//              leaveRequestDAO.add(l);
+               LeaveRequest l = leaveRequestDAO.findByEmployeeIdAndRegistrationDate(e.getId(), date);
+               System.out.println(l.getEmployee().getName());
 
             // Lấy dữ liệu
 //            Role r1 = roleDAO.get(1);

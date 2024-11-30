@@ -4,15 +4,21 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.LeaveRequestForm;
 
-import controller.Session.SharedData;
+import controller.DAO.LeaveRequestDAO;
+import controller.DAOImp.LeaveRequestDAOImp;
 import java.awt.GridLayout;
+import java.time.LocalDate;
+import model.DateRange;
+import model.Employee;
+import model.LeaveRequest;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
  * @author LENOVO
  */
 public class LeaveForm_Container extends javax.swing.JPanel {
-
 
     public LeaveForm_Container() {
         initComponents();
@@ -48,15 +54,35 @@ public class LeaveForm_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        for (int i = 1; i <= 56; i++) {
-            this.add(new LeaveForm_Component(true));
-        }
+//        for (int i = 1; i <= 56; i++) {
+//            this.add(new LeaveForm_Component(true));
+//        }
     }
 
-    public void updateData() {
-        this.removeAll();
-        for (int i = 1; i <= SharedData.getInstance().getEmployee_Selected().size() * 7; i++) {
-            this.add(new LeaveForm_Component(false));
+    public void updateData(Employee employee, DateRange dateRange) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
+
+            LocalDate fromDate = dateRange.getFromDate();
+            LocalDate toDate = dateRange.getToDate();
+
+            LocalDate currentDate = fromDate;
+            int count = 1;
+            while (!currentDate.isAfter(toDate)) {
+                java.sql.Date sqlDate = java.sql.Date.valueOf(currentDate);
+
+                LeaveRequest leaveRequest = leaveRequestDAO.findByEmployeeIdAndRegistrationDate(employee.getId(), sqlDate);
+
+                this.add(new LeaveForm_Component(leaveRequest, employee, sqlDate));
+
+                currentDate = currentDate.plusDays(1);
+
+                count++;
+            }
+            for (int i = count; i <= 7; i++) {
+                this.add(new LeaveForm_Component());
+            }
+        } catch (Exception e) {
         }
         validate();
         repaint();

@@ -4,12 +4,14 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.Content;
 
+import controller.Session.SharedData;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.List;
 import javax.swing.JPanel;
 import model.DateRange;
+import model.Employee;
 import view.component.LeaveApplication.GridLeaveRequest.Date.Date_Container;
 import view.component.LeaveApplication.GridLeaveRequest.Employee.EmployeeInfo_Container;
 import view.component.LeaveApplication.GridLeaveRequest.LeaveRequestForm.LeaveForm_Container;
@@ -102,9 +104,12 @@ public class Content_Component extends javax.swing.JPanel {
     public void updateEmployee() {
         employeeInfo_Container.updateData();
     }
-    
-    public void updateLeaveForm() {
-        leaveForm_Container.updateData();
+
+    public void updateLeaveForm(List<Employee> list, DateRange dateRange) {
+        leaveForm_Container.removeAll();
+        for (Employee employee : list) {
+            leaveForm_Container.updateData(employee, dateRange);
+        }
     }
 
     public EmployeeInfo_Container getEmployeeInfo_Container() {

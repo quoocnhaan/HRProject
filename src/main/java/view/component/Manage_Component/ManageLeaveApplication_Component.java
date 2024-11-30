@@ -4,6 +4,7 @@
  */
 package view.component.Manage_Component;
 
+import controller.Session.SharedData;
 import java.awt.BorderLayout;
 import model.DateRange;
 import view.component.Filter.Filter_Component;
@@ -70,8 +71,16 @@ public class ManageLeaveApplication_Component extends javax.swing.JPanel {
     public void updateData(DateRange dateRange) {
         Content_Component.getInstance().updateDate(dateRange);
         Content_Component.getInstance().updateEmployee();
-        Content_Component.getInstance().updateLeaveForm();
+        Content_Component.getInstance().updateLeaveForm(SharedData.getInstance().getEmployee_Selected(), dateRange);
         updateCurDate(dateRange);
+        updateButtonState();
+    }
+
+    public void changePage(DateRange dateRange) {
+        Content_Component.getInstance().updateDate(dateRange);
+        Content_Component.getInstance().updateLeaveForm(SharedData.getInstance().getEmployee_Selected(), dateRange);
+        updateCurDate(dateRange);
+        updateButtonState();
     }
 
     public void updateCurDate(DateRange dateRange) {

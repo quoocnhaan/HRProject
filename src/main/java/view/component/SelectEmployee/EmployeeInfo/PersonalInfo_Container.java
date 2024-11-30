@@ -88,7 +88,9 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
         List<Employee> list = SharedData.getInstance().getEmployee_Selected();
         for (Employee employee : list) {
             String name = employee.getName();
+            
             System.out.println(name);
+            
             String employeeId = employee.getEmployeeId();
             String job = employee.getContracts().get(0).getJob().getProfession();
             String direct = employee.getDepartment().getName();

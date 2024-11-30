@@ -308,7 +308,6 @@ public class Filter_Component extends javax.swing.JPanel {
 
     private void transferData() {
         ChangePage_Component.index = 0;
-        ManageLeaveApplication_Component.getInstance().updateButtonState();
         ManageLeaveApplication_Component.getInstance().updateData(SharedData.getInstance().getDateRanges().get(0));
     }
 

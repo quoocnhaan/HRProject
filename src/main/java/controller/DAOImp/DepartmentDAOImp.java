@@ -143,7 +143,8 @@ public class DepartmentDAOImp implements DepartmentDAO {
         List<Department> children = findChildren(id);
         List<Employee> employees = department.getEmployee();
         for (Department d : children) {
-            employees.addAll(employees.size() - 1, getEmployeesByDepartmentAndSubDepartments(d.getId()));
+            int index = (employees.isEmpty()) ? 0 : employees.size() - 1;
+            employees.addAll(index, getEmployeesByDepartmentAndSubDepartments(d.getId()));
         }
         return employees;
     }

@@ -18,14 +18,9 @@ public class Content extends javax.swing.JPanel {
     /**
      * Creates new form Content
      */
-    public Content(boolean type) {
+    public Content(int type) {
         initComponents();
         customComponents(type);
-    }
-
-    public Content() {
-        initComponents();
-        customComponents();
     }
 
     /**
@@ -40,7 +35,12 @@ public class Content extends javax.swing.JPanel {
         vice = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(245, 247, 255));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         vice.setBackground(new java.awt.Color(78, 116, 247));
 
@@ -69,26 +69,37 @@ public class Content extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        openDetailForm();
+    }//GEN-LAST:event_formMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel vice;
     // End of variables declaration//GEN-END:variables
 
-    private void customComponents(boolean type) {
+    private void customComponents(int type) {
         vice.setPreferredSize(new Dimension(4, 40));
 
-        if (type) {
+        if (type == 1) {
+            // đã duyệt
             this.setBackground(new Color(238, 250, 237));
             vice.setBackground(new Color(77, 151, 42));
-        } else {
+        } else if (type == 2) {
+            // chưa duyệt    
             this.setBackground(new Color(245, 247, 255));
             vice.setBackground(new Color(78, 116, 247));
+        } else if (type == 3) {
+            // từ chối
+
+        } else {
+            // không có phiếu
+            this.setBackground(Color.WHITE);
+            vice.setBackground(Color.WHITE);
         }
     }
-
-    private void customComponents() {
-        vice.setPreferredSize(new Dimension(4, 40));
-        this.setBackground(Color.WHITE);
-        vice.setBackground(Color.WHITE);
+    
+    public void openDetailForm() {
+        System.out.println("Opened !");
     }
 }

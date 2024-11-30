@@ -4,6 +4,7 @@
  */
 package controller.DAO;
 
+import java.util.Date;
 import model.LeaveRequest;
 
 /**
@@ -11,5 +12,5 @@ import model.LeaveRequest;
  * @author PC
  */
 public interface LeaveRequestDAO extends InterfaceDAO<LeaveRequest>{
-    
+    LeaveRequest findByEmployeeIdAndRegistrationDate(long employeeId, Date registrationDate);
 }

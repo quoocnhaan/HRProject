@@ -5,6 +5,7 @@
 package controller.DAOImp;
 
 import controller.DAO.LeaveRequestDAO;
+import java.util.Date;
 import java.util.List;
 import model.LeaveRequest;
 import model.Salary;
@@ -82,4 +83,15 @@ public class LeaveRequestDAOImp implements LeaveRequestDAO {
         Query<LeaveRequest> query = session.createQuery("FROM LeaveRequest", LeaveRequest.class);
         return query.list();
     }
+
+    @Override
+    public LeaveRequest findByEmployeeIdAndRegistrationDate(long employeeId, Date registrationDate) {
+        Query<LeaveRequest> query = session.createQuery(
+                "FROM LeaveRequest l WHERE l.employee.id = :id AND l.registrationDate = :date", LeaveRequest.class
+        );
+        query.setParameter("id", employeeId);
+        query.setParameter("date", registrationDate);
+        return query.uniqueResult();
+    }
+
 }

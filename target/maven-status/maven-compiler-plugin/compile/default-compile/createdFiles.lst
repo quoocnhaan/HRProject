@@ -93,9 +93,11 @@ model\RoleDetail.class
 controller\DAOImp\NotiTypeDAOImp.class
 view\component\EmployeeDetailInfo\EmployeeDetail\Emloyee_Component.class
 controller\DAO\JobDAO.class
+view\component\LeaveApplication\GridLeaveRequest\LeaveRequestForm\LeaveForm_Component$1.class
 view\component\DepartmentInfo\DepartmentData_Component$1.class
 controller\DAOImp\DepartmentDAOImp.class
 view\component\JobInfoDetail_Component\Test_Job$1.class
+view\component\LeaveApplication\GridLeaveRequest\LeaveRequestForm\Content$1.class
 view\component\SelectEmployee\Btn_Component.class
 model\DateRange.class
 controller\DAO\EmployeeDAO.class

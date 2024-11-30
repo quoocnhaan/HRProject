@@ -83,8 +83,10 @@ public class DepartmentData_Component extends javax.swing.JPanel {
 
             String nodeName = selectedNode.getUserObject().toString();
             Department d = departmentDAO.getByName(nodeName);
-            SharedData.getInstance().setEmployee_Selected(departmentDAO.getEmployeesByDepartmentAndSubDepartments(d.getId()));
             
+            SharedData.getInstance().setEmployee_Selected(departmentDAO.getEmployeesByDepartmentAndSubDepartments(d.getId()));
+            System.out.println(d.getId());
+
             ManageSelecteEmployee_Component me = (ManageSelecteEmployee_Component) SwingUtilities.getAncestorOfClass(ManageSelecteEmployee_Component.class, this);
 
             if (me != null) {
@@ -92,7 +94,7 @@ public class DepartmentData_Component extends javax.swing.JPanel {
             } else {
 
             }
-        } catch (Exception ex) {  
+        } catch (Exception ex) {
             System.out.println("Lỗi: " + ex.getMessage());
         }
     }//GEN-LAST:event_departmentValueChanged

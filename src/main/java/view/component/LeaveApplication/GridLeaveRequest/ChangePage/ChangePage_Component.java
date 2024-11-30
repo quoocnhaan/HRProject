@@ -67,10 +67,12 @@ public class ChangePage_Component extends javax.swing.JPanel {
             index--;
         }
 
-        Content_Component.getInstance().updateDate(SharedData.getInstance().getDateRanges().get(index));
+        //Content_Component.getInstance().updateDate(SharedData.getInstance().getDateRanges().get(index));
 
-        ManageLeaveApplication_Component.getInstance().updateButtonState();
-        ManageLeaveApplication_Component.getInstance().updateCurDate(SharedData.getInstance().getDateRanges().get(index));
+        //ManageLeaveApplication_Component.getInstance().updateButtonState();
+        //ManageLeaveApplication_Component.getInstance().updateCurDate(SharedData.getInstance().getDateRanges().get(index));
+        ManageLeaveApplication_Component.getInstance().changePage(SharedData.getInstance().getDateRanges().get(index));
+        
     }//GEN-LAST:event_iconActionPerformed
 
     private void updateButtonState() {

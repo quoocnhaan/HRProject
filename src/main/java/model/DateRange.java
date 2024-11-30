@@ -33,13 +33,13 @@ public class DateRange {
                     fromDate.getDayOfMonth(),
                     toDate.getDayOfMonth(),
                     fromDate.getMonthValue(),
-                    fromDate.getYear());
+                    toDate.getYear());
         } else {
             // Nếu khác tháng hoặc năm, in tháng và năm, không in ngày
             return String.format("%s - %s năm %d",
                     fromDate.format(formatter),
                     toDate.format(formatter),
-                    fromDate.getYear());
+                    toDate.getYear());
         }
     }
 

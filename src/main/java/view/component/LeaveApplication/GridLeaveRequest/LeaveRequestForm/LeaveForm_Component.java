@@ -5,10 +5,16 @@
 package view.component.LeaveApplication.GridLeaveRequest.LeaveRequestForm;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Date;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+import model.Employee;
+import model.LeaveRequest;
 
 /**
  *
@@ -16,19 +22,22 @@ import javax.swing.border.Border;
  */
 public class LeaveForm_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form LeaveForm_Component
-     *
-     * @param hasPermisstion
-     */
-    public LeaveForm_Component(boolean type) {
+    private Employee employee;
+    private Date date;
+    private Content content;
+
+    public LeaveForm_Component(LeaveRequest leaveRequest, Employee employee, Date date) {
         initComponents();
-        initMyComponents(type);
+        initMyComponents(leaveRequest);
+        customComponents();
+        this.employee = employee;
+        this.date = date;
     }
 
     public LeaveForm_Component() {
         initComponents();
         initMyComponents();
+        customComponents();
     }
 
     /**
@@ -41,7 +50,7 @@ public class LeaveForm_Component extends javax.swing.JPanel {
     private void initComponents() {
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -62,16 +71,49 @@ public class LeaveForm_Component extends javax.swing.JPanel {
         this.setBorder(lineBorder);
     }
 
-    private void initMyComponents(boolean type) {
-        this.add(new Content(type));
-        customComponents();
+    private void initMyComponents(LeaveRequest leaveRequest) {
+        if (leaveRequest != null) {
+            content = new Content(leaveRequest.getApproveStatus());
+            this.add(content);
+        } else {
+            content = new Content(4);
+            this.add(content);
+
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+            this.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    onClick(leaveRequest);
+                }
+            });
+        }
     }
 
     private void initMyComponents() {
+        // Invalid Date
         this.setPreferredSize(new Dimension(140, 60));
         this.setBackground(new Color(227, 227, 227));
-        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
-        this.setBorder(lineBorder);
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    private void onClick(LeaveRequest leaveRequest) {
+        content.openDetailForm();
     }
 
 

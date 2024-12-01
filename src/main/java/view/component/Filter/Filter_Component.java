@@ -10,13 +10,10 @@ import java.awt.BorderLayout;
 import java.awt.Dialog;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.SwingUtilities;
@@ -311,4 +308,7 @@ public class Filter_Component extends javax.swing.JPanel {
         ManageLeaveApplication_Component.getInstance().updateData(SharedData.getInstance().getDateRanges().get(0));
     }
 
+    public void updateData() {
+        this.employeeAmount.setText("   Chọn nhân viên (" + SharedData.getInstance().getEmployee_Selected().size() + ")");
+    }
 }

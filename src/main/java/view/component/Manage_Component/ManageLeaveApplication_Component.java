@@ -91,6 +91,25 @@ public class ManageLeaveApplication_Component extends javax.swing.JPanel {
         leaveApp.getChangePageAndSearch().updateButtonState();
     }
 
+    public Filter_Component getFilter() {
+        return filter;
+    }
+
+    public void setFilter(Filter_Component filter) {
+        this.filter = filter;
+    }
+
+    public LeaveApplicationGrid getLeaveApp() {
+        return leaveApp;
+    }
+
+    public void setLeaveApp(LeaveApplicationGrid leaveApp) {
+        this.leaveApp = leaveApp;
+    }
+
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

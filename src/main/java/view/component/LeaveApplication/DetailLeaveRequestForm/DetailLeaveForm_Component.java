@@ -4,6 +4,9 @@
  */
 package view.component.LeaveApplication.DetailLeaveRequestForm;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import model.Employee;
 import model.LeaveRequest;
 
 /**
@@ -12,16 +15,10 @@ import model.LeaveRequest;
  */
 public class DetailLeaveForm_Component extends javax.swing.JPanel {
 
-    public DetailLeaveForm_Component(LeaveRequest leaveRequest) {
+    public DetailLeaveForm_Component(LeaveRequest leaveRequest, Employee employee, Date date) {
         initComponents();
         customComponents();
-        initData(leaveRequest);
-    }
-
-    public DetailLeaveForm_Component() {
-        initComponents();
-        customComponents();
-        initData();
+        initData(leaveRequest, employee, date);
     }
 
     /**
@@ -36,11 +33,11 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        name = new javax.swing.JLabel();
+        registrator = new javax.swing.JLabel();
         from = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        toDate = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        fromDate = new com.toedter.calendar.JDateChooser();
+        jLabel = new javax.swing.JLabel();
+        toDate = new com.toedter.calendar.JDateChooser();
         typeOfLeave = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -56,7 +53,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         approverName = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         approveDate = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        registrationDate = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -72,23 +69,23 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Người đăng ký");
 
-        name.setForeground(new java.awt.Color(0, 0, 0));
-        name.setText("  Lâm Quốc Nhân");
-        name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        registrator.setForeground(new java.awt.Color(0, 0, 0));
+        registrator.setText("  Lâm Quốc Nhân");
+        registrator.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         from.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         from.setForeground(new java.awt.Color(0, 0, 0));
         from.setText("Từ ngày");
 
-        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
-        jDateChooser1.setForeground(new java.awt.Color(0, 0, 0));
+        fromDate.setBackground(new java.awt.Color(255, 255, 255));
+        fromDate.setForeground(new java.awt.Color(0, 0, 0));
 
-        toDate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel.setText("Đến ngày");
+
+        toDate.setBackground(new java.awt.Color(255, 255, 255));
         toDate.setForeground(new java.awt.Color(0, 0, 0));
-        toDate.setText("Đến ngày");
-
-        jDateChooser2.setBackground(new java.awt.Color(255, 255, 255));
-        jDateChooser2.setForeground(new java.awt.Color(0, 0, 0));
 
         typeOfLeave.setBackground(new java.awt.Color(255, 255, 255));
         typeOfLeave.setForeground(new java.awt.Color(0, 0, 0));
@@ -144,10 +141,10 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         approveDate.setText("  Lâm Quốc Nhân");
         approveDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel8.setText("   20/09/2002");
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        registrationDate.setForeground(new java.awt.Color(0, 0, 0));
+        registrationDate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        registrationDate.setText("   20/09/2002");
+        registrationDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -167,26 +164,26 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(totalLeave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(fromDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(typeOfLeave, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4)
                                         .addComponent(jLabel6))
                                     .addGap(0, 140, Short.MAX_VALUE))
-                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(registrationDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(registrator, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(toDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(amountLeave, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(toDate, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(jLabel, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,19 +208,19 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                            .addComponent(registrationDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(registrator, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(toDate)
+                                .addComponent(jLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(toDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(from)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(fromDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -266,8 +263,8 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
     private javax.swing.JButton confirmBtn;
     private javax.swing.JButton denyBtn;
     private javax.swing.JLabel from;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser fromDate;
+    private javax.swing.JLabel jLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -276,26 +273,33 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel name;
     private javax.swing.JTextPane reason;
-    private javax.swing.JLabel toDate;
+    private javax.swing.JLabel registrationDate;
+    private javax.swing.JLabel registrator;
+    private com.toedter.calendar.JDateChooser toDate;
     private javax.swing.JLabel totalLeave;
     private javax.swing.JComboBox<String> typeOfLeave;
     // End of variables declaration//GEN-END:variables
 
     private void customComponents() {
-
+        //this.typeOfLeave;
     }
 
-    private void initData() {
-
-    }
-
-    private void initData(LeaveRequest leaveRequest) {
+    private void initData(LeaveRequest leaveRequest, Employee employee, Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String regisDate = dateFormat.format(date);
+        this.registrationDate.setText(regisDate);
         
+        this.registrator.setText(employee.getName());
+        
+        if(leaveRequest != null) {
+            String fromDate = dateFormat.format(leaveRequest.getFromDate());
+            String toDate = dateFormat.format(leaveRequest.getToDate());
+            
+        }
+
     }
 
 }

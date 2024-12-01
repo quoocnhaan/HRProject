@@ -6,7 +6,6 @@ package view.component.LeaveApplication.GridLeaveRequest.ChangePage;
 
 import controller.Session.SharedData;
 import javax.swing.JButton;
-import view.component.LeaveApplication.GridLeaveRequest.Content.Content_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
 
 /**
@@ -67,10 +66,6 @@ public class ChangePage_Component extends javax.swing.JPanel {
             index--;
         }
 
-        //Content_Component.getInstance().updateDate(SharedData.getInstance().getDateRanges().get(index));
-
-        //ManageLeaveApplication_Component.getInstance().updateButtonState();
-        //ManageLeaveApplication_Component.getInstance().updateCurDate(SharedData.getInstance().getDateRanges().get(index));
         ManageLeaveApplication_Component.getInstance().changePage(SharedData.getInstance().getDateRanges().get(index));
         
     }//GEN-LAST:event_iconActionPerformed

@@ -25,6 +25,7 @@ public class LeaveForm_Component extends javax.swing.JPanel {
     private Employee employee;
     private Date date;
     private Content content;
+    private LeaveRequest leaveRequest;
 
     public LeaveForm_Component(LeaveRequest leaveRequest, Employee employee, Date date) {
         initComponents();
@@ -32,6 +33,7 @@ public class LeaveForm_Component extends javax.swing.JPanel {
         customComponents();
         this.employee = employee;
         this.date = date;
+        this.leaveRequest = leaveRequest;
     }
 
     public LeaveForm_Component() {
@@ -73,10 +75,10 @@ public class LeaveForm_Component extends javax.swing.JPanel {
 
     private void initMyComponents(LeaveRequest leaveRequest) {
         if (leaveRequest != null) {
-            content = new Content(leaveRequest.getApproveStatus());
+            content = new Content(leaveRequest.getApproveStatus(), leaveRequest, employee, date);
             this.add(content);
         } else {
-            content = new Content(4);
+            content = new Content(4, leaveRequest, employee, date);
             this.add(content);
 
             this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -84,7 +86,7 @@ public class LeaveForm_Component extends javax.swing.JPanel {
             this.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    onClick(leaveRequest);
+                    onClick();
                 }
             });
         }
@@ -112,7 +114,7 @@ public class LeaveForm_Component extends javax.swing.JPanel {
         this.date = date;
     }
 
-    private void onClick(LeaveRequest leaveRequest) {
+    private void onClick() {
         content.openDetailForm();
     }
 

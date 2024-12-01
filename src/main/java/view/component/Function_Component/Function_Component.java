@@ -42,7 +42,7 @@ public class Function_Component extends javax.swing.JPanel {
             }
         });
 
-        funcName.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        funcName.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         funcName.setForeground(new java.awt.Color(255, 255, 255));
         funcName.setText("Name");
 

@@ -4,10 +4,16 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.LeaveRequestForm;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.Dimension;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
+import java.sql.Date;
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
+import model.Employee;
+import model.LeaveRequest;
+import view.component.LeaveApplication.DetailLeaveRequestForm.DetailLeaveForm_Component;
 
 /**
  *
@@ -15,12 +21,16 @@ import javax.swing.border.Border;
  */
 public class Content extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Content
-     */
-    public Content(int type) {
+    private Employee employee;
+    private Date date;
+    private LeaveRequest leaveRequest;
+
+    public Content(int type, LeaveRequest leaveRequest, Employee employee, Date date) {
         initComponents();
         customComponents(type);
+        this.employee = employee;
+        this.leaveRequest = leaveRequest;
+        this.date = date;
     }
 
     /**
@@ -98,8 +108,17 @@ public class Content extends javax.swing.JPanel {
             vice.setBackground(Color.WHITE);
         }
     }
-    
+
+    private DetailLeaveForm_Component initDataForDetailLeaveForm() {
+        return null;
+    }
+
     public void openDetailForm() {
-        System.out.println("Opened !");
+        JDialog popup = new JDialog(SwingUtilities.getWindowAncestor(this), "Detail Leave Request App", Dialog.ModalityType.APPLICATION_MODAL);
+        popup.getContentPane().setLayout(new BorderLayout());
+        popup.getContentPane().add(initDataForDetailLeaveForm());
+        popup.setSize(500, 535);  // Kích thước của popup
+        popup.setLocationRelativeTo(null);  // Hiển thị ở giữa màn hình
+        popup.setVisible(true);  // Hiển thị popup
     }
 }

@@ -8,7 +8,6 @@ import controller.Session.SharedData;
 import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.border.EmptyBorder;
-import static view.component.LeaveApplication.GridLeaveRequest.ChangePage.ChangePage_Component.index;
 import view.component.LeaveApplication.GridLeaveRequest.ChangePage.CurrentDate.CurrentDate_Component;
 import view.component.Search.Search;
 
@@ -66,7 +65,7 @@ public class ChangePageAndSearch extends javax.swing.JPanel {
         ImageIcon preIcon = new ImageIcon(getClass().getResource("/icon/pre.png"));
         pre = new ChangePage_Component(false);
         next = new ChangePage_Component(true);
-        curDate = new CurrentDate_Component("___");
+        curDate = new CurrentDate_Component("");
         search = new Search();
 
         this.add(pre);

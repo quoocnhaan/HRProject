@@ -8,6 +8,7 @@ import controller.Session.SharedData;
 import javax.swing.JDialog;
 import javax.swing.SwingUtilities;
 import model.Employee;
+import view.component.Manage_Component.ManageLeaveApplication_Component;
 import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
 /**
@@ -66,6 +67,7 @@ public class Btn_Component extends javax.swing.JPanel {
         JDialog parentDialog = (JDialog) SwingUtilities.getWindowAncestor(this);
         if (parentDialog != null) {
             parentDialog.dispose();
+            ManageLeaveApplication_Component.getInstance().getFilter().updateData();
         }
     }//GEN-LAST:event_btnActionPerformed
 

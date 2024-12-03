@@ -94,6 +94,7 @@ model\RoleDetail.class
 controller\DAOImp\NotiTypeDAOImp.class
 view\component\EmployeeDetailInfo\EmployeeDetail\Emloyee_Component.class
 controller\DAO\JobDAO.class
+view\component\LeaveApplication\DetailLeaveRequestForm\DetailLeaveForm_Component$2.class
 view\component\LeaveApplication\GridLeaveRequest\LeaveRequestForm\LeaveForm_Component$1.class
 view\component\DepartmentInfo\DepartmentData_Component$1.class
 controller\DAOImp\DepartmentDAOImp.class

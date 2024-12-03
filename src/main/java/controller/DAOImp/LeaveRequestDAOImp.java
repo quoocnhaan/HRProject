@@ -85,12 +85,12 @@ public class LeaveRequestDAOImp implements LeaveRequestDAO {
     }
 
     @Override
-    public LeaveRequest findByEmployeeIdAndRegistrationDate(long employeeId, Date registrationDate) {
+    public LeaveRequest findByEmployeeIdAndFromDate(long employeeId, Date fromDate) {
         Query<LeaveRequest> query = session.createQuery(
-                "FROM LeaveRequest l WHERE l.employee.id = :id AND l.registrationDate = :date", LeaveRequest.class
+                "FROM LeaveRequest l WHERE l.employee.id = :id AND l.fromDate = :date", LeaveRequest.class
         );
         query.setParameter("id", employeeId);
-        query.setParameter("date", registrationDate);
+        query.setParameter("date", fromDate);
         return query.uniqueResult();
     }
 

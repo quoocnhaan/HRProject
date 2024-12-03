@@ -4,13 +4,29 @@
  */
 package view.component.LeaveApplication.DetailLeaveRequestForm;
 
-import java.sql.Date;
+import controller.DAO.ApprovedLeaveRequestDAO;
+import controller.DAO.LeaveRequestDAO;
+import controller.DAOImp.ApprovedLeaveRequestDAOImp;
+import controller.DAOImp.LeaveRequestDAOImp;
+import controller.Session.MySession;
+import controller.Session.SharedData;
+import java.awt.Window;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
+import model.ApprovedLeaveRequest;
 import model.Employee;
 import model.LeaveRequest;
-import model.Role;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import util.HibernateUtil;
+import view.component.Manage_Component.ManageLeaveApplication_Component;
 
 /**
  *
@@ -21,13 +37,11 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
     private LeaveRequest leaveRequest;
     private Employee employee;
     private Date date;
-    private Role role;
 
     public DetailLeaveForm_Component(LeaveRequest leaveRequest, Employee employee, Date date) {
         this.leaveRequest = leaveRequest;
         this.employee = employee;
         this.date = date;
-        this.role = employee.getRoleDetail().getRole();
         initComponents();
         customComponents();
         initData();
@@ -47,7 +61,6 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         registrator = new javax.swing.JLabel();
         from = new javax.swing.JLabel();
-        fromDate = new com.toedter.calendar.JDateChooser();
         jLabel = new javax.swing.JLabel();
         toDate = new com.toedter.calendar.JDateChooser();
         typeOfLeave = new javax.swing.JComboBox<>();
@@ -66,6 +79,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         approveDate = new javax.swing.JLabel();
         registrationDate = new javax.swing.JLabel();
+        fromDate = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -89,15 +103,17 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         from.setForeground(new java.awt.Color(0, 0, 0));
         from.setText("Từ ngày");
 
-        fromDate.setBackground(new java.awt.Color(255, 255, 255));
-        fromDate.setForeground(new java.awt.Color(0, 0, 0));
-
         jLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel.setForeground(new java.awt.Color(0, 0, 0));
         jLabel.setText("Đến ngày");
 
         toDate.setBackground(new java.awt.Color(255, 255, 255));
         toDate.setForeground(new java.awt.Color(0, 0, 0));
+        toDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                toDatePropertyChange(evt);
+            }
+        });
 
         typeOfLeave.setBackground(new java.awt.Color(255, 255, 255));
         typeOfLeave.setForeground(new java.awt.Color(0, 0, 0));
@@ -160,6 +176,9 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         registrationDate.setText("   20/09/2002");
         registrationDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        fromDate.setForeground(new java.awt.Color(0, 0, 0));
+        fromDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,14 +197,14 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(totalLeave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fromDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(typeOfLeave, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(typeOfLeave, 0, 230, Short.MAX_VALUE)
+                                .addComponent(registrationDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4)
                                         .addComponent(jLabel6))
-                                    .addGap(0, 140, Short.MAX_VALUE))
-                                .addComponent(registrationDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(fromDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,17 +243,17 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(registrationDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(registrator, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(toDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(from)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fromDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(fromDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(toDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -271,13 +290,87 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
 
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            if (role.getId() == 1) {
-                //leaveRequest.setApproveStatus(1);
-                //leaveRequest.setApproveDate(date);
+            LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
+            ApprovedLeaveRequestDAO approvedLeaveRequestDAO = new ApprovedLeaveRequestDAOImp(session);
+
+            String btnName = confirmBtn.getText();
+
+            switch (btnName) {
+                case "Lưu":
+                    String fromDate = this.fromDate.getText();
+
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fromDateValue = null;
+                    try {
+                        // Chuyển từ String sang Date
+                        fromDateValue = dateFormat.parse(fromDate);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    Date toDateValue = toDate.getDate();
+
+                    LocalDate cur = LocalDate.now();
+                    Date registraionDate = Date.from(cur.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+                    String typeValue = (String) typeOfLeave.getSelectedItem();
+
+                    double startLeaveValue = Double.parseDouble((String) amountLeave.getSelectedItem());
+
+                    int totalDayValue = Integer.parseInt(totalLeave.getText());
+
+                    String reasonValue = reason.getText();
+
+                    boolean statusValue = true;
+                    System.out.println("dô case Lưu");
+
+                    // Chưa có phiếu + Quản lý nộp
+                    if (MySession.currentEmployee.getId() == 1) {
+                        System.out.println("dô if");
+                        LeaveRequest leaveRequest = new LeaveRequest(employee, 1, MySession.currentEmployee, registraionDate,
+                                registraionDate, fromDateValue, toDateValue,
+                                typeValue, startLeaveValue, totalDayValue, reasonValue, statusValue);
+
+                        leaveRequestDAO.add(leaveRequest);
+
+                        ApprovedLeaveRequest approvedLeaveRequest = new ApprovedLeaveRequest(leaveRequest, true);
+                        approvedLeaveRequestDAO.add(approvedLeaveRequest);
+                    } // Chưa có phiếu + HR nộp
+                    else if (this.leaveRequest == null) {
+                        System.out.println("dô else if");
+                        LeaveRequest leaveRequest = new LeaveRequest(employee, registraionDate, fromDateValue, toDateValue, typeValue, startLeaveValue, totalDayValue, reasonValue, 2, statusValue);
+                        leaveRequestDAO.add(leaveRequest);
+                    } // Đã có phiếu + HR sửa
+                    else {
+                        System.out.println("dô else ");
+                        leaveRequest.setFromDate(fromDateValue);
+                        leaveRequest.setToDate(toDateValue);
+                        leaveRequest.setType(typeValue);
+                        leaveRequest.setStartLeave(startLeaveValue);
+                        leaveRequest.setTotalDay(totalDayValue);
+                        leaveRequest.setReason(reasonValue);
+
+                        leaveRequestDAO.update(leaveRequest);
+                    }
+                    ManageLeaveApplication_Component.getInstance().changePage(SharedData.getInstance().getCurDateRange());
+                    break;
+                case "Duyệt":
+
+                    break;
+                default:
+                    throw new AssertionError();
             }
+
         } catch (Exception e) {
+            System.out.println(e);
         }
+        close();
     }//GEN-LAST:event_confirmBtnActionPerformed
+
+    private void toDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_toDatePropertyChange
+        if ("date".equals(evt.getPropertyName())) {
+            calculateDateDifference();
+        }
+    }//GEN-LAST:event_toDatePropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -287,7 +380,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
     private javax.swing.JButton confirmBtn;
     private javax.swing.JButton denyBtn;
     private javax.swing.JLabel from;
-    private com.toedter.calendar.JDateChooser fromDate;
+    private javax.swing.JLabel fromDate;
     private javax.swing.JLabel jLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -308,21 +401,41 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void customComponents() {
-        if (role.getId() == 1) {
+        if (leaveRequest != null && MySession.currentEmployee.getId() == 1) {
             this.confirmBtn.setText("Duyệt");
             this.denyBtn.setText("Từ chối");
         }
     }
 
     private void initData() {
+        Date currentDate = new Date();
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String regisDate = dateFormat.format(date);
+
+        String regisDate = dateFormat.format(currentDate);
+
         this.registrationDate.setText(regisDate);
 
         this.registrator.setText(employee.getName());
 
         if (leaveRequest != null) {
-            this.fromDate.setDate(leaveRequest.getFromDate());
+            String fromDate = leaveRequest.getFromDate().toString();
+
+            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+
+            SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+            try {
+                Date date = inputFormat.parse(fromDate);
+
+                String formattedDate = outputFormat.format(date);
+
+                // Đặt giá trị formattedDate vào giao diện
+                this.fromDate.setText(formattedDate);
+            } catch (ParseException e) {
+                e.printStackTrace(); // Xử lý lỗi nếu định dạng không hợp lệ
+            }
+
             this.toDate.setDate(leaveRequest.getToDate());
             this.typeOfLeave.setSelectedItem(leaveRequest.getType());
             double startLeave = leaveRequest.getStartLeave();
@@ -335,16 +448,61 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
             // Chuyển đổi từ mili giây sang ngày
             long diffInDays = diffInMillis / (1000 * 60 * 60 * 24);
 
-            this.totalLeave.setText(diffInDays + " ngày");
+            this.totalLeave.setText(diffInDays+"");
 
             this.reason.setText(leaveRequest.getReason());
 
-            this.approverName.setText(leaveRequest.getApprover().getName());
+            String approverName = (leaveRequest.getApprover() == null) ? "" : leaveRequest.getApprover().getName();
+            this.approverName.setText(approverName);
 
-            String approveDate = dateFormat.format(leaveRequest.getApproveDate());
+            String approveDate = (leaveRequest.getApproveDate() == null) ? "" : leaveRequest.getApproveDate().toString();
             this.approveDate.setText(approveDate);
+        } else {
+            String fromDate = dateFormat.format(date);
+            this.fromDate.setText(fromDate);
         }
 
+    }
+
+    private void close() {
+        Window window = SwingUtilities.getWindowAncestor(this);
+
+        if (window instanceof JDialog) {
+            ((JDialog) window).dispose();
+        }
+    }
+
+    private void calculateDateDifference() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            // Chuyển đổi từ chuỗi thành java.util.Date
+            String fromDateString = fromDate.getText();
+            Date fromDate = dateFormat.parse(fromDateString); // Đây là java.util.Date
+
+            // Chuyển từ java.util.Date sang LocalDate
+            LocalDate fromLocalDate = convertToLocalDate(fromDate);
+
+            // Lấy ngày kết thúc từ JDateChooser (giả sử là java.util.Date)
+            Date toDate = this.toDate.getDate();
+            if (toDate != null) {
+                LocalDate toLocalDate = convertToLocalDate(toDate);
+
+                long daysBetween = ChronoUnit.DAYS.between(fromLocalDate, toLocalDate);
+                System.out.println(daysBetween);
+                totalLeave.setText(String.valueOf(daysBetween));
+            } else {
+                totalLeave.setText("");
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private LocalDate convertToLocalDate(Date toDate) {
+        Instant instant = toDate.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        return instant.atZone(zoneId).toLocalDate();
     }
 
 }

@@ -65,8 +65,8 @@ public class ChangePage_Component extends javax.swing.JPanel {
         } else if (!next && index > 0) {
             index--;
         }
-
-        ManageLeaveApplication_Component.getInstance().changePage(SharedData.getInstance().getDateRanges().get(index));
+        SharedData.getInstance().setCurDateRange(SharedData.getInstance().getDateRanges().get(index));
+        ManageLeaveApplication_Component.getInstance().changePage(SharedData.getInstance().getCurDateRange());
         
     }//GEN-LAST:event_iconActionPerformed
 

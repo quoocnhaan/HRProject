@@ -12,5 +12,5 @@ import model.LeaveRequest;
  * @author PC
  */
 public interface LeaveRequestDAO extends InterfaceDAO<LeaveRequest>{
-    LeaveRequest findByEmployeeIdAndRegistrationDate(long employeeId, Date registrationDate);
+    LeaveRequest findByEmployeeIdAndFromDate(long employeeId, Date fromDate);
 }

@@ -74,7 +74,7 @@ public class NewClass1 {
 //              LeaveRequest l = new LeaveRequest(e, false, date);
 //              
 //              leaveRequestDAO.add(l);
-               LeaveRequest l = leaveRequestDAO.findByEmployeeIdAndRegistrationDate(e.getId(), date);
+               LeaveRequest l = leaveRequestDAO.findByEmployeeIdAndFromDate(e.getId(), date);
                System.out.println(l.getEmployee().getName());
 
             // Lấy dữ liệu

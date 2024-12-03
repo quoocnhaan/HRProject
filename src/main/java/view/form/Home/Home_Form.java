@@ -4,9 +4,15 @@
  */
 package view.form.Home;
 
+import controller.DAO.EmployeeDAO;
+import controller.DAOImp.EmployeeDAOImp;
+import controller.Session.MySession;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import model.Employee;
+import org.hibernate.Session;
+import util.HibernateUtil;
 import view.form.Home.Header.Header;
 import view.form.Home.MainContent.MainContent;
 
@@ -17,6 +23,12 @@ import view.form.Home.MainContent.MainContent;
 public class Home_Form extends javax.swing.JFrame {
 
     public Home_Form() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+            Employee employee = employeeDAO.get(2L);
+            MySession.login(employee);
+        } catch (Exception e) {
+        }
         initComponents();
         setLayout();
         addComponents();
@@ -104,7 +116,7 @@ public class Home_Form extends javax.swing.JFrame {
 
     private void setLayout() {
         this.getContentPane().setLayout(new BorderLayout(10, 10));
-        this.getContentPane().setBackground(new Color(241,241,250));
+        this.getContentPane().setBackground(new Color(241, 241, 250));
     }
 
     private void addComponents() {

@@ -71,7 +71,7 @@ public class LeaveForm_Container extends javax.swing.JPanel {
             while (!currentDate.isAfter(toDate)) {
                 java.sql.Date sqlDate = java.sql.Date.valueOf(currentDate);
 
-                LeaveRequest leaveRequest = leaveRequestDAO.findByEmployeeIdAndRegistrationDate(employee.getId(), sqlDate);
+                LeaveRequest leaveRequest = leaveRequestDAO.findByEmployeeIdAndFromDate(employee.getId(), sqlDate);
 
                 this.add(new LeaveForm_Component(leaveRequest, employee, sqlDate));
 

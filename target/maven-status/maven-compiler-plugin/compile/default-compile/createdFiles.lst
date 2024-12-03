@@ -24,6 +24,7 @@ view\component\BenefitInfo_Component\BenefitInfo_Component.class
 controller\DAO\ContractDAO.class
 model\Department.class
 view\component\JobInfoDetail_Component\JobinDetail_Component.class
+view\component\LeaveApplication\DetailLeaveRequestForm\DetailLeaveForm_Component$1.class
 view\component\LegalInfoDetail_Component\EmploymentContract_Component$5.class
 controller\DAOImp\ContractDAOImp.class
 view\component\Function_Component\Function_Component$1.class

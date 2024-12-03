@@ -28,12 +28,12 @@ public class LeaveForm_Component extends javax.swing.JPanel {
     private LeaveRequest leaveRequest;
 
     public LeaveForm_Component(LeaveRequest leaveRequest, Employee employee, Date date) {
-        initComponents();
-        initMyComponents(leaveRequest);
-        customComponents();
         this.employee = employee;
         this.date = date;
         this.leaveRequest = leaveRequest;
+        initComponents();
+        initMyComponents(leaveRequest);
+        customComponents();
     }
 
     public LeaveForm_Component() {

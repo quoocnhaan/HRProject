@@ -26,11 +26,11 @@ public class Content extends javax.swing.JPanel {
     private LeaveRequest leaveRequest;
 
     public Content(int type, LeaveRequest leaveRequest, Employee employee, Date date) {
-        initComponents();
-        customComponents(type);
         this.employee = employee;
         this.leaveRequest = leaveRequest;
         this.date = date;
+        initComponents();
+        customComponents(type);
     }
 
     /**
@@ -109,14 +109,10 @@ public class Content extends javax.swing.JPanel {
         }
     }
 
-    private DetailLeaveForm_Component initDataForDetailLeaveForm() {
-        return null;
-    }
-
     public void openDetailForm() {
         JDialog popup = new JDialog(SwingUtilities.getWindowAncestor(this), "Detail Leave Request App", Dialog.ModalityType.APPLICATION_MODAL);
         popup.getContentPane().setLayout(new BorderLayout());
-        popup.getContentPane().add(initDataForDetailLeaveForm());
+        popup.getContentPane().add(new DetailLeaveForm_Component(leaveRequest, employee, date));
         popup.setSize(500, 535);  // Kích thước của popup
         popup.setLocationRelativeTo(null);  // Hiển thị ở giữa màn hình
         popup.setVisible(true);  // Hiển thị popup

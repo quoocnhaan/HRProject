@@ -18,7 +18,7 @@ public class Test extends javax.swing.JFrame {
     public Test() {
         initComponents();
         this.setLayout(new BorderLayout());
-        this.add(new DetailLeaveForm_Component());
+        
     }
 
     /**

@@ -88,6 +88,46 @@ public class LeaveRequest {
         this.registrationDate = registrationDate;
     }
 
+    // sửa phiếu
+    public LeaveRequest(long id, Date fromDate, Date toDate, String type, double startLeave, int totalDay, String reason, boolean status) {
+        this.id = id;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.type = type;
+        this.startLeave = startLeave;
+        this.totalDay = totalDay;
+        this.reason = reason;
+        this.status = status;
+    }
+
+    /// tạo phiếu
+    public LeaveRequest(Employee employee, Date registrationDate, Date fromDate, Date toDate, String type, double startLeave, int totalDay, String reason, boolean status) {
+        this.employee = employee;
+        this.registrationDate = registrationDate;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.type = type;
+        this.startLeave = startLeave;
+        this.totalDay = totalDay;
+        this.reason = reason;
+        this.status = status;
+    }
+
+    // xóa phiếu
+    public LeaveRequest(long id, boolean status) {
+        this.id = id;
+        this.status = status;
+    }
+
+    // duyệt / từ chối
+    public LeaveRequest(long id, Date approveDate, int approveStatus, boolean status, Employee approver) {
+        this.id = id;
+        this.status = status;
+        this.approveDate = approveDate;
+        this.approver = approver;
+        this.approveStatus = approveStatus;
+    }
+
     public long getId() {
         return id;
     }
@@ -191,7 +231,5 @@ public class LeaveRequest {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    
 
 }

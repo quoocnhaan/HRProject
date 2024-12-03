@@ -8,6 +8,9 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import model.Employee;
 import model.LeaveRequest;
+import model.Role;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -15,10 +18,19 @@ import model.LeaveRequest;
  */
 public class DetailLeaveForm_Component extends javax.swing.JPanel {
 
+    private LeaveRequest leaveRequest;
+    private Employee employee;
+    private Date date;
+    private Role role;
+
     public DetailLeaveForm_Component(LeaveRequest leaveRequest, Employee employee, Date date) {
+        this.leaveRequest = leaveRequest;
+        this.employee = employee;
+        this.date = date;
+        this.role = employee.getRoleDetail().getRole();
         initComponents();
         customComponents();
-        initData(leaveRequest, employee, date);
+        initData();
     }
 
     /**
@@ -89,7 +101,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
 
         typeOfLeave.setBackground(new java.awt.Color(255, 255, 255));
         typeOfLeave.setForeground(new java.awt.Color(0, 0, 0));
-        typeOfLeave.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        typeOfLeave.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nghỉ phép", "Nghỉ không phép" }));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -101,14 +113,13 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
 
         amountLeave.setBackground(new java.awt.Color(255, 255, 255));
         amountLeave.setForeground(new java.awt.Color(0, 0, 0));
-        amountLeave.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        amountLeave.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.5", "1.0" }));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Tổng ngày nghỉ");
 
         totalLeave.setForeground(new java.awt.Color(0, 0, 0));
-        totalLeave.setText("   1 ngày");
         totalLeave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -120,6 +131,11 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         confirmBtn.setBackground(new java.awt.Color(0, 51, 255));
         confirmBtn.setForeground(new java.awt.Color(255, 255, 255));
         confirmBtn.setText("Lưu");
+        confirmBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmBtnActionPerformed(evt);
+            }
+        });
 
         denyBtn.setBackground(new java.awt.Color(255, 255, 255));
         denyBtn.setForeground(new java.awt.Color(255, 0, 51));
@@ -130,7 +146,6 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         jLabel9.setText("Người duyệt");
 
         approverName.setForeground(new java.awt.Color(0, 0, 0));
-        approverName.setText("  Lâm Quốc Nhân");
         approverName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -138,7 +153,6 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         jLabel10.setText("Ngày duyệt ");
 
         approveDate.setForeground(new java.awt.Color(0, 0, 0));
-        approveDate.setText("  Lâm Quốc Nhân");
         approveDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         registrationDate.setForeground(new java.awt.Color(0, 0, 0));
@@ -255,6 +269,16 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            if (role.getId() == 1) {
+                //leaveRequest.setApproveStatus(1);
+                //leaveRequest.setApproveDate(date);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_confirmBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> amountLeave;
@@ -284,20 +308,41 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void customComponents() {
-        //this.typeOfLeave;
+        if (role.getId() == 1) {
+            this.confirmBtn.setText("Duyệt");
+            this.denyBtn.setText("Từ chối");
+        }
     }
 
-    private void initData(LeaveRequest leaveRequest, Employee employee, Date date) {
+    private void initData() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String regisDate = dateFormat.format(date);
         this.registrationDate.setText(regisDate);
-        
+
         this.registrator.setText(employee.getName());
-        
-        if(leaveRequest != null) {
-            String fromDate = dateFormat.format(leaveRequest.getFromDate());
-            String toDate = dateFormat.format(leaveRequest.getToDate());
-            
+
+        if (leaveRequest != null) {
+            this.fromDate.setDate(leaveRequest.getFromDate());
+            this.toDate.setDate(leaveRequest.getToDate());
+            this.typeOfLeave.setSelectedItem(leaveRequest.getType());
+            double startLeave = leaveRequest.getStartLeave();
+            System.out.println(startLeave);
+            this.amountLeave.setSelectedItem(String.valueOf(startLeave));
+
+            // Lấy thời gian mili giây của cả hai Date
+            long diffInMillis = Math.abs(leaveRequest.getToDate().getTime() - leaveRequest.getFromDate().getTime());
+
+            // Chuyển đổi từ mili giây sang ngày
+            long diffInDays = diffInMillis / (1000 * 60 * 60 * 24);
+
+            this.totalLeave.setText(diffInDays + " ngày");
+
+            this.reason.setText(leaveRequest.getReason());
+
+            this.approverName.setText(leaveRequest.getApprover().getName());
+
+            String approveDate = dateFormat.format(leaveRequest.getApproveDate());
+            this.approveDate.setText(approveDate);
         }
 
     }

@@ -42,9 +42,9 @@ public class Function_Component extends javax.swing.JPanel {
             }
         });
 
-        funcName.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        funcName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         funcName.setForeground(new java.awt.Color(255, 255, 255));
-        funcName.setText("Name");
+        funcName.setText("Quản lý hồ sơ nhân viên");
 
         funcIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         funcIcon.setText("icon");
@@ -61,7 +61,7 @@ public class Function_Component extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(funcId)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
                 .addComponent(funcIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()

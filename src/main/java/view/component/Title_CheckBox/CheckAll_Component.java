@@ -31,8 +31,10 @@ public class CheckAll_Component extends javax.swing.JPanel {
         checkBox = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(241, 241, 250));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         checkBox.setActionCommand(" ");
+        checkBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         checkBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxActionPerformed(evt);

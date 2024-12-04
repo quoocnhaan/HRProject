@@ -117,6 +117,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         typeOfLeave.setBackground(new java.awt.Color(255, 255, 255));
         typeOfLeave.setForeground(new java.awt.Color(0, 0, 0));
         typeOfLeave.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nghỉ phép", "Nghỉ không phép" }));
+        typeOfLeave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -129,6 +130,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         amountLeave.setBackground(new java.awt.Color(255, 255, 255));
         amountLeave.setForeground(new java.awt.Color(0, 0, 0));
         amountLeave.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.5", "1.0" }));
+        amountLeave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -146,6 +148,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         confirmBtn.setBackground(new java.awt.Color(0, 51, 255));
         confirmBtn.setForeground(new java.awt.Color(255, 255, 255));
         confirmBtn.setText("Lưu");
+        confirmBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         confirmBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmBtnActionPerformed(evt);
@@ -155,6 +158,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         denyBtn.setBackground(new java.awt.Color(255, 255, 255));
         denyBtn.setForeground(new java.awt.Color(255, 0, 51));
         denyBtn.setText("Xóa");
+        denyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));

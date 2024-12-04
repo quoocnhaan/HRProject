@@ -113,7 +113,7 @@ public class Content extends javax.swing.JPanel {
         JDialog popup = new JDialog(SwingUtilities.getWindowAncestor(this), "Detail Leave Request App", Dialog.ModalityType.APPLICATION_MODAL);
         popup.getContentPane().setLayout(new BorderLayout());
         popup.getContentPane().add(new DetailLeaveForm_Component(leaveRequest, employee, date));
-        popup.setSize(500, 535);  // Kích thước của popup
+        popup.setSize(505, 535);  // Kích thước của popup
         popup.setLocationRelativeTo(null);  // Hiển thị ở giữa màn hình
         popup.setVisible(true);  // Hiển thị popup
     }

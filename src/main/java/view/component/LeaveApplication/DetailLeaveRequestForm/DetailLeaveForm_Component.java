@@ -24,7 +24,6 @@ import model.ApprovedLeaveRequest;
 import model.Employee;
 import model.LeaveRequest;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import util.HibernateUtil;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
 
@@ -33,11 +32,11 @@ import view.component.Manage_Component.ManageLeaveApplication_Component;
  * @author PC
  */
 public class DetailLeaveForm_Component extends javax.swing.JPanel {
-
+    
     private LeaveRequest leaveRequest;
     private Employee employee;
     private Date date;
-
+    
     public DetailLeaveForm_Component(LeaveRequest leaveRequest, Employee employee, Date date) {
         this.leaveRequest = leaveRequest;
         this.employee = employee;
@@ -289,16 +288,17 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
+        Date currentDate = new Date();
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
             ApprovedLeaveRequestDAO approvedLeaveRequestDAO = new ApprovedLeaveRequestDAOImp(session);
-
+            
             String btnName = confirmBtn.getText();
-
+            
             switch (btnName) {
                 case "Lưu":
                     String fromDate = this.fromDate.getText();
-
+                    
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     Date fromDateValue = null;
                     try {
@@ -308,61 +308,61 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                         e.printStackTrace();
                     }
                     Date toDateValue = toDate.getDate();
-
+                    
                     LocalDate cur = LocalDate.now();
                     Date registraionDate = Date.from(cur.atStartOfDay(ZoneId.systemDefault()).toInstant());
-
+                    
                     String typeValue = (String) typeOfLeave.getSelectedItem();
-
+                    
                     double startLeaveValue = Double.parseDouble((String) amountLeave.getSelectedItem());
-
+                    
                     int totalDayValue = Integer.parseInt(totalLeave.getText());
-
+                    
                     String reasonValue = reason.getText();
-
+                    
                     boolean statusValue = true;
-                    System.out.println("dô case Lưu");
-
                     // Chưa có phiếu + Quản lý nộp
                     if (MySession.currentEmployee.getId() == 1) {
-                        System.out.println("dô if");
                         LeaveRequest leaveRequest = new LeaveRequest(employee, 1, MySession.currentEmployee, registraionDate,
-                                registraionDate, fromDateValue, toDateValue,
+                                currentDate, fromDateValue, toDateValue,
                                 typeValue, startLeaveValue, totalDayValue, reasonValue, statusValue);
-
+                        
                         leaveRequestDAO.add(leaveRequest);
-
+                        
                         ApprovedLeaveRequest approvedLeaveRequest = new ApprovedLeaveRequest(leaveRequest, true);
                         approvedLeaveRequestDAO.add(approvedLeaveRequest);
                     } // Chưa có phiếu + HR nộp
                     else if (this.leaveRequest == null) {
-                        System.out.println("dô else if");
                         LeaveRequest leaveRequest = new LeaveRequest(employee, registraionDate, fromDateValue, toDateValue, typeValue, startLeaveValue, totalDayValue, reasonValue, 2, statusValue);
                         leaveRequestDAO.add(leaveRequest);
                     } // Đã có phiếu + HR sửa
                     else {
-                        System.out.println("dô else ");
-                        leaveRequest.setFromDate(fromDateValue);
                         leaveRequest.setToDate(toDateValue);
                         leaveRequest.setType(typeValue);
                         leaveRequest.setStartLeave(startLeaveValue);
                         leaveRequest.setTotalDay(totalDayValue);
                         leaveRequest.setReason(reasonValue);
-
+                        
                         leaveRequestDAO.update(leaveRequest);
                     }
-                    ManageLeaveApplication_Component.getInstance().changePage(SharedData.getInstance().getCurDateRange());
                     break;
                 case "Duyệt":
-
+                    leaveRequest.setApproveStatus(1);
+                    leaveRequest.setApprover(MySession.currentEmployee);
+                    leaveRequest.setApproveDate(currentDate);
+                    leaveRequestDAO.add(leaveRequest);
+                    
+                    ApprovedLeaveRequest approvedLeaveRequest = new ApprovedLeaveRequest(leaveRequest, true);
+                    approvedLeaveRequestDAO.add(approvedLeaveRequest);
                     break;
                 default:
-                    throw new AssertionError();
+                // do something
             }
-
+            
         } catch (Exception e) {
             System.out.println(e);
         }
+        ManageLeaveApplication_Component.getInstance().changePage(SharedData.getInstance().getCurDateRange());
         close();
     }//GEN-LAST:event_confirmBtnActionPerformed
 
@@ -401,95 +401,81 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void customComponents() {
-        if (leaveRequest != null && MySession.currentEmployee.getId() == 1) {
-            this.confirmBtn.setText("Duyệt");
-            this.denyBtn.setText("Từ chối");
+        if (leaveRequest != null) {
+            if (MySession.currentEmployee.getId() == 1) {
+                confirmBtn.setText("Duyệt");
+                denyBtn.setText("Từ chối");
+            }
+            if (leaveRequest.getApproveStatus() == 1) {
+                confirmBtn.setEnabled(false);
+                denyBtn.setEnabled(false);
+                toDate.setEnabled(false);
+                reason.setEditable(false);
+                typeOfLeave.setEnabled(false);
+                amountLeave.setEnabled(false);
+            }
         }
+        this.toDate.setMinSelectableDate(date);
     }
-
+    
     private void initData() {
         Date currentDate = new Date();
-
+        
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
+        
         String regisDate = dateFormat.format(currentDate);
-
+        
         this.registrationDate.setText(regisDate);
-
+        
         this.registrator.setText(employee.getName());
-
+        
+        String fromDate = dateFormat.format(date);
+        this.fromDate.setText(fromDate);
+        
         if (leaveRequest != null) {
-            String fromDate = leaveRequest.getFromDate().toString();
-
-            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
-
-            SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-            try {
-                Date date = inputFormat.parse(fromDate);
-
-                String formattedDate = outputFormat.format(date);
-
-                // Đặt giá trị formattedDate vào giao diện
-                this.fromDate.setText(formattedDate);
-            } catch (ParseException e) {
-                e.printStackTrace(); // Xử lý lỗi nếu định dạng không hợp lệ
-            }
-
             this.toDate.setDate(leaveRequest.getToDate());
             this.typeOfLeave.setSelectedItem(leaveRequest.getType());
             double startLeave = leaveRequest.getStartLeave();
-            System.out.println(startLeave);
+            
             this.amountLeave.setSelectedItem(String.valueOf(startLeave));
-
-            // Lấy thời gian mili giây của cả hai Date
-            long diffInMillis = Math.abs(leaveRequest.getToDate().getTime() - leaveRequest.getFromDate().getTime());
-
-            // Chuyển đổi từ mili giây sang ngày
-            long diffInDays = diffInMillis / (1000 * 60 * 60 * 24);
-
-            this.totalLeave.setText(diffInDays+"");
-
+            
             this.reason.setText(leaveRequest.getReason());
-
+            
             String approverName = (leaveRequest.getApprover() == null) ? "" : leaveRequest.getApprover().getName();
             this.approverName.setText(approverName);
-
-            String approveDate = (leaveRequest.getApproveDate() == null) ? "" : leaveRequest.getApproveDate().toString();
+            
+            String approveDate = customApproveDate(leaveRequest.getApproveDate());
             this.approveDate.setText(approveDate);
         } else {
-            String fromDate = dateFormat.format(date);
-            this.fromDate.setText(fromDate);
+            
+            toDate.setDate(date);
+            
         }
-
     }
-
+    
     private void close() {
         Window window = SwingUtilities.getWindowAncestor(this);
-
+        
         if (window instanceof JDialog) {
             ((JDialog) window).dispose();
         }
     }
-
+    
     private void calculateDateDifference() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
+        
         try {
-            // Chuyển đổi từ chuỗi thành java.util.Date
             String fromDateString = fromDate.getText();
-            Date fromDate = dateFormat.parse(fromDateString); // Đây là java.util.Date
-
-            // Chuyển từ java.util.Date sang LocalDate
+            
+            Date fromDate = dateFormat.parse(fromDateString);
+            
             LocalDate fromLocalDate = convertToLocalDate(fromDate);
-
-            // Lấy ngày kết thúc từ JDateChooser (giả sử là java.util.Date)
+            
             Date toDate = this.toDate.getDate();
             if (toDate != null) {
                 LocalDate toLocalDate = convertToLocalDate(toDate);
-
-                long daysBetween = ChronoUnit.DAYS.between(fromLocalDate, toLocalDate);
-                System.out.println(daysBetween);
+                
+                long daysBetween = ChronoUnit.DAYS.between(fromLocalDate, toLocalDate) + 1;
                 totalLeave.setText(String.valueOf(daysBetween));
             } else {
                 totalLeave.setText("");
@@ -498,11 +484,19 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
             e.printStackTrace();
         }
     }
-
+    
     private LocalDate convertToLocalDate(Date toDate) {
         Instant instant = toDate.toInstant();
         ZoneId zoneId = ZoneId.systemDefault();
         return instant.atZone(zoneId).toLocalDate();
     }
-
+    
+    private String customApproveDate(Date approveDate) {
+        if (approveDate != null) {
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
+            return formatter.format(approveDate);
+        }
+        return "";
+    }
+    
 }

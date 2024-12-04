@@ -63,14 +63,21 @@ public class Btn_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
-        SharedData.getInstance().setEmployee_Selected(PersonalInfo.getInstance().getSelectedEmployee());
         JDialog parentDialog = (JDialog) SwingUtilities.getWindowAncestor(this);
+        updateSelectEmployeeData();
         if (parentDialog != null) {
             parentDialog.dispose();
             ManageLeaveApplication_Component.getInstance().getFilter().updateData();
         }
     }//GEN-LAST:event_btnActionPerformed
 
+    private void updateSelectEmployeeData() {
+        SharedData.getInstance().setEmployee_Selected(PersonalInfo.getInstance().getSelectedEmployee());
+        int size = SharedData.getInstance().getEmployee_Selected().size();
+        for (int i = size; i <= 6; i++) {
+            SharedData.getInstance().getEmployee_Selected().add(null);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn;

@@ -16,6 +16,7 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import model.DateRange;
 import view.component.LeaveApplication.GridLeaveRequest.ChangePage.ChangePage_Component;
@@ -199,6 +200,13 @@ public class Filter_Component extends javax.swing.JPanel {
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
         ManageLeaveApplication_Component lac = (ManageLeaveApplication_Component) SwingUtilities.getAncestorOfClass(ManageLeaveApplication_Component.class, this);
         SharedData.getInstance().getDateRanges().clear();
+        long size = SharedData.getInstance().getEmployee_Selected().stream()
+                .filter(e -> e != null)
+                .count();
+        if(size == 0) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn nhân viên");
+            return;
+        }
         if (lac != null) {
             LocalDate from = null;
             LocalDate to = null;
@@ -280,9 +288,15 @@ public class Filter_Component extends javax.swing.JPanel {
                 Date selectedDate = fromDateChooser.getDate();
                 if (selectedDate != null) {
                     cal.setTime(selectedDate);
-                    toDateChooser.setCalendar(cal);
+                    if (checkValid(toDateChooser.getDate())) {
+                        toDateChooser.setCalendar(cal);
+                    }
                     toDateChooser.setMinSelectableDate(selectedDate);
                 }
+            }
+
+            private boolean checkValid(Date date) {
+                return date == null || date.before(fromDateChooser.getDate());
             }
         });
     }
@@ -305,10 +319,14 @@ public class Filter_Component extends javax.swing.JPanel {
 
     private void transferData() {
         ChangePage_Component.index = 0;
-        ManageLeaveApplication_Component.getInstance().updateData(SharedData.getInstance().getDateRanges().get(0));
+        SharedData.getInstance().setCurDateRange(SharedData.getInstance().getDateRanges().get(0));
+        ManageLeaveApplication_Component.getInstance().updateData(SharedData.getInstance().getCurDateRange());
     }
 
     public void updateData() {
-        this.employeeAmount.setText("   Chọn nhân viên (" + SharedData.getInstance().getEmployee_Selected().size() + ")");
+        long size = SharedData.getInstance().getEmployee_Selected().stream()
+                .filter(e -> e != null)
+                .count();
+        this.employeeAmount.setText("   Chọn nhân viên (" + size + ")");
     }
 }

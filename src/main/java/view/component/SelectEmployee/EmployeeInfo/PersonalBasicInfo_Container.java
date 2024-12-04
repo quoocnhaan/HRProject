@@ -6,7 +6,10 @@ package view.component.SelectEmployee.EmployeeInfo;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.border.MatteBorder;
 import view.component.EmployeeBasicInfo.EmployeeInfo.Contact_Component;
 import view.component.EmployeeBasicInfo.EmployeeInfo.DateAndGender_Component;
@@ -66,6 +69,11 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         status = new Status_Component(startDate, seniority, type);
         contact = new Contact_Component(email, phone, twitter);
 
+        addMouseListenerToComponent(nameAndJob, "NameAndJob");
+        addMouseListenerToComponent(dateAndGender, "DateAndGender");
+        addMouseListenerToComponent(status, "Status");
+        addMouseListenerToComponent(contact, "Contact");
+
         this.add(checkBox);
         this.add(nameAndJob);
         this.add(dateAndGender);
@@ -124,6 +132,17 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
     public void changeStatusCheckBox(boolean isCheck) {
         checkBox.getCheck().setSelected(isCheck);
     }
+
+    private void addMouseListenerToComponent(JComponent component, String componentName) {
+        component.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                boolean check = checkBox.getCheck().isSelected();
+                checkBox.getCheck().setSelected(!check);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

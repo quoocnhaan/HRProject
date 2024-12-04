@@ -7,6 +7,7 @@ package view.component.LeaveApplication.GridLeaveRequest.LeaveRequestForm;
 import controller.DAO.LeaveRequestDAO;
 import controller.DAOImp.LeaveRequestDAOImp;
 import java.awt.GridLayout;
+import java.sql.Date;
 import java.time.LocalDate;
 import model.DateRange;
 import model.Employee;
@@ -54,41 +55,57 @@ public class LeaveForm_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-//        for (int i = 1; i <= 56; i++) {
-//            this.add(new LeaveForm_Component(true));
-//        }
+        for (int i = 1; i <= 56; i++) {
+            this.add(new LeaveForm_Component());
+        }
     }
 
     public void updateData(Employee employee, DateRange dateRange) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
-
-            LocalDate fromDate = dateRange.getFromDate();
-            LocalDate toDate = dateRange.getToDate();
-
-            LocalDate currentDate = fromDate;
-            int count = 1;
-            while (!currentDate.isAfter(toDate)) {
-                java.sql.Date sqlDate = java.sql.Date.valueOf(currentDate);
-
-                LeaveRequest leaveRequest = leaveRequestDAO.findByEmployeeIdAndFromDate(employee.getId(), sqlDate);
-
-                this.add(new LeaveForm_Component(leaveRequest, employee, sqlDate));
-
-                currentDate = currentDate.plusDays(1);
-
-                count++;
-            }
-            for (int i = count; i <= 7; i++) {
+        if (employee == null) {
+            for (int i = 1; i <= 7; i++) {
                 this.add(new LeaveForm_Component());
             }
-        } catch (Exception e) {
+        } else {
+            try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+                LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
+
+                LocalDate fromDate = dateRange.getFromDate();
+                LocalDate toDate = dateRange.getToDate();
+
+                LocalDate currentDate = fromDate;
+                int count = 1;
+                while (!currentDate.isAfter(toDate)) {
+                    java.sql.Date sqlDate = java.sql.Date.valueOf(currentDate);
+
+                    LeaveRequest leaveRequest = leaveRequestDAO.findByEmployeeIdAndFromDate(employee.getId(), sqlDate);
+
+                    if (leaveRequest == null && isDateBeforeToday(sqlDate)) {
+                        this.add(new LeaveForm_Component());
+                    } else {
+                        this.add(new LeaveForm_Component(leaveRequest, employee, sqlDate));
+                    }
+
+                    currentDate = currentDate.plusDays(1);
+
+                    count++;
+                }
+                for (int i = count; i <= 7; i++) {
+                    this.add(new LeaveForm_Component());
+                }
+            } catch (Exception e) {
+            }
         }
         validate();
         repaint();
     }
 
+    public boolean isDateBeforeToday(Date sqlDate) {
+        LocalDate dateToCompare = sqlDate.toLocalDate();
 
+        LocalDate currentDate = LocalDate.now();
+
+        return dateToCompare.isBefore(currentDate);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

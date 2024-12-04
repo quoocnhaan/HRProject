@@ -6,6 +6,7 @@ controller\DAO\ContactDAO.class
 view\component\Filter\Filter_Component.class
 controller\DAO\DriverLicenseDAO.class
 view\form\Home\Header\Header$3.class
+view\component\SelectEmployee\EmployeeInfo\PersonalBasicInfo_Container$1.class
 controller\DAOImp\ContactDAOImp.class
 controller\DAOImp\TransportationAllowanceDAOImp.class
 view\component\Title_CheckBox\CheckAll_Component$1.class

@@ -25,10 +25,11 @@ public class Home_Form extends javax.swing.JFrame {
     public Home_Form() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
-            Employee employee = employeeDAO.get(2L);
+            Employee employee = employeeDAO.get(1L);
             MySession.login(employee);
         } catch (Exception e) {
         }
+        custom();
         initComponents();
         setLayout();
         addComponents();
@@ -122,5 +123,9 @@ public class Home_Form extends javax.swing.JFrame {
     private void addComponents() {
         this.add(new Header(), BorderLayout.NORTH);
         this.add(MainContent.getInstance(), BorderLayout.CENTER);
+    }
+
+    private void custom() {
+        this.setLocationRelativeTo(null);
     }
 }

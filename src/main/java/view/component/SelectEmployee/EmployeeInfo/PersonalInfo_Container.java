@@ -4,6 +4,8 @@ package view.component.SelectEmployee.EmployeeInfo;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
+import controller.DAO.EmployeeDAO;
+import controller.DAOImp.EmployeeDAOImp;
 import controller.Functional.Functional;
 import controller.Session.SharedData;
 import java.awt.GridLayout;
@@ -11,6 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import model.Employee;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -61,36 +66,38 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
 
     private void addComponents() {
         infoList = new ArrayList<>();
-        String name = "Lâm Quốc Nhân";
-        String id = "LQN2005";
-        String job = "Web Developer";
-        String direct = "Trung tam CDC";
-        ImageIcon img = new ImageIcon(getClass().getResource("/img/avatar.jpg"));
-        String dateOfBirth = "20/09/2005";
-        String place = "Thành phố Hồ Chí Minh";
-        String gender = "Nam";
-        String startDate = "15/10/2024";
-        String seniority = "1 năm";
-        String type = "Chinh thuc";
-        String email = "quocnhan56@gmail.com";
-        String phone = "0968270553";
-        String twitter = "quocnhan56@gmail.com";
-        for (int i = 1; i <= 6; i++) {
-            PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(name, id, job, direct, img, dateOfBirth, place, gender, startDate, seniority, type, email, phone, twitter);
-            this.add(pi);
-            infoList.add(pi);
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+            List<Employee> list = employeeDAO.getAll();
+            for (Employee employee : list) {
+                String name = employee.getName();
+                String employeeId = employee.getEmployeeId();
+                String job = employee.getContracts().get(0).getJob().getProfession();
+                String direct = employee.getDepartment().getName();
+                ImageIcon img = Functional.convertByteArrayToIcon(employee.getImage());
+                String dateOfBirth = employee.getDateOfBirth().toString();
+                String place = employee.getContact().getPermanentAddress();
+                String gender = employee.isGender() ? "Nam" : "Nữ";
+                String startDate = employee.getContracts().get(0).getJob().getStartDate().toString();
+                String senority = String.valueOf(employee.getSenority());
+                String type = employee.getContracts().get(0).getJob().getType();
+                String email = employee.getContact().getPersonalEmail();
+                String phone = employee.getContact().getPersonalPhone();
+                PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(name, employeeId, job, direct, img, dateOfBirth, place, gender, startDate, senority, type, email, phone, email);
+                this.add(pi);
+                infoList.add(pi);
+            }
+        } catch (Exception e) {
         }
     }
 
-    public void updateData() {   
+    public void updateData() {
         infoList.clear();
         this.removeAll();
         List<Employee> list = SharedData.getInstance().getEmployee_Selected();
         for (Employee employee : list) {
             String name = employee.getName();
-            
-            System.out.println(name);
-            
+
             String employeeId = employee.getEmployeeId();
             String job = employee.getContracts().get(0).getJob().getProfession();
             String direct = employee.getDepartment().getName();

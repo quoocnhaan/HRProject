@@ -74,11 +74,15 @@ public class EmployeeInfo_Container extends javax.swing.JPanel {
     public void updateData() {
         this.removeAll();
         for (Employee e : SharedData.getInstance().getEmployee_Selected()) {
-            ImageIcon img = Functional.convertByteArrayToIcon(e.getImage());
-            String name = e.getName();
-            String job = e.getContracts().get(0).getJob().getProfession();
-            String id = e.getEmployeeId();
-            this.add(new EmployeeInfo_Component(name, job, id, img));
+            if (e != null) {
+                ImageIcon img = Functional.convertByteArrayToIcon(e.getImage());
+                String name = e.getName();
+                String job = e.getContracts().get(0).getJob().getProfession();
+                String id = e.getEmployeeId();
+                this.add(new EmployeeInfo_Component(name, job, id, img));
+            } else {
+                this.add(new EmployeeInfo_Component());
+            }
         }
     }
 

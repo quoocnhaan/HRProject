@@ -26,6 +26,13 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
         initData(name, job, id, img);
     }
 
+    public EmployeeInfo_Component() {
+        this.setPreferredSize(new Dimension(280, 60));
+        this.setBackground(new Color(227, 227, 227));
+        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
+        this.setBorder(lineBorder);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -98,7 +105,7 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
 
     private void customComponents() {
         this.setPreferredSize(new Dimension(280, 60));
-        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);  // Đường viền màu đen dày 2 pixel
+        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.setBorder(lineBorder);
     }
 

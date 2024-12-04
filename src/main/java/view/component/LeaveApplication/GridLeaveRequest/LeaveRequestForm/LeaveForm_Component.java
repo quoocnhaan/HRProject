@@ -11,6 +11,7 @@ import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Date;
+import java.time.LocalDate;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 import model.Employee;
@@ -91,6 +92,8 @@ public class LeaveForm_Component extends javax.swing.JPanel {
             });
         }
     }
+
+
 
     private void initMyComponents() {
         // Invalid Date

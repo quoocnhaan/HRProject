@@ -7,6 +7,7 @@ package view.form.Home.Header;
 import controller.DAO.RoleDAO;
 import controller.DAOImp.RoleDAOImp;
 import controller.Functional.Functional;
+import controller.Session.MySession;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,9 +25,9 @@ import view.form.Home.MainContent.MainContent;
  * @author LENOVO
  */
 public class Header extends javax.swing.JPanel {
-    
+
     JPopupMenu popupMenu;
-    
+
     public Header() {
         initComponents();
         addComponents();
@@ -56,17 +57,17 @@ public class Header extends javax.swing.JPanel {
         logo.setBackground(new java.awt.Color(255, 51, 51));
         logo.setForeground(new java.awt.Color(255, 51, 51));
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setText("logo");
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/colorlogo.png"))); // NOI18N
         logo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         logo.setSize(54, 54);
 
         personalImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        personalImg.setText("img");
         personalImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         personalImg.setSize(54, 54);
 
         menuBtnCont.setBackground(new java.awt.Color(255, 255, 255));
 
+        menuBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/6.png"))); // NOI18N
         menuBtn.setText(" ");
         menuBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuBtn.setMaximumSize(new java.awt.Dimension(25, 25));
@@ -103,6 +104,7 @@ public class Header extends javax.swing.JPanel {
 
         backBtnCont.setBackground(new java.awt.Color(255, 255, 255));
 
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/4.png"))); // NOI18N
         backBtn.setToolTipText("");
         backBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backBtn.setMaximumSize(new java.awt.Dimension(25, 25));
@@ -139,6 +141,7 @@ public class Header extends javax.swing.JPanel {
 
         notiBtnCont.setBackground(new java.awt.Color(255, 255, 255));
 
+        notiBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/25.png"))); // NOI18N
         notiBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         notiBtn.setSize(25, 25);
         notiBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,29 +241,16 @@ public class Header extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void addComponents() {
-        String urlLogo = "/img/vng.jpg";
-        String urlBack = "/img/back-button.png";
-        String urlMenu = "/img/menu.png";
-        String urlNoti = "/img/bell.png";
-        
-        ImageIcon iconLogo = Functional.scaleImg(logo, urlLogo);
-        ImageIcon iconBack = Functional.scaleImg(backBtn, urlBack);
-        ImageIcon iconMenu = Functional.scaleImg(menuBtn, urlMenu);
-        ImageIcon iconNoti = Functional.scaleImg(notiBtn, urlNoti);
-        
-        logo.setIcon(iconLogo);
-        backBtn.setIcon(iconBack);
-        menuBtn.setIcon(iconMenu);
-        notiBtn.setIcon(iconNoti);
+
     }
-    
+
     private void initData() {
         popupMenu = new JPopupMenu();
-        
+
         try (Session session = HibernateUtil.getSessionFactory().openSession();) {
             RoleDAO roleDAO = new RoleDAOImp(session);
             Role r1 = roleDAO.get(1);
-            
+
             for (Function function : r1.getFunctions()) {
                 JMenuItem item = new JMenuItem(function.getName());
                 item.addActionListener(new ActionListener() {
@@ -271,5 +261,7 @@ public class Header extends javax.swing.JPanel {
                 popupMenu.add(item);
             }
         }
+        ImageIcon img = Functional.convertByteArrayToIcon(MySession.currentEmployee.getImage());
+        this.personalImg.setIcon(Functional.scaleImg(this.personalImg, img));
     }
 }

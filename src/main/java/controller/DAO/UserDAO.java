@@ -10,6 +10,7 @@ import model.User;
  *
  * @author LENOVO
  */
-public interface UserDAO extends InterfaceDAO<User>{
-    
+public interface UserDAO extends InterfaceDAO<User> {
+
+    User getByUsernameAndPassword(String username, String password);
 }

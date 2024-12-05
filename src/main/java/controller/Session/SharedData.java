@@ -20,6 +20,7 @@ public class SharedData {
     private List<Employee> employee_Salary;
     private List<DateRange> dateRanges;
     private DateRange curDateRange;
+    private String curDepartment;
     private static SharedData instance;
 
     public SharedData() {
@@ -74,6 +75,14 @@ public class SharedData {
 
     public void setCurDateRange(DateRange curDateRange) {
         this.curDateRange = curDateRange;
+    }
+
+    public String getCurDepartment() {
+        return curDepartment;
+    }
+
+    public void setCurDepartment(String curDepartment) {
+        this.curDepartment = curDepartment;
     }
 
 }

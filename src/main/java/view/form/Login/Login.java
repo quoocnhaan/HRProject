@@ -4,13 +4,27 @@
  */
 package view.form.Login;
 
+import controller.DAO.EmployeeDAO;
+import controller.DAO.UserDAO;
+import controller.DAOImp.EmployeeDAOImp;
+import controller.DAOImp.UserDAOImp;
 import controller.Functional.Functional;
+import controller.Session.MySession;
 import java.awt.Color;
+import java.awt.Window;
+import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
+import model.Employee;
+import model.User;
+import org.hibernate.Session;
+import util.HibernateUtil;
+import view.form.Home.Home_Form;
 
 /**
  *
@@ -43,11 +57,12 @@ public class Login extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        loginBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         password = new javax.swing.JPasswordField();
         passwordBtn = new javax.swing.JButton();
+        message = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         content = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -59,8 +74,18 @@ public class Login extends javax.swing.JPanel {
         jLabel8.setText("Email: quocnhan56@gmail.com");
 
         setBackground(new java.awt.Color(69, 89, 190));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -80,12 +105,25 @@ public class Login extends javax.swing.JPanel {
         username.setForeground(new java.awt.Color(153, 153, 153));
         username.setText("Nhập tài khoản");
         username.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        username.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usernameFocusLost(evt);
+            }
+        });
 
-        jButton1.setBackground(new java.awt.Color(69, 89, 190));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ĐĂNG NHẬP");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginBtn.setBackground(new java.awt.Color(69, 89, 190));
+        loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
+        loginBtn.setText("ĐĂNG NHẬP");
+        loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -98,17 +136,26 @@ public class Login extends javax.swing.JPanel {
         password.setBackground(new java.awt.Color(255, 255, 255));
         password.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         password.setForeground(new java.awt.Color(153, 153, 153));
-        password.setText("jPasswordField1");
+        password.setText("Nhập mật khẩu");
         password.setBorder(null);
+        password.setEchoChar((char) 0);
+        password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordFocusLost(evt);
+            }
+        });
 
         passwordBtn.setBackground(new java.awt.Color(255, 255, 255));
         passwordBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/show.png"))); // NOI18N
         passwordBtn.setBorder(null);
         passwordBtn.setContentAreaFilled(false);
         passwordBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        passwordBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordBtnActionPerformed(evt);
+        passwordBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordBtnMouseClicked(evt);
             }
         });
 
@@ -131,6 +178,11 @@ public class Login extends javax.swing.JPanel {
                     .addComponent(passwordBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        message.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        message.setForeground(new java.awt.Color(255, 0, 51));
+        message.setText("Đây là thông báo");
+        message.setVisible(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -142,14 +194,15 @@ public class Login extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                    .addComponent(message)
                     .addComponent(jLabel2)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel4)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(username, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,22 +210,24 @@ public class Login extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(13, 13, 13)
+                .addComponent(message)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(60, 60, 60)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thêm tiêu đề (450 x 570 px).png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logo.png"))); // NOI18N
 
         content.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         content.setForeground(new java.awt.Color(255, 255, 255));
@@ -228,11 +283,51 @@ public class Login extends javax.swing.JPanel {
                             .addComponent(jLabel7)
                             .addComponent(jLabel9)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passwordBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordBtnActionPerformed
+    private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
+        if (username.getText().equals("Nhập tài khoản")) {
+            username.setText("");
+            username.setForeground(Color.BLACK); // Đổi màu văn bản
+        }
+        message.setVisible(false);
+    }//GEN-LAST:event_usernameFocusGained
+
+    private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
+        if (username.getText().isEmpty()) {
+            username.setForeground(Color.GRAY);
+            username.setText("Nhập tài khoản");
+        }
+    }//GEN-LAST:event_usernameFocusLost
+
+    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
+        if (String.valueOf(password.getPassword()).equals("Nhập mật khẩu")) {
+            password.setText("");
+            password.setEchoChar('•');
+            password.setForeground(Color.BLACK);
+        }
+        message.setVisible(false);
+    }//GEN-LAST:event_passwordFocusGained
+
+    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
+        if (String.valueOf(password.getPassword()).isEmpty()) {
+            password.setEchoChar((char) 0);
+            password.setForeground(Color.GRAY);
+            password.setText("Nhập mật khẩu");
+        }
+    }//GEN-LAST:event_passwordFocusLost
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        removeFocus(evt);
+    }//GEN-LAST:event_formMouseClicked
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        removeFocus(evt);
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void passwordBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordBtnMouseClicked
         if (isHide) {
             password.setEchoChar((char) 0);
             passwordBtn.setIcon(hide);
@@ -242,12 +337,32 @@ public class Login extends javax.swing.JPanel {
             passwordBtn.setIcon(show);
             isHide = !isHide;
         }
-    }//GEN-LAST:event_passwordBtnActionPerformed
+        removeFocus(evt);
+    }//GEN-LAST:event_passwordBtnMouseClicked
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        String username = this.username.getText();
+        String password = String.valueOf(this.password.getPassword());
+
+        if (username.length() == 0 || password.length() == 0) {
+            message.setText("Vui lòng nhập tài khoản và mật khẩu");
+            message.setVisible(true);
+        } else {
+            Employee employee = getEmployee(username, password);
+            if (employee == null) {
+                message.setText("Tên tài khoản hoặc mật khẩu không đúng");
+                message.setVisible(true);
+            } else {
+                MySession.login(employee);
+                close();
+                openHomeForm();
+            }
+        }
+    }//GEN-LAST:event_loginBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel content;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -259,6 +374,8 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton loginBtn;
+    private javax.swing.JLabel message;
     private javax.swing.JPasswordField password;
     private javax.swing.JButton passwordBtn;
     private javax.swing.JTextField username;
@@ -274,5 +391,41 @@ public class Login extends javax.swing.JPanel {
         show = new ImageIcon(getClass().getResource("/icon/show.png"));
         String content = "<html>FireTech là công ty công nghệ hàng đầu chuyên cung cấp các giải pháp phần mềm sáng tạo và dịch vụ công nghệ tiên tiến.</html>";
         this.content.setText(content);
+    }
+
+    private void removeFocus(MouseEvent e) {
+        if (!username.getBounds().contains(e.getPoint())
+                && !password.getBounds().contains(e.getPoint())) {
+            this.requestFocusInWindow();
+        }
+    }
+
+    private Employee getEmployee(String username, String password) {
+        Employee employee = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+            UserDAO userDAO = new UserDAOImp(session);
+
+            User user = userDAO.getByUsernameAndPassword(username, password);
+
+            employee = employeeDAO.getByUserId(user.getId());
+        } catch (Exception e) {
+        }
+        return employee;
+    }
+
+    private void close() {
+        Window parentWindow = SwingUtilities.getWindowAncestor(this);
+
+        if (parentWindow instanceof JFrame) {
+            ((JFrame) parentWindow).dispose();
+        }
+    }
+
+    private void openHomeForm() {
+        Home_Form homeForm = new Home_Form();
+        homeForm.setVisible(true);
+        homeForm.setVisible(true);
+        this.setVisible(false);
     }
 }

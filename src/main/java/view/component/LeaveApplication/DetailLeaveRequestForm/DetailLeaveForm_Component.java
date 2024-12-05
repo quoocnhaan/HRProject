@@ -32,11 +32,11 @@ import view.component.Manage_Component.ManageLeaveApplication_Component;
  * @author PC
  */
 public class DetailLeaveForm_Component extends javax.swing.JPanel {
-    
+
     private LeaveRequest leaveRequest;
     private Employee employee;
     private Date date;
-    
+
     public DetailLeaveForm_Component(LeaveRequest leaveRequest, Employee employee, Date date) {
         this.leaveRequest = leaveRequest;
         this.employee = employee;
@@ -159,6 +159,11 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         denyBtn.setForeground(new java.awt.Color(255, 0, 51));
         denyBtn.setText("Xóa");
         denyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        denyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                denyBtnActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -296,13 +301,13 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
             ApprovedLeaveRequestDAO approvedLeaveRequestDAO = new ApprovedLeaveRequestDAOImp(session);
-            
+
             String btnName = confirmBtn.getText();
-            
+
             switch (btnName) {
                 case "Lưu":
                     String fromDate = this.fromDate.getText();
-                    
+
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     Date fromDateValue = null;
                     try {
@@ -312,27 +317,27 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                         e.printStackTrace();
                     }
                     Date toDateValue = toDate.getDate();
-                    
+
                     LocalDate cur = LocalDate.now();
                     Date registraionDate = Date.from(cur.atStartOfDay(ZoneId.systemDefault()).toInstant());
-                    
+
                     String typeValue = (String) typeOfLeave.getSelectedItem();
-                    
+
                     double startLeaveValue = Double.parseDouble((String) amountLeave.getSelectedItem());
-                    
+
                     int totalDayValue = Integer.parseInt(totalLeave.getText());
-                    
+
                     String reasonValue = reason.getText();
-                    
+
                     boolean statusValue = true;
                     // Chưa có phiếu + Quản lý nộp
                     if (MySession.currentEmployee.getId() == 1) {
                         LeaveRequest leaveRequest = new LeaveRequest(employee, 1, MySession.currentEmployee, registraionDate,
                                 currentDate, fromDateValue, toDateValue,
                                 typeValue, startLeaveValue, totalDayValue, reasonValue, statusValue);
-                        
+
                         leaveRequestDAO.add(leaveRequest);
-                        
+
                         ApprovedLeaveRequest approvedLeaveRequest = new ApprovedLeaveRequest(leaveRequest, true);
                         approvedLeaveRequestDAO.add(approvedLeaveRequest);
                     } // Chưa có phiếu + HR nộp
@@ -346,7 +351,7 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                         leaveRequest.setStartLeave(startLeaveValue);
                         leaveRequest.setTotalDay(totalDayValue);
                         leaveRequest.setReason(reasonValue);
-                        
+
                         leaveRequestDAO.update(leaveRequest);
                     }
                     break;
@@ -355,14 +360,14 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
                     leaveRequest.setApprover(MySession.currentEmployee);
                     leaveRequest.setApproveDate(currentDate);
                     leaveRequestDAO.add(leaveRequest);
-                    
+
                     ApprovedLeaveRequest approvedLeaveRequest = new ApprovedLeaveRequest(leaveRequest, true);
                     approvedLeaveRequestDAO.add(approvedLeaveRequest);
                     break;
                 default:
                 // do something
             }
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -375,6 +380,38 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
             calculateDateDifference();
         }
     }//GEN-LAST:event_toDatePropertyChange
+
+    private void denyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_denyBtnActionPerformed
+        if (this.leaveRequest == null) {
+            close();
+        } else {
+            Date currentDate = new Date();
+
+            try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+                LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
+                ApprovedLeaveRequestDAO approvedLeaveRequestDAO = new ApprovedLeaveRequestDAOImp(session);
+
+                String btnName = denyBtn.getText();
+                switch (btnName) {
+                    case "Xóa":
+                        leaveRequest.setStatus(false);
+                        leaveRequestDAO.update(leaveRequest);
+                        break;
+                    case "Từ chối":
+                        leaveRequest.setApproveStatus(3);
+                        leaveRequest.setApprover(MySession.currentEmployee);
+                        leaveRequest.setApproveDate(currentDate);
+                        leaveRequestDAO.update(leaveRequest);
+                        break;
+                    default:
+                        System.out.println("None!");
+                }
+            } catch (Exception e) {
+            }
+            ManageLeaveApplication_Component.getInstance().changePage(SharedData.getInstance().getCurDateRange());
+            close();
+        }
+    }//GEN-LAST:event_denyBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -406,11 +443,15 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
 
     private void customComponents() {
         if (leaveRequest != null) {
-            if (MySession.currentEmployee.getId() == 1) {
+            if (MySession.currentEmployee.getRoleDetail().getRole().getId() == 1) {
                 confirmBtn.setText("Duyệt");
-                denyBtn.setText("Từ chối");
+                denyBtn.setText("Từ chối");
+                toDate.setEnabled(false);
+                reason.setEditable(false);
+                typeOfLeave.setEnabled(false);
+                amountLeave.setEnabled(false);
             }
-            if (leaveRequest.getApproveStatus() == 1) {
+            if (leaveRequest.getApproveStatus() == 1 || leaveRequest.getApproveStatus() == 3) {
                 confirmBtn.setEnabled(false);
                 denyBtn.setEnabled(false);
                 toDate.setEnabled(false);
@@ -421,64 +462,64 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         }
         this.toDate.setMinSelectableDate(date);
     }
-    
+
     private void initData() {
         Date currentDate = new Date();
-        
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        
+
         String regisDate = dateFormat.format(currentDate);
-        
+
         this.registrationDate.setText(regisDate);
-        
+
         this.registrator.setText(employee.getName());
-        
+
         String fromDate = dateFormat.format(date);
         this.fromDate.setText(fromDate);
-        
+
         if (leaveRequest != null) {
             this.toDate.setDate(leaveRequest.getToDate());
             this.typeOfLeave.setSelectedItem(leaveRequest.getType());
             double startLeave = leaveRequest.getStartLeave();
-            
+
             this.amountLeave.setSelectedItem(String.valueOf(startLeave));
-            
+
             this.reason.setText(leaveRequest.getReason());
-            
+
             String approverName = (leaveRequest.getApprover() == null) ? "" : leaveRequest.getApprover().getName();
             this.approverName.setText(approverName);
-            
+
             String approveDate = customApproveDate(leaveRequest.getApproveDate());
             this.approveDate.setText(approveDate);
         } else {
-            
+
             toDate.setDate(date);
-            
+
         }
     }
-    
+
     private void close() {
         Window window = SwingUtilities.getWindowAncestor(this);
-        
+
         if (window instanceof JDialog) {
             ((JDialog) window).dispose();
         }
     }
-    
+
     private void calculateDateDifference() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        
+
         try {
             String fromDateString = fromDate.getText();
-            
+
             Date fromDate = dateFormat.parse(fromDateString);
-            
+
             LocalDate fromLocalDate = convertToLocalDate(fromDate);
-            
+
             Date toDate = this.toDate.getDate();
             if (toDate != null) {
                 LocalDate toLocalDate = convertToLocalDate(toDate);
-                
+
                 long daysBetween = ChronoUnit.DAYS.between(fromLocalDate, toLocalDate) + 1;
                 totalLeave.setText(String.valueOf(daysBetween));
             } else {
@@ -488,13 +529,13 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
             e.printStackTrace();
         }
     }
-    
+
     private LocalDate convertToLocalDate(Date toDate) {
         Instant instant = toDate.toInstant();
         ZoneId zoneId = ZoneId.systemDefault();
         return instant.atZone(zoneId).toLocalDate();
     }
-    
+
     private String customApproveDate(Date approveDate) {
         if (approveDate != null) {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
@@ -502,5 +543,5 @@ public class DetailLeaveForm_Component extends javax.swing.JPanel {
         }
         return "";
     }
-    
+
 }

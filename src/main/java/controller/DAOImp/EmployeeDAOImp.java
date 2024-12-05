@@ -8,6 +8,7 @@ import controller.DAO.EmployeeDAO;
 import java.util.List;
 import model.Employee;
 import model.Salary;
+import model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -89,6 +90,14 @@ public class EmployeeDAOImp implements EmployeeDAO {
     public Employee getByEmployeeId(String employeeId) {
         Query<Employee> query = session.createQuery("FROM Employee WHERE employeeId = :employeeId", Employee.class);
         query.setParameter("employeeId", employeeId);
+        return query.uniqueResult();
+    }
+
+    @Override
+    public Employee getByUserId(long userId) {
+        Query<Employee> query = session.createQuery("FROM Employee e WHERE e.user.id = :userId", Employee.class);
+        query.setParameter("userId", userId);
+
         return query.uniqueResult();
     }
 }

@@ -6,6 +6,7 @@ package controller.DAOImp;
 
 import controller.DAO.RoleDAO;
 import java.util.List;
+import model.Employee;
 import model.Role;
 import model.Salary;
 import org.hibernate.Session;
@@ -81,5 +82,13 @@ public class RoleDAOImp implements RoleDAO {
     public List<Role> getAll() {
         Query<Role> query = session.createQuery("FROM Role", Role.class);
         return query.list();
+    }
+
+    @Override
+    public Role getByName(String name) {
+        Query<Role> query = session.createQuery("FROM Role r WHERE r.name = :name", Role.class);
+        query.setParameter("name", name);
+
+        return query.uniqueResult();
     }
 }

@@ -7,18 +7,19 @@ package view.component.DepartmentInfo;
 import controller.DAO.DepartmentDAO;
 import controller.DAOImp.DepartmentDAOImp;
 import controller.Session.SharedData;
+import java.awt.Component;
 import java.awt.Image;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreePath;
 import model.Department;
 import org.hibernate.Session;
 import util.HibernateUtil;
+import view.component.Manage_Component.ManageEmployeeDetailInfo_Component;
+import view.component.Manage_Component.ManageSelectDepartment_Component;
 import view.component.Manage_Component.ManageSelecteEmployee_Component;
 
 /**
@@ -27,9 +28,6 @@ import view.component.Manage_Component.ManageSelecteEmployee_Component;
  */
 public class DepartmentData_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Department_Component
-     */
     public DepartmentData_Component() {
         initComponents();
 
@@ -75,27 +73,31 @@ public class DepartmentData_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void departmentValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_departmentValueChanged
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
-            TreePath path = evt.getPath();
 
-            DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path.getLastPathComponent();
+        TreePath path = evt.getPath();
+        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path.getLastPathComponent();
+        String nodeName = selectedNode.getUserObject().toString();
 
-            String nodeName = selectedNode.getUserObject().toString();
-            Department d = departmentDAO.getByName(nodeName);
-            
-            SharedData.getInstance().setEmployee_Selected(departmentDAO.getEmployeesByDepartmentAndSubDepartments(d.getId()));
-            System.out.println(d.getId());
+        Component parent = SwingUtilities.getAncestorOfClass(ManageSelectDepartment_Component.class, this);
 
-            ManageSelecteEmployee_Component me = (ManageSelecteEmployee_Component) SwingUtilities.getAncestorOfClass(ManageSelecteEmployee_Component.class, this);
+        if (parent != null) {
+            SharedData.getInstance().setCurDepartment(nodeName);
+        } else {
+            try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+                DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
 
-            if (me != null) {
-                ManageSelecteEmployee_Component.getInstance().updateData();
-            } else {
+                Department d = departmentDAO.getByName(nodeName);
 
+                SharedData.getInstance().setEmployee_Selected(departmentDAO.getEmployeesByDepartmentAndSubDepartments(d.getId()));
+
+                parent = SwingUtilities.getAncestorOfClass(ManageSelecteEmployee_Component.class, this);
+
+                if (parent != null) {
+                    ManageSelecteEmployee_Component.getInstance().updateData();
+                }
+            } catch (Exception ex) {
+                System.out.println("Lỗi: " + ex.getMessage());
             }
-        } catch (Exception ex) {
-            System.out.println("Lỗi: " + ex.getMessage());
         }
     }//GEN-LAST:event_departmentValueChanged
 

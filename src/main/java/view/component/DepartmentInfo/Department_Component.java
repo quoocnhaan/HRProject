@@ -5,7 +5,6 @@
 package view.component.DepartmentInfo;
 
 import java.awt.BorderLayout;
-import javax.swing.BorderFactory;
 
 /**
  *

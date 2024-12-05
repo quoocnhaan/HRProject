@@ -20,6 +20,7 @@ public class NewJFrame extends javax.swing.JFrame {
         initComponents();
         setLayout(new BorderLayout());
         add(new Login());
+        this.setLocationRelativeTo(null);
     }
 
     /**

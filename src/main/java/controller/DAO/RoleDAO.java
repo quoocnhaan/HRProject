@@ -11,5 +11,5 @@ import model.Role;
  * @author LENOVO
  */
 public interface RoleDAO extends InterfaceDAO<Role>{
-    
+    Role getByName(String name);
 }

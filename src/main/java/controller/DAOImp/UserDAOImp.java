@@ -81,4 +81,13 @@ public class UserDAOImp implements UserDAO {
         Query<User> query = session.createQuery("FROM User", User.class);
         return query.list();
     }
+
+    @Override
+    public User getByUsernameAndPassword(String username, String password) {
+        Query<User> query = session.createQuery("FROM User u WHERE u.userName = :username AND u.password = :password", User.class);
+        query.setParameter("username", username);
+        query.setParameter("password", password);
+
+        return query.uniqueResult();
+    }
 }

@@ -20,16 +20,17 @@ import view.component.LeaveApplication.DetailLeaveRequestForm.DetailLeaveForm_Co
  * @author LENOVO
  */
 public class Content extends javax.swing.JPanel {
-
+    
     private Employee employee;
     private Date date;
     private LeaveRequest leaveRequest;
-
+    
     public Content(int type, LeaveRequest leaveRequest, Employee employee, Date date) {
         this.employee = employee;
         this.leaveRequest = leaveRequest;
         this.date = date;
         initComponents();
+        initData();
         customComponents(type);
     }
 
@@ -43,8 +44,9 @@ public class Content extends javax.swing.JPanel {
     private void initComponents() {
 
         vice = new javax.swing.JPanel();
+        content = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(245, 247, 255));
+        setBackground(new java.awt.Color(255, 213, 179));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -52,7 +54,7 @@ public class Content extends javax.swing.JPanel {
             }
         });
 
-        vice.setBackground(new java.awt.Color(78, 116, 247));
+        vice.setBackground(new java.awt.Color(255, 115, 0));
 
         javax.swing.GroupLayout viceLayout = new javax.swing.GroupLayout(vice);
         vice.setLayout(viceLayout);
@@ -65,17 +67,30 @@ public class Content extends javax.swing.JPanel {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
+        content.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        content.setForeground(new java.awt.Color(0, 0, 0));
+        content.setText("tao thích");
+        content.setVisible(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(vice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 132, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(vice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(vice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -85,30 +100,31 @@ public class Content extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel content;
     private javax.swing.JPanel vice;
     // End of variables declaration//GEN-END:variables
 
     private void customComponents(int type) {
         vice.setPreferredSize(new Dimension(4, 40));
-
+        
         if (type == 1) {
             // đã duyệt
             this.setBackground(new Color(238, 250, 237));
             vice.setBackground(new Color(77, 151, 42));
         } else if (type == 2) {
             // chưa duyệt    
-            this.setBackground(new Color(245, 247, 255));
-            vice.setBackground(new Color(78, 116, 247));
+            this.setBackground(new Color(255, 213, 179));
+            vice.setBackground(new Color(255, 115, 0));
         } else if (type == 3) {
-            // từ chối
-
+            this.setBackground(new Color(255, 187, 187));
+            vice.setBackground(new Color(255, 0, 0));
         } else {
             // không có phiếu
             this.setBackground(Color.WHITE);
             vice.setBackground(Color.WHITE);
         }
     }
-
+    
     public void openDetailForm() {
         JDialog popup = new JDialog(SwingUtilities.getWindowAncestor(this), "Detail Leave Request App", Dialog.ModalityType.APPLICATION_MODAL);
         popup.getContentPane().setLayout(new BorderLayout());
@@ -116,5 +132,12 @@ public class Content extends javax.swing.JPanel {
         popup.setSize(505, 535);  // Kích thước của popup
         popup.setLocationRelativeTo(null);  // Hiển thị ở giữa màn hình
         popup.setVisible(true);  // Hiển thị popup
+    }
+    
+    private void initData() {
+        if (leaveRequest != null) {
+            content.setText(leaveRequest.getReason());
+            content.setVisible(true);
+        }
     }
 }

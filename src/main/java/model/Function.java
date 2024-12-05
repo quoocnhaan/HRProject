@@ -45,13 +45,19 @@ public class Function {
 
     @Column(name = "name")
     private String name;
-    
+
     @OneToOne(mappedBy = "function", cascade = CascadeType.ALL)
     private FunctionAuthorization functionAuthorization;
 
+//    @Column(name = "focus_icon")
+//    private byte[] focusIcon;
+//
+//    @Column(name = "exit_icon")
+//    private byte[] exitIcon;
+    
     @Column(name = "icon")
     private byte[] icon;
-
+    
     @Column(name = "color")
     private String color;
 
@@ -62,13 +68,42 @@ public class Function {
         roles = new ArrayList<>();
     }
 
-    public Function(String functionId, String name, byte[] icon, String color, boolean status) {
+//    public Function(String functionId, List<Role> roles, String name, FunctionAuthorization functionAuthorization, byte[] focusIcon, byte[] exitIcon, String color, boolean status) {
+//        this.functionId = functionId;
+//        this.roles = roles;
+//        this.name = name;
+//        this.functionAuthorization = functionAuthorization;
+//        this.focusIcon = focusIcon;
+//        this.exitIcon = exitIcon;
+//        this.color = color;
+//        this.status = status;
+//    }
+
+    public Function(String functionId, List<Role> roles, String name, FunctionAuthorization functionAuthorization, byte[] icon, String color, boolean status) {
         this.functionId = functionId;
+        this.roles = roles;
         this.name = name;
+        this.functionAuthorization = functionAuthorization;
         this.icon = icon;
         this.color = color;
         this.status = status;
     }
+
+//    public byte[] getFocusIcon() {
+//        return focusIcon;
+//    }
+//
+//    public void setFocusIcon(byte[] focusIcon) {
+//        this.focusIcon = focusIcon;
+//    }
+//
+//    public byte[] getExitIcon() {
+//        return exitIcon;
+//    }
+//
+//    public void setExitIcon(byte[] exitIcon) {
+//        this.exitIcon = exitIcon;
+//    }
 
     public List<Role> getRoles() {
         return roles;
@@ -85,7 +120,7 @@ public class Function {
     public void setFunctionAuthorization(FunctionAuthorization functionAuthorization) {
         this.functionAuthorization = functionAuthorization;
     }
-    
+
     public long getId() {
         return id;
     }

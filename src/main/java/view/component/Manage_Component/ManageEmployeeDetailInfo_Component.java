@@ -266,7 +266,7 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
         type.setBackground(new java.awt.Color(255, 255, 255));
         type.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         type.setForeground(new java.awt.Color(0, 0, 0));
-        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chính thức", "Bán thời gian", "Thực tập" }));
+        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chính thức", "Thử việc" }));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
@@ -499,7 +499,7 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label11)
                             .addComponent(otherEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(denyBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -582,7 +582,7 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
             jobDAO.add(job);
             employeeDAO.add(employee);
             contractDAO.add(contract);
-            // Khởi tạo Employee
+
         } catch (Exception e) {
         }
         JOptionPane.showMessageDialog(this, "Thêm nhân viên mới thành công !");

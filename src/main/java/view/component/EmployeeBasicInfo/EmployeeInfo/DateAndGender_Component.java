@@ -4,6 +4,7 @@
  */
 package view.component.EmployeeBasicInfo.EmployeeInfo;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 /**
@@ -21,6 +22,7 @@ public class DateAndGender_Component extends javax.swing.JPanel {
         this.dateOfBirth.setText(dateOfBirth);
         this.place.setText(place);
         this.gender.setText(gender);
+        custom(gender);
     }
 
     /**
@@ -121,4 +123,11 @@ public class DateAndGender_Component extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel place;
     // End of variables declaration//GEN-END:variables
+
+    private void custom(String gender) {
+        if (gender.equals("Nữ")) {
+            this.gender.setForeground(new Color(212, 64, 32));
+            this.genderPanel.setBackground(new Color(253, 231, 238));
+        }
+    }
 }

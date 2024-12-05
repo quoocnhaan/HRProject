@@ -9,6 +9,7 @@ import controller.DAOImp.EmployeeDAOImp;
 import controller.Functional.Functional;
 import controller.Session.SharedData;
 import java.awt.GridLayout;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -65,8 +66,10 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
+        System.out.println("hello");
         infoList = new ArrayList<>();
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
             List<Employee> list = employeeDAO.getAll();
             for (Employee employee : list) {
@@ -75,11 +78,25 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
                 String job = employee.getContracts().get(0).getJob().getProfession();
                 String direct = employee.getDepartment().getName();
                 ImageIcon img = Functional.convertByteArrayToIcon(employee.getImage());
-                String dateOfBirth = employee.getDateOfBirth().toString();
+
                 String place = employee.getContact().getPermanentAddress();
                 String gender = employee.isGender() ? "Nam" : "Nữ";
-                String startDate = employee.getContracts().get(0).getJob().getStartDate().toString();
-                String senority = String.valueOf(employee.getSenority());
+
+                //String startDate = employee.getContracts().get(0).getJob().getStartDate().toString();
+                //String dateOfBirth = employee.getDateOfBirth().toString();
+                String dateOfBirth = dateFormat.format(employee.getDateOfBirth());
+                String startDate = dateFormat.format(employee.getContracts().get(0).getJob().getStartDate());
+                String senority = "";
+
+                int sen = employee.getSenority();
+
+                if (sen >= 30) {
+                    long months = sen / 30;
+                    senority = months + " tháng";
+                } else {
+                    senority = sen + " ngày";
+                }
+
                 String type = employee.getContracts().get(0).getJob().getType();
                 String email = employee.getContact().getPersonalEmail();
                 String phone = employee.getContact().getPersonalPhone();
@@ -88,6 +105,7 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
                 infoList.add(pi);
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
 

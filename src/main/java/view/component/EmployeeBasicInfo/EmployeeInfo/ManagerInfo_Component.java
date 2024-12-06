@@ -14,19 +14,10 @@ import javax.swing.ImageIcon;
  * @author LENOVO
  */
 public class ManagerInfo_Component extends javax.swing.JPanel {
-
-    /**
-     * Creates new form ManagerInfo
-     */
-    public ManagerInfo_Component(String name, String position, String companyName, String phone, String email, String total,ImageIcon img) {
+    
+    public ManagerInfo_Component(String name, String position, String companyName, String phone, String email, String total, ImageIcon img) {
         initComponents();
-        this.name.setText(name);
-        this.position.setText(position);
-        this.companyName.setText(companyName);
-        this.phoneNumber.setText(phone);
-        this.email.setText(email);
-        this.logo.setIcon(Functional.scaleImg(this.logo, img));
-        this.total.setText(total);
+        initData(name, position, companyName, phone, email, total, img);
     }
 
     /**
@@ -146,5 +137,19 @@ public class ManagerInfo_Component extends javax.swing.JPanel {
     private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 
+    private void initData(String name, String position, String companyName, String phone, String email, String total, ImageIcon img) {
+        this.name.setText(name);
+        this.position.setText(position);
+        this.companyName.setText(companyName);
+        this.phoneNumber.setText(phone);
+        this.email.setText(email);
+        this.logo.setIcon(Functional.scaleImg(this.logo, img));
         
+        this.total.setText(total);
+    }
+    
+    public void updateTotal(int total) {
+        this.total.setText(total + "");
+    }
+    
 }

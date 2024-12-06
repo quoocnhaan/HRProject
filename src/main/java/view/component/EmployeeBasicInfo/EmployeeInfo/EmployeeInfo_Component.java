@@ -4,8 +4,12 @@
  */
 package view.component.EmployeeBasicInfo.EmployeeInfo;
 
+import controller.DAO.EmployeeDAO;
+import controller.DAOImp.EmployeeDAOImp;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -13,13 +17,22 @@ import javax.swing.ImageIcon;
  */
 public class EmployeeInfo_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form EmployeeInfo_Component
-     */
+    private ManagerInfo_Component managerInfo_Component;
+    private PersonalInfo personalInfo;
+    private static EmployeeInfo_Component instance;
+
     public EmployeeInfo_Component() {
         initComponents();
+        initData();
         setLayout();
         addComponent();
+    }
+
+    public static EmployeeInfo_Component getInstance() {
+        if (instance == null) {
+            instance = new EmployeeInfo_Component();
+        }
+        return instance;
     }
 
     /**
@@ -30,6 +43,8 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -43,23 +58,45 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void initDisplay() {
-    }
-
     private void setLayout() {
         this.setLayout(new BorderLayout());
     }
 
-    private void addComponent() {
+    private void initData() {
+        int total = 0;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+            total = employeeDAO.getAll().size();
+        }
         String name = "Lam Quoc Nhan";
         String position = "Tong Giam Doc |";
-        String companyName = "VNG";
+        String companyName = "FireTech";
         String phoneNumber = "(+84) 9682705533 |";
         String email = "quocnhan56@gmail.com";
-        String total = "255";
         ImageIcon imageIcon = new ImageIcon(getClass().getResource("/img/logo1.png"));
-        this.add(new ManagerInfo_Component(name, position, companyName, phoneNumber, email, total, imageIcon), BorderLayout.NORTH);
-        this.add(new PersonalInfo(), BorderLayout.CENTER);
+        managerInfo_Component = new ManagerInfo_Component(name, position, companyName, phoneNumber, email, total + "", imageIcon);
+        personalInfo = PersonalInfo.getInstance();
+    }
+
+    private void addComponent() {
+        this.add(managerInfo_Component, BorderLayout.NORTH);
+        this.add(personalInfo, BorderLayout.CENTER);
+    }
+
+    public ManagerInfo_Component getManagerInfo_Component() {
+        return managerInfo_Component;
+    }
+
+    public void setManagerInfo_Component(ManagerInfo_Component managerInfo_Component) {
+        this.managerInfo_Component = managerInfo_Component;
+    }
+
+    public PersonalInfo getPersonalInfo() {
+        return personalInfo;
+    }
+
+    public void setPersonalInfo(PersonalInfo personalInfo) {
+        this.personalInfo = personalInfo;
     }
 
 

@@ -10,6 +10,7 @@ import model.RoleDetail;
  *
  * @author PC
  */
-public interface RoleDetailDAO extends InterfaceDAO<RoleDetail>{
-    
+public interface RoleDetailDAO extends InterfaceDAO<RoleDetail> {
+
+    RoleDetail getByRoleId(long id);
 }

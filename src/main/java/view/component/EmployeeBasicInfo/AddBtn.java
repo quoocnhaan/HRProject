@@ -4,6 +4,12 @@
  */
 package view.component.EmployeeBasicInfo;
 
+import java.awt.BorderLayout;
+import java.awt.Dialog;
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
+import view.component.Manage_Component.ManageEmployeeDetailInfo_Component;
+
 /**
  *
  * @author PC
@@ -29,11 +35,17 @@ public class AddBtn extends javax.swing.JPanel {
         addBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         addBtn.setBackground(new java.awt.Color(69, 89, 190));
         addBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addBtn.setForeground(new java.awt.Color(255, 255, 255));
         addBtn.setText("Thêm");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -52,6 +64,16 @@ public class AddBtn extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        JDialog popup = new JDialog(SwingUtilities.getWindowAncestor(this), "Thôn tin chi tiết", Dialog.ModalityType.APPLICATION_MODAL);
+        popup.getContentPane().setLayout(new BorderLayout());
+        popup.getContentPane().add(new ManageEmployeeDetailInfo_Component());
+        popup.setSize(1120, 740);
+        popup.setResizable(false);
+        popup.setLocationRelativeTo(null);
+        popup.setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

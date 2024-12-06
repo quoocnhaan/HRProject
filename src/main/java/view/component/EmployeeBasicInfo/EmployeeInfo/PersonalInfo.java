@@ -13,12 +13,20 @@ import javax.swing.JScrollPane;
  */
 public class PersonalInfo extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PersonalInfo_Component
-     */
+    private JScrollPane content;
+    private static PersonalInfo instance;
+
     public PersonalInfo() {
         initComponents();
         setLayout();
+        addComponents();
+    }
+
+    public static PersonalInfo getInstance() {
+        if (instance == null) {
+            instance = new PersonalInfo();
+        }
+        return instance;
     }
 
     /**
@@ -29,6 +37,8 @@ public class PersonalInfo extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -47,14 +57,25 @@ public class PersonalInfo extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     private void setLayout() {
         this.setLayout(new BorderLayout());
-        
-        this.add(new TitleEmployeeBasicInfo_Component(), BorderLayout.NORTH);
-        
-        JScrollPane scrollPane = new JScrollPane(new PersonalInfo_Container());
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setBorder(null);
-        
-        this.add(scrollPane, BorderLayout.CENTER);
     }
+
+    private void addComponents() {
+        this.add(new TitleEmployeeBasicInfo_Component(), BorderLayout.NORTH);
+
+        content = new JScrollPane(PersonalInfo_Container.getInstance());
+        content.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        content.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        content.setBorder(null);
+
+        this.add(content, BorderLayout.CENTER);
+    }
+
+    public JScrollPane getContent() {
+        return content;
+    }
+
+    public void setContent(JScrollPane content) {
+        this.content = content;
+    }
+
 }

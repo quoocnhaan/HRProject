@@ -6,7 +6,6 @@ package view.component.EmployeeBasicInfo;
 
 import java.awt.BorderLayout;
 import view.component.EmployeeBasicInfo.EmployeeInfo.EmployeeInfo_Component;
-import view.component.Search.Search;
 
 /**
  *
@@ -14,13 +13,21 @@ import view.component.Search.Search;
  */
 public class EmployeeBasicInfo_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form EmployeeInfo
-     */
+    private EmployeeInfo_Component employeeInfo_Component;
+    private static EmployeeBasicInfo_Component instance;
+
     public EmployeeBasicInfo_Component() {
         initComponents();
+        initData();
         setLayout();
         addComponents();
+    }
+
+    public static EmployeeBasicInfo_Component getInstance() {
+        if (instance == null) {
+            instance = new EmployeeBasicInfo_Component();
+        }
+        return instance;
     }
 
     /**
@@ -31,6 +38,8 @@ public class EmployeeBasicInfo_Component extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -49,8 +58,20 @@ public class EmployeeBasicInfo_Component extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        this.add(new Search(), BorderLayout.NORTH);
-        this.add(new EmployeeInfo_Component(), BorderLayout.CENTER);
+        this.add(new Header(), BorderLayout.NORTH);
+        this.add(employeeInfo_Component, BorderLayout.CENTER);
+    }
+
+    private void initData() {
+        employeeInfo_Component = EmployeeInfo_Component.getInstance();
+    }
+
+    public EmployeeInfo_Component getEmployeeInfo_Component() {
+        return employeeInfo_Component;
+    }
+
+    public void setEmployeeInfo_Component(EmployeeInfo_Component employeeInfo_Component) {
+        this.employeeInfo_Component = employeeInfo_Component;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -11,10 +11,10 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.border.MatteBorder;
-import view.component.EmployeeBasicInfo.EmployeeInfo.Contact_Component;
-import view.component.EmployeeBasicInfo.EmployeeInfo.DateAndGender_Component;
-import view.component.EmployeeBasicInfo.EmployeeInfo.NameAndJob_Component;
-import view.component.EmployeeBasicInfo.EmployeeInfo.Status_Component;
+import view.component.Infomation_Component.Contact_Component;
+import view.component.Infomation_Component.DateAndGender_Component;
+import view.component.Infomation_Component.NameAndJob_Component;
+import view.component.Infomation_Component.Status_Component;
 import view.component.Title_CheckBox.CheckBox_Component;
 
 /**

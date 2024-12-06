@@ -23,16 +23,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "hr_attendance_information")
 public class AttendanceInformation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "attendance_id")
     private String attendanceId;
-    
+
     @OneToMany(mappedBy = "attendanceInformation", cascade = CascadeType.ALL)
     private List<AttendanceRecords> records;
-   
+
     @OneToOne(mappedBy = "attendanceInformation")
     private Employee employee;
 
@@ -63,7 +64,14 @@ public class AttendanceInformation {
         this.endTime = endTime;
         this.status = status;
     }
-
+    
+    public AttendanceInformation(String attendanceId, Employee employee, LocalTime startTime, LocalTime endTime, boolean status) {
+        this.attendanceId = attendanceId;
+        this.employee = employee;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.status = status;
+    }
 
     public long getId() {
         return id;

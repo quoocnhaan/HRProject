@@ -90,7 +90,7 @@ public class PersonalInfo extends javax.swing.JPanel {
             list.get(i).changeStatusCheckBox(isCheck);
         }
     }
-    
+
     public void reset() {
         title.getCheckAll().getCheckbox().setSelected(false);
     }
@@ -108,7 +108,7 @@ public class PersonalInfo extends javax.swing.JPanel {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(this.getClass().getName() + e);
         }
         return result;
     }

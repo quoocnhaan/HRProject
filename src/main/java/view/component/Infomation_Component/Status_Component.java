@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.EmployeeBasicInfo.EmployeeInfo;
+package view.component.Infomation_Component;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 /**
@@ -17,10 +18,9 @@ public class Status_Component extends javax.swing.JPanel {
      */
     public Status_Component(String startDate, String seniority, String status) {
         initComponents();
-        this.setPreferredSize(new Dimension(280, 100));
-        this.startDate.setText(startDate);
-        this.seniority.setText(seniority);
-        this.status.setText(status);
+        customComponents(status);
+        initData(startDate, seniority, status);
+
     }
 
     /**
@@ -34,7 +34,7 @@ public class Status_Component extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        senorityColor = new javax.swing.JPanel();
+        statusColor = new javax.swing.JPanel();
         status = new javax.swing.JLabel();
         startDate = new javax.swing.JLabel();
         seniority = new javax.swing.JLabel();
@@ -47,23 +47,23 @@ public class Status_Component extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(180, 180, 180));
         jLabel2.setText("Thâm niên:");
 
-        senorityColor.setBackground(new java.awt.Color(93, 200, 196));
+        statusColor.setBackground(new java.awt.Color(93, 200, 196));
 
         status.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         status.setForeground(new java.awt.Color(255, 255, 255));
         status.setText("Chính thức");
 
-        javax.swing.GroupLayout senorityColorLayout = new javax.swing.GroupLayout(senorityColor);
-        senorityColor.setLayout(senorityColorLayout);
-        senorityColorLayout.setHorizontalGroup(
-            senorityColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(senorityColorLayout.createSequentialGroup()
+        javax.swing.GroupLayout statusColorLayout = new javax.swing.GroupLayout(statusColor);
+        statusColor.setLayout(statusColorLayout);
+        statusColorLayout.setHorizontalGroup(
+            statusColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(statusColorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(status)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        senorityColorLayout.setVerticalGroup(
-            senorityColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        statusColorLayout.setVerticalGroup(
+            statusColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(status, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
         );
 
@@ -88,7 +88,7 @@ public class Status_Component extends javax.swing.JPanel {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(seniority))
-                    .addComponent(senorityColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(statusColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -103,7 +103,7 @@ public class Status_Component extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(seniority))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(senorityColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(statusColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(10, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -113,8 +113,21 @@ public class Status_Component extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel seniority;
-    private javax.swing.JPanel senorityColor;
     private javax.swing.JLabel startDate;
     private javax.swing.JLabel status;
+    private javax.swing.JPanel statusColor;
     // End of variables declaration//GEN-END:variables
+
+    private void customComponents(String status) {
+        this.setPreferredSize(new Dimension(280, 100));
+        if (status.equals("Thử việc")) {
+            this.statusColor.setBackground(new Color(227, 178, 68));
+        }
+    }
+
+    private void initData(String startDate, String seniority, String status) {
+        this.startDate.setText(startDate);
+        this.seniority.setText(seniority);
+        this.status.setText(status);
+    }
 }

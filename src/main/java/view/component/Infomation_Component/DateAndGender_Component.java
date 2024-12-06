@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.EmployeeBasicInfo.EmployeeInfo;
+package view.component.Infomation_Component;
 
 import java.awt.Color;
 import java.awt.Dimension;

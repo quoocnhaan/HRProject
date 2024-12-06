@@ -4,7 +4,6 @@ controller\DAO\KOWDAO.class
 view\component\Manage_Component\ManageEmployeeDetailInfo_Component$6.class
 view\form\Home\Navigation\Function_Component\Function_Component.class
 view\form\Login\Login$4.class
-view\form\Login\NewJFrame.class
 controller\DAO\ContactDAO.class
 view\form\Home\Navigation\NewJFrame.class
 view\component\Filter\Filter_Component.class
@@ -14,18 +13,18 @@ view\component\SelectEmployee\EmployeeInfo\PersonalBasicInfo_Container$1.class
 controller\DAOImp\ContactDAOImp.class
 controller\DAOImp\TransportationAllowanceDAOImp.class
 view\component\Title_CheckBox\CheckAll_Component$1.class
-view\form\Login\NewJFrame$1.class
 controller\DAO\CreditCardDAO.class
 controller\DAO\EmployeeFamilyDAO.class
 view\component\Manage_Component\NewJFrame$1.class
 view\component\Filter\Filter_Component$2.class
 view\form\Home\NewClass$2.class
-view\component\EmployeeDetailInfo\EmployeeDetailInfo_Component.class
 model\Notification.class
+view\component\Infomation_Component\NameAndJob_Component$1.class
 view\component\Search\Search.class
 controller\DAO\ApprovedLeaveRequestDAO.class
 controller\DAO\RoleDetailDAO.class
 view\component\LeaveApplication\GridLeaveRequest\ChangePage\CurrentDate\CurrentDate_Component.class
+view\component\Infomation_Component\Contact_Component.class
 controller\DAOImp\AttendanceRecordsDAOImp.class
 controller\DAO\ContractDAO.class
 model\Department.class
@@ -33,6 +32,7 @@ view\component\Manage_Component\ManageEmployeeDetailInfo_Component$1.class
 view\component\LeaveApplication\DetailLeaveRequestForm\DetailLeaveForm_Component$1.class
 view\form\Login\Login.class
 controller\DAOImp\ContractDAOImp.class
+view\component\EmployeeBasicInfo\Header.class
 view\component\Function_Component\Function_Component$1.class
 view\component\Manage_Component\ManageEmployeeDetailInfo_Component$3.class
 controller\DAOImp\RoleDetailDAOImp.class
@@ -45,6 +45,7 @@ view\component\Manage_Component\ManageEmployeeInfo_Component.class
 controller\DAOImp\PayPeriodDAOImp.class
 view\component\Manage_Component\NewJFrame.class
 controller\DAOImp\EmployeeDAOImp.class
+view\component\EmployeeBasicInfo\EmployeeInfo\PersonalBasicInfo_Container$1.class
 controller\DAOImp\RoleDAOImp.class
 controller\DAO\InterfaceDAO.class
 view\component\EmployeeBasicInfo\AddBtn.class
@@ -69,6 +70,7 @@ view\component\DeparmentInfoDetail\Test_Deparment$1.class
 controller\DAO\AttendanceRecordsDAO.class
 view\component\Filter\Filter_Component$1.class
 model\NotiType.class
+view\component\EmployeeBasicInfo\AddBtn$1.class
 view\component\DeparmentInfoDetail\Test_Deparment.class
 controller\DAOImp\CreditCardDAOImp.class
 view\component\Manage_Component\ManageSalary_Component.class
@@ -88,12 +90,15 @@ view\component\DepartmentInfo\Btn.class
 controller\DAOImp\EmployeeFamilyDAOImp.class
 view\form\Home\Navigation\Navigation.class
 controller\DAOImp\SalaryDAOImp.class
+view\form\Login\MainFrame.class
+view\form\Login\MainFrame$1.class
 controller\Session\SharedData.class
 controller\DAO\TransportationAllowanceDAO.class
 controller\DAOImp\NotificationDAOImp.class
 controller\DAOImp\AttendanceInformationDAOImp.class
 controller\DAO\DepartmentDAO.class
 view\component\Manage_Component\ManageEmployeeDetailInfo_Component.class
+view\component\Infomation_Component\NameAndJob_Component.class
 view\component\LeaveApplication\GridLeaveRequest\ChangePage\ChangePageAndSearch.class
 view\form\Home\NewClass$3.class
 controller\DAO\PayPeriodDAO.class
@@ -106,7 +111,9 @@ view\component\LeaveApplication\GridLeaveRequest\LeaveRequestForm\LeaveForm_Comp
 view\component\DepartmentInfo\DepartmentData_Component$1.class
 view\form\Login\Login$1.class
 controller\DAOImp\DepartmentDAOImp.class
+view\component\Infomation_Component\Status_Component.class
 view\component\LeaveApplication\GridLeaveRequest\LeaveRequestForm\Content$1.class
+view\component\Infomation_Component\DateAndGender_Component.class
 view\form\Login\Login$2.class
 view\component\SelectEmployee\Btn_Component.class
 model\DateRange.class
@@ -127,6 +134,7 @@ controller\DAOImp\InsuranceDAOImp.class
 view\form\Login\Login$5.class
 view\form\Home\Header\Header$4.class
 controller\DAOImp\ResignationDAOImp.class
+view\component\EmployeeBasicInfo\Search.class
 controller\DAO\RoleDAO.class
 view\form\Home\Navigation\NewJFrame$1.class
 controller\DAO\SalaryDAO.class

@@ -4,7 +4,18 @@
  */
 package view.component.EmployeeBasicInfo.EmployeeInfo;
 
+import controller.DAO.EmployeeDAO;
+import controller.DAOImp.EmployeeDAOImp;
+import controller.Functional.Functional;
+import controller.Session.SharedData;
 import java.awt.GridLayout;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ImageIcon;
+import model.Employee;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -12,13 +23,20 @@ import java.awt.GridLayout;
  */
 public class PersonalInfo_Container extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PersonalInfo_Container
-     */
+    private static PersonalInfo_Container instance;
+    private List<PersonalBasicInfo_Container> infoList;
+
     public PersonalInfo_Container() {
         initComponents();
         setLayout();
         addComponents();
+    }
+
+    public static PersonalInfo_Container getInstance() {
+        if (instance == null) {
+            instance = new PersonalInfo_Container();
+        }
+        return instance;
     }
 
     /**
@@ -29,6 +47,8 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -44,13 +64,58 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
 
     private void setLayout() {
         this.setLayout(new GridLayout(0, 1, 0, 0));
-
     }
 
     private void addComponents() {
-        for (int i = 1; i <= 8; i++) {
-            this.add(new PersonalBasicInfo_Container());
+        infoList = new ArrayList<>();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+            List<Employee> list = employeeDAO.getAll();
+            for (Employee employee : list) {
+                System.out.println(employee.getEmployeeId());
+                PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(employee);
+                this.add(pi);
+                infoList.add(pi);
+                System.out.println(employee.getEmployeeId());
+            }
+        } catch (Exception e) {
+            System.out.println(this.getClass().getName() + e);
         }
+    }
+
+    public void updateDataFromSelecteEmployee() {
+        infoList.clear();
+        this.removeAll();
+        List<Employee> list = SharedData.getInstance().getEmployee_Selected();
+        for (Employee employee : list) {
+            PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(employee);
+            this.add(pi);
+            infoList.add(pi);
+        }
+        this.validate();
+        this.repaint();
+    }
+
+    public void updateData() {
+        infoList.clear();
+        this.removeAll();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+            List<Employee> list = employeeDAO.getAll();
+            for (Employee employee : list) {
+                PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(employee);
+                this.add(pi);
+                infoList.add(pi);
+            }
+        } catch (Exception e) {
+            System.out.println(this.getClass().getName() + e + "2");
+        }
+        this.validate();
+        this.repaint();
+    }
+
+    public List<PersonalBasicInfo_Container> getAll() {
+        return infoList;
     }
 
 

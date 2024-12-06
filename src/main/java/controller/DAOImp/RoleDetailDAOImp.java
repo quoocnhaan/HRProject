@@ -7,6 +7,7 @@ package controller.DAOImp;
 import controller.DAO.RoleDetailDAO;
 import java.util.List;
 import model.Job;
+import model.Role;
 import model.RoleDetail;
 import model.Salary;
 import org.hibernate.Session;
@@ -84,5 +85,13 @@ public class RoleDetailDAOImp implements RoleDetailDAO {
     public List<RoleDetail> getAll() {
         Query<RoleDetail> query = session.createQuery("FROM RoleDetail", RoleDetail.class);
         return query.list();
+    }
+
+    @Override
+    public RoleDetail getByRoleId(long id) {
+        Query<RoleDetail> query = session.createQuery("FROM RoleDetail r WHERE r.role.id = :id", RoleDetail.class);
+        query.setParameter("id", id);
+
+        return query.uniqueResult();
     }
 }

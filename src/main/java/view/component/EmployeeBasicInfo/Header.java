@@ -2,32 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.component.Manage_Component;
+package view.component.EmployeeBasicInfo;
 
 import java.awt.BorderLayout;
-import view.component.DepartmentInfo.Department_Component;
-import view.component.EmployeeBasicInfo.EmployeeBasicInfo_Component;
-import view.component.EmployeeBasicInfo.EmployeeInfo.PersonalInfo_Container;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import view.component.Search.Search;
 
 /**
  *
- * @author LENOVO
+ * @author PC
  */
-public class ManageEmployeeInfo_Component extends javax.swing.JPanel {
+public class Header extends javax.swing.JPanel {
 
-    private static ManageEmployeeInfo_Component instance;
-
-    public ManageEmployeeInfo_Component() {
+    /**
+     * Creates new form Header
+     */
+    public Header() {
         initComponents();
         setLayout();
         addComponents();
-    }
-
-    public static ManageEmployeeInfo_Component getInstance() {
-        if (instance == null) {
-            instance = new ManageEmployeeInfo_Component();
-        }
-        return instance;
     }
 
     /**
@@ -39,13 +33,13 @@ public class ManageEmployeeInfo_Component extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(241, 241, 250));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -54,16 +48,14 @@ public class ManageEmployeeInfo_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void setLayout() {
-        this.setLayout(new BorderLayout(10, 10));
+        //this.setLayout(new GridLayout(0, 2, 0, 0));
+        this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+
     }
 
     private void addComponents() {
-        this.add(new Department_Component(), BorderLayout.WEST);
-        this.add(new EmployeeBasicInfo_Component(), BorderLayout.CENTER);
-    }
-
-    public void updateData() {
-        PersonalInfo_Container.getInstance().updateData();
+        this.add(new AddBtn(), BorderLayout.WEST);
+        this.add(new Search(), BorderLayout.CENTER);
     }
 
 

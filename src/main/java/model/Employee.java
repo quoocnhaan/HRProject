@@ -222,7 +222,7 @@ public class Employee {
         this.status = status;
     }
 
-    public Employee(String name, Department department, RoleDetail roleDetail, String employeeId, byte[] img, Date dateOfBirth, boolean gender, int senority, List<Contract> contracts, Contact contact) {
+    public Employee(String name, AttendanceInformation attendanceInformation, Department department, RoleDetail roleDetail, String employeeId, byte[] img, Date dateOfBirth, boolean gender, int senority, List<Contract> contracts, Contact contact, boolean status) {
         this.name = name;
         this.employeeId = employeeId;
         this.image = img;
@@ -233,6 +233,8 @@ public class Employee {
         this.contracts = contracts;
         this.department = department;
         this.roleDetail = roleDetail;
+        this.attendanceInformation = attendanceInformation;
+        this.status = status;
     }
 
     public Department getDepartment() {

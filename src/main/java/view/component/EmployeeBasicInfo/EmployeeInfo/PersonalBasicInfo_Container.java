@@ -4,10 +4,26 @@
  */
 package view.component.EmployeeBasicInfo.EmployeeInfo;
 
+import controller.Functional.Functional;
+import java.awt.BorderLayout;
+import view.component.Infomation_Component.Status_Component;
+import view.component.Infomation_Component.NameAndJob_Component;
+import view.component.Infomation_Component.DateAndGender_Component;
+import view.component.Infomation_Component.Contact_Component;
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
 import javax.swing.border.MatteBorder;
+import model.Employee;
+import view.component.Manage_Component.ManageEmployeeDetailInfo_Component;
+import view.component.Title_CheckBox.CheckBox_Component;
 
 /**
  *
@@ -15,15 +31,18 @@ import javax.swing.border.MatteBorder;
  */
 public class PersonalBasicInfo_Container extends javax.swing.JPanel {
 
-    /**
-     * Creates new form NewJPanel
-     */
-    public PersonalBasicInfo_Container() {
-        initComponents();
-        this.setLayout(new GridLayout(1, 4, 0, 0));
-        addComponent();
-        this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
+    private NameAndJob_Component nameAndJob;
+    private DateAndGender_Component dateAndGender;
+    private Status_Component status;
+    private Contact_Component contact;
+    private Employee employee;
 
+    public PersonalBasicInfo_Container(Employee employee) {
+        initComponents();
+        this.employee = employee;
+        setLayout();
+        customComponents();
+        addComponents(employee);
     }
 
     /**
@@ -50,25 +69,78 @@ public class PersonalBasicInfo_Container extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addComponent() {
-        String name = "Lâm Quốc Nhân";
-        String id = "LQN2005";
-        String job = "Web Developer";
-        String direct = "Trung tam CDC";
-        ImageIcon img = new ImageIcon(getClass().getResource("/img/avatar.jpg"));
-        String dateOfBirth = "20/09/2005";
-        String place = "Thành phố Hồ Chí Minh";
-        String gender = "Nam";
-        String startDate = "15/10/2024";
-        String seniority = "10/10/2012";
-        String status = "Chinh thuc";
-        String email = "quocnhan56@gmail.com";
-        String phone = "0968270553";
-        String twitter = "quocnhan56@gmail.com";
-        this.add(new NameAndJob_Component(name, id, job, direct, img));
-        this.add(new DateAndGender_Component(dateOfBirth, place, gender));
-        this.add(new Status_Component(startDate, seniority, status));
-        this.add(new Contact_Component(email, phone, twitter));
+    private void addComponents(Employee employee) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+            String name = employee.getName();
+            String employeeId = employee.getEmployeeId();
+            String job = employee.getContracts().get(0).getJob().getProfession();
+            String direct = employee.getDepartment().getName();
+            ImageIcon img = Functional.convertByteArrayToIcon(employee.getImage());
+
+            String place = employee.getContact().getPermanentAddress();
+            String gender = employee.isGender() ? "Nam" : "Nữ";
+
+            String dateOfBirth = dateFormat.format(employee.getDateOfBirth());
+
+            String startDate = dateFormat.format(employee.getContracts().get(0).getJob().getStartDate());
+            String senority = "";
+
+            int sen = employee.getSenority();
+
+            if (sen >= 30) {
+                long months = sen / 30;
+                senority = months + " tháng";
+            } else {
+                senority = sen + " ngày";
+            }
+
+            String type = employee.getContracts().get(0).getJob().getType();
+            String email = employee.getContact().getPersonalEmail();
+            String phone = employee.getContact().getPersonalPhone();
+
+            nameAndJob = new NameAndJob_Component(name, employeeId, job, direct, img);
+            dateAndGender = new DateAndGender_Component(dateOfBirth, place, gender);
+            status = new Status_Component(startDate, senority, type);
+            contact = new Contact_Component(email, phone, email);
+
+            addMouseListenerToComponent(nameAndJob, "NameAndJob");
+            addMouseListenerToComponent(dateAndGender, "DateAndGender");
+            addMouseListenerToComponent(status, "Status");
+            addMouseListenerToComponent(contact, "Contact");
+
+            this.add(nameAndJob);
+            this.add(dateAndGender);
+            this.add(status);
+            this.add(contact);
+        } catch (Exception e) {
+            System.out.println(this.getClass().getName() + e);
+        }
+
+    }
+
+    private void setLayout() {
+        this.setLayout(new GridLayout(1, 4, 0, 0));
+    }
+
+    private void customComponents() {
+        this.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
+    }
+
+    private void addMouseListenerToComponent(JComponent component, String componentName) {
+        component.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JDialog popup = new JDialog(SwingUtilities.getWindowAncestor(component), "Thôn tin chi tiết", Dialog.ModalityType.APPLICATION_MODAL);
+                popup.getContentPane().setLayout(new BorderLayout());
+                popup.getContentPane().add(new ManageEmployeeDetailInfo_Component(employee));
+                popup.setSize(1120, 740);
+                popup.setResizable(false);
+                popup.setLocationRelativeTo(null);
+                popup.setVisible(true);
+            }
+        });
     }
 
 

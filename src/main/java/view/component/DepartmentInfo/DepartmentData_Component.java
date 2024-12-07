@@ -18,7 +18,6 @@ import javax.swing.tree.TreePath;
 import model.Department;
 import org.hibernate.Session;
 import util.HibernateUtil;
-import view.component.Manage_Component.ManageEmployeeDetailInfo_Component;
 import view.component.Manage_Component.ManageSelectDepartment_Component;
 import view.component.Manage_Component.ManageSelecteEmployee_Component;
 

@@ -7,6 +7,7 @@ package view.form.Home.MainContent;
 import java.awt.CardLayout;
 import java.util.List;
 import view.component.Function_Component.FunctionData_Component;
+import view.component.Manage_Component.ManageAttendance_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
 import view.component.Manage_Component.ManageEmployeeInfo_Component;
 import view.component.Manage_Component.ManageSalary_Component;
@@ -65,7 +66,6 @@ public class MainContent extends javax.swing.JPanel {
         functions = func.getAllFunctions();
         this.add(func, "F0000");
         for (String function : functions) {
-            System.out.println(function);
             switch (function) {
                 case "F0001":
                     this.add(ManageEmployeeInfo_Component.getInstance(), "F0001");
@@ -78,6 +78,9 @@ public class MainContent extends javax.swing.JPanel {
                     break;
                 case "F0004":
                     this.add(ManageLeaveApplication_Component.getInstance(), "F0004");
+                    break;
+                case "F0005":
+                    this.add(ManageAttendance_Component.getInstance(), "F0005");
                     break;
                 default:
                     System.out.println("Error");

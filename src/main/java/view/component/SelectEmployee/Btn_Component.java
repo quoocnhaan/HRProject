@@ -5,10 +5,12 @@
 package view.component.SelectEmployee;
 
 import controller.Session.SharedData;
+import java.awt.Component;
 import javax.swing.JDialog;
 import javax.swing.SwingUtilities;
 import model.Employee;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
+import view.component.Manage_Component.ManageSelectDepartment_Component;
 import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
 /**
@@ -16,6 +18,8 @@ import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
  * @author LENOVO
  */
 public class Btn_Component extends javax.swing.JPanel {
+
+    private String parentName;
 
     public Btn_Component() {
         initComponents();
@@ -67,7 +71,14 @@ public class Btn_Component extends javax.swing.JPanel {
         updateSelectEmployeeData();
         if (parentDialog != null) {
             parentDialog.dispose();
-            ManageLeaveApplication_Component.getInstance().getFilter().updateData();
+            System.out.println(parentName);
+            switch (parentName) {
+                case "ManageLeaveApplication_Component":
+                    ManageLeaveApplication_Component.getInstance().getFilter().updateData();
+                    break;
+                default:
+                    System.out.println("Loi r thang ngu");
+            }
         }
     }//GEN-LAST:event_btnActionPerformed
 
@@ -78,6 +89,15 @@ public class Btn_Component extends javax.swing.JPanel {
             SharedData.getInstance().getEmployee_Selected().add(null);
         }
     }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn;

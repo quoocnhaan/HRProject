@@ -1,3 +1,4 @@
+view\component\Attendance_Component\GridData\Test$1.class
 controller\DAO\PaidLeaveDAO.class
 controller\DAO\ResignationDAO.class
 controller\DAO\KOWDAO.class
@@ -11,17 +12,19 @@ controller\DAO\DriverLicenseDAO.class
 view\form\Home\Header\Header$3.class
 view\component\SelectEmployee\EmployeeInfo\PersonalBasicInfo_Container$1.class
 controller\DAOImp\ContactDAOImp.class
+view\component\Attendance_Component\GridData\Test.class
 controller\DAOImp\TransportationAllowanceDAOImp.class
 view\component\Title_CheckBox\CheckAll_Component$1.class
 controller\DAO\CreditCardDAO.class
 controller\DAO\EmployeeFamilyDAO.class
-view\component\Manage_Component\NewJFrame$1.class
 view\component\Filter\Filter_Component$2.class
 view\form\Home\NewClass$2.class
 model\Notification.class
 view\component\Infomation_Component\NameAndJob_Component$1.class
 view\component\Search\Search.class
+view\component\Attendance_Component\GridData\Employee\EmployeeInfo_Container.class
 controller\DAO\ApprovedLeaveRequestDAO.class
+view\component\KOW_Filter\KOW_Filter_Component$2.class
 controller\DAO\RoleDetailDAO.class
 view\component\LeaveApplication\GridLeaveRequest\ChangePage\CurrentDate\CurrentDate_Component.class
 view\component\Infomation_Component\Contact_Component.class
@@ -32,6 +35,7 @@ view\component\Manage_Component\ManageEmployeeDetailInfo_Component$1.class
 view\component\LeaveApplication\DetailLeaveRequestForm\DetailLeaveForm_Component$1.class
 view\form\Login\Login.class
 controller\DAOImp\ContractDAOImp.class
+view\component\Attendance_Component\GridData\Title\Title_Container.class
 view\component\EmployeeBasicInfo\Header.class
 view\component\Function_Component\Function_Component$1.class
 view\component\Manage_Component\ManageEmployeeDetailInfo_Component$3.class
@@ -43,10 +47,10 @@ view\component\Manage_Component\ManageEmployeeDetailInfo_Component$4.class
 view\component\Filter\Filter_Component$3.class
 view\component\Manage_Component\ManageEmployeeInfo_Component.class
 controller\DAOImp\PayPeriodDAOImp.class
-view\component\Manage_Component\NewJFrame.class
 controller\DAOImp\EmployeeDAOImp.class
 view\component\EmployeeBasicInfo\EmployeeInfo\PersonalBasicInfo_Container$1.class
 controller\DAOImp\RoleDAOImp.class
+view\component\Attendance_Component\GridData\Content\Content_Component.class
 controller\DAO\InterfaceDAO.class
 view\component\EmployeeBasicInfo\AddBtn.class
 view\component\Title_CheckBox\CheckAll_Component.class
@@ -58,6 +62,7 @@ controller\DAOImp\FunctionDAOImp.class
 controller\Functional\Functional.class
 view\component\LeaveApplication\GridLeaveRequest\ChangePage\ChangePage_Component.class
 controller\DAO\AttendanceInformationDAO.class
+view\component\Attendance_Component\Attendance_Component.class
 controller\DAO\NotificationDAO.class
 view\component\LeaveApplication\GridLeaveRequest\Date\Date_Container$1.class
 view\form\Home\Navigation\Function_Component\Function_Component$1.class
@@ -75,12 +80,14 @@ view\component\DeparmentInfoDetail\Test_Deparment.class
 controller\DAOImp\CreditCardDAOImp.class
 view\component\Manage_Component\ManageSalary_Component.class
 controller\DAOImp\MaternityLeaveDAOImp.class
+view\component\Attendance_Component\GridData\Title\Title_Component.class
 view\component\Manage_Component\ManageEmployeeDetailInfo_Component$5.class
 controller\Session\MySession.class
 view\form\Home\NewClass.class
 controller\DAO\InsuranceDAO.class
 view\component\Manage_Component\ManageSelecteEmployee_Component.class
 view\component\Manage_Component\ManageEmployeeDetailInfo_Component$2.class
+view\component\Manage_Component\ManageAttendance_Component.class
 view\component\LeaveApplication\DetailLeaveRequestForm\DetailLeaveForm_Component$3.class
 view\component\Title_CheckBox\CheckBox_Component$1.class
 view\component\DepartmentInfo\Btn$1.class
@@ -88,9 +95,11 @@ controller\DAOImp\KOWDAOImp.class
 view\component\Manage_Component\ManageSelectDepartment_Component.class
 view\component\DepartmentInfo\Btn.class
 controller\DAOImp\EmployeeFamilyDAOImp.class
+view\component\Attendance_Component\GridData\Data\Data_Component.class
 view\form\Home\Navigation\Navigation.class
 controller\DAOImp\SalaryDAOImp.class
 view\form\Login\MainFrame.class
+view\component\KOW_Filter\KOW_Filter_Component$1.class
 view\form\Login\MainFrame$1.class
 controller\Session\SharedData.class
 controller\DAO\TransportationAllowanceDAO.class
@@ -105,6 +114,8 @@ controller\DAO\PayPeriodDAO.class
 view\component\LeaveApplication\GridLeaveRequest\ChangePage\ChangePage_Component$1.class
 model\RoleDetail.class
 controller\DAOImp\NotiTypeDAOImp.class
+view\component\Attendance_Component\GridData\Employee\EmployeeInfo_Component.class
+view\component\Attendance_Component\GridData\Data\Data_Container.class
 controller\DAO\JobDAO.class
 view\component\LeaveApplication\DetailLeaveRequestForm\DetailLeaveForm_Component$2.class
 view\component\LeaveApplication\GridLeaveRequest\LeaveRequestForm\LeaveForm_Component$1.class
@@ -129,6 +140,7 @@ controller\DAOImp\ApprovedLeaveRequestDAOImp.class
 view\component\DeparmentInfoDetail\Department_Component.class
 controller\DAO\UserDAO.class
 view\component\SelectEmployee\Btn_Component$1.class
+view\component\KOW_Filter\KOW_Filter_Component.class
 controller\DAO\FunctionDAO.class
 controller\DAOImp\InsuranceDAOImp.class
 view\form\Login\Login$5.class

@@ -582,10 +582,10 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
                 String attendanceIdValue = attendanceId.getText();
                 String departmentNameValue = departmentName.getText();
                 Role role = roleDAO.getByName(titleName);
+                String professionValue = (String) profession.getSelectedItem();
 
                 if (employee == null) {
                     Department department = departmentDAO.getByName(departmentNameValue);
-                    System.out.println("1");
 
                     Contact contact = new Contact(emailValue, phoneValue, placeOfBirthValue);
 
@@ -596,7 +596,7 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
 
                     Employee employee = new Employee(employeeName, attendanceInformation, department, roleDetail, employeeId, imgByte, birthDate, employeeGender, employeeSeniority, null, contact, true);
 
-                    Job job = new Job(startDateValue, label16.getText(), (String) type.getSelectedItem());
+                    Job job = new Job(startDateValue, professionValue, (String) type.getSelectedItem());
 
                     List<Contract> contracts = new ArrayList<>();
                     Contract contract = new Contract("contract123", employee, job);
@@ -606,6 +606,8 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
                     jobDAO.add(job);
                     employeeDAO.add(employee);
                     contractDAO.add(contract);
+                    attendanceInformationDAO.add(attendanceInformation);
+
                     JOptionPane.showMessageDialog(this, "Thêm nhân viên mới thành công !");
 
                 } else {
@@ -625,7 +627,7 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
                     employee.setSenority(employeeSeniority);
 
                     employee.getContracts().get(0).getJob().setStartDate(startDateValue);
-                    employee.getContracts().get(0).getJob().setProfession(label16.getText());
+                    employee.getContracts().get(0).getJob().setProfession(professionValue);
                     employee.getContracts().get(0).getJob().setType((String) type.getSelectedItem());
 
                     employeeDAO.update(employee);

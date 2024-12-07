@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
 
 /**
  *
@@ -105,8 +106,9 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
 
     private void customComponents() {
         this.setPreferredSize(new Dimension(280, 60));
-        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
-        this.setBorder(lineBorder);
+        MatteBorder border = new MatteBorder(1, 0, 0, 0, Color.BLACK);
+
+        this.setBorder(border);
     }
 
     private void initData(String name, String job, String id, ImageIcon img) {

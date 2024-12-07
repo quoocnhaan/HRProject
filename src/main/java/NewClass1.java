@@ -1,3 +1,4 @@
+
 import controller.DAO.ContactDAO;
 import controller.DAO.ContractDAO;
 import controller.DAO.DepartmentDAO;
@@ -23,8 +24,11 @@ import model.Contact;
 import model.Contract;
 import model.Department;
 import model.Employee;
+import model.Function;
+import model.FunctionAuthorization;
 import model.Job;
 import model.LeaveRequest;
+import model.Role;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
@@ -68,21 +72,17 @@ public class NewClass1 {
 //            jobDAO.add(job);
 //            employeeDAO.add(e);
 //            contractDAO.add(contract);
-
-              Employee e = employeeDAO.get(2L);
-              Date date = java.sql.Date.valueOf("2024-11-11");
+//            Employee e = employeeDAO.get(2L);
+//            Date date = java.sql.Date.valueOf("2024-11-11");
 //              LeaveRequest l = new LeaveRequest(e, false, date);
 //              
 //              leaveRequestDAO.add(l);
-               LeaveRequest l = leaveRequestDAO.findByEmployeeIdAndFromDate(e.getId(), date);
-               System.out.println(l.getEmployee().getName());
-
             // Lấy dữ liệu
-//            Role r1 = roleDAO.get(1);
-//            Function f1 = functionDAO.get(1);
-//            FunctionAuthorization functionAuthorization1 = new FunctionAuthorization(f1, r1, true, true, true, true, true);
-//            r1.getFunctions().add(f1);
-//            f1.getRoles().add(r1);
+//            Role r = roleDAO.get(1);
+//            Function f = functionDAO.get(5);
+//            FunctionAuthorization functionAuthorization = new FunctionAuthorization(f, r, true, true, true, true, true);
+//            r.getFunctions().add(f);
+//            f.getRoles().add(r);
 //
 //            roleDAO.update(r1);
 //            functionDAO.update(f1);
@@ -110,10 +110,13 @@ public class NewClass1 {
 //            FunctionAuthorization functionAuthorization4 = new FunctionAuthorization(f4, r1, true, true, true, true, true);
 //            r1.getFunctions().add(f4);
 //            f4.getRoles().add(r1);
-//
-//            roleDAO.update(r1);
-//            functionDAO.update(f4);
-//            functionAuthorizationDAO.add(functionAuthorization4);
+            ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("icon/attendance.png"));
+
+            Function function = functionDAO.get(5);
+            function.setIcon(Functional.convertIconToByteArray(icon));
+
+            functionDAO.update(function);
+
         } catch (Exception e) {
         }
     }

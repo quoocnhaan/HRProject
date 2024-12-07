@@ -28,10 +28,10 @@ import view.component.Manage_Component.ManageSelecteEmployee_Component;
  * @author LENOVO
  */
 public class Filter_Component extends javax.swing.JPanel {
-
+    
     public int curMonth;
     public String m;
-
+    
     public Filter_Component() {
         initComponents();
         customComponents();
@@ -104,6 +104,7 @@ public class Filter_Component extends javax.swing.JPanel {
         selectImg.setText(" ");
         selectImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Nhân viên");
 
@@ -182,14 +183,14 @@ public class Filter_Component extends javax.swing.JPanel {
     private void isSelectedDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isSelectedDayActionPerformed
         if (isSelectedDay.isSelected()) {
             this.month.setText("_____");
-
+            
             fromDateChooser.setEnabled(true);
             toDateChooser.setEnabled(true);
             settingFromDateChooser();
             settingToDateChooser();
         } else {
             month.setText(this.m);
-
+            
             fromDateChooser.setDate(null);
             fromDateChooser.setEnabled(false);
             toDateChooser.setDate(null);
@@ -203,7 +204,7 @@ public class Filter_Component extends javax.swing.JPanel {
         long size = SharedData.getInstance().getEmployee_Selected().stream()
                 .filter(e -> e != null)
                 .count();
-        if(size == 0) {
+        if (size == 0) {
             JOptionPane.showMessageDialog(null, "Vui lòng chọn nhân viên");
             return;
         }
@@ -219,7 +220,7 @@ public class Filter_Component extends javax.swing.JPanel {
                 to = now.withDayOfMonth(now.lengthOfMonth());
             }
             LocalDate currentFrom = from;
-
+            
             while (!currentFrom.isAfter(to)) {
                 LocalDate currentTo = currentFrom.plusDays(6);
                 if (currentTo.isAfter(to)) {
@@ -227,17 +228,17 @@ public class Filter_Component extends javax.swing.JPanel {
                 }
                 DateRange dateRange = new DateRange(currentFrom, currentTo);
                 SharedData.getInstance().getDateRanges().add(dateRange);
-
+                
                 currentFrom = currentTo.plusDays(1);
             }
             transferData();
         } else {
-
+            
         }
     }//GEN-LAST:event_updateBtnMouseClicked
 
     private void employeeAmountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAmountMouseClicked
-        // Tạo JDialog và thêm ManageSelecteEmployee_Component vào
+        ManageSelecteEmployee_Component.getInstance().getSelectEmployee().getBtn().setParentName("ManageLeaveApplication_Component");
         JDialog popup = new JDialog(SwingUtilities.getWindowAncestor(this), "Manage Selected Employee", Dialog.ModalityType.APPLICATION_MODAL);
         popup.getContentPane().setLayout(new BorderLayout());
         popup.getContentPane().add(ManageSelecteEmployee_Component.getInstance());
@@ -266,7 +267,7 @@ public class Filter_Component extends javax.swing.JPanel {
         fromDateChooser.setEnabled(false);
         toDateChooser.setEnabled(false);
     }
-
+    
     private void settingFromDateChooser() {
         Calendar cal = Calendar.getInstance();
         fromDateChooser.setCalendar(cal);
@@ -279,7 +280,7 @@ public class Filter_Component extends javax.swing.JPanel {
             toDateChooser.setMinSelectableDate(selectedDate);  // Đảm bảo không chọn ngày trước fromDate
         }
     }
-
+    
     private void settingToDateChooser() {
         Calendar cal = Calendar.getInstance();
         fromDateChooser.getDateEditor().addPropertyChangeListener("date", new PropertyChangeListener() {
@@ -294,13 +295,13 @@ public class Filter_Component extends javax.swing.JPanel {
                     toDateChooser.setMinSelectableDate(selectedDate);
                 }
             }
-
+            
             private boolean checkValid(Date date) {
                 return date == null || date.before(fromDateChooser.getDate());
             }
         });
     }
-
+    
     private void initData() {
         curMonth = LocalDate.now().getMonthValue();
         String m = (curMonth < 10) ? "0" + curMonth : curMonth + "";
@@ -308,7 +309,7 @@ public class Filter_Component extends javax.swing.JPanel {
         this.m = m + "/" + y;
         month.setText(this.m);
     }
-
+    
     private void customComponents() {
         fromDateChooser.setBorder(null);
         toDateChooser.setBorder(null);
@@ -316,13 +317,13 @@ public class Filter_Component extends javax.swing.JPanel {
         this.selectImg.setSize(25, 25);
         this.selectImg.setIcon(Functional.scaleImg(selectImg, img));
     }
-
+    
     private void transferData() {
         ChangePage_Component.index = 0;
         SharedData.getInstance().setCurDateRange(SharedData.getInstance().getDateRanges().get(0));
         ManageLeaveApplication_Component.getInstance().updateData(SharedData.getInstance().getCurDateRange());
     }
-
+    
     public void updateData() {
         long size = SharedData.getInstance().getEmployee_Selected().stream()
                 .filter(e -> e != null)

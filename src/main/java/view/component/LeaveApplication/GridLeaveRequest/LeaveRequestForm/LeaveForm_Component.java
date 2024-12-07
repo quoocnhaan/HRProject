@@ -14,6 +14,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
 import model.Employee;
 import model.LeaveRequest;
 
@@ -70,8 +71,9 @@ public class LeaveForm_Component extends javax.swing.JPanel {
     private void customComponents() {
         this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 10));
         this.setPreferredSize(new Dimension(140, 60));
-        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
-        this.setBorder(lineBorder);
+        MatteBorder border = new MatteBorder(1, 1, 0, 0, Color.BLACK);
+
+        this.setBorder(border);
     }
 
     private void initMyComponents(LeaveRequest leaveRequest) {

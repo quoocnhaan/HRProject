@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
 
 /**
  *
@@ -89,8 +90,9 @@ public class Date_Component extends javax.swing.JPanel {
 
     private void customComponents() {
         this.setPreferredSize(new Dimension(140, 60));
-        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);  // Đường viền màu đen dày 2 pixel
-        this.setBorder(lineBorder);
+        MatteBorder border = new MatteBorder(0, 1, 0, 0, Color.BLACK);
+
+        this.setBorder(border);
     }
 
 }

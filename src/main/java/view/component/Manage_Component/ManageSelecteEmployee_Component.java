@@ -65,6 +65,16 @@ public class ManageSelecteEmployee_Component extends javax.swing.JPanel {
         PersonalInfo_Container.getInstance().updateData();
         selectEmployee.getEmployeeAndSearch().getPersonalInfo().reset();
     }
+
+    public SelectEmployee_Component getSelectEmployee() {
+        return selectEmployee;
+    }
+
+    public void setSelectEmployee(SelectEmployee_Component selectEmployee) {
+        this.selectEmployee = selectEmployee;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

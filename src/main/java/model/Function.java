@@ -54,10 +54,9 @@ public class Function {
 //
 //    @Column(name = "exit_icon")
 //    private byte[] exitIcon;
-    
     @Column(name = "icon")
     private byte[] icon;
-    
+
     @Column(name = "color")
     private String color;
 
@@ -78,12 +77,19 @@ public class Function {
 //        this.color = color;
 //        this.status = status;
 //    }
-
     public Function(String functionId, List<Role> roles, String name, FunctionAuthorization functionAuthorization, byte[] icon, String color, boolean status) {
         this.functionId = functionId;
         this.roles = roles;
         this.name = name;
         this.functionAuthorization = functionAuthorization;
+        this.icon = icon;
+        this.color = color;
+        this.status = status;
+    }
+
+    public Function(String functionId, String name, byte[] icon, String color, boolean status) {
+        this.functionId = functionId;
+        this.name = name;
         this.icon = icon;
         this.color = color;
         this.status = status;
@@ -104,7 +110,6 @@ public class Function {
 //    public void setExitIcon(byte[] exitIcon) {
 //        this.exitIcon = exitIcon;
 //    }
-
     public List<Role> getRoles() {
         return roles;
     }

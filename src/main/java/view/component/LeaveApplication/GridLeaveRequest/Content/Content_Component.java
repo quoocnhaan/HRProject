@@ -4,17 +4,16 @@
  */
 package view.component.LeaveApplication.GridLeaveRequest.Content;
 
-import controller.Session.SharedData;
-import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.List;
-import javax.swing.JPanel;
 import model.DateRange;
 import model.Employee;
+import view.component.Attendance_Component.GridData.Title.Title_Container;
 import view.component.LeaveApplication.GridLeaveRequest.Date.Date_Container;
 import view.component.LeaveApplication.GridLeaveRequest.Employee.EmployeeInfo_Container;
 import view.component.LeaveApplication.GridLeaveRequest.LeaveRequestForm.LeaveForm_Container;
+
 
 /**
  *

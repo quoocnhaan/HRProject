@@ -33,7 +33,7 @@ public class Function_Component extends javax.swing.JPanel {
         funcIcon = new javax.swing.JLabel();
         funcId = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(4, 89, 74));
+        setBackground(new java.awt.Color(174, 58, 236));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setMaximumSize(new java.awt.Dimension(300, 150));
         addMouseListener(new java.awt.event.MouseAdapter() {

@@ -6,10 +6,7 @@ package view.component.Attendance_Component.GridData.Data;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
-import model.Employee;
 
 /**
  *

@@ -59,6 +59,7 @@ view\component\EmployeeBasicInfo\AddBtn.class
 view\component\Title_CheckBox\CheckAll_Component.class
 controller\DAOImp\PaidLeaveDAOImp.class
 view\component\Title_CheckBox\CheckBox_Component.class
+view\component\Manage_Component\ManageEmployeeDetailInfo_Component$7.class
 controller\DAO\NotiTypeDAO.class
 controller\DAOImp\DriverLicenseDAOImp.class
 controller\DAOImp\FunctionDAOImp.class

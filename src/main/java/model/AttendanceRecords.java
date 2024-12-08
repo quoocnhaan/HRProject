@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 /**
  *
  * @author LENOVO
@@ -21,6 +22,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "hr_attendance_records")
 public class AttendanceRecords {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -31,27 +33,30 @@ public class AttendanceRecords {
 
     @Column(name = "work_date")
     private Date workDate;
-    
+
     @Column(name = "start_time")
     private LocalTime startTime;
-    
+
     @Column(name = "end_time")
     private LocalTime endTime;
-    
+
+    @Column(name = "kow")
+    private double kow;
+
     @Column(name = "status")
     private boolean status;
 
-    public AttendanceRecords(AttendanceInformation attendanceInformation, Date workDate, LocalTime startTime, LocalTime endTime, boolean status) {
+    public AttendanceRecords(AttendanceInformation attendanceInformation, Date workDate, LocalTime startTime, LocalTime endTime, double kow, boolean status) {
         this.attendanceInformation = attendanceInformation;
         this.workDate = workDate;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.kow = kow;
         this.status = status;
     }
 
     public AttendanceRecords() {
     }
-
 
     public long getId() {
         return id;
@@ -68,8 +73,6 @@ public class AttendanceRecords {
     public void setAttendanceInformation(AttendanceInformation attendanceInformation) {
         this.attendanceInformation = attendanceInformation;
     }
-    
-    
 
     public Date getWorkDate() {
         return workDate;
@@ -93,6 +96,14 @@ public class AttendanceRecords {
 
     public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
+    }
+
+    public double getKow() {
+        return kow;
+    }
+
+    public void setKow(double kow) {
+        this.kow = kow;
     }
 
     public boolean isStatus() {

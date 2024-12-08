@@ -6,8 +6,6 @@ package view.component.Attendance_Component.GridData.Title;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
 /**
@@ -71,9 +69,6 @@ public class Title_Component extends javax.swing.JPanel {
 
     private void customComponents() {
         this.setPreferredSize(new Dimension(140, 60));
-        MatteBorder border = new MatteBorder(1, 0, 1, 0, Color.BLACK);
-
-        //this.setBorder(border);
     }
 
 }

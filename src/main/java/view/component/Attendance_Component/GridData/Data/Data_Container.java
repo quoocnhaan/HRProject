@@ -4,23 +4,14 @@
  */
 package view.component.Attendance_Component.GridData.Data;
 
-import controller.DAO.AttendanceInformationDAO;
-import controller.DAO.AttendanceRecordsDAO;
-import controller.DAOImp.AttendanceInformationDAOImp;
-import controller.DAOImp.AttendanceRecordsDAOImp;
 import java.awt.GridLayout;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.Duration;
-import java.util.Date;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import model.AttendanceRecords;
 import model.Employee;
-import org.hibernate.Session;
-import util.HibernateUtil;
 
 /**
  *
@@ -77,8 +68,7 @@ public class Data_Container extends javax.swing.JPanel {
             String standardOut = employee.getAttendanceInformation().getEndTime().toString();
             String in = record.getStartTime().toString();
             String out = record.getEndTime().toString();
-            Duration duration = Duration.between(record.getStartTime(), record.getEndTime());
-            String kow = duration.toMinutes() + "W";
+            String kow = record.getKow() + "W";
 
             this.add(new Data_Component(workDate.format(dateFormatter)));
             this.add(new Data_Component(convertDayToVietnamese(workDate.getDayOfWeek())));
@@ -88,7 +78,6 @@ public class Data_Container extends javax.swing.JPanel {
             this.add(new Data_Component(out));
             this.add(new Data_Component(kow));
         }
-
         validate();
         repaint();
     }

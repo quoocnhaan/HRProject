@@ -4,11 +4,9 @@
  */
 package view.component.Salary.Salary_Component.Data;
 
-import view.component.Salary.Salary_Component.Title.*;
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
 
 /**
  *
@@ -38,7 +36,7 @@ public class Data_Component extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        title.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        title.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         title.setForeground(new java.awt.Color(0, 0, 0));
         title.setText("20.000.000");
 
@@ -49,14 +47,14 @@ public class Data_Component extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -71,8 +69,9 @@ public class Data_Component extends javax.swing.JPanel {
 
     private void customComponents() {
         this.setPreferredSize(new Dimension(140, 60));
-        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY,1);  // Đường viền màu đen dày 2 pixel
-        this.setBorder(lineBorder);
+        MatteBorder border = new MatteBorder(1, 0, 0, 0, Color.BLACK);
+
+        this.setBorder(border);
     }
 
 }

@@ -82,15 +82,16 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(name)
                             .addComponent(id))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(job))
-                    .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addGap(8, 8, 8)
+                        .addComponent(job)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addComponent(img, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -105,7 +106,6 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
     private void customComponents() {
         this.setPreferredSize(new Dimension(280, 60));
         MatteBorder border = new MatteBorder(1, 0, 0, 0, Color.BLACK);
-
         this.setBorder(border);
     }
 
@@ -113,7 +113,7 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
         this.name.setText(name);
         this.job.setText(job);
         this.id.setText(id);
-        this.img.setSize(40, 40);
+        this.img.setSize(40, 48);
         this.img.setIcon(Functional.scaleImg(this.img, img));
     }
 }

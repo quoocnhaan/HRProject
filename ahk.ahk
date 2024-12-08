@@ -1,5 +1,5 @@
 ﻿; Đường dẫn tới file data.txt trên Desktop
-filePath := "C:\Users\LENOVO\Desktop\data.txt"
+filePath := "C:\Users\PC\Desktop\data.txt"
 
 ; Biến toàn cục để lưu trữ dữ liệu nhập vào (chỉ chứa số)
 inputData := ""

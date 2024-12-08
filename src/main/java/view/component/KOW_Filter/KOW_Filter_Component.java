@@ -24,6 +24,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -186,7 +187,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
         }
         transferData();
 
-        
+
     }//GEN-LAST:event_updateBtnMouseClicked
 
     private void employeeAmountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAmountMouseClicked
@@ -227,7 +228,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
     }
 
     private void transferData() {
-        Period periodValue = new Period( (String) period.getSelectedItem());
+        Period periodValue = new Period((String) period.getSelectedItem());
         ManageAttendance_Component.getInstance().updateData(periodValue);
     }
 
@@ -268,10 +269,10 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
             AttendanceInformationDAO attendanceInformationDAO = new AttendanceInformationDAOImp(session);
             AttendanceRecordsDAO attendanceRecordsDAO = new AttendanceRecordsDAOImp(session);
 
-            List<AttendanceData> attendanceList = processAttendanceFile("C:/Users/LENOVO/Desktop/data.txt");
+            List<AttendanceData> attendanceList = processAttendanceFile("C:\\Users\\PC\\Desktop\\data.txt");
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-             DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
             for (AttendanceData ad : attendanceList) {
                 AttendanceInformation attendanceInformation = attendanceInformationDAO.getByAttendanceInformationId(ad.getAttendanceId());
@@ -284,14 +285,29 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
                         LocalTime startTime = LocalTime.parse(d.getTimeIn(), timeFormatter);
                         LocalTime endTime = (d.getTimeOut() != null) ? LocalTime.parse(d.getTimeOut(), timeFormatter) : null;
 
+                        Duration duration = Duration.between(startTime, endTime);
+                        double kow = duration.toMinutes();
+
+                        double fractionalPart = kow - Math.floor(kow);
+
+                        double roundedKow = kow;
+                        if (fractionalPart < 0.5) {
+                            roundedKow = Math.floor(kow);
+                        } else if (fractionalPart == 0.5) {
+                            roundedKow = kow;
+                        } else {
+                            roundedKow = Math.ceil(kow);
+                        }
+
                         AttendanceRecords attendanceRecords = attendanceRecordsDAO.findByAttendanceInformationAndDate(attendanceInformation, workDate);
 
                         if (attendanceRecords != null) {
                             attendanceRecords.setStartTime(startTime);
                             attendanceRecords.setEndTime(endTime);
+                            attendanceRecords.setKow(roundedKow);
                             attendanceRecordsDAO.update(attendanceRecords);
                         } else {
-                            attendanceRecords = new AttendanceRecords(attendanceInformation, workDate, startTime, endTime, true);
+                            attendanceRecords = new AttendanceRecords(attendanceInformation, workDate, startTime, endTime, roundedKow, true);
                             attendanceRecordsDAO.add(attendanceRecords);
                         }
                     } catch (Exception e) {

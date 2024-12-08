@@ -5,10 +5,6 @@
 package view.component.Attendance_Component.GridData.Title;
 
 import java.awt.GridLayout;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import model.DateRange;
 
 /**
  *

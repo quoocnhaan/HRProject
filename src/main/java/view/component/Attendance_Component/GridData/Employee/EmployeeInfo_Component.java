@@ -7,9 +7,7 @@ package view.component.Attendance_Component.GridData.Employee;
 import controller.Functional.Functional;
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
 /**
@@ -44,6 +42,7 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
 
         img.setBackground(new java.awt.Color(255, 255, 255));
         img.setText(" ");
+        img.setSize(34, 40);
 
         name.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         name.setForeground(new java.awt.Color(0, 0, 0));
@@ -59,8 +58,8 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(name)
                     .addComponent(id))
@@ -70,12 +69,12 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(img, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(name)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(id))
-                    .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addComponent(id)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -96,7 +95,6 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
     private void initData(String name, String id, ImageIcon img) {
         this.name.setText(name);
         this.id.setText(id);
-        this.img.setSize(40, 40);
         this.img.setIcon(Functional.scaleImg(this.img, img));
     }
 }

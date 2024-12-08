@@ -48,9 +48,7 @@ public class Header extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void setLayout() {
-        //this.setLayout(new GridLayout(0, 2, 0, 0));
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-
+        this.setLayout(new BorderLayout(0, 0));
     }
 
     private void addComponents() {

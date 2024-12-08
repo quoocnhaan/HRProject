@@ -90,7 +90,6 @@ public class Date_Container extends javax.swing.JPanel {
         for (int i = count; i <= 7; i++) {
             this.add(new Date_Component());
         }
-
         this.revalidate();
         this.repaint();
     }

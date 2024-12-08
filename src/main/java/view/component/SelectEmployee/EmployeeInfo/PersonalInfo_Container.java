@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import model.Employee;
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import util.HibernateUtil;
 

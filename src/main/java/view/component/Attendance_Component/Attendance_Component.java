@@ -51,9 +51,8 @@ public class Attendance_Component extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-
         JPanel fixedColumnPanel = Content_Component.getInstance().getEmployeeInfo_Container();
-        JPanel fixedRowPanel = Content_Component.getInstance().getDate_Container();
+        JPanel fixedRowPanel = Content_Component.getInstance().getTitle_Container();
 
         content = new JScrollPane(Content_Component.getInstance());
 

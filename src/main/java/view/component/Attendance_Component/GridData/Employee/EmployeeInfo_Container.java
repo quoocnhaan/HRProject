@@ -62,9 +62,8 @@ public class EmployeeInfo_Container extends javax.swing.JPanel {
             Employee employee = employeeDAO.get(3L);
             ImageIcon img = Functional.convertByteArrayToIcon(employee.getImage());
             String name = employee.getName();
-            String job = employee.getContracts().get(0).getJob().getProfession();
             String id = employee.getEmployeeId();
-            for (int i = 1; i <= 8; i++) {
+            for (int i = 1; i <= 30; i++) {
                 this.add(new EmployeeInfo_Component(name, id, img));
             }
         } catch (Exception e) {
@@ -73,15 +72,19 @@ public class EmployeeInfo_Container extends javax.swing.JPanel {
 
     public void updateData() {
         this.removeAll();
-        for (Employee e : SharedData.getInstance().getEmployee_Selected()) {
+        for (Employee e : SharedData.getInstance().getEmployee_Attendance()) {
+            System.out.println(e.getName());
             if (e != null) {
                 ImageIcon img = Functional.convertByteArrayToIcon(e.getImage());
                 String name = e.getName();
-                String job = e.getContracts().get(0).getJob().getProfession();
                 String id = e.getEmployeeId();
-                this.add(new EmployeeInfo_Component(name, id, img));
+                for (int i = 1; i <= 30; i++) {
+                    this.add(new EmployeeInfo_Component(name, id, img));
+                }
             }
         }
+        validate();
+        repaint();
     }
 
 

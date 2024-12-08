@@ -131,7 +131,7 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
 
         label7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        id.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        id.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         id.setForeground(new java.awt.Color(255, 0, 0));
         id.setText("LQN2005");
 
@@ -490,8 +490,8 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
                             .addComponent(label16)
                             .addComponent(profession, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label3)
-                            .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)))
+                            .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
@@ -508,9 +508,8 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label11)
                             .addComponent(otherEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(140, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(denyBtn)
                             .addComponent(confirmBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -637,6 +636,7 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
                 close();
                 ManageEmployeeInfo_Component.getInstance().updateData();
             } catch (Exception e) {
+                System.out.println(e);
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập thông tin hợp lệ !");
             }
         }

@@ -77,8 +77,8 @@ public class test {
 //            session.save(function4);
             ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("icon/attendance.png"));
 
-//            Function function = new Function("F0005", "Xem và tính công", Functional.convertIconToByteArray(icon), "174,58,236", true);
-//            session.save(function);
+            Function function = new Function("F0005", "Xem và tính công", Functional.convertIconToByteArray(icon), "174,58,236", true);
+            session.save(function);
 //            // Kết thúc data mẫu
             // Hoàn thành transaction
             transaction.commit();

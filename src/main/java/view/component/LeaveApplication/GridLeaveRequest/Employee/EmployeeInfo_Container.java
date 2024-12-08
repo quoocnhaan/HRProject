@@ -9,6 +9,7 @@ import controller.DAOImp.EmployeeDAOImp;
 import controller.Functional.Functional;
 import controller.Session.SharedData;
 import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.ImageIcon;
 import model.Employee;
 import org.hibernate.Session;
@@ -59,21 +60,22 @@ public class EmployeeInfo_Container extends javax.swing.JPanel {
     private void addComponents() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
-            Employee employee = employeeDAO.get(3L);
-            ImageIcon img = Functional.convertByteArrayToIcon(employee.getImage());
-            String name = employee.getName();
-            String job = employee.getContracts().get(0).getJob().getProfession();
-            String id = employee.getEmployeeId();
-            for (int i = 1; i <= 8; i++) {
+            List<Employee> list = employeeDAO.getAll();
+            for (Employee employee : list) {
+                ImageIcon img = Functional.convertByteArrayToIcon(employee.getImage());
+                String name = employee.getName();
+                String job = employee.getContracts().get(0).getJob().getProfession();
+                String id = employee.getEmployeeId();
                 this.add(new EmployeeInfo_Component(name, job, id, img));
             }
+
         } catch (Exception e) {
         }
     }
 
     public void updateData() {
         this.removeAll();
-        for (Employee e : SharedData.getInstance().getEmployee_Selected()) {
+        for (Employee e : SharedData.getInstance().getEmployee_Leave()) {
             if (e != null) {
                 ImageIcon img = Functional.convertByteArrayToIcon(e.getImage());
                 String name = e.getName();

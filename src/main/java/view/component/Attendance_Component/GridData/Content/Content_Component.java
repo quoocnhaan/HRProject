@@ -4,8 +4,10 @@ package view.component.Attendance_Component.GridData.Content;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
+import controller.Session.SharedData;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import model.Employee;
 import view.component.Attendance_Component.GridData.Data.Data_Container;
 import view.component.Attendance_Component.GridData.Employee.EmployeeInfo_Container;
 import view.component.Attendance_Component.GridData.Title.Title_Container;
@@ -80,8 +82,8 @@ public class Content_Component extends javax.swing.JPanel {
         gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.fill = GridBagConstraints.BOTH;
-        gbc.weightx = 1; // Cho phép nội dung mở rộng theo chiều ngang
-        gbc.weighty = 1; // Cho phép nội dung mở rộng theo chiều dọc
+        gbc.weightx = 1;
+        gbc.weighty = 1;
         this.add(data_Container, gbc);
     }
 
@@ -99,7 +101,7 @@ public class Content_Component extends javax.swing.JPanel {
         return employeeInfo_Container;
     }
 
-    public Title_Container getDate_Container() {
+    public Title_Container getTitle_Container() {
         return title_Container;
     }
 
@@ -109,6 +111,15 @@ public class Content_Component extends javax.swing.JPanel {
 
     public void setLeaveForm_Container(Data_Container data_Container) {
         this.data_Container = data_Container;
+    }
+
+    public void updateData() {
+        data_Container.removeAll();
+        for (Employee employee : SharedData.getInstance().getEmployee_Attendance()) {
+            for (int i = 1; i <= 30; i++) {
+                data_Container.updateData(employee);
+            }
+        }
     }
 
 

@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import view.component.Manage_Component.ManageAttendance_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
 import view.component.Manage_Component.ManageSelecteEmployee_Component;
 
@@ -41,7 +42,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
         selectImg = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         updateBtn = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        period = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -83,9 +84,9 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "11/2024", "12/2024" }));
+        period.setBackground(new java.awt.Color(255, 255, 255));
+        period.setForeground(new java.awt.Color(0, 0, 0));
+        period.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "11/2024", "12/2024" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -103,7 +104,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(period, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel7)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(employeeAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,7 +121,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
                 .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(period, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -134,12 +135,14 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBtnMouseClicked
-        ManageLeaveApplication_Component lac = (ManageLeaveApplication_Component) SwingUtilities.getAncestorOfClass(ManageLeaveApplication_Component.class, this);
-        long size = SharedData.getInstance().getEmployee_Selected().size();
-        if(size == 0) {
+
+        long size = SharedData.getInstance().getEmployee_Attendance().size();
+        if (size == 0) {
             JOptionPane.showMessageDialog(null, "Vui lòng chọn nhân viên");
             return;
         }
+        transferData();
+
 //        if (lac != null) {
 //            LocalDate from = null;
 //            LocalDate to = null;
@@ -170,7 +173,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
     }//GEN-LAST:event_updateBtnMouseClicked
 
     private void employeeAmountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAmountMouseClicked
-        // Tạo JDialog và thêm ManageSelecteEmployee_Component vào
+        ManageSelecteEmployee_Component.getInstance().getSelectEmployee().getBtn().setParentName("ManageAttendance_Component");
         JDialog popup = new JDialog(SwingUtilities.getWindowAncestor(this), "Manage Selected Employee", Dialog.ModalityType.APPLICATION_MODAL);
         popup.getContentPane().setLayout(new BorderLayout());
         popup.getContentPane().add(ManageSelecteEmployee_Component.getInstance());
@@ -182,15 +185,13 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel employeeAmount;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JComboBox<String> period;
     private javax.swing.JLabel selectImg;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
-
-
 
     private void customComponents() {
         ImageIcon img = new ImageIcon(getClass().getResource("/icon/add.png"));
@@ -199,11 +200,11 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
     }
 
     private void transferData() {
-        
+        ManageAttendance_Component.getInstance().updateData();
     }
 
     public void updateData() {
-        long size = SharedData.getInstance().getEmployee_Selected().stream()
+        long size = SharedData.getInstance().getEmployee_Attendance().stream()
                 .filter(e -> e != null)
                 .count();
         this.employeeAmount.setText("   Chọn nhân viên (" + size + ")");

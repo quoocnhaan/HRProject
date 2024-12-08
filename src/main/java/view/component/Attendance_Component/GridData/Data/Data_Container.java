@@ -4,12 +4,8 @@
  */
 package view.component.Attendance_Component.GridData.Data;
 
-import controller.DAO.LeaveRequestDAO;
-import controller.DAOImp.LeaveRequestDAOImp;
 import java.awt.GridLayout;
 import model.Employee;
-import org.hibernate.Session;
-import util.HibernateUtil;
 
 /**
  *
@@ -47,26 +43,18 @@ public class Data_Container extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void setLayout() {
-        this.setLayout(new GridLayout(0, 8, 0, 0));
+        this.setLayout(new GridLayout(0, 7, 0, 0));
     }
 
     private void addComponents() {
-        for (int i = 1; i <= 64; i++) {
+        for (int i = 1; i <= 210; i++) {
             this.add(new Data_Component(new Employee(), "Hello"));
         }
     }
 
     public void updateData(Employee employee) {
-        if (employee == null) {
-            for (int i = 1; i <= 7; i++) {
-
-            }
-        } else {
-            try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-                LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
-
-            } catch (Exception e) {
-            }
+        for (int i = 1; i <= 7; i++) {
+            this.add(new Data_Component(employee, "Hello"));
         }
         validate();
         repaint();

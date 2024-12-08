@@ -28,10 +28,8 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
     }
 
     public EmployeeInfo_Component() {
-        this.setPreferredSize(new Dimension(280, 60));
         this.setBackground(new Color(227, 227, 227));
-        Border lineBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
-        this.setBorder(lineBorder);
+        customComponents();
     }
 
     /**

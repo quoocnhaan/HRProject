@@ -6,6 +6,7 @@ package view.component.Manage_Component;
 
 import java.awt.BorderLayout;
 import view.component.Attendance_Component.Attendance_Component;
+import view.component.Attendance_Component.GridData.Content.Content_Component;
 import view.component.KOW_Filter.KOW_Filter_Component;
 
 /**
@@ -16,7 +17,7 @@ public class ManageAttendance_Component extends javax.swing.JPanel {
 
     private static ManageAttendance_Component instance;
     private Attendance_Component attendance_Component;
-    private KOW_Filter_Component kOW_Filter_Componentl;
+    private KOW_Filter_Component kOW_Filter_Component;
 
     public ManageAttendance_Component() {
         initComponents();
@@ -57,11 +58,11 @@ public class ManageAttendance_Component extends javax.swing.JPanel {
 
     private void initData() {
         attendance_Component = new Attendance_Component();
-        kOW_Filter_Componentl = new KOW_Filter_Component();
+        kOW_Filter_Component = new KOW_Filter_Component();
     }
 
     private void addComponents() {
-        this.add(kOW_Filter_Componentl, BorderLayout.WEST);
+        this.add(kOW_Filter_Component, BorderLayout.WEST);
         this.add(attendance_Component, BorderLayout.CENTER);
 
     }
@@ -70,7 +71,18 @@ public class ManageAttendance_Component extends javax.swing.JPanel {
         this.setLayout(new BorderLayout(10, 10));
     }
 
+    public Attendance_Component getAttendance_Component() {
+        return attendance_Component;
+    }
 
+    public KOW_Filter_Component getkOW_Filter_Component() {
+        return kOW_Filter_Component;
+    }
+
+    public void updateData() {
+        Content_Component.getInstance().updateData();
+        Content_Component.getInstance().updateEmployee();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

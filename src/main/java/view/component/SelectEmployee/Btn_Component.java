@@ -5,12 +5,10 @@
 package view.component.SelectEmployee;
 
 import controller.Session.SharedData;
-import java.awt.Component;
 import javax.swing.JDialog;
 import javax.swing.SwingUtilities;
-import model.Employee;
+import view.component.Manage_Component.ManageAttendance_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
-import view.component.Manage_Component.ManageSelectDepartment_Component;
 import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
 /**
@@ -68,27 +66,24 @@ public class Btn_Component extends javax.swing.JPanel {
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
         JDialog parentDialog = (JDialog) SwingUtilities.getWindowAncestor(this);
-        updateSelectEmployeeData();
         if (parentDialog != null) {
             parentDialog.dispose();
             System.out.println(parentName);
             switch (parentName) {
                 case "ManageLeaveApplication_Component":
+                    SharedData.getInstance().setEmployee_Leave(PersonalInfo.getInstance().getSelectedEmployee());
                     ManageLeaveApplication_Component.getInstance().getFilter().updateData();
+                    break;
+                case "ManageAttendance_Component":
+                    SharedData.getInstance().setEmployee_Attendance(PersonalInfo.getInstance().getSelectedEmployee());
+                    SharedData.getInstance().getEmployee_Attendance().size();
+                    ManageAttendance_Component.getInstance().getkOW_Filter_Component().updateData();
                     break;
                 default:
                     System.out.println("Loi r thang ngu");
             }
         }
     }//GEN-LAST:event_btnActionPerformed
-
-    private void updateSelectEmployeeData() {
-        SharedData.getInstance().setEmployee_Selected(PersonalInfo.getInstance().getSelectedEmployee());
-        int size = SharedData.getInstance().getEmployee_Selected().size();
-        for (int i = size; i <= 6; i++) {
-            SharedData.getInstance().getEmployee_Selected().add(null);
-        }
-    }
 
     public String getParentName() {
         return parentName;

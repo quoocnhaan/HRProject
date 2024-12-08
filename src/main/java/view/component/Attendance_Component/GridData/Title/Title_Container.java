@@ -56,7 +56,7 @@ public class Title_Container extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        String[] names = {"Nhân viên", "Ngày quét", "Thứ", "Vào ca chuẩn", "Ra ca chuẩn", "Vào", "Ra", "Công"};
+        String[] names = {"Ngày quét", "Thứ", "Vào ca chuẩn", "Ra ca chuẩn", "Vào", "Ra", "Công"};
         for (int i = 0; i < names.length; i++) {
             this.add(new Title_Component(names[i]));
         }

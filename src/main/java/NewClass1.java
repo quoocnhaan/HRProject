@@ -78,15 +78,15 @@ public class NewClass1 {
 //              
 //              leaveRequestDAO.add(l);
             // Lấy dữ liệu
-//            Role r = roleDAO.get(1);
-//            Function f = functionDAO.get(5);
-//            FunctionAuthorization functionAuthorization = new FunctionAuthorization(f, r, true, true, true, true, true);
-//            r.getFunctions().add(f);
-//            f.getRoles().add(r);
-//
-//            roleDAO.update(r1);
-//            functionDAO.update(f1);
-//            functionAuthorizationDAO.add(functionAuthorization1);
+            Role r = roleDAO.get(1);
+            Function f = functionDAO.get(5);
+            FunctionAuthorization functionAuthorization = new FunctionAuthorization(f, r, true, true, true, true, true);
+            r.getFunctions().add(f);
+            f.getRoles().add(r);
+
+            roleDAO.update(r);
+            functionDAO.update(f);
+            functionAuthorizationDAO.add(functionAuthorization);
 //
 //            Function f2 = functionDAO.get(2);
 //            FunctionAuthorization functionAuthorization2 = new FunctionAuthorization(f2, r1, true, true, true, true, true);
@@ -110,12 +110,6 @@ public class NewClass1 {
 //            FunctionAuthorization functionAuthorization4 = new FunctionAuthorization(f4, r1, true, true, true, true, true);
 //            r1.getFunctions().add(f4);
 //            f4.getRoles().add(r1);
-            ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("icon/attendance.png"));
-
-            Function function = functionDAO.get(5);
-            function.setIcon(Functional.convertIconToByteArray(icon));
-
-            functionDAO.update(function);
 
         } catch (Exception e) {
         }

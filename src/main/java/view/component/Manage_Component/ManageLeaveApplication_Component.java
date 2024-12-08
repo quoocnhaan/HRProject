@@ -11,7 +11,6 @@ import view.component.Filter.Filter_Component;
 import view.component.LeaveApplication.GridLeaveRequest.Content.Content_Component;
 import view.component.LeaveApplication.GridLeaveRequest.LeaveApplicationGrid;
 
-
 /**
  *
  * @author LENOVO
@@ -72,14 +71,14 @@ public class ManageLeaveApplication_Component extends javax.swing.JPanel {
     public void updateData(DateRange dateRange) {
         Content_Component.getInstance().updateDate(dateRange);
         Content_Component.getInstance().updateEmployee();
-        Content_Component.getInstance().updateLeaveForm(SharedData.getInstance().getEmployee_Selected(), dateRange);
+        Content_Component.getInstance().updateLeaveForm(SharedData.getInstance().getEmployee_Leave(), dateRange);
         updateCurDate(dateRange);
         updateButtonState();
     }
 
     public void changePage(DateRange dateRange) {
         Content_Component.getInstance().updateDate(dateRange);
-        Content_Component.getInstance().updateLeaveForm(SharedData.getInstance().getEmployee_Selected(), dateRange);
+        Content_Component.getInstance().updateLeaveForm(SharedData.getInstance().getEmployee_Leave(), dateRange);
         updateCurDate(dateRange);
         updateButtonState();
     }
@@ -108,8 +107,6 @@ public class ManageLeaveApplication_Component extends javax.swing.JPanel {
         this.leaveApp = leaveApp;
     }
 
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -4,14 +4,43 @@
  */
 package view.component.KOW_Filter;
 
+import controller.DAO.AttendanceInformationDAO;
+import controller.DAO.AttendanceRecordsDAO;
+import controller.DAO.EmployeeDAO;
+import controller.DAOImp.AttendanceInformationDAOImp;
+import controller.DAOImp.AttendanceRecordsDAOImp;
+import controller.DAOImp.EmployeeDAOImp;
 import controller.Functional.Functional;
 import controller.Session.SharedData;
 import java.awt.BorderLayout;
 import java.awt.Dialog;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.sql.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import model.AttendanceData;
+import model.AttendanceInformation;
+import model.AttendanceRecords;
+import model.Data;
+import model.Employee;
+import model.Period;
+import org.hibernate.Session;
+import util.HibernateUtil;
 import view.component.Manage_Component.ManageAttendance_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
 import view.component.Manage_Component.ManageSelecteEmployee_Component;
@@ -43,6 +72,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         updateBtn = new javax.swing.JButton();
         period = new javax.swing.JComboBox<>();
+        getDataBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -88,6 +118,16 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
         period.setForeground(new java.awt.Color(0, 0, 0));
         period.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "11/2024", "12/2024" }));
 
+        getDataBtn.setBackground(new java.awt.Color(69, 89, 190));
+        getDataBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        getDataBtn.setForeground(new java.awt.Color(255, 255, 255));
+        getDataBtn.setText("Phát sinh công");
+        getDataBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getDataBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,6 +135,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(getDataBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 1, Short.MAX_VALUE)
                         .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -130,7 +171,9 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
                     .addComponent(selectImg, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(81, 81, 81)
                 .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(getDataBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(243, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -143,33 +186,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
         }
         transferData();
 
-//        if (lac != null) {
-//            LocalDate from = null;
-//            LocalDate to = null;
-//            if (isSelectedDay.isSelected()) {
-//                from = fromDateChooser.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//                to = toDateChooser.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//            } else {
-//                LocalDate now = LocalDate.now();
-//                from = now.withDayOfMonth(1);
-//                to = now.withDayOfMonth(now.lengthOfMonth());
-//            }
-//            LocalDate currentFrom = from;
-//
-//            while (!currentFrom.isAfter(to)) {
-//                LocalDate currentTo = currentFrom.plusDays(6);
-//                if (currentTo.isAfter(to)) {
-//                    currentTo = to;
-//                }
-//                DateRange dateRange = new DateRange(currentFrom, currentTo);
-//                SharedData.getInstance().getDateRanges().add(dateRange);
-//
-//                currentFrom = currentTo.plusDays(1);
-//            }
-//            transferData();
-//        } else {
-//
-//        }
+        
     }//GEN-LAST:event_updateBtnMouseClicked
 
     private void employeeAmountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAmountMouseClicked
@@ -182,9 +199,19 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
         popup.setVisible(true);  // Hiển thị popup
     }//GEN-LAST:event_employeeAmountMouseClicked
 
+    private void getDataBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getDataBtnActionPerformed
+        try {
+            getData();
+            JOptionPane.showMessageDialog(null, "Phát sinh công thành công !\n Hãy cập nhật lại dữ liệu !");
+        } catch (ParseException ex) {
+            Logger.getLogger(KOW_Filter_Component.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_getDataBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel employeeAmount;
+    private javax.swing.JButton getDataBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
@@ -200,7 +227,8 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
     }
 
     private void transferData() {
-        ManageAttendance_Component.getInstance().updateData();
+        Period periodValue = new Period( (String) period.getSelectedItem());
+        ManageAttendance_Component.getInstance().updateData(periodValue);
     }
 
     public void updateData() {
@@ -208,5 +236,71 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
                 .filter(e -> e != null)
                 .count();
         this.employeeAmount.setText("   Chọn nhân viên (" + size + ")");
+    }
+
+    public List<AttendanceData> processAttendanceFile(String filePath) throws IOException {
+        List<AttendanceData> attendanceList = new ArrayList<>();
+        Map<String, AttendanceData> attendanceMap = new HashMap<>();
+        List<String> lines = Files.readAllLines(Paths.get(filePath));
+
+        for (String line : lines) {
+            String[] parts = line.split(" ");
+
+            if (parts.length == 3) {
+                String attendanceId = parts[0];
+                String dateWork = parts[1];
+                String time = parts[2];
+
+                AttendanceData attendanceData = attendanceMap.getOrDefault(attendanceId, new AttendanceData(attendanceId));
+                attendanceData.addData(dateWork, time);
+
+                attendanceMap.put(attendanceId, attendanceData);
+            }
+        }
+
+        attendanceList.addAll(attendanceMap.values());
+        return attendanceList;
+    }
+
+    private void getData() throws ParseException {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+
+            AttendanceInformationDAO attendanceInformationDAO = new AttendanceInformationDAOImp(session);
+            AttendanceRecordsDAO attendanceRecordsDAO = new AttendanceRecordsDAOImp(session);
+
+            List<AttendanceData> attendanceList = processAttendanceFile("C:/Users/LENOVO/Desktop/data.txt");
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+             DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+            for (AttendanceData ad : attendanceList) {
+                AttendanceInformation attendanceInformation = attendanceInformationDAO.getByAttendanceInformationId(ad.getAttendanceId());
+
+                for (Data d : ad.getDatas()) {
+                    try {
+                        LocalDate localDate = LocalDate.parse(d.getDateWork(), formatter);
+
+                        Date workDate = Date.valueOf(localDate);
+                        LocalTime startTime = LocalTime.parse(d.getTimeIn(), timeFormatter);
+                        LocalTime endTime = (d.getTimeOut() != null) ? LocalTime.parse(d.getTimeOut(), timeFormatter) : null;
+
+                        AttendanceRecords attendanceRecords = attendanceRecordsDAO.findByAttendanceInformationAndDate(attendanceInformation, workDate);
+
+                        if (attendanceRecords != null) {
+                            attendanceRecords.setStartTime(startTime);
+                            attendanceRecords.setEndTime(endTime);
+                            attendanceRecordsDAO.update(attendanceRecords);
+                        } else {
+                            attendanceRecords = new AttendanceRecords(attendanceInformation, workDate, startTime, endTime, true);
+                            attendanceRecordsDAO.add(attendanceRecords);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

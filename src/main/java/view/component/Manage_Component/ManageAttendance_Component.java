@@ -4,7 +4,22 @@
  */
 package view.component.Manage_Component;
 
+import controller.DAO.AttendanceRecordsDAO;
+import controller.DAOImp.AttendanceRecordsDAOImp;
+import controller.Session.SharedData;
 import java.awt.BorderLayout;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import model.AttendanceRecords;
+import model.Employee;
+import model.Period;
+import org.hibernate.Session;
+import util.HibernateUtil;
 import view.component.Attendance_Component.Attendance_Component;
 import view.component.Attendance_Component.GridData.Content.Content_Component;
 import view.component.KOW_Filter.KOW_Filter_Component;
@@ -79,10 +94,50 @@ public class ManageAttendance_Component extends javax.swing.JPanel {
         return kOW_Filter_Component;
     }
 
-    public void updateData() {
-        Content_Component.getInstance().updateData();
-        Content_Component.getInstance().updateEmployee();
+    public void updateData(Period period) {
+        Map<Employee, List<AttendanceRecords>> employeeAttendanceMap = new HashMap<>();
+
+        boolean hasRecords = false;
+
+        for (Employee employee : SharedData.getInstance().getEmployee_Attendance()) {
+            List<AttendanceRecords> attendanceRecordsList = new ArrayList<>();
+
+            for (LocalDate date = period.getStartDate(); !date.isAfter(period.getEndDate()); date = date.plusDays(1)) {
+                try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+                    AttendanceRecordsDAO attendanceRecordsDAO = new AttendanceRecordsDAOImp(session);
+
+                    Date workDate = convertToDateViaInstant(date);
+
+                    AttendanceRecords attendanceRecords = attendanceRecordsDAO.findByAttendanceInformationAndDate(employee.getAttendanceInformation(), workDate);
+
+                    if (attendanceRecords != null) {
+                        attendanceRecordsList.add(attendanceRecords);
+                        hasRecords = true; 
+                    }
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+
+            if (!attendanceRecordsList.isEmpty()) {
+                employeeAttendanceMap.put(employee, attendanceRecordsList);
+            }
+        }
+
+        if (!employeeAttendanceMap.isEmpty()) {
+            Content_Component.getInstance().updateData(employeeAttendanceMap);
+            Content_Component.getInstance().updateEmployee(employeeAttendanceMap);
+        } else {
+            if (!hasRecords) {
+                JOptionPane.showMessageDialog(null, "Không có dữ liệu chấm công.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }
+
+    public Date convertToDateViaInstant(LocalDate dateToConvert) {
+        return Date.valueOf(dateToConvert);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

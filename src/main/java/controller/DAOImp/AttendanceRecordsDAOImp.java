@@ -5,7 +5,9 @@
 package controller.DAOImp;
 
 import controller.DAO.AttendanceRecordsDAO;
+import java.sql.Date;
 import java.util.List;
+import model.AttendanceInformation;
 import model.AttendanceRecords;
 import model.Role;
 import model.Salary;
@@ -84,5 +86,22 @@ public class AttendanceRecordsDAOImp implements AttendanceRecordsDAO {
     public List<AttendanceRecords> getAll() {
         Query<AttendanceRecords> query = session.createQuery("FROM AttendanceRecords", AttendanceRecords.class);
         return query.list();
+    }
+
+    @Override
+    public AttendanceRecords getByAttendanceId(String attendanceId) {
+        Query<AttendanceRecords> query = session.createQuery("FROM AttendanceRecords a WHERE a.attendanceInformation.attendanceId = :attendanceId", AttendanceRecords.class);
+        query.setParameter("attendanceId", attendanceId);
+
+        return query.uniqueResult();
+    }
+
+    @Override
+    public AttendanceRecords findByAttendanceInformationAndDate(AttendanceInformation attendanceInformation, Date workDate) {
+        String hql = "FROM AttendanceRecords WHERE attendanceInformation = :attendanceInformation AND DATE(workDate) = :workDate";
+        Query query = session.createQuery(hql);
+        query.setParameter("attendanceInformation", attendanceInformation);
+        query.setParameter("workDate", workDate);
+        return (AttendanceRecords) query.uniqueResult();  // Trả về null nếu không tìm thấy
     }
 }

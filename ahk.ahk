@@ -1,5 +1,5 @@
 ﻿; Đường dẫn tới file data.txt trên Desktop
-filePath := "C:\Users\PC\Desktop\data.txt"
+filePath := "C:\Users\LENOVO\Desktop\data.txt"
 
 ; Biến toàn cục để lưu trữ dữ liệu nhập vào (chỉ chứa số)
 inputData := ""
@@ -12,7 +12,7 @@ writeToFile() {
     FormatTime, timeStamp, %timeStamp%, yyyy-MM-dd HH:mm:ss
 
     ; Ghi nội dung vào file kèm ngày giờ
-    FileAppend, %inputData% - %timeStamp%`n, %filePath%
+    FileAppend, %inputData% %timeStamp%`n, %filePath%
 
     ; Sau khi ghi xong, xóa dữ liệu để chuẩn bị cho lần nhập tiếp theo
     inputData := ""

@@ -17,10 +17,8 @@ import model.Employee;
  */
 public class Data_Component extends javax.swing.JPanel {
 
-    private Employee employee;
 
-    public Data_Component(Employee employee, String data) {
-        this.employee = employee;
+    public Data_Component(String data) {
         initComponents();
         customComponents();
         initData(data);

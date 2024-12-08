@@ -4,8 +4,23 @@
  */
 package view.component.Attendance_Component.GridData.Data;
 
+import controller.DAO.AttendanceInformationDAO;
+import controller.DAO.AttendanceRecordsDAO;
+import controller.DAOImp.AttendanceInformationDAOImp;
+import controller.DAOImp.AttendanceRecordsDAOImp;
 import java.awt.GridLayout;
+import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.Duration;
+import java.util.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import model.AttendanceRecords;
 import model.Employee;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -48,17 +63,69 @@ public class Data_Container extends javax.swing.JPanel {
 
     private void addComponents() {
         for (int i = 1; i <= 210; i++) {
-            this.add(new Data_Component(new Employee(), "Hello"));
+            this.add(new Data_Component("Hello"));
         }
     }
 
-    public void updateData(Employee employee) {
-        for (int i = 1; i <= 7; i++) {
-            this.add(new Data_Component(employee, "Hello"));
+    public void updateData(Employee employee, List<AttendanceRecords> records) {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+        for (AttendanceRecords record : records) {
+            LocalDate workDate = record.getWorkDate().toLocalDate();
+
+            String standardIn = employee.getAttendanceInformation().getStartTime().toString();
+            String standardOut = employee.getAttendanceInformation().getEndTime().toString();
+            String in = record.getStartTime().toString();
+            String out = record.getEndTime().toString();
+            Duration duration = Duration.between(record.getStartTime(), record.getEndTime());
+            String kow = duration.toMinutes() + "W";
+
+            this.add(new Data_Component(workDate.format(dateFormatter)));
+            this.add(new Data_Component(convertDayToVietnamese(workDate.getDayOfWeek())));
+            this.add(new Data_Component(standardIn));
+            this.add(new Data_Component(standardOut));
+            this.add(new Data_Component(in));
+            this.add(new Data_Component(out));
+            this.add(new Data_Component(kow));
         }
+
         validate();
         repaint();
     }
+
+    public static String convertDayToVietnamese(DayOfWeek dayOfWeek) {
+        String vietnameseDayOfWeek;
+
+        switch (dayOfWeek) {
+            case MONDAY:
+                vietnameseDayOfWeek = "Thứ Hai";
+                break;
+            case TUESDAY:
+                vietnameseDayOfWeek = "Thứ Ba";
+                break;
+            case WEDNESDAY:
+                vietnameseDayOfWeek = "Thứ Tư";
+                break;
+            case THURSDAY:
+                vietnameseDayOfWeek = "Thứ Năm";
+                break;
+            case FRIDAY:
+                vietnameseDayOfWeek = "Thứ Sáu";
+                break;
+            case SATURDAY:
+                vietnameseDayOfWeek = "Thứ Bảy";
+                break;
+            case SUNDAY:
+                vietnameseDayOfWeek = "Chủ Nhật";
+                break;
+            default:
+                vietnameseDayOfWeek = "Ngày không hợp lệ";
+                break;
+        }
+
+        return vietnameseDayOfWeek;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

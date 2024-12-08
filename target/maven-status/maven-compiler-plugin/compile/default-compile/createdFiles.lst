@@ -1,3 +1,4 @@
+model\AttendanceData.class
 view\component\Attendance_Component\GridData\Test$1.class
 controller\DAO\PaidLeaveDAO.class
 controller\DAO\ResignationDAO.class
@@ -31,6 +32,7 @@ view\component\Infomation_Component\Contact_Component.class
 controller\DAOImp\AttendanceRecordsDAOImp.class
 controller\DAO\ContractDAO.class
 model\Department.class
+model\Period.class
 view\component\Manage_Component\ManageEmployeeDetailInfo_Component$1.class
 view\component\LeaveApplication\DetailLeaveRequestForm\DetailLeaveForm_Component$1.class
 view\form\Login\Login.class
@@ -47,6 +49,7 @@ view\component\Manage_Component\ManageEmployeeDetailInfo_Component$4.class
 view\component\Filter\Filter_Component$3.class
 view\component\Manage_Component\ManageEmployeeInfo_Component.class
 controller\DAOImp\PayPeriodDAOImp.class
+model\Data.class
 controller\DAOImp\EmployeeDAOImp.class
 view\component\EmployeeBasicInfo\EmployeeInfo\PersonalBasicInfo_Container$1.class
 controller\DAOImp\RoleDAOImp.class
@@ -96,6 +99,7 @@ view\component\Manage_Component\ManageSelectDepartment_Component.class
 view\component\DepartmentInfo\Btn.class
 controller\DAOImp\EmployeeFamilyDAOImp.class
 view\component\Attendance_Component\GridData\Data\Data_Component.class
+view\component\Attendance_Component\GridData\Data\Data_Container$1.class
 view\form\Home\Navigation\Navigation.class
 controller\DAOImp\SalaryDAOImp.class
 view\form\Login\MainFrame.class
@@ -113,6 +117,7 @@ view\form\Home\NewClass$3.class
 controller\DAO\PayPeriodDAO.class
 view\component\LeaveApplication\GridLeaveRequest\ChangePage\ChangePage_Component$1.class
 model\RoleDetail.class
+view\component\KOW_Filter\KOW_Filter_Component$3.class
 controller\DAOImp\NotiTypeDAOImp.class
 view\component\Attendance_Component\GridData\Employee\EmployeeInfo_Component.class
 view\component\Attendance_Component\GridData\Data\Data_Container.class

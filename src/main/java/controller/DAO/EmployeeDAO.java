@@ -13,4 +13,5 @@ import model.Employee;
 public interface EmployeeDAO extends InterfaceDAO<Employee>{
     Employee getByEmployeeId(String employeeId);
     Employee getByUserId(long userId);
+    Employee getByAttendanceId(String attendanceId);
 }

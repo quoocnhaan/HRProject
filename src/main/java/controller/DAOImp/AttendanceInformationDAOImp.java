@@ -9,6 +9,7 @@ import java.util.List;
 import model.AttendanceInformation;
 import model.Role;
 import model.Salary;
+import model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -84,5 +85,13 @@ public class AttendanceInformationDAOImp implements AttendanceInformationDAO {
     public List<AttendanceInformation> getAll() {
         Query<AttendanceInformation> query = session.createQuery("FROM AttendanceInformation", AttendanceInformation.class);
         return query.list();
+    }
+
+    @Override
+    public AttendanceInformation getByAttendanceInformationId(String attendanceId) {
+        Query<AttendanceInformation> query = session.createQuery("FROM AttendanceInformation a WHERE a.attendanceId = :attendanceId", AttendanceInformation.class);
+        query.setParameter("attendanceId", attendanceId);
+
+        return query.uniqueResult();
     }
 }

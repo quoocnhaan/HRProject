@@ -9,7 +9,10 @@ import controller.DAOImp.EmployeeDAOImp;
 import controller.Functional.Functional;
 import controller.Session.SharedData;
 import java.awt.GridLayout;
+import java.util.List;
+import java.util.Map;
 import javax.swing.ImageIcon;
+import model.AttendanceRecords;
 import model.Employee;
 import org.hibernate.Session;
 import util.HibernateUtil;
@@ -83,6 +86,28 @@ public class EmployeeInfo_Container extends javax.swing.JPanel {
                 }
             }
         }
+        validate();
+        repaint();
+    }
+
+    public void updateData(Map<Employee, List<AttendanceRecords>> employeeAttendanceMap) {
+        this.removeAll();
+
+        for (Map.Entry<Employee, List<AttendanceRecords>> entry : employeeAttendanceMap.entrySet()) {
+            Employee e = entry.getKey();
+            List<AttendanceRecords> attendanceRecordsList = entry.getValue();
+
+            if (e != null && attendanceRecordsList != null) {
+                ImageIcon img = Functional.convertByteArrayToIcon(e.getImage());
+                String name = e.getName();
+                String id = e.getEmployeeId();
+
+                for (AttendanceRecords record : attendanceRecordsList) {
+                    this.add(new EmployeeInfo_Component(name, id, img));
+                }
+            }
+        }
+
         validate();
         repaint();
     }

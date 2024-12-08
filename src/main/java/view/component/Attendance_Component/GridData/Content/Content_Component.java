@@ -4,10 +4,20 @@ package view.component.Attendance_Component.GridData.Content;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
+import controller.DAO.AttendanceRecordsDAO;
+import controller.DAOImp.AttendanceRecordsDAOImp;
 import controller.Session.SharedData;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.time.LocalDate;
+import java.sql.Date;
+import java.util.List;
+import java.util.Map;
+import model.AttendanceRecords;
 import model.Employee;
+import model.Period;
+import org.hibernate.Session;
+import util.HibernateUtil;
 import view.component.Attendance_Component.GridData.Data.Data_Container;
 import view.component.Attendance_Component.GridData.Employee.EmployeeInfo_Container;
 import view.component.Attendance_Component.GridData.Title.Title_Container;
@@ -93,8 +103,8 @@ public class Content_Component extends javax.swing.JPanel {
         data_Container = new Data_Container();
     }
 
-    public void updateEmployee() {
-        employeeInfo_Container.updateData();
+    public void updateEmployee(Map<Employee, List<AttendanceRecords>> employeeAttendanceMap) {
+        employeeInfo_Container.updateData(employeeAttendanceMap);
     }
 
     public EmployeeInfo_Container getEmployeeInfo_Container() {
@@ -113,13 +123,39 @@ public class Content_Component extends javax.swing.JPanel {
         this.data_Container = data_Container;
     }
 
-    public void updateData() {
+    public void updateData(Period period) {
+//        data_Container.removeAll();
+//        for (Employee employee : SharedData.getInstance().getEmployee_Attendance()) {
+//            for (LocalDate date = period.getStartDate(); !date.isAfter(period.getEndDate()); date = date.plusDays(1)) {
+//                try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+//                    AttendanceRecordsDAO attendanceRecordsDAO = new AttendanceRecordsDAOImp(session);
+//
+//                    Date workDate = convertToDateViaInstant(date);
+//
+//                    AttendanceRecords attendanceRecords = attendanceRecordsDAO.findByAttendanceInformationAndDate(employee.getAttendanceInformation(), workDate);
+//
+//                    if (attendanceRecords != null) {
+//                        data_Container.updateData(employee, attendanceRecords);
+//                    }
+//                } catch (Exception e) {
+//                    System.out.println(e);
+//                }
+//            }
+//        }
+    }
+
+    public void updateData(Map<Employee, List<AttendanceRecords>> employeeAttendanceMap) {
         data_Container.removeAll();
-        for (Employee employee : SharedData.getInstance().getEmployee_Attendance()) {
-            for (int i = 1; i <= 30; i++) {
-                data_Container.updateData(employee);
-            }
+        for (Map.Entry<Employee, List<AttendanceRecords>> entry : employeeAttendanceMap.entrySet()) {
+            Employee emp = entry.getKey();
+            List<AttendanceRecords> records = entry.getValue();
+
+            data_Container.updateData(emp, records);
         }
+    }
+
+    public Date convertToDateViaInstant(LocalDate dateToConvert) {
+        return Date.valueOf(dateToConvert);
     }
 
 

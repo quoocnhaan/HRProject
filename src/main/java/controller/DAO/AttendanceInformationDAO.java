@@ -11,5 +11,5 @@ import model.AttendanceInformation;
  * @author LENOVO
  */
 public interface AttendanceInformationDAO extends InterfaceDAO<AttendanceInformation>{
-    
+    AttendanceInformation getByAttendanceInformationId(String attendanceId);
 }

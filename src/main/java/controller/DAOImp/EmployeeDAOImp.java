@@ -100,4 +100,12 @@ public class EmployeeDAOImp implements EmployeeDAO {
 
         return query.uniqueResult();
     }
+
+    @Override
+    public Employee getByAttendanceId(String attendanceId) {
+        Query<Employee> query = session.createQuery("FROM Employee e WHERE e.attendanceInformation.attendanceId = :attendanceId", Employee.class);
+        query.setParameter("attendanceId", attendanceId);
+
+        return query.uniqueResult();
+    }
 }

@@ -14,7 +14,10 @@ import controller.Functional.Functional;
 import controller.Session.SharedData;
 import java.awt.BorderLayout;
 import java.awt.Dialog;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
@@ -206,6 +209,8 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Phát sinh công thành công !\n Hãy cập nhật lại dữ liệu !");
         } catch (ParseException ex) {
             Logger.getLogger(KOW_Filter_Component.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(KOW_Filter_Component.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_getDataBtnActionPerformed
 
@@ -263,13 +268,27 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
         return attendanceList;
     }
 
-    private void getData() throws ParseException {
+    private void getData() throws ParseException, URISyntaxException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
             AttendanceInformationDAO attendanceInformationDAO = new AttendanceInformationDAOImp(session);
             AttendanceRecordsDAO attendanceRecordsDAO = new AttendanceRecordsDAOImp(session);
-
-            List<AttendanceData> attendanceList = processAttendanceFile("C:\\Users\\PC\\Desktop\\data.txt");
+            URL resourceUrl = getClass().getResource("/data.txt");
+            List<AttendanceData> attendanceList = null;
+            if (resourceUrl != null) {
+                try {
+                    // Convert URL to File object
+                    File file = new File(resourceUrl.toURI());
+                    // Get the file path as a string
+                    String filePath = file.getAbsolutePath();
+                    // Pass it to the processAttendanceFile method
+                    attendanceList = processAttendanceFile(filePath);
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("File not found");
+            }
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");

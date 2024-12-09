@@ -74,7 +74,7 @@ public class MainContent extends javax.swing.JPanel {
                     System.out.println("None !");
                     break;
                 case "F0003":
-                    this.add(new ManageSalary_Component(), "F0003");
+                    this.add(ManageSalary_Component.getInstance(), "F0003");
                     break;
                 case "F0004":
                     this.add(ManageLeaveApplication_Component.getInstance(), "F0004");

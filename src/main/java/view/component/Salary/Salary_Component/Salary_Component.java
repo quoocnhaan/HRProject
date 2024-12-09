@@ -17,9 +17,8 @@ import view.component.Search.Search;
  */
 public class Salary_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form LeaveApplication_Component
-     */
+    private JScrollPane content;
+
     public Salary_Component() {
         initComponents();
         setLayout();
@@ -53,22 +52,19 @@ public class Salary_Component extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-
-        Content_Component contentComponent = new Content_Component();
-
         // Lấy các panel cố định từ Content_Component
-        JPanel fixedColumnPanel = contentComponent.getEmployeeInfo_Container();
-        JPanel fixedRowPanel = contentComponent.getDate_Container();
+        JPanel fixedColumnPanel = Content_Component.getInstance().getEmployeeInfo_Container();
+        JPanel fixedRowPanel = Content_Component.getInstance().getDate_Container();
 
         // Tạo JScrollPane cho phần nội dung
-        JScrollPane scrollPane = new JScrollPane(contentComponent);
+        content = new JScrollPane(Content_Component.getInstance());
 
         // Cố định cột đầu tiên khi cuộn ngang và hàng đầu tiên khi cuộn dọc
-        scrollPane.setRowHeaderView(fixedColumnPanel);
-        scrollPane.setColumnHeaderView(fixedRowPanel);
+        content.setRowHeaderView(fixedColumnPanel);
+        content.setColumnHeaderView(fixedRowPanel);
 
         this.add(new Search(), BorderLayout.NORTH);
-        this.add(scrollPane, BorderLayout.CENTER);
+        this.add(content, BorderLayout.CENTER);
     }
 
 

@@ -73,7 +73,7 @@ public class ManageAttendance_Component extends javax.swing.JPanel {
 
     private void initData() {
         attendance_Component = new Attendance_Component();
-        kOW_Filter_Component = new KOW_Filter_Component();
+        kOW_Filter_Component = new KOW_Filter_Component("ManageAttendance_Component");
     }
 
     private void addComponents() {
@@ -112,7 +112,7 @@ public class ManageAttendance_Component extends javax.swing.JPanel {
 
                     if (attendanceRecords != null) {
                         attendanceRecordsList.add(attendanceRecords);
-                        hasRecords = true; 
+                        hasRecords = true;
                     }
                 } catch (Exception e) {
                     System.out.println(e);

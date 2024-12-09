@@ -582,9 +582,9 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
                 String departmentNameValue = departmentName.getText();
                 Role role = roleDAO.getByName(titleName);
                 String professionValue = (String) profession.getSelectedItem();
+                Department department = departmentDAO.getByName(departmentNameValue);
 
                 if (employee == null) {
-                    Department department = departmentDAO.getByName(departmentNameValue);
 
                     Contact contact = new Contact(emailValue, phoneValue, placeOfBirthValue);
 
@@ -610,7 +610,7 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Thêm nhân viên mới thành công !");
 
                 } else {
-                    employee.getDepartment().setName(departmentNameValue);
+                    employee.setDepartment(department);
 
                     employee.getContact().setPersonalEmail(emailValue);
                     employee.getContact().setPersonalPhone(phoneValue);
@@ -631,7 +631,6 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
 
                     employeeDAO.update(employee);
                     JOptionPane.showMessageDialog(this, "Cập nhật thông tin thành công !");
-
                 }
                 close();
                 ManageEmployeeInfo_Component.getInstance().updateData();
@@ -724,6 +723,7 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
         this.type.setSelectedItem(employee.getContracts().get(0).getJob().getType());
         this.startDate.setDate(employee.getContracts().get(0).getJob().getStartDate());
         this.attendanceId.setText(employee.getAttendanceInformation().getAttendanceId());
+        this.departmentName.setText(employee.getDepartment().getName());
 
         differenceInDays = employee.getSenority();
         if (differenceInDays >= 30) {

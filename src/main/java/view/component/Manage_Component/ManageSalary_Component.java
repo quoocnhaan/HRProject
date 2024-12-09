@@ -5,7 +5,8 @@
 package view.component.Manage_Component;
 
 import java.awt.BorderLayout;
-import view.component.Filter.Filter_Component;
+import model.Period;
+import view.component.KOW_Filter.KOW_Filter_Component;
 import view.component.Salary.Salary_Component.Salary_Component;
 
 /**
@@ -14,13 +15,22 @@ import view.component.Salary.Salary_Component.Salary_Component;
  */
 public class ManageSalary_Component extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ManageSalary_Component
-     */
+    private KOW_Filter_Component kOW_Filter_Component;
+    private Salary_Component salary_Component;
+    private static ManageSalary_Component instance;
+
     public ManageSalary_Component() {
         initComponents();
         setLayout();
+        initData();
         addComponents();
+    }
+
+    public static ManageSalary_Component getInstance() {
+        if (instance == null) {
+            instance = new ManageSalary_Component();
+        }
+        return instance;
     }
 
     /**
@@ -51,10 +61,26 @@ public class ManageSalary_Component extends javax.swing.JPanel {
     }
 
     private void addComponents() {
-        this.add(new Filter_Component(), BorderLayout.WEST);
-        this.add(new Salary_Component(), BorderLayout.CENTER);
+        this.add(kOW_Filter_Component, BorderLayout.WEST);
+        this.add(salary_Component, BorderLayout.CENTER);
     }
 
+    private void initData() {
+        kOW_Filter_Component = new KOW_Filter_Component("ManageSalary_Component");
+        salary_Component = new Salary_Component();
+    }
+
+    public KOW_Filter_Component getkOW_Filter_Component() {
+        return kOW_Filter_Component;
+    }
+
+    public Salary_Component getSalary_Component() {
+        return salary_Component;
+    }
+
+    public void updateData(Period periodValue) {
+        System.out.println("hello");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

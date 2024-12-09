@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import view.component.Attendance_Component.GridData.Content.Content_Component;
+import view.component.Search.Search;
 
 /**
  *
@@ -59,7 +60,8 @@ public class Attendance_Component extends javax.swing.JPanel {
         content.setRowHeaderView(fixedColumnPanel);
         content.setColumnHeaderView(fixedRowPanel);
 
-        this.add(content);
+        this.add(new Search(), BorderLayout.NORTH);
+        this.add(content, BorderLayout.CENTER);
     }
 
     public JScrollPane getContent() {

@@ -4,14 +4,11 @@
  */
 package view.component.Salary.Salary_Component.Content;
 
-import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import javax.swing.JPanel;
 import view.component.Salary.Salary_Component.Data.Data_Container;
 import view.component.Salary.Salary_Component.Employee.EmployeeInfo_Container;
 import view.component.Salary.Salary_Component.Title.Title_Container;
-
 
 /**
  *
@@ -21,12 +18,21 @@ public class Content_Component extends javax.swing.JPanel {
 
     private EmployeeInfo_Container employeeInfo_Container;
     private Title_Container title_Container;
+    private Data_Container data_Container;
+    private static Content_Component instance;
 
     public Content_Component() {
         initComponents();
         initMyComponents();
         setLayout();
         addComponents();
+    }
+
+    public static Content_Component getInstance() {
+        if (instance == null) {
+            instance = new Content_Component();
+        }
+        return instance;
     }
 
     /**
@@ -76,12 +82,13 @@ public class Content_Component extends javax.swing.JPanel {
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weightx = 1; // Cho phép nội dung mở rộng theo chiều ngang
         gbc.weighty = 1; // Cho phép nội dung mở rộng theo chiều dọc
-        this.add(new Data_Container(), gbc);
+        this.add(data_Container, gbc);
     }
 
     private void initMyComponents() {
         employeeInfo_Container = new EmployeeInfo_Container();
         title_Container = new Title_Container();
+        data_Container = new Data_Container();
     }
 
     public EmployeeInfo_Container getEmployeeInfo_Container() {
@@ -90,6 +97,22 @@ public class Content_Component extends javax.swing.JPanel {
 
     public Title_Container getDate_Container() {
         return title_Container;
+    }
+
+    public Title_Container getTitle_Container() {
+        return title_Container;
+    }
+
+    public void setTitle_Container(Title_Container title_Container) {
+        this.title_Container = title_Container;
+    }
+
+    public Data_Container getData_Container() {
+        return data_Container;
+    }
+
+    public void setData_Container(Data_Container data_Container) {
+        this.data_Container = data_Container;
     }
 
 

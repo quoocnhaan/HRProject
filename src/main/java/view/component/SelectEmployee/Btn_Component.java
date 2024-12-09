@@ -9,6 +9,7 @@ import javax.swing.JDialog;
 import javax.swing.SwingUtilities;
 import view.component.Manage_Component.ManageAttendance_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
+import view.component.Manage_Component.ManageSalary_Component;
 import view.component.SelectEmployee.EmployeeInfo.PersonalInfo;
 
 /**
@@ -68,7 +69,6 @@ public class Btn_Component extends javax.swing.JPanel {
         JDialog parentDialog = (JDialog) SwingUtilities.getWindowAncestor(this);
         if (parentDialog != null) {
             parentDialog.dispose();
-            System.out.println(parentName);
             switch (parentName) {
                 case "ManageLeaveApplication_Component":
                     SharedData.getInstance().setEmployee_Leave(PersonalInfo.getInstance().getSelectedEmployee());
@@ -76,11 +76,14 @@ public class Btn_Component extends javax.swing.JPanel {
                     break;
                 case "ManageAttendance_Component":
                     SharedData.getInstance().setEmployee_Attendance(PersonalInfo.getInstance().getSelectedEmployee());
-                    SharedData.getInstance().getEmployee_Attendance().size();
                     ManageAttendance_Component.getInstance().getkOW_Filter_Component().updateData();
                     break;
+                case "ManageSalary_Component":
+                    SharedData.getInstance().setEmployee_Salary(PersonalInfo.getInstance().getSelectedEmployee());
+                    ManageSalary_Component.getInstance().getkOW_Filter_Component().updateData();
+                    break;
                 default:
-                    System.out.println("Loi r thang ngu");
+                    System.out.println("Error in Btn SelecteEmployee");
             }
         }
     }//GEN-LAST:event_btnActionPerformed

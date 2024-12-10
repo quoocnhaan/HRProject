@@ -4,8 +4,21 @@
  */
 package view.component.Salary.Salary_Component.Data;
 
+import controller.DAO.AttendanceRecordsDAO;
+import controller.DAO.SalaryDAO;
+import controller.DAOImp.AttendanceRecordsDAOImp;
+import controller.DAOImp.SalaryDAOImp;
 import view.component.Salary.Salary_Component.Title.*;
 import java.awt.GridLayout;
+import java.time.LocalDate;
+import java.util.List;
+import model.AttendanceRecords;
+import model.Employee;
+import model.PayPeriod;
+import model.Salary;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -48,15 +61,42 @@ public class Data_Container extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-
-
     private void setLayout() {
-        this.setLayout(new GridLayout(0, 8, 0, 0));
+        this.setLayout(new GridLayout(0, 5, 0, 0));
     }
 
     private void addComponents() {
-        for (int i = 1; i <= 64; i++) {
+        for (int i = 1; i <= 40; i++) {
             this.add(new Data_Component("20.000.000"));
         }
+    }
+
+    public void updateData(Employee employee, PayPeriod period) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            SalaryDAO salaryDAO = new SalaryDAOImp(session);
+            AttendanceRecordsDAO attendanceRecordsDAO = new AttendanceRecordsDAOImp(session);
+
+            Salary salary = salaryDAO.getByEmployeeAndPayPeriod(employee, period);
+
+            String baseSalary = employee.getContracts().get(0).getBaseSalary() + "";
+            String title = employee.getRoleDetail().getRole().getName();
+            String starndardKOW = "200W";
+            List<AttendanceRecords> attendanceRecordsList = attendanceRecordsDAO.getByAttendanceInformationAndPayPeriod(employee.getAttendanceInformation(), period.getStartDate(), period.getEndDate());
+            String totalKow = attendanceRecordsList.stream()
+                    .mapToDouble(AttendanceRecords::getKow)
+                    .sum() + "";
+            String salaryValue = salary.getSalary() + "";
+
+            this.add(new Data_Component(baseSalary));
+            this.add(new Data_Component(title));
+            this.add(new Data_Component(starndardKOW));
+            this.add(new Data_Component(totalKow));
+            this.add(new Data_Component(salaryValue));
+            revalidate();
+            repaint();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 }

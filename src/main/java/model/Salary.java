@@ -30,12 +30,12 @@ public class Salary {
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name = "payPeriod_id")
+    @JoinColumn(name = "pay_period_id")
     private PayPeriod payPeriod;
-    
+
     @Column(name = "salary")
     private double salary;
-    
+
     @Column(name = "status")
     private boolean status;
 
@@ -88,6 +88,5 @@ public class Salary {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    
+
 }

@@ -6,8 +6,14 @@ package view.component.KOW_Filter;
 
 import controller.DAO.AttendanceInformationDAO;
 import controller.DAO.AttendanceRecordsDAO;
+import controller.DAO.EmployeeDAO;
+import controller.DAO.PayPeriodDAO;
+import controller.DAO.SalaryDAO;
 import controller.DAOImp.AttendanceInformationDAOImp;
 import controller.DAOImp.AttendanceRecordsDAOImp;
+import controller.DAOImp.EmployeeDAOImp;
+import controller.DAOImp.PayPeriodDAOImp;
+import controller.DAOImp.SalaryDAOImp;
 import controller.Functional.Functional;
 import controller.Session.SharedData;
 import java.awt.BorderLayout;
@@ -38,7 +44,10 @@ import model.AttendanceData;
 import model.AttendanceInformation;
 import model.AttendanceRecords;
 import model.Data;
+import model.Employee;
+import model.PayPeriod;
 import model.Period;
+import model.Salary;
 import org.hibernate.Session;
 import util.HibernateUtil;
 import view.component.Manage_Component.ManageAttendance_Component;
@@ -213,6 +222,8 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
             Logger.getLogger(KOW_Filter_Component.class.getName()).log(Level.SEVERE, null, ex);
         } catch (URISyntaxException ex) {
             Logger.getLogger(KOW_Filter_Component.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(KOW_Filter_Component.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_getDataBtnActionPerformed
 
@@ -235,17 +246,23 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
     }
 
     private void transferData() {
-        Period periodValue = new Period((String) period.getSelectedItem());
-        switch (parentName) {
-            case "ManageAttendance_Component":
-                ManageAttendance_Component.getInstance().updateData(periodValue);
-                break;
-            case "ManageSalary_Component":
-                ManageSalary_Component.getInstance().updateData(periodValue);
-                break;
-            default:
-                System.out.println("Error in transferData function in KOW_Filter");
+        try (Session sesison = HibernateUtil.getSessionFactory().openSession()) {
+            PayPeriodDAO payPeriodDAO = new PayPeriodDAOImp(sesison);
+            PayPeriod periodValue = payPeriodDAO.getByPayPeriodCode((String) period.getSelectedItem());
+            switch (parentName) {
+                case "ManageAttendance_Component":
+                    ManageAttendance_Component.getInstance().updateData(periodValue);
+                    break;
+                case "ManageSalary_Component":
+                    ManageSalary_Component.getInstance().updateData(periodValue);
+                    break;
+                default:
+                    System.out.println("Error in transferData function in KOW_Filter");
+            }
+        } catch (Exception e) {
+            System.out.println(e + "KOW");
         }
+
     }
 
     public void updateData() {
@@ -289,28 +306,93 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
         return attendanceList;
     }
 
-    private void getData() throws ParseException, URISyntaxException {
+    private void getData() throws ParseException, URISyntaxException, IOException {
+        URL resourceUrl = getClass().getResource("/data.txt");
+        List<AttendanceData> attendanceList = null;
+        if (resourceUrl != null) {
+            try {
+
+                File file = new File(resourceUrl.toURI());
+//
+//                String filePath = file.getAbsolutePath();
+
+                String home = System.getProperty("user.home");  // Get the user's home directory
+                String filePath = home + "/data.txt";  // Path to data.txt in the user's home directory
+
+                attendanceList = processAttendanceFile(filePath);
+
+                updateAttendanceRecords(attendanceList);
+
+                updateSalary();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("File not found");
+        }
+
+    }
+
+    private void updateSalary() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+
+            AttendanceInformationDAO attendanceInformationDAO = new AttendanceInformationDAOImp(session);
+            PayPeriodDAO periodDAO = new PayPeriodDAOImp(session);
+            AttendanceRecordsDAO attendanceRecordsDAO = new AttendanceRecordsDAOImp(session);
+            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+            SalaryDAO salaryDAO = new SalaryDAOImp(session);
+
+            List<AttendanceInformation> attendanceInformationList = attendanceInformationDAO.getAll();
+            System.out.println(attendanceInformationList.size());
+            List<PayPeriod> payPeriodList = periodDAO.getAll();
+            for (PayPeriod payPeriod : payPeriodList) {
+                for (AttendanceInformation attendanceInfo : attendanceInformationList) {
+                    List<AttendanceRecords> attendanceRecordsList = attendanceRecordsDAO.getByAttendanceInformationAndPayPeriod(attendanceInfo, payPeriod.getStartDate(), payPeriod.getEndDate());
+                    double totalKow = attendanceRecordsList.stream()
+                            .mapToDouble(AttendanceRecords::getKow)
+                            .sum();
+
+                    double calculatedSalary = totalKow * 2000;
+
+                    Employee employee = employeeDAO.getByAttendanceId(attendanceInfo.getAttendanceId());
+
+                    Salary existingSalary = salaryDAO.getByEmployeeAndPayPeriod(employee, payPeriod);
+
+                    if (existingSalary != null) {
+                        existingSalary.setSalary(calculatedSalary);
+                        salaryDAO.update(existingSalary);
+
+                    } else {
+                        Salary newSalary = new Salary(employee, payPeriod, calculatedSalary, true);
+                        salaryDAO.add(newSalary);
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    private void initData() {
+        switch (parentName) {
+            case "ManageAttendance_Component":
+                title1.setText("Thông tin chấm công");
+                title2.setText("Kỳ chấm công");
+                break;
+            case "ManageSalary_Component":
+                title1.setText("Tính lương");
+                title2.setText("Kỳ lương");
+            default:
+        }
+    }
+
+    private void updateAttendanceRecords(List<AttendanceData> attendanceList) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
             AttendanceInformationDAO attendanceInformationDAO = new AttendanceInformationDAOImp(session);
             AttendanceRecordsDAO attendanceRecordsDAO = new AttendanceRecordsDAOImp(session);
-            URL resourceUrl = getClass().getResource("/data.txt");
-            List<AttendanceData> attendanceList = null;
-            if (resourceUrl != null) {
-                try {
-
-                    File file = new File(resourceUrl.toURI());
-
-                    String filePath = file.getAbsolutePath();
-
-                    attendanceList = processAttendanceFile(filePath);
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("File not found");
-            }
-
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
@@ -355,21 +437,6 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
                     }
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void initData() {
-        switch (parentName) {
-            case "ManageAttendance_Component":
-                title1.setText("Thông tin chấm công");
-                title2.setText("Kỳ chấm công");
-                break;
-            case "ManageSalary_Component":
-                title1.setText("Tính lương");
-                title2.setText("Kỳ lương");
-            default:
         }
     }
 }

@@ -17,6 +17,7 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 import model.AttendanceRecords;
 import model.Employee;
+import model.PayPeriod;
 import model.Period;
 import org.hibernate.Session;
 import util.HibernateUtil;
@@ -94,7 +95,7 @@ public class ManageAttendance_Component extends javax.swing.JPanel {
         return kOW_Filter_Component;
     }
 
-    public void updateData(Period period) {
+    public void updateData(PayPeriod period) {
         Map<Employee, List<AttendanceRecords>> employeeAttendanceMap = new HashMap<>();
 
         boolean hasRecords = false;

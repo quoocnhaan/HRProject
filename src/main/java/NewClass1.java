@@ -7,6 +7,7 @@ import controller.DAO.FunctionAuthorizationDAO;
 import controller.DAO.FunctionDAO;
 import controller.DAO.JobDAO;
 import controller.DAO.LeaveRequestDAO;
+import controller.DAO.PayPeriodDAO;
 import controller.DAO.RoleDAO;
 import controller.DAOImp.ContactDAOImp;
 import controller.DAOImp.ContractDAOImp;
@@ -16,6 +17,7 @@ import controller.DAOImp.FunctionAuthorizationDAOImp;
 import controller.DAOImp.FunctionDAOImp;
 import controller.DAOImp.JobDAOImp;
 import controller.DAOImp.LeaveRequestDAOImp;
+import controller.DAOImp.PayPeriodDAOImp;
 import controller.DAOImp.RoleDAOImp;
 import controller.Functional.Functional;
 import java.util.Date;
@@ -28,6 +30,7 @@ import model.Function;
 import model.FunctionAuthorization;
 import model.Job;
 import model.LeaveRequest;
+import model.PayPeriod;
 import model.Role;
 import org.hibernate.Session;
 import util.HibernateUtil;
@@ -37,16 +40,22 @@ public class NewClass1 {
     public static void main(String[] args) {
         try (Session session = HibernateUtil.getSessionFactory().openSession();) {
 
-            RoleDAO roleDAO = new RoleDAOImp(session);
-            FunctionDAO functionDAO = new FunctionDAOImp(session);
-            FunctionAuthorizationDAO functionAuthorizationDAO = new FunctionAuthorizationDAOImp(session);
-            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
-            ContractDAO contractDAO = new ContractDAOImp(session);
-            ContactDAO contactDAO = new ContactDAOImp(session);
-            JobDAO jobDAO = new JobDAOImp(session);
-            DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
-            LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
+//            RoleDAO roleDAO = new RoleDAOImp(session);
+//            FunctionDAO functionDAO = new FunctionDAOImp(session);
+//            FunctionAuthorizationDAO functionAuthorizationDAO = new FunctionAuthorizationDAOImp(session);
+//            EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
+//            ContractDAO contractDAO = new ContractDAOImp(session);
+//            ContactDAO contactDAO = new ContactDAOImp(session);
+//            JobDAO jobDAO = new JobDAOImp(session);
+//            DepartmentDAO departmentDAO = new DepartmentDAOImp(session);
+//            LeaveRequestDAO leaveRequestDAO = new LeaveRequestDAOImp(session);
+            PayPeriodDAO payPeriodDAO = new PayPeriodDAOImp(session);
 
+            PayPeriod payPeriod1 = new PayPeriod("11/2024");
+            PayPeriod payPeriod2 = new PayPeriod("12/2024");
+
+            payPeriodDAO.add(payPeriod1);
+            payPeriodDAO.add(payPeriod2);
 //            String name = "Lâm Quốc Nhân";
 //            String employeeId = "LQN2005";
 //            String profession = "Web Developer";
@@ -78,15 +87,15 @@ public class NewClass1 {
 //              
 //              leaveRequestDAO.add(l);
             // Lấy dữ liệu
-            Role r = roleDAO.get(1);
-            Function f = functionDAO.get(5);
-            FunctionAuthorization functionAuthorization = new FunctionAuthorization(f, r, true, true, true, true, true);
-            r.getFunctions().add(f);
-            f.getRoles().add(r);
-
-            roleDAO.update(r);
-            functionDAO.update(f);
-            functionAuthorizationDAO.add(functionAuthorization);
+//            Role r = roleDAO.get(1);
+//            Function f = functionDAO.get(5);
+//            FunctionAuthorization functionAuthorization = new FunctionAuthorization(f, r, true, true, true, true, true);
+//            r.getFunctions().add(f);
+//            f.getRoles().add(r);
+//
+//            roleDAO.update(r);
+//            functionDAO.update(f);
+//            functionAuthorizationDAO.add(functionAuthorization);
 //
 //            Function f2 = functionDAO.get(2);
 //            FunctionAuthorization functionAuthorization2 = new FunctionAuthorization(f2, r1, true, true, true, true, true);
@@ -110,7 +119,6 @@ public class NewClass1 {
 //            FunctionAuthorization functionAuthorization4 = new FunctionAuthorization(f4, r1, true, true, true, true, true);
 //            r1.getFunctions().add(f4);
 //            f4.getRoles().add(r1);
-
         } catch (Exception e) {
         }
     }

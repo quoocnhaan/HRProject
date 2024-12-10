@@ -5,8 +5,11 @@
 package view.component.Manage_Component;
 
 import java.awt.BorderLayout;
-import model.Period;
+import java.sql.Date;
+import java.time.LocalDate;
+import model.PayPeriod;
 import view.component.KOW_Filter.KOW_Filter_Component;
+import view.component.Salary.Salary_Component.Content.Content_Component;
 import view.component.Salary.Salary_Component.Salary_Component;
 
 /**
@@ -78,8 +81,9 @@ public class ManageSalary_Component extends javax.swing.JPanel {
         return salary_Component;
     }
 
-    public void updateData(Period periodValue) {
-        System.out.println("hello");
+    public void updateData(PayPeriod period) {
+        Content_Component.getInstance().updateData(period);
+        Content_Component.getInstance().updateEmployee();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

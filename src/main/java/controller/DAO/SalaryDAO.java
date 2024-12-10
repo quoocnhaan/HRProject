@@ -4,12 +4,15 @@
  */
 package controller.DAO;
 
+import model.Employee;
+import model.PayPeriod;
 import model.Salary;
 
 /**
  *
  * @author PC
  */
-public interface SalaryDAO extends InterfaceDAO<Salary>{
-    
+public interface SalaryDAO extends InterfaceDAO<Salary> {
+
+    Salary getByEmployeeAndPayPeriod(Employee employee, PayPeriod payPeriod);
 }

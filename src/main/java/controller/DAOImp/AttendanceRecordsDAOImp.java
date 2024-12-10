@@ -6,6 +6,7 @@ package controller.DAOImp;
 
 import controller.DAO.AttendanceRecordsDAO;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import model.AttendanceInformation;
 import model.AttendanceRecords;
@@ -103,5 +104,15 @@ public class AttendanceRecordsDAOImp implements AttendanceRecordsDAO {
         query.setParameter("attendanceInformation", attendanceInformation);
         query.setParameter("workDate", workDate);
         return (AttendanceRecords) query.uniqueResult();  // Trả về null nếu không tìm thấy
+    }
+
+    @Override
+    public List<AttendanceRecords> getByAttendanceInformationAndPayPeriod(AttendanceInformation attendanceInformation, LocalDate startDate, LocalDate endDate) {
+        String hql = "FROM AttendanceRecords ar WHERE ar.attendanceInformation = :attendanceInformation AND ar.workDate BETWEEN :startDate AND :endDate";
+        Query query = session.createQuery(hql);
+        query.setParameter("attendanceInformation", attendanceInformation);
+        query.setParameter("startDate", Date.valueOf(startDate));
+        query.setParameter("endDate", Date.valueOf(endDate));
+        return query.list();
     }
 }

@@ -6,10 +6,13 @@ package controller.DAOImp;
 
 import controller.DAO.SalaryDAO;
 import java.util.List;
+import model.Employee;
+import model.PayPeriod;
 import model.Salary;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+
 /**
  *
  * @author PC
@@ -79,5 +82,14 @@ public class SalaryDAOImp implements SalaryDAO {
     public List<Salary> getAll() {
         Query<Salary> query = session.createQuery("FROM Salary", Salary.class);
         return query.list();
+    }
+
+    @Override
+    public Salary getByEmployeeAndPayPeriod(Employee employee, PayPeriod payPeriod) {
+        String hql = "FROM Salary s WHERE s.employee = :employee AND s.payPeriod = :payPeriod";
+        Query query = session.createQuery(hql);
+        query.setParameter("employee", employee);
+        query.setParameter("payPeriod", payPeriod);
+        return (Salary) query.uniqueResult();
     }
 }

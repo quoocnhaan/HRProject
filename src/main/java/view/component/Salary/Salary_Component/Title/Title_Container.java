@@ -47,16 +47,14 @@ public class Title_Container extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-
-
     private void setLayout() {
         this.setLayout(new GridLayout(1, 0, 0, 0));
     }
 
     private void addComponents() {
-        String[] title = {"Lương cứng", "Chức danh", "Phụ cấp", "Bảo hiểm", 
-            "Công chuẩn", "Công thực tế", "Thuế TNCN", "Lương chính thức"};
-        for (int i = 0; i < 8; i++) {
+        String[] title = {"Lương cứng", "Chức danh",
+            "Công chuẩn", "Công thực tế", "Lương chính thức"};
+        for (int i = 0; i < 5; i++) {
             this.add(new Title_Component(title[i]));
         }
     }

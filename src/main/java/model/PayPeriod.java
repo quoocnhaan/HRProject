@@ -4,7 +4,8 @@
  */
 package model;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,30 +20,41 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "hr_pay_period")
 public class PayPeriod {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     @Column(name = "pay_period_code")
     private String payPeriodCode;
-    
-    @Column(name = "from_date")
-    private Date fromDate;
-    
-    @Column(name = "to_date")
-    private Date toDate;
-    
+
+    @Column(name = "start_date")
+    private LocalDate startDate;
+
+    @Column(name = "end_date")
+    private LocalDate endDate;
+
     @Column(name = "status")
     private boolean status;
 
-    public PayPeriod() {
+    public PayPeriod(String monthYear) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yyyy");
+
+        LocalDate startDate = LocalDate.parse("15/" + monthYear, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+        LocalDate endDate = startDate.plusMonths(1).withDayOfMonth(14);
+
+        this.startDate = startDate;
+        this.endDate = endDate;
+
+        // Use monthYear as the pay period code
+        this.payPeriodCode = monthYear;
+
+        // Set the status to true
+        this.status = true;
     }
 
-    public PayPeriod(String payPeriodCode, Date fromDate, Date toDate, boolean status) {
-        this.payPeriodCode = payPeriodCode;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
-        this.status = status;
+    public PayPeriod() {
     }
 
     public long getId() {
@@ -61,20 +73,20 @@ public class PayPeriod {
         this.payPeriodCode = payPeriodCode;
     }
 
-    public Date getFromDate() {
-        return fromDate;
+    public LocalDate getStartDate() {
+        return startDate;
     }
 
-    public void setFromDate(Date fromDate) {
-        this.fromDate = fromDate;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 
-    public Date getToDate() {
-        return toDate;
+    public LocalDate getEndDate() {
+        return endDate;
     }
 
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
     public boolean isStatus() {

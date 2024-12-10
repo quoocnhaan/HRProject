@@ -83,10 +83,9 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
                             .addComponent(name)
                             .addComponent(id))
                         .addGap(8, 8, 8)
-                        .addComponent(job)
-                        .addGap(0, 8, Short.MAX_VALUE))
-                    .addComponent(img, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addComponent(job))
+                    .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

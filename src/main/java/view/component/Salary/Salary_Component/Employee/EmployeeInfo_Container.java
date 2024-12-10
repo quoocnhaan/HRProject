@@ -4,8 +4,11 @@
  */
 package view.component.Salary.Salary_Component.Employee;
 
+import controller.Functional.Functional;
+import controller.Session.SharedData;
 import java.awt.GridLayout;
 import javax.swing.ImageIcon;
+import model.Employee;
 
 /**
  *
@@ -54,6 +57,19 @@ public class EmployeeInfo_Container extends javax.swing.JPanel {
         for (int i = 1; i <= 8; i++) {
             this.add(new EmployeeInfo_Component("Lam Quoc Nhan", "Web Developer", "LQN2005", img));
         }
+    }
+
+    public void updateData() {
+        removeAll();
+        for (Employee employee : SharedData.getInstance().getEmployee_Salary()) {
+            String name = employee.getName();
+            String profession = employee.getContracts().get(0).getJob().getProfession();
+            String id = employee.getEmployeeId();
+            ImageIcon img = Functional.convertByteArrayToIcon(employee.getImage());
+            this.add(new EmployeeInfo_Component(name, profession, id, img));
+        }
+        revalidate();
+        repaint();
     }
 
 

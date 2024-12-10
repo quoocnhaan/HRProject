@@ -4,8 +4,11 @@
  */
 package view.component.Salary.Salary_Component.Content;
 
+import controller.Session.SharedData;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import model.Employee;
+import model.PayPeriod;
 import view.component.Salary.Salary_Component.Data.Data_Container;
 import view.component.Salary.Salary_Component.Employee.EmployeeInfo_Container;
 import view.component.Salary.Salary_Component.Title.Title_Container;
@@ -113,6 +116,17 @@ public class Content_Component extends javax.swing.JPanel {
 
     public void setData_Container(Data_Container data_Container) {
         this.data_Container = data_Container;
+    }
+
+    public void updateData(PayPeriod period) {
+        data_Container.removeAll();
+        for (Employee employee : SharedData.getInstance().getEmployee_Salary()) {
+            data_Container.updateData(employee, period);
+        }
+    }
+
+    public void updateEmployee() {
+        employeeInfo_Container.updateData();
     }
 
 

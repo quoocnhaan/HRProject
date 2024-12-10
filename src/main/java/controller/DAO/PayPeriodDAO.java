@@ -10,6 +10,6 @@ import model.PayPeriod;
  *
  * @author PC
  */
-public interface PayPeriodDAO extends InterfaceDAO<PayPeriod>{
-    
+public interface PayPeriodDAO extends InterfaceDAO<PayPeriod> {
+    PayPeriod getByPayPeriodCode(String payPeriodCode);
 }

@@ -85,4 +85,11 @@ public class PayPeriodDAOImp implements PayPeriodDAO {
         Query<PayPeriod> query = session.createQuery("FROM PayPeriod", PayPeriod.class);
         return query.list();
     }
+
+    @Override
+    public PayPeriod getByPayPeriodCode(String payPeriodCode) {
+        Query<PayPeriod> query = session.createQuery("FROM PayPeriod p WHERE p.payPeriodCode = :payPeriodCode", PayPeriod.class);
+        query.setParameter("payPeriodCode", payPeriodCode);
+        return query.uniqueResult();
+    }
 }

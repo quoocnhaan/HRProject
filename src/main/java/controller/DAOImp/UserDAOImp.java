@@ -27,7 +27,7 @@ public class UserDAOImp implements UserDAO {
     public boolean add(User t) {
         Transaction transaction = session.beginTransaction();
         try {
-            session.saveOrUpdate(t); // Hibernate tự động quyết định là save hay update
+            session.saveOrUpdate(t);
             transaction.commit();
             return true;
         } catch (Exception e) {

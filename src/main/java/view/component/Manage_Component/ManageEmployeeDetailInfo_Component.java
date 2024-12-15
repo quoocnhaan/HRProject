@@ -62,7 +62,6 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
         customComponents();
         setting();
         removeFocus();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -526,7 +525,6 @@ public class ManageEmployeeDetailInfo_Component extends javax.swing.JPanel {
         popup.setVisible(true);
 
         this.departmentName.setText(SharedData.getInstance().getCurDepartment());
-
     }//GEN-LAST:event_chooseDepartmentBtnActionPerformed
 
     private void chooseImgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseImgBtnActionPerformed

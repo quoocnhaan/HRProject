@@ -84,7 +84,7 @@ public class Data_Container extends javax.swing.JPanel {
             List<AttendanceRecords> attendanceRecordsList = attendanceRecordsDAO.getByAttendanceInformationAndPayPeriod(employee.getAttendanceInformation(), period.getStartDate(), period.getEndDate());
             String totalKow = attendanceRecordsList.stream()
                     .mapToDouble(AttendanceRecords::getKow)
-                    .sum() + "";
+                    .sum() + "W";
             String salaryValue = salary.getSalary() + "";
 
             this.add(new Data_Component(baseSalary));

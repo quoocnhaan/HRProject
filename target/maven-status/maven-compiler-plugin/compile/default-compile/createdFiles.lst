@@ -28,6 +28,7 @@ controller\DAO\ApprovedLeaveRequestDAO.class
 controller\DAO\RoleDetailDAO.class
 view\component\LeaveApplication\GridLeaveRequest\ChangePage\CurrentDate\CurrentDate_Component.class
 view\component\Infomation_Component\Contact_Component.class
+view\component\DeparmentInfoDetail\Department_Component$1.class
 controller\DAOImp\AttendanceRecordsDAOImp.class
 controller\DAO\ContractDAO.class
 model\Department.class
@@ -74,12 +75,10 @@ controller\DAOImp\UserDAOImp.class
 controller\DAO\LeaveRequestDAO.class
 controller\DAOImp\JobDAOImp.class
 view\form\Home\NewClass$1.class
-view\component\DeparmentInfoDetail\Test_Deparment$1.class
 controller\DAO\AttendanceRecordsDAO.class
 view\component\Filter\Filter_Component$1.class
 model\NotiType.class
 view\component\EmployeeBasicInfo\AddBtn$1.class
-view\component\DeparmentInfoDetail\Test_Deparment.class
 controller\DAOImp\CreditCardDAOImp.class
 view\component\Manage_Component\ManageSalary_Component.class
 controller\DAOImp\MaternityLeaveDAOImp.class
@@ -153,4 +152,5 @@ controller\DAO\RoleDAO.class
 view\form\Home\Navigation\NewJFrame$1.class
 controller\DAO\SalaryDAO.class
 view\form\Login\Login$6.class
+view\component\Manage_Component\ManageDepartmentDetailInfo_Component.class
 view\component\Title_CheckBox\Title_Component.class

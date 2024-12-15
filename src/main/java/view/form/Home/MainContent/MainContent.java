@@ -8,6 +8,7 @@ import java.awt.CardLayout;
 import java.util.List;
 import view.component.Function_Component.FunctionData_Component;
 import view.component.Manage_Component.ManageAttendance_Component;
+import view.component.Manage_Component.ManageDepartmentDetailInfo_Component;
 import view.component.Manage_Component.ManageLeaveApplication_Component;
 import view.component.Manage_Component.ManageEmployeeInfo_Component;
 import view.component.Manage_Component.ManageSalary_Component;
@@ -71,7 +72,7 @@ public class MainContent extends javax.swing.JPanel {
                     this.add(ManageEmployeeInfo_Component.getInstance(), "F0001");
                     break;
                 case "F0002":
-                    System.out.println("None !");
+                    this.add(ManageDepartmentDetailInfo_Component.getInstance(), "F0002");
                     break;
                 case "F0003":
                     this.add(ManageSalary_Component.getInstance(), "F0003");

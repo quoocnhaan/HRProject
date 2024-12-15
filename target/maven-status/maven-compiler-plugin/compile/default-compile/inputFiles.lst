@@ -102,7 +102,6 @@ C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Attendanc
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Attendance_Component\GridData\Title\Title_Component.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Attendance_Component\GridData\Title\Title_Container.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\DeparmentInfoDetail\Department_Component.java
-C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\DeparmentInfoDetail\Test_Deparment.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\DepartmentInfo\Btn.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\DepartmentInfo\Department_Component.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\DepartmentInfo\DepartmentData_Component.java
@@ -148,6 +147,7 @@ C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveAppl
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\ListLeaveRequest_Component.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\LeaveApplication\ListLeaveRequest\Test.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Manage_Component\ManageAttendance_Component.java
+C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Manage_Component\ManageDepartmentDetailInfo_Component.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Manage_Component\ManageEmployeeDetailInfo_Component.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Manage_Component\ManageEmployeeInfo_Component.java
 C:\Users\LENOVO\Desktop\Project\HRProject\src\main\java\view\component\Manage_Component\ManageLeaveApplication_Component.java

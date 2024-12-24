@@ -7,13 +7,9 @@ package controller.DAOImp;
 import controller.DAO.EmployeeDAO;
 import java.util.List;
 import model.Employee;
-import model.Salary;
-import model.User;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import util.HibernateUtil;
 
 /**
  *
@@ -82,7 +78,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 
     @Override
     public List<Employee> getAll() {
-        Query<Employee> query = session.createQuery("FROM Employee", Employee.class);
+        Query<Employee> query = session.createQuery("FROM Employee e", Employee.class);
         return query.list();
     }
 
@@ -107,5 +103,28 @@ public class EmployeeDAOImp implements EmployeeDAO {
         query.setParameter("attendanceId", attendanceId);
 
         return query.uniqueResult();
+    }
+
+    @Override
+    public boolean firedEmployee(Employee employee) {
+        Transaction transaction = session.beginTransaction();
+        try {
+            employee.setStatus(false);
+            session.update(employee);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback(); // Rollback nếu có lỗi
+            }
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public int getTotal() {
+        Query<Employee> query = session.createQuery("FROM Employee e WHERE e.status = true", Employee.class);
+        return query.list().size();
     }
 }

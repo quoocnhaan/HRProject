@@ -71,6 +71,9 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
             EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
             List<Employee> list = employeeDAO.getAll();
             for (Employee employee : list) {
+                if (!employee.isStatus()) {
+                    continue;
+                }
                 String name = employee.getName();
                 String employeeId = employee.getEmployeeId();
                 String job = employee.getContracts().get(0).getJob().getProfession();
@@ -111,6 +114,9 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         List<Employee> list = SharedData.getInstance().getEmployee_Selected();
         for (Employee employee : list) {
+            if (!employee.isStatus()) {
+                continue;
+            }
             String name = employee.getName();
             String employeeId = employee.getEmployeeId();
             String job = employee.getContracts().get(0).getJob().getProfession();

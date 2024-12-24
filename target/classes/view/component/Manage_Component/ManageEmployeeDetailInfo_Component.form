@@ -9,6 +9,9 @@
       <Dimension value="[1120, 420]"/>
     </Property>
   </Properties>
+  <AccessibilityProperties>
+    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+  </AccessibilityProperties>
   <Events>
     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formMouseClicked"/>
   </Events>
@@ -31,7 +34,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="img" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="img" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="firedBtn" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="label7" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -67,10 +73,10 @@
                                           <Component id="label1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="name" min="-2" pref="186" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="id" min="-2" max="-2" attributes="0"/>
-                                          <Component id="gender" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="gender" alignment="0" pref="200" max="32767" attributes="0"/>
+                                          <Component id="name" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -101,13 +107,9 @@
                               <Component id="startDate" min="-2" pref="215" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="denyBtn" min="-2" pref="110" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="confirmBtn" min="-2" pref="121" max="-2" attributes="0"/>
-                                      </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="label4" min="-2" max="-2" attributes="0"/>
@@ -121,23 +123,28 @@
                                               <Component id="placeOfBirth" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="label10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="label3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="type" min="-2" pref="215" max="-2" attributes="0"/>
+                                              <Component id="senority" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="label10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="label3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="type" min="-2" pref="215" max="-2" attributes="0"/>
-                                          <Component id="senority" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="denyBtn" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="confirmBtn" min="-2" pref="121" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                      <EmptySpace pref="89" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -199,25 +206,30 @@
                           <Component id="chooseImgBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="label6" min="-2" max="-2" attributes="0"/>
-                          <Component id="label9" min="-2" max="-2" attributes="0"/>
-                          <Component id="startDate" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="label14" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="title" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="label10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="senority" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="label16" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="profession" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="label3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="type" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="label6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="startDate" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="label14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="title" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="label10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="senority" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="label16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="profession" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="type" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="firedBtn" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -707,7 +719,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Trung t&#xe2;m CDC"/>
+            <Property name="text" type="java.lang.String" value="Ph&#xf2;ng CSKH"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="chooseDepartmentBtn">
@@ -865,6 +877,23 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="firedBtn">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Th&#xf4;i vi&#x1ec7;c"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firedBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

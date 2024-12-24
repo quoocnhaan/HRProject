@@ -151,5 +151,4 @@ public class ManagerInfo_Component extends javax.swing.JPanel {
     public void updateTotal(int total) {
         this.total.setText(total + "");
     }
-    
 }

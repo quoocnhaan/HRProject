@@ -67,9 +67,8 @@ public class Content extends javax.swing.JPanel {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        content.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         content.setForeground(new java.awt.Color(0, 0, 0));
-        content.setText("tao thích");
+        content.setText("lí do");
         content.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

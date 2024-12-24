@@ -66,7 +66,7 @@ public class EmployeeInfo_Component extends javax.swing.JPanel {
         int total = 0;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
-            total = employeeDAO.getAll().size();
+            total = employeeDAO.getTotal();
         }
         String name = "Lam Quoc Nhan";
         String position = "Tong Giam Doc |";

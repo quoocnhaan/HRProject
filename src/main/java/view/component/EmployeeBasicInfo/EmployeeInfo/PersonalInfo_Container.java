@@ -72,7 +72,9 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
             EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
             List<Employee> list = employeeDAO.getAll();
             for (Employee employee : list) {
-                System.out.println(employee.getEmployeeId());
+                if (!employee.isStatus()) {
+                    continue;
+                }
                 PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(employee);
                 this.add(pi);
                 infoList.add(pi);
@@ -88,6 +90,9 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
         this.removeAll();
         List<Employee> list = SharedData.getInstance().getEmployee_Selected();
         for (Employee employee : list) {
+            if (!employee.isStatus()) {
+                continue;
+            }
             PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(employee);
             this.add(pi);
             infoList.add(pi);
@@ -103,6 +108,9 @@ public class PersonalInfo_Container extends javax.swing.JPanel {
             EmployeeDAO employeeDAO = new EmployeeDAOImp(session);
             List<Employee> list = employeeDAO.getAll();
             for (Employee employee : list) {
+                if (!employee.isStatus()) {
+                    continue;
+                }
                 PersonalBasicInfo_Container pi = new PersonalBasicInfo_Container(employee);
                 this.add(pi);
                 infoList.add(pi);

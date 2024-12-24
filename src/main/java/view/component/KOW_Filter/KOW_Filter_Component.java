@@ -307,30 +307,17 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
     }
 
     private void getData() throws ParseException, URISyntaxException, IOException {
-        URL resourceUrl = getClass().getResource("/data.txt");
+//        URL resourceUrl = getClass().getResource("/data.txt");
         List<AttendanceData> attendanceList = null;
-        if (resourceUrl != null) {
-            try {
-
-                File file = new File(resourceUrl.toURI());
+        //            File file = new File(resourceUrl.toURI());
 //
 //                String filePath = file.getAbsolutePath();
 
-                String home = System.getProperty("user.home");  // Get the user's home directory
-                String filePath = home + "/data.txt";  // Path to data.txt in the user's home directory
-
-                attendanceList = processAttendanceFile(filePath);
-
-                updateAttendanceRecords(attendanceList);
-
-                updateSalary();
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("File not found");
-        }
-
+        String home = System.getProperty("user.home");  // Get the user's home directory
+        String filePath = home + "/data.txt";  // Path to data.txt in the user's home directory
+        attendanceList = processAttendanceFile(filePath);
+        updateAttendanceRecords(attendanceList);
+        updateSalary();
     }
 
     private void updateSalary() {
@@ -353,7 +340,7 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
                             .sum();
 
                     double calculatedSalary = totalKow * 2000;
-
+                    System.out.println(calculatedSalary);
                     Employee employee = employeeDAO.getByAttendanceId(attendanceInfo.getAttendanceId());
 
                     Salary existingSalary = salaryDAO.getByEmployeeAndPayPeriod(employee, payPeriod);
@@ -380,10 +367,12 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
             case "ManageAttendance_Component":
                 title1.setText("Thông tin chấm công");
                 title2.setText("Kỳ chấm công");
+                getDataBtn.setText("Phát sinh công");
                 break;
             case "ManageSalary_Component":
                 title1.setText("Tính lương");
                 title2.setText("Kỳ lương");
+                getDataBtn.setText("Phát sinh lương");
             default:
         }
     }
@@ -406,6 +395,9 @@ public class KOW_Filter_Component extends javax.swing.JPanel {
                         Date workDate = Date.valueOf(localDate);
                         LocalTime startTime = LocalTime.parse(d.getTimeIn(), timeFormatter);
                         LocalTime endTime = (d.getTimeOut() != null) ? LocalTime.parse(d.getTimeOut(), timeFormatter) : null;
+
+                        System.out.println("s: " + startTime);
+                        System.out.println("e: " + endTime);
 
                         Duration duration = Duration.between(startTime, endTime);
                         double kow = duration.toMinutes();

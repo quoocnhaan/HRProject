@@ -44,7 +44,7 @@ Contributor(s):
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hrproject</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sells_management</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">Quocnhan123@</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
@@ -53,32 +53,17 @@ Contributor(s):
         <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">true</property>
 
-        <mapping class="model.Function"/>
-        <mapping class="model.Role"/>
-        <mapping class="model.RoleDetail"/>
-        <mapping class="model.User"/>
-        <mapping class="model.TransportationAllowance"/>
-        <mapping class="model.Salary"/>
-        <mapping class="model.Resignation"/>
-        <mapping class="model.PayPeriod"/>
-        <mapping class="model.PaidLeave"/>
-        <mapping class="model.Notification"/>
-        <mapping class="model.NotiType"/>
-        <mapping class="model.MaternityLeave"/>
-        <mapping class="model.LeaveRequest"/>
-        <mapping class="model.KOW"/>
-        <mapping class="model.Job"/>
-        <mapping class="model.Insurance"/>
-        <mapping class="model.EmployeeFamily"/>
-        <mapping class="model.Employee"/>
-        <mapping class="model.DriverLicense"/>
-        <mapping class="model.Department"/>
-        <mapping class="model.CreditCard"/>
-        <mapping class="model.Contract"/>
-        <mapping class="model.Contact"/>
-        <mapping class="model.AttendanceRecords"/>
-        <mapping class="model.AttendanceInformation"/>
-        <mapping class="model.ApprovedLeaveRequest"/>      
-        <mapping class="model.FunctionAuthorization"/>
+        <!--        <mapping class="model.Function"/>-->
+        <mapping class="model.Product"/>
+        <mapping class="model.InventoryDetail"/>
+        <mapping class="model.Inventory"/>
+        <mapping class="model.GoodsReceiptDetail"/>
+        <mapping class="model.GoodsReceipt"/>
+        <mapping class="model.Customer"/>
+        <mapping class="model.BillsPerDay"/>
+        <mapping class="model.BillsDetail"/>
+        <mapping class="model.Bills"/>
+        <mapping class="model.NavigationItem"/>
+
     </session-factory>
 </hibernate-configuration>
